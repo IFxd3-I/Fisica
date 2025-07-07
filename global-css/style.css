@@ -218,7 +218,7 @@ ex .procedimento {
     text-align: left;
     margin: 30px 0;
     color: #FFFFFF;
-    /* filter: blur(8px); */
+    filter: blur(8px);
     transition: filter 0.3s ease;
     cursor: pointer;
 }
