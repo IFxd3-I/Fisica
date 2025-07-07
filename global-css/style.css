@@ -218,7 +218,11 @@ ex .procedimento {
     text-align: left;
     margin: 30px 0;
     color: #FFFFFF;
+<<<<<<< HEAD
     filter: blur(8px); 
+=======
+    filter: blur(8px);
+>>>>>>> 1b99adba174dfe36d56e30c5f444f5b250ef3444
     transition: filter 0.3s ease;
     cursor: pointer;
 }
