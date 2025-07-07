@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>riflessione e rifrazione</title>
+
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body class="page-content">
+
+    <h4 id="Riflessione-e-Rifrazione" class="center-text">Riflessione e Rifrazione</h4>
+
+    <p>Iniziamo da una formula fondamentale derivata dalle equazioni di Maxwell:</p>
+
+    <div class="math-display">
+        \[
+        c^2 = \frac{1}{\mu_0 \varepsilon_0}
+        \]
+    </div>
+
+    <p>Dove:</p>
+
+    <ul>
+        <li>\( c \) = velocità della luce nel vuoto</li>
+
+        <li>\( \mu_0 \) = permeabilità magnetica del vuoto</li>
+
+        <li>\( \varepsilon_0 \) = costante dielettrica del vuoto (permittività elettrica)</li>
+
+    </ul>
+
+    <p>A differenza del suono, la luce può trasmettresi nel vuoto. Definiamo con il pedice \(0\) le condizioni nel
+        vuoto, mentre senza le condizioni nel mezzo.</p>
+
+    <div class="divisore"></div>
+
+    <p>Iniziamo col dire che \(\omega_0 = \omega\), il che ci porta a dire, poiche la velocità cambia in base al mezzo,
+        che:</p>
+
+    <div class="math-display">
+        \[
+        k_0 c = k v
+        \]
+    </div>
+
+    <p>Dove:</p>
+
+    <ul>
+        <li>\( c \) = velocità della luce nel vuoto</li>
+
+        <li>\( v \) = velocità della luce nel mezzo</li>
+
+        <li>\( k_0 \) = numero d'onda nel vuoto</li>
+
+        <li>\( k \) = numero d'onda nel mezzo</li>
+
+    </ul>
+
+    <p>Introduciamo ora l'indice di rifrazione per un mezzo \(i\):</p>
+
+    <div class="math-display">
+        \[
+        n_i = \frac{c}{v} = \frac{k}{k_0} = \frac{\lambda}{\lambda_0} \quad n \geq 1
+        \]
+    </div>
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <h4 id="Principio-di-Fermat" class="center-text">Principio di Fermat</h4>
+
+    <p class="center-text"><em>"La luce nel suo cammino tra due punti sceglie il percorso lungo il quale minimizza il
+            tempo di percorrenza tra
+            quei due punti."</em></p>
+
+    <p>Il <strong>Principio di Fermat</strong> può essere utilizzato per spiegare la legge di riflessione, la quale
+        afferma che
+        l'angolo di incidenza è uguale all'angolo di riflessione.</p>
+
+    <p>Il tempo totale \(t(x)\) di un generico percorso è dato da:</p>
+
+    <div class="math-display">
+        \[
+        t(x) = t_1 + t_2 = \sqrt{h^2+x^2} + \sqrt{b^2 + (a-x)^2}
+        \]
+    </div>
+
+    <p>Dove:</p>
+
+    <ul>
+
+        <li>\( t_1 = \frac{\overline{SO}}{v} \) = tempo di precorrenza dalla fonte alla superficie riflettente </li>
+
+        <li>\( t_2 = \frac{\overline{OP}}{v} \) = tempo di precorrenza dalla superficie riflettente al punto di arrivo
+        </li>
+
+        <li>\( \overline{SO} = \sqrt{h^2+x^2}\) = distanza dalla fonte alla superficie riflettente</li>
+
+        <li>\( \overline{OP} = \sqrt{b^2 + (a-x)^2}\) = distanza dalla superficie riflettente al punto di arrivo</li>
+
+    </ul>
+
+    <p>Vogliamo trovare il <em>minimo</em>, procediamo quindi a cercare \(\frac{dt}{dx} = 0 \):</p>
+
+    <div class="math-display">
+        \[
+        \frac{dt}{dx} = \underbrace{\left(\frac{2x}{2\sqrt{h^2+x^2}}\right)}_{\sin\theta_i} +
+        \underbrace{\left(\frac{-2(a-x)}{2\sqrt{b^2 +
+        (a-x)^2}}\right)}_{-\sin\theta_r} = 0
+        \]
+    </div>
+
+    <p>Arrivando così a:</p>
+
+    <div class="math-display">
+        \[
+        \sin\theta_i - \sin\theta_r = 0 \quad \Rightarrow \quad \theta_i = \theta_r
+        \]
+    </div>
+
+    <div class="divisore"></div>
+
+    <p>Allo stesso modo, possiamo analogamente procedere per trovare una legge per la rifrazione:
+    </p>
+
+    <p>Il tempo totale \(t(x)\) di un generico percorso è dato da:</p>
+
+    <div class="math-display">
+        \[
+        t(x) = t_1 + t_2 = \frac{1}{v_1}\sqrt{h^2+x^2} + \frac{1}{v_2}\sqrt{b^2 + (a-x)^2}
+        \]
+    </div>
+
+    <p>Dove:</p>
+
+    <ul>
+
+        <li>\( t_1 = \frac{\overline{SO}}{v_1} \) = tempo di precorrenza dalla fonte alla superficie riflettente </li>
+
+        <li>\( t_2 = \frac{\overline{OP}}{v_2} \) = tempo di precorrenza dalla superficie riflettente al punto di arrivo
+        </li>
+
+        <li>\( \overline{SO} = \sqrt{h^2+x^2}\) = distanza dalla fonte alla superficie riflettente</li>
+
+        <li>\( \overline{OP} = \sqrt{b^2 + (a-x)^2}\) = distanza dalla superficie riflettente al punto di arrivo</li>
+
+    </ul>
+
+    <p>Vogliamo trovare il <em>minimo</em>, procediamo quindi a cercare \(\frac{dt}{dx} = 0 \):</p>
+
+    <div class="math-display">
+        \[
+        \frac{dt}{dx} = \frac{1}{v_1}\underbrace{\left(\frac{2x}{2\sqrt{h^2+x^2}}\right)}_{\sin\theta_i} +
+        \frac{1}{v_2}\underbrace{\left(\frac{-2(a-x)}{2\sqrt{b^2 +
+        (a-x)^2}}\right)}_{-\sin\theta_r} = 0
+        \]
+    </div>
+
+    <p>Inoltre, poichè \(n = \frac{c}{v} \), sostituiamo dentro e troviamo:</p>
+
+    <div class="math-display">
+        \[
+        \frac{n_1}{c}\sin\theta_i - \frac{n_2}{c}\sin\theta_t = 0
+        \]
+    </div>
+
+    <p>Arrivando alla famosa <em>Legge di Snell-Cartesio</em> che afferma:</p>
+
+    <div class="math-display">
+        \[
+        n_1\sin\theta_i = n_2\sin\theta_t
+        \]
+    </div>
+
+    <img class="center-image" src="legge di snell.jpg" alt="legge di snell" onclick="openLightbox(this)">
+
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <h4 id="Angolo-critico" class="center-text">Angolo critico</h4>
+
+    <p>L'<em>angolo critico</em>, o anche <em>angolo limite</em>, è quell'angolo di incidenza oltre il quale si ottiene
+        una riflessione interna totale. Questo fenomeno può avvenire solamente quando il raggio incidente passa, da un
+        mezzo più denso, a uno meno denso, e si misura come:</p>
+
+    <div class="math-display">
+        \[
+        \theta_c = \arcsin(\frac{n_2}{n_1})
+        \]
+    </div>
+
+    <p>Dove:</p>
+
+    <ul>
+
+        <li>\( \theta_c \) = angolo critico </li>
+
+        <li>\( n_2 \) = indice di rifrazione del mezzo meno denso</li>
+
+        <li>\( n_1 \) = indice di rifrazione del mezzo più denso</li>
+
+    </ul>
+
+    <p>Per ottenere questa formula si pone nella Legge di Snell: </p>
+
+    <div class="math-display">
+        \[
+        \sin\theta_t = 1 \Rightarrow \theta_t = \frac{\pi}{2}
+        \]
+    </div>
+
+    <p>In conclusione, quindi, se \(\theta_i > \theta_c \), si avrà un fenomeno di riflessione totale.</p>
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <h4 id="Finestra-di-Snell" class="center-text">Finestra di Snell</h4>
+
+    <p>Affrontiamo ora un altro caso simile ma opposto. Prendiamo in esempio la luce che, dall'aria, entra in acqua.
+        Ovviamente passiamo da un mezzo meno denso a uno più denso, il che rende inapplicabile il caso della
+        riflessione totale interna. Possiamo però calcolare lo stesso l'angolo critico \(\theta_c\) che
+        rappresenterà ora l'angolo limite entro il quale i raggi di luce possono essere rifratti in acqua. Se la luce
+        dovesse incidere l'acqua per angoli maggiori, allora essa non potrà essere rifratta ma verrà riflessa indietro
+        nell'aria. Infatti nel caso \(\theta_i > \theta_c\), è impossibile soddisfare la Legge di Snell, in quanto
+        verrebbe un valore del seno maggiore di 1.</p>
+    <p>Un osservatre posto in acqua potrà quindi vedere "l'esterno" in un cerchio di raggio pari a due volte l'angolo
+        critico: </p>
+
+    <div class="math-display">
+        \[
+        \theta_c = \arcsin\left(\frac{n_2}{n_1}\right) = \arcsin\left(\frac{1}{1.33}\right) \approx 48.6°
+        \]
+        \[
+        2 \cdot \theta_c = 2 \cdot 48.6 \approx 97°
+        \]
+    </div>
+
+    <img class="center-image" src="finestra di snell.jpg" alt="finestra di Snell" onclick="openLightbox(this)">
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <h4 id="Riflessione-da-Film-Sottili" class="center-text">Riflessione da Film Sottili</h4>
+
+    <p>La luce, quando incontra un film sottile, può dare vita a fenomeni di <strong>interferenza</strong>. Questo
+        accade perché i raggi riflessi dalla superficie superiore e quelli che attraversano il film per poi riflettersi
+        dalla superficie inferiore, si sovrappongono. Per capire come si comportano, consideriamo l'incidenza della luce
+        come quasi <strong>normale</strong> (perpendicolare alla superficie).</p>
+
+    <div class="divisore"></div>
+    <h5 class="center-text">Lunghezza d'Onda nel Mezzo</h5>
+
+    <p>Ricorda che la <strong>lunghezza d'onda</strong> della luce non è costante: cambia quando si propaga in un mezzo
+        diverso dal vuoto. Se \(\lambda_0\) è la lunghezza d'onda nel vuoto e \(n\) è l'indice di rifrazione del mezzo,
+        allora:</p>
+
+    <div class="math-display">
+        \[
+        \lambda_{\text{mezzo}} = \frac{\lambda_0}{n}
+        \]
+    </div>
+
+    <div class="divisore"></div>
+
+    <h5 class="center-text">Cambiamenti di Fase alla Riflessione</h5>
+
+    <p>Ogni volta che la luce si riflette su un'interfaccia, può subire uno sfasamento di fase:</p>
+    <ul>
+        <li>Se passa da un mezzo <strong>meno denso</strong> a uno <strong>più denso</strong> (\(n_1
+            < n_2\)), si verifica uno <strong>sfasamento di \(\pi\) radianti (180°)</strong>.
+        </li>
+        <li>Se passa da un mezzo <strong>più denso</strong> a uno <strong>meno denso</strong> (\(n_1
+            > n_2\)), <strong>non</strong> si verifica alcuno sfasamento.</li>
+    </ul>
+
+    <div class="divisore"></div>
+
+    <h5 class="center-text">Differenza di Fase Totale \(\Delta\phi_{\text{totale}}\)</h5>
+
+    <p>La differenza di fase complessiva tra i due raggi che interferiscono è la somma di due contributi fondamentali:
+    </p>
+
+    <ul>
+        <li><strong>Differenza di fase dovuta al cammino ottico:</strong> Il raggio che attraversa il film percorre una
+            distanza extra (circa \(2d\), dove \(d\) è lo spessore del film). Questa differenza di percorso, convertita
+            in fase, è:
+            <div class="math-display">
+                \[
+                \Delta\phi_{\text{cammino}} = \frac{4\pi n_{\text{film}} d}{\lambda_0}
+                \]
+            </div>
+            Dove \(n_{\text{film}}\) è l'indice di rifrazione del film.
+        </li>
+        <li><strong>Differenza di fase dovuta alle riflessioni \(\Delta\phi_{\text{riflessioni}}\):</strong> Questo
+            sfasamento aggiuntivo dipende dal numero di cambi di fase di \(\pi\) che si verificano. Se entrambi i raggi
+            (o nessuno) subiscono il cambio di fase di \(\pi\), allora \(\Delta\phi_{\text{riflessioni}} = 0\). Se solo
+            uno dei due lo subisce, \(\Delta\phi_{\text{riflessioni}} = \pi\).</li>
+    </ul>
+
+    <p>Combinando i due contributi, la **differenza di fase totale** è:</p>
+
+    <div class="math-display">
+        \[
+        \Delta\phi_{\text{totale}} = \frac{4\pi n_{\text{film}} d}{\lambda_0} + \Delta\phi_{\text{riflessioni}}
+        \]
+    </div>
+
+    <h5 class="center-text">Condizioni di Interferenza</h5>
+
+    <p>A seconda di \(\Delta\phi_{\text{totale}}\), otteniamo diversi fenomeni:</p>
+    <ul>
+        <li><strong>Interferenza Costruttiva (Massima Riflessione):</strong> Avviene quando la luce riflessa è più
+            intensa. Questo si verifica se:
+            <div class="math-display">
+                \[
+                \Delta\phi_{\text{totale}} = m \cdot 2\pi
+                \]
+            </div>
+            dove \(m = 0, 1, 2, \ldots\).
+        </li>
+        <li><strong>Interferenza Distruttiva (Minima Riflessione):</strong> Avviene quando la luce riflessa è meno
+            intensa (o assente). Questo si verifica se:
+            <div class="math-display">
+                \[
+                \Delta\phi_{\text{totale}} = (m + \frac{1}{2}) \cdot 2\pi = (2m + 1)\pi
+                \]
+            </div>
+            dove \(m = 0, 1, 2, \ldots\).
+        </li>
+    </ul>
+
+    <div class="divisore"></div>
+
+    <h5 class="center-text">Formule per lo Spessore Minimo \(d\)</h5>
+
+    <p>Per trovare lo spessore minimo del film che produce un certo tipo di interferenza, usiamo \(m=0\) o \(m=1\) a
+        seconda della condizione:</p>
+    <ul>
+        <li><strong>Se \(\Delta\phi_{\text{riflessioni}} = \pi\) (un solo sfasamento):</strong>
+
+            <p class="center-text"><strong>Massima Riflessione:</strong></p>
+
+            <div class="math-display">
+                \[
+                2d n_{\text{film}} = (m + \frac{1}{2})\lambda_0
+                \]
+            </div>
+
+
+            <p class="center-text"><strong>Minima Riflessione:</strong></p>
+
+            <div class="math-display">
+                \[
+                2d n_{\text{film}} = m \lambda_0
+                \]
+            </div>
+
+    </ul>
+    </li>
+
+    <li><strong>Se \(\Delta\phi_{\text{riflessioni}} = 0\) (nessuno o due sfasamenti):</strong> sono invertite le due
+        equazioni
+
+        <p class="center-text"><strong>Massima Riflessione:</strong></p>
+
+        <div class="math-display">
+            \[
+            2d n_{\text{film}} = m \lambda_0
+            \]
+        </div>
+
+
+        <p class="center-text"><strong>Minima Riflessione:</strong></p>
+
+        <div class="math-display">
+            \[
+            2d n_{\text{film}} = (m + \frac{1}{2})\lambda_0
+            \]
+        </div>
+
+        </ul>
+    </li>
+
+    </ul>
+
+    <div class="divisore"></div>
+
+    <h5 class="center-text">Riflettività in Intensità \(R\)</h5>
+
+    <p>La riflettività \(R\) è il rapporto tra l'intensità della luce riflessa e quella incidente. Si calcola in modo
+        diverso per una singola interfaccia rispetto a un film sottile:</p>
+
+        <li><strong>Per una Singola Interfaccia (es. aria-acqua senza film):</strong>
+            <div class="math-display">
+                \[
+                R = \left( \frac{n_1 - n_2}{n_1 + n_2} \right)^2
+                \]
+            </div>
+        </li>
+        <li><strong>Per un Film Sottile (Formula Generica):</strong> Questa è la formula "madre" che cattura
+            l'interferenza:
+            <div class="math-display">
+                \[
+                R = \left| \frac{r_{12} + r_{23} e^{i \delta}}{1 + r_{12} r_{23} e^{i \delta}} \right|^2
+                \]
+            </div>
+            Dove \(r_{12} = \frac{n_1 - n_2}{n_1 + n_2}\), \(r_{23} = \frac{n_2 - n_3}{n_2 + n_3}\) (coefficienti di
+            ampiezza), e \(\delta = \frac{4\pi n_2 d}{\lambda_0}\) (fase del cammino ottico).
+        </li>
+
+        <div class="divisore"></div>
+
+        <h5 class="center-text">Nel caso non si abbia uno sfasamento (\(\delta = 0, 2\pi, \ldots\)):</h5>
+
+            <ul>
+                <li><p>Se si cerca il minimo della riflessione:</p>
+                    <div class="math-display">
+                        \[
+                        R_{min} = \left| \frac{r_{12} - r_{23}}{1 - r_{12} r_{23}} \right|^2
+                        \]
+                    </div>
+                </li>
+                <li><p>Se si cerca il massimo della riflessione:</p>
+                    <div class="math-display">
+                        \[
+                        R_{max} = \left| \frac{r_{12} + r_{23}}{1 + r_{12} r_{23}} \right|^2
+                        \]
+                    </div>
+                </li>
+            </ul>
+
+            <div class="divisore"></div>
+
+       <h5 class="center-text">Nel caso si abbia uno sfasamento (\(\delta = \pi, 3\pi, \ldots\)):</h5>
+
+            <ul>
+                <li><p>Se si cerca il minimo della riflessione:</p>
+                    <div class="math-display">
+                        \[
+                        R_{min} = \left| \frac{r_{12} + r_{23}}{1 + r_{12} r_{23}} \right|^2
+                        \]
+                    </div>
+                </li>
+                <li><p>Se si cerca il massimo della riflessione:</p>
+                    <div class="math-display">
+                        \[
+                        R_{max} = \left| \frac{r_{12} - r_{23}}{1 - r_{12} r_{23}} \right|^2
+                        \]
+                    </div>
+                </li>
+            </ul>
+        
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed Image">
+</div>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Oscillatore armonico</title>
+
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body class="page-content">
+
+    <h4 class="center-text">Oscillatore Armonico</h4>
+    <p>Il modello base di quasi tutti i fenomeni oscillatori e ondulatori è l'<em>oscillatore armonico semplice</em>.
+        Esso è un sistema che, se spostato, è soggetto a una forza di richiamo chiamata <em>Legge di Hooke</em>,
+        direttamente proporzionale allo spostamento e sempre diretta verso la posizione di equilibrio.</p>
+
+    <img class="center-image" src="../img/oscillatore armonico.jpg" alt="Oscillatore Armonico"
+        onclick="openLightbox(this)" />
+
+    <p>Iniziamo scrivendo la <em>Legge di Hooke</em> che descrive la forza di richiamo elastica:</p>
+
+    <div class="math-display">
+
+        \[ F_k = -k \cdot x \]
+    </div>
+
+
+    <p>Dove:</p>
+
+    <ul>
+        <li>\(x\): spostamento del blocco dal punto di equilibrio (il segno indica la direzione, con la forza sempre
+            opposta allo spostamento rispetto all'equilibrio).</li>
+        <li>\(k\): costante di proporzionalità della molla (o costante elastica), misura la "rigidità" della molla.</li>
+        <li>\(F_k\): Forza esercitata dalla molla sull'oggetto, nota anche come forza di richiamo.</li>
+    </ul>
+
+    <p>Nel caso di più molle in serie:</p>
+
+    <div class="math-display">
+
+        \[
+        \frac{1}{k_{\text{eq}}} = \frac{1}{k_1} + \frac{1}{k_2}
+        \]
+
+    </div>
+
+    <p>Nel caso di più molle in parallelo:</p>
+
+    <div class="math-display">
+
+        \[
+        k_{\text{eq}} = k_1 + k_2
+        \]
+
+    </div>
+
+    <div class="divisore"></div>
+
+    <p>Dalla <em>Seconda Legge di Newton</em> sappiamo che la forza netta che agisce su
+        un corpo è \( \vec{F} = m \cdot \vec{a} \). Esprimiamo l'accelerazione come derivata seconda dello spostamento:
+        \( \vec{a} = \frac{d^2 x}{dt^2} \). Poicè l'unica forza in gioco sarà quella elastica, allora \(
+        \sum{F_\text{tot}} = m \cdot \vec{a} = -kx\).
+        Arriviamo così a scrivere l'equazione differenziale che regola l'oscillatore armonico (dove \(x\) sarebbe
+        \(x(t)\), ossia la legge oraria del moto):
+    </p>
+
+    <div class="math-display">
+
+        \[ m \frac{d^2 x}{dt^2} = -k x \quad \Rightarrow \quad \frac{d^2 x}{dt^2} + \frac{k}{m} x = 0 \]
+
+    </div>
+
+    <p>La relazione tra la costante elastica \( k \) e la massa \( m \) è data da \( \frac{k}{m} = \omega_0^2 \), dove
+        \( \omega_0 \) è la <em>pulsazione naturale</em> dell'oscillatore armonico. In altre parole indica la velocità
+        con cui l'angolo di fase dell'oscillazione cambia nel tempo, viene misurata in \(\mathrm{rad/s}\) e dipende
+        solo dalle proprietà fisiche del sistema.</p>
+
+    <div class="math-display">
+
+        \[ \frac{d^2 x}{dt^2} = -\omega_0^2 x \]
+
+    </div>
+
+    <p>L'equazione generale dell'oscillatore armonico che descrive la posizione del blocco nel tempo,, ottenuta
+        risolvendo l'eq differenziale omogenea sopra, è:</p>
+
+    <div class="math-display">
+
+        \[ x(t) = A \cos(\omega_0 t) + B \sin(\omega_0 t) \]
+
+    </div>
+
+    <p>Dove:
+    <p>
+
+    <ul>
+        <li>\(A\) e \(B\): Costanti arbitrarie determinate dalle <em>condizioni iniziali</em> del moto.</li>
+        <li>\(\omega_0\): pulsazione naturale dell'oscillatore.</li>
+        <li>\(t\): tempo dall'inizio della misurazione.</li>
+    </ul>
+
+    <p>In alternativa, è spesso più conveniente esprimerla nella forma di una singola funzione armonica ampiezza-fase:</p>
+
+    <div class="math-display">
+
+        \[ x(t) = C \cos(\omega_0 t + \varphi) \]
+
+    </div>
+
+    <p>Dove:
+    <p>
+
+    <ul>
+        <li>\(C\): <em>Ampiezza</em> dell'oscillazione, ossia il massimo spostamento dal punto di equilibrio. È sempre
+            un valore positivo.</li>
+        <li>\(\varphi\): <em>Fase iniziale</em> o sfasamento, un angolo che determina la posizione del blocco al tempo
+            \(t = 0\). Infatti, a \(t = 0\) abbiamo \(x(0) = C \cos(\varphi)\).</li>
+    </ul>
+    <p>Le costanti \(A\) e \(B\) (o \(C\) e \(\varphi\)) vengono determinate dalle condizioni iniziali del moto, ovvero
+        la posizione iniziale \(x(0)\) e la velocità iniziale \(v(0)\).
+        Dato che \(v(t) = \frac{dx}{dt}\):</p>
+    <div class="math-display">
+        \[ v(t) = -C\omega_0 \sin(\omega_0 t + \varphi) \]
+        \[ a(t) = \frac{dv}{dt} = -C\omega_0^2 \cos(\omega_0 t + \varphi) = -\omega_0^2 x(t) \]
+    </div>
+    <p>Valutando le espressioni di \(x(t)\) e \(v(t)\) a \(t=0\), otteniamo:</p>
+    <ul>
+        <li>\(x(0) = C \cos(\varphi)\)</li>
+        <li>\(v(0) = -C\omega_0 \sin(\varphi)\)</li>
+    </ul>
+    <p>Da queste, possiamo ricavare l'ampiezza e la fase iniziale:</p>
+    <div class="math-display">
+        \[ C = \sqrt{x(0)^2 + \left(\frac{v(0)}{\omega_0}\right)^2} \]
+        \[ \tan(\varphi) = \frac{-v(0)/\omega_0}{x(0)} \]
+    </div>
+    <p>La <em>velocità massima</em> dell'oscillatore è \(v_{\text{max}} = C\omega_0\) (raggiunta al punto di
+        equilibrio), e l'<em>accelerazione massima</em> è \(a_{\text{max}} = C\omega_0^2\) (raggiunta agli estremi
+        dell'oscillazione).</p>
+
+    <div class="divisore"></div>
+
+    <h5 class="center-text">Periodo dell'oscillatore armonico</h5>
+    <p>Consideriamo \( T \) il <em>periodo</em> dell'oscillazione, ovvero il tempo necessario per un'oscillazione
+        completa. Allora si ha la relazione:</p>
+
+    <div class="math-display">
+        \[
+        \omega_0 T = 2\pi
+        \quad \Rightarrow \quad
+        T = \frac{2\pi}{\omega_0} = 2\pi\sqrt{\frac{m}{k}}
+        \]
+    </div>
+
+    <p>Questa è la definizione della velocità angolare (o <em>pulsazione</em>) di un moto armonico.</p>
+
+    <p>La <em>frequenza</em> \( f \) rappresenta il numero di oscillazioni al secondo ed è l'inverso del
+        periodo:</p>
+
+    <div class="math-display">
+        \[
+        f = \frac{1}{T}
+        \]
+    </div>
+
+    <p>È inoltre legata alla pulsazione \( \omega_0 \) dalla relazione:</p>
+
+    <div class="math-display">
+        \[
+        \omega_0 = 2\pi f
+        \]
+    </div>
+
+    <div class="divisore"></div>
+
+    <h5 class="center-text">Energia nell'Oscillatore Armonico</h5>
+    <p>In un oscillatore armonico ideale (senza attrito), l'energia meccanica totale si conserva. Essa è la somma
+        dell'energia cinetica e dell'energia potenziale elastica.</p>
+    <ul>
+        <li><em>Energia Cinetica</em> (\(E_k\)):
+            \[ E_k = \frac{1}{2}mv^2 \]
+        </li>
+        <li><em>Energia Potenziale Elastica</em> (\(E_p\)):
+            \[ E_p = \frac{1}{2}kx^2 \]
+        </li>
+    </ul>
+    <p>L'<em>Energia Meccanica Totale</em> (\(E_{tot}\)) è costante e data da:</p>
+    <div class="math-display">
+        \[ E_{tot} = E_k + E_p = \frac{1}{2}mv^2 + \frac{1}{2}kx^2 \]
+    </div>
+    <p>Sostituendo le espressioni di \(x(t)\) e \(v(t)\) si può dimostrare che l'energia totale è costante e pari a:</p>
+    <div class="math-display">
+        \[ E_{tot} = \frac{1}{2}kC^2 = \frac{1}{2}m\omega_0^2 C^2 \]
+    </div>
+    <p>Questo mostra il continuo scambio tra energia cinetica (massima al punto di equilibrio dove \(x=0\)) ed energia
+        potenziale (massima agli estremi dove \(v=0\)), mantenendo costante la somma.</p>
+
+    <div class="divisore"></div>
+
+    <h5 class="center-text">Oscillatore Armonico Verticale</h5>
+    <p>Nel caso in cui la molla sia posta in verticale fissata a un soffitto ad esempio, la posizione di equilibrio una
+        volta agganciata una massa m si otterrà eguagliando la forza peso (\(mg\)) e la forza elastica della molla
+        (\(kx\)).</p>
+    <div class="math-display">
+        \[ mg = k x_{\text{eq}} \quad \Rightarrow \quad x_\text{eq} = \frac{mg}{k} \]
+    </div>
+    <p>Questa è la nuova posizione di equilibrio. Il moto oscillatorio avviene attorno a questo nuovo punto.
+        Di conseguenza, per descrivere il moto rispetto al nuovo equilibrio, si introduce una nuova coordinata \(x'\):
+    </p>
+    <div class="math-display">
+        \[ x' = x - x_\text{eq} \]
+    </div>
+    <p>Così che quando la posizione del blocco è al punto di equilibrio (\( x = x_\text{eq}\)), avremo \(x' = 0\).
+        Sorprendentemente, l'equazione differenziale del moto rimane identica a quella dell'oscillatore orizzontale, ma
+        riferita a \(x'\):</p>
+    <div class="math-display">
+        \[ m \frac{d^2 x'}{dt^2} = -k x' \]
+    </div>
+    <p>Infine, la legge del moto in questo caso si trasformerà come:</p>
+    <div class="math-display">
+        \[ x(t) = x_\text{eq} + C \cos(\omega_0 t + \varphi) \]
+    </div>
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <a href="../index.html" class="nav-button prev-button">&#9664;</a>
+    <a href="../pages/pendolo-semplice.html" class="nav-button next-button">&#9654;</a>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed Image">
+</div>
+
+</html>

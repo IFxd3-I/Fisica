@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ottica geometrica</title>
+
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body class="page-content">
+
+    <h4 id="Specchio-concavo" class="center-text">Specchio concavo</h4>
+
+    <img class="center-image" src="../img/specchio concavo.jpg" alt="Specchio concavo"
+        onclick="openLightbox(this)">
+
+    <p>Iniziamo cercando una relazione tra i gli angoli in \(C\overset{\triangle}{A}P\) e \(Q\overset{\triangle}{A}C\):
+    </p>
+
+    <div class="math-display">
+        \[
+        C\overset{\triangle}{A}P : \theta_i + \alpha_1 + (180° - \beta) = 180°
+        \]
+        \[
+        Q\overset{\triangle}{A}C : \theta_i + \beta + (180° - \alpha_2) = 180°
+        \]
+    </div>
+
+    <p>Trovando così \(\alpha_1 = \beta - \theta_i\) e \(\alpha_2 = \beta + \theta_i\), sommandoli \(\alpha_1 + \alpha_2
+        = 2\beta\). </p>
+
+    <p>Possiamo ora porre \(\beta = \frac{l}{r} \), ossia l'angolo è uguale al rapporto tra la lunghezza dell'arco e il
+        raggio. Allo stesso modo, si può fare lo stesso per quanto riguarda \(\alpha_1\) e \(\alpha_2\), sebbene si
+        tratti
+        solo di un approssimazione, che diventa più precisa al ridursi dell'angolo.</p>
+
+    <p>Riscriviamo quindi la relazione precedente come:</p>
+
+    <div class="math-display">
+        \[
+        \underbrace{\frac{l}{p}}_{\alpha_1} + \underbrace{\frac{l}{q}}_{\alpha_2} = 2\underbrace{\frac{l}{r}}_{\beta}
+        \]
+    </div>
+
+    <p>Possiamo semplificare \(l\) e ridurci alla <em>Formula di Cartesio</em>:</p>
+
+    <div class="math-display">
+        \[
+        \frac{1}{p} + \frac{1}{q} = \frac{2}{r}
+        \]
+    </div>
+
+    <p>La quale lega:</p>
+
+    <ul>
+
+        <li>\( p \) = distanza dallo specchio della sorgente</li>
+
+        <li>\( q \) = distanza dallo specchio in cui si forma l'immagine </li>
+
+        <li>\( r \) = raggio di curvatura dello specchio</li>
+
+    </ul>
+
+    <p>Se \(p \Rightarrow +\infty\), allora \( \frac{1}{q_\infty} = \frac{2}{r} \), il che ci porta a definire
+        \(q_\infty = \frac{r}{2} = f\) dove f distanza focale:</p>
+
+    <div class="math-display">
+        \[
+        \frac{1}{p} + \frac{1}{q} = \frac{1}{f}
+        \]
+    </div>
+
+    <p>Piccola considerazione sul segno del raggio di curvatura:</p>
+
+    <ul>
+
+        <li>In caso di specchio convesso il raggio ha convenzionalmente segno negativo</li>
+
+        <li>In caso di specchio concavo il raggio ha convenzionalmente segno positivo</li>
+
+        <li>In caso di specchio piano il raggio ha valore infinito</li>
+
+    </ul>
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <h4 id="Raggi-principali" class="center-text">Raggi principali</h4>
+
+    <p>Passiamo ora a parlare dei raggi principali, ossia quelli di cui avremo necessariamente bisogno per rappresentare
+        l'immagine.</p>
+
+    <img class="center-image" src="../img/raggi principali.jpg" alt="raggi principali" onclick="openLightbox(this)">
+
+    <ol>
+
+        <li>Raggio parallelo: arriva parallelo allo specchio per poi venir riflesso;</li>
+
+        <li>Raggio focale: attraversa il fuoco e viene riflesso parallelamente;</li>
+
+        <li>Raggio centrale: attraversa il centro e viene riflesso dal punto esatto di provenienza.</li>
+
+    </ol>
+
+    <p>Il punto d'intersezione di questi tre raggi ci mostra l'immagine riflessa della fonte.</p>
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <h4 id="Diottro-sferico" class="center-text">Diottro sferico</h4>
+
+    <img class="center-image" src="../img/diottro sferico.jpg" alt="diottro sferico" onclick="openLightbox(this)">
+
+
+    <p>Il Diottro è un sistema ottico costituito dalla superficie di separazione di due mezzi con indice di rifrazione
+        diverso. Se la superficie è piana, si parla di diottro piano, e tra i diottri non piani, quello di particolare
+        rilevanza è il diottro sferico.</p>
+
+    <p>Per prima cosa assumiamo degli angoli di incidenza \(\theta_i\) e rifrazione \(\theta_t\) molto piccoli, così da
+        avere:</p>
+
+    <div class="math-display">
+        \[
+        n_1\sin\theta_i = n_2\sin\theta_t \Rightarrow n_1\theta_i \approx n_2\theta_t
+        \]
+    </div>
+
+    <div class="math-display">
+        \[
+        C\overset{\triangle}{A}P : \alpha_1 + \beta + (180° - \theta_i ) = 180°
+        \]
+        \[
+        Q\overset{\triangle}{A}C : \theta_t + \gamma + (180° - \beta) = 180°
+        \]
+    </div>
+
+    <p>Trovando così \(\theta_i = \beta - \alpha_1\) e \(\theta_t = \beta - \gamma \).</p>
+
+    <div class="math-display">
+        \[
+        n_1\underbrace{\left(\underbrace{\frac{l}{p}}_{\alpha_1} + \underbrace{\frac{l}{r}}_{\beta}\right)}_{\theta_i} =
+        n_2\underbrace{\left(\underbrace{\frac{l}{r}}_{\alpha_1} - \underbrace{\frac{l}{q}}_{\beta}\right)}_{\theta_i}
+        \]
+    </div>
+
+    <p></p>
+    <div class="math-display">
+        \[
+        \frac{n_1}{p} + \frac{n_2}{q} = \frac{n_2 - n_1}{r}
+        \]
+    </div>
+
+    <p>Due regole da ricordare quando trattiamo i diottri:</p>
+
+    <ol>
+
+        <li>Un'immagine <strong>reale</strong> si forma nel lato <strong>opposto</strong> all'oggetto, mentre quella
+            virtuale nello stesso lato.</li>
+
+        <li>Il raggio è <strong>positivo</strong> quando vede una faccia <strong>convessa</strong>, come ad esempio nel
+            caso in figura.</li>
+
+    </ol>
+
+    <div class="divisore"></div>
+
+    <img class="center-image" src="../img/diottro sferico 2.jpg" alt="diottro sferico" onclick="openLightbox(this)">
+
+    <ol>
+
+        <li>Raggio parallelo: arriva parallelo allo specchio per poi venir riflesso;</li>
+
+        <li>Raggio focale: attraversa il fuoco e viene riflesso parallelamente;</li>
+
+        <li>Raggio centrale: attraversa il centro e viene riflesso dal punto esatto di provenienza.</li>
+
+    </ol>
+
+    <p>Iniziamo identificando:</p>
+
+    <ul>
+
+        <li>\(F_i\) = <em>Fuoco immagine</em> ( anche chiamato secondo punto focale )</li>
+
+        <li>\(F_0\) = <em>Fuoco oggetto</em></li>
+
+    </ul>
+
+    <ol>
+
+        <li>caso in cui \(p = f_0\), \(q \Rightarrow \infty\):
+
+            <div class="math-display">
+                \[
+                f_0 = \frac{n_1}{n_2 - n_1} \cdot r
+                \]
+            </div>
+
+            <p>Per le convenzioni dei segni prese in precedenza \(f_0\) risulterà positivo.</p>
+
+        </li>
+
+        <li>caso in cui \(q = f_i\), \(p \Rightarrow \infty\):
+
+            <div class="math-display">
+                \[
+                f_i = \frac{n_2}{n_2 - n_1} \cdot r
+                \]
+            </div>
+
+        </li>
+
+    </ol>
+
+    <p>Procediamo ora a sottrarre i due fuochi:</p>
+
+    <div class="math-display">
+        \[
+        f_i - f_0 = \left[\frac{n_2}{n_2 - n_1} - \frac{n_1}{n_2 - n_1}\right] \cdot r
+        \]
+        \[
+        f_i - f_0 = r
+        \]
+    </div>
+
+    <p>Vediamo cosi che anche \(f_i\) in questa configurazione risulta positivo.</p>
+
+    <p>Combiniamo ora con la formula di Cartesio:</p>
+
+    <ol>
+
+        <li>\(\frac{f_0}{n_1} = \frac{r}{n_2 - n_1}\) unita a \(\frac{n_1}{p} + \frac{n_2}{q} = \frac{n_2 - n_1}{r}\):
+
+
+            <div class="math-display">
+                \[
+                \frac{n_1}{p} + \frac{n_2}{q} = \frac{n_1}{f_0}
+                \]
+            </div>
+
+        </li>
+
+        <li>\(\frac{f_i}{n_2} = \frac{r}{n_2 - n_1}\) unita a \(\frac{n_1}{p} + \frac{n_2}{q} = \frac{n_2 - n_1}{r}\):
+
+
+            <div class="math-display">
+                \[
+                \frac{n_1}{p} + \frac{n_2}{q} = \frac{n_2}{f_i}
+                \]
+            </div>
+
+        </li>
+
+    </ol>
+
+    <p>Da cui:</p>
+
+    <div class="math-display">
+        \[
+        \frac{n_1}{f_0} = \frac{n_2}{f_i} \Rightarrow f_i = \frac{n_2}{n_1}f_0
+        \]
+    </div>
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <h4 id="Lenti" class="center-text">Lenti</h4>
+
+    <img class="center-image" src="../img/lenti.jpg" alt="Lenti" onclick="openLightbox(this)">
+
+    <p>Iniziamo scrivendo la formula di Cartesio per il 1° diottro:</p>
+
+    <div class="math-display">
+        \[
+        \frac{1}{p} + \frac{n}{q} = \frac{n-1}{r}
+        \]
+    </div>
+
+    <p>Dove \(n_1\) diventa \(n_2\) e \(n_2\) è \(n\), che nel nostro caso \( n = n_\text{aria} \approx 1 \).</p>
+
+    <p>Per il 2° diottro invece, avremo un <em>oggetto virtuale</em> con coordinate:</p>
+
+    <div class="math-display">
+        \[
+        p' = -(q' - s)
+        \]
+    </div>
+
+    <p>Ma, poichè abbiamo assunto s molto più piccolo e di conseguenza trascurabile, abbiamo:</p>
+
+    <div class="math-display">
+        \[
+        p' \approx -q'
+        \]
+    </div>
+
+    <p>Sostituendo nella formula di Cartesio per il 2° diottro \(\frac{n}{p'} + \frac{1}{q} = \frac{1-n}{r_2}\):</p>
+
+    <div class="math-display">
+        \[
+        \frac{n}{q'} = \frac{1}{q} + \frac{n-1}{r_2}
+        \]
+    </div>
+
+    <p>Combinando le formule per i due diottri ottengo la formula di Cartesio per una lente sottile:</p>
+
+    <div class="math-display">
+        \[
+        \frac{1}{p} + \frac{1}{q} = (n-1) \left[\frac{1}{r_1}-\frac{1}{r_2}\right]
+        \]
+    </div>
+
+    <p>Da qui, abbiamo infinte l'equazione del costruttore di lenti:</p>
+
+    <div class="math-display">
+        \[
+        \frac{1}{f} = \frac{1}{p} + \frac{1}{q}
+        \]
+        \[
+        \frac{1}{f} = (n-1) \left[\frac{1}{r_1}-\frac{1}{r_2}\right]
+        \]
+    </div>
+
+    <div class="divisore"></div>
+    <div class="divisore"></div>
+
+    <h4 id="Ingrandimento" class="center-text">Ingrandimento</h4>
+
+    <img class="center-image" src="../img/ingrandimento specchio.jpg" alt="ingrandimento specchio"
+        onclick="openLightbox(this)">
+
+    <p>In linea generale, l'ingrandimento è misurabile come:</p>
+
+    <div class="math-display">
+        \[
+        M = \frac{\overline{ab}}{\overline{AB}}
+        \]
+    </div>
+
+    <p>Ragioniamo ora con gli angoli:</p>
+
+    <div class="math-display">
+        \[
+        \tan\theta_i = \frac{\overline{AB}}{\overline{OA}} = \frac{\overline{AB}}{\overline{p}}
+        \]
+        \[
+        \tan\theta_2 = - \frac{\overline{ab}}{\overline{q}}
+        \]
+    </div>
+
+    <p>Poichè \(\tan\theta_i = \tan\theta_2\):</p>
+
+    <div class="math-display">
+        \[
+        \frac{\overline{AB}}{\overline{p}} = - \frac{\overline{ab}}{q} \Rightarrow M = - \frac{q}{p}
+        \]
+    </div>
+
+    <p>\(M\) positivo per immagini dritte, \(M\) negativo per immagini capovolte.</p>
+
+    <img class="center-image" src="../img/ingrandimento diottro.jpg" alt="ingrandimento diottro"
+        onclick="openLightbox(this)">
+
+    <p>Stabiliamo intanto i segni: \(p>0\), \(q<0\), \(r<0\)</p>
+
+            <p>Ragioniamo ora con gli angoli:</p>
+
+            <div class="math-display">
+                \[
+                \tan\theta_i = \frac{\overline{AB}}{\overline{OA}} = \frac{\overline{AB}}{p}
+                \]
+                \[
+                \tan\theta_r = \frac{\overline{ab}}{\overline{oa}} = \frac{\overline{ab}}{-q}
+                \]
+            </div>
+
+            <p>Da qui l'ingrandimento:</p>
+
+            <div class="math-display">
+                \[
+                M = \frac{\overline{ab}}{\overline{AB}} = \frac{-q\tan\theta_r}{p\sin\theta_i} \approx -
+                \frac{n_1q}{n_2p}
+                \]
+            </div>
+
+            <p>Promemoria, aggiungere che una lente è convergente divergente se f maggiore o minore di zero, mentre per
+                i diottri dipende da f2. quindi una lente convessa o convcava non è automaticamente divergente o
+                convergente.</p>
+
+            <div class="divisore"></div>
+            <div class="divisore"></div>
+            <div class="divisore"></div>
+
+            <a href="../pages/acustica.html" class="nav-button prev-button">&#9664;</a>
+            <a href="../pages/fenditure.html" class="nav-button next-button">&#9654;</a>
+
+            <script src="../js/script.js"></script>
+
+</body>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed Image">
+</div>
+
+</html>
