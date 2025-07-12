@@ -1,23 +1,21 @@
-/* css/style.css */
 
-/* General body styling for a better look */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f4f7f6 0%, #e0e6e8 100%); /* Subtle gradient background for continuity */
+    background: linear-gradient(135deg, #f4f7f6 0%, #e0e6e8 100%); 
     color: #333;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+    overflow-x: hidden; 
 }
 
 h1 {
-    color: #2c3e50; /* Darker heading color */
+    color: #2c3e50; 
     text-align: center;
     margin-bottom: 25px;
-    font-size: 3em; /* Slightly larger */
+    font-size: 3em; 
     letter-spacing: 1px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); 
 }
 
 .caption {
@@ -25,10 +23,10 @@ h1 {
     text-align: center;
     color: #555;
     margin-bottom: 40px;
-    font-size: 1.2em; /* Slightly larger */
+    font-size: 1.2em;
     padding: 0 15px;
-    opacity: 0; /* Will be faded in by JS */
-    animation: fadeInQuote 2s forwards ease-out 0.5s; /* Delay start of animation */
+    opacity: 0; 
+    animation: fadeInQuote 2s forwards ease-out 0.5s; 
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -41,42 +39,41 @@ h1 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger min-width for boxes */
-    gap: 30px; /* More space between grid items */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
     padding: 0 20px;
     max-width: 1200px;
     margin: 0 auto;
-    perspective: 1000px; /* For 3D transformations */
+    perspective: 1000px; 
 }
 
 .box {
-    background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%); /* Soft gradient for boxes */
+    background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%);
     border: 1px solid #e5e5e5;
-    border-radius: 15px; /* More rounded corners */
+    border-radius: 15px;
     padding: 30px;
     text-align: center;
-    font-size: 1.5em; /* Larger text */
+    font-size: 1.5em; 
     font-weight: 500;
     color: #3498db;
     text-decoration: none;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* More prominent shadow */
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother, more dynamic transition */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 130px; /* Slightly taller */
-    opacity: 0; /* For staggered fade-in */
-    transform: translateY(20px) scale(0.95); /* For staggered initial state */
+    min-height: 130px;
+    opacity: 0; 
+    transform: translateY(20px) scale(0.95); 
 }
 
 .box:hover {
-    transform: translateY(-12px) scale(1.03) rotateX(2deg); /* Lift, enlarge, and subtle 3D tilt */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-    background: linear-gradient(145deg, #e8f5fe 0%, #d8edfc 100%); /* Brighter gradient on hover */
+    transform: translateY(-12px) scale(1.03) rotateX(2deg); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #e8f5fe 0%, #d8edfc 100%); 
     color: #2980b9;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5em;
