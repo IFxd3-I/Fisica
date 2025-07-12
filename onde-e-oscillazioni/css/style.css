@@ -32,20 +32,17 @@ h4 {
     /* Uguale a h1, potresti volerlo diverso o creare una classe per stili di testo simili */
 }
 
-/* Stili per la griglia */
+/* Stili per la griglia esistenti */
 .grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: 200px;
     gap: 20px;
     padding: 40px;
-    height: calc(100% - 80px);
-    /* Assicurati che l'80px corrisponda a padding + margin o altre altezze fisse */
     background-color: #2b2b2b;
-    /* Già definito nel body, ridondante se il body ha questo colore */
 }
 
-/* Stili per gli elementi della griglia */
+/* Stili per gli elementi della griglia esistenti */
 .box {
     background-color: #3b6296;
     border: 2px solid #000000;
@@ -67,21 +64,96 @@ h4 {
     transform: scale(1.05);
 }
 
-/* Stili per le didascalie */
+/* Stili per le didascalie esistenti */
 .caption {
     font-style: italic;
     color: #366fa3;
     margin: 15px 40px;
     text-align: center;
-    quotes: "“" "”";
 }
 
-.caption::before {
-    content: open-quote;
+/* --- Nuovi stili per le sezioni a scomparsa --- */
+
+.year-section,
+.semester-section {
+    margin: 20px 40px;
+    /* Spazio tra le sezioni */
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    padding: 0;
+    /* Rimuove il padding predefinito per un migliore controllo */
+    overflow: hidden;
+    /* Assicura che i bordi arrotondati funzionino bene con il contenuto */
 }
 
-.caption::after {
-    content: close-quote;
+.year-title,
+.semester-title {
+    background-color: #4a4a4a;
+    color: #eee;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 1.5em;
+    /* Più grande per i titoli degli anni */
+    font-weight: bold;
+    border-bottom: 1px solid #555;
+    display: block;
+    /* Assicura che sia un blocco per il padding e il click */
+    position: relative;
+    /* Per posizionare l'icona dell'apertura */
+}
+
+.semester-title {
+    font-size: 1.2em;
+    /* Più piccolo per i titoli dei semestri */
+    background-color: #5a5a5a;
+    border-bottom: none;
+    /* Nessun bordo sotto l'ultimo semestre title */
+}
+
+/* Stili per l'icona di apertura/chiusura (freccia) */
+.year-title::after,
+.semester-title::after {
+    content: '▼';
+    /* Freccia verso il basso */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+/* Quando la sezione è aperta, ruota la freccia */
+.year-section[open]>.year-title::after,
+.semester-section[open]>.semester-title::after {
+    transform: translateY(-50%) rotate(180deg);
+    /* Freccia verso l'alto */
+}
+
+/* Reset del margin per il primo elemento della griglia all'interno di details */
+.year-section .grid,
+.semester-section .grid {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 20px;
+    /* Aggiungi un po' di padding sopra la griglia */
+    padding-bottom: 20px;
+    /* E sotto */
+}
+
+/* Rimuovi il padding dal body, se si sovrappone al padding delle grid */
+body {
+    background-color: #2b2b2b;
+    color: #eee;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /* Rimuove il margin predefinito del body */
+}
+
+/* Regola l'altezza della griglia per adattarsi al nuovo layout, o rimuovila se non più necessaria */
+.grid {
+    height: auto;
+    /* Lascia che l'altezza sia determinata dal contenuto */
 }
 
 /* Stili per il contenuto della pagina (specifico) */
