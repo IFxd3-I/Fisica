@@ -1,47 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
+    color: #c0c0c0;
+    /* Testo generale: Grigio chiaro più morbido */
     line-height: 1.6;
     margin: 0;
     padding: 20px;
     overflow-x: hidden;
+    background-color: #2a2a2a;
+    /* Sfondo: Antracite caldo */
+    min-height: 100vh;
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 3em;
+    letter-spacing: 1px;
+    padding: 20px;
+    color: #87CEEB;
+}
+
+h2 {
+    text-align: center;
+    color: #e67e22;
+    font-size: 2.2em;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #a0522d;
+}
+
+body.page-content h2 {
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.math-display {
+    text-align: center;
+    font-size: 28px;
+    margin: 30px 0 50px 0;
+    color: #FFFFFF;
+}
+
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-style: italic;
+    margin-top: 50px;
+}
+
+body.main-index-page {
     background: linear-gradient(to bottom,
-
             #2c3e50 0%,
-
             #34493a 5%,
-
             #553c2b 10%,
-
             #550000 52%,
-
             #2d0000 60%,
-
             #000000 98%,
-
             #000000 100%);
-
     background-attachment: scroll;
     background-size: 100% auto;
     min-height: 300vh;
 }
 
-h1 {
-    color: #e74c3c;
-    text-align: center;
+body.main-index-page h1 {
+    color: #8b9911;
     margin-bottom: 25px;
     font-size: 3em;
     letter-spacing: 1px;
-    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.4);
-    top: 20px;
-    z-index: 100;
 }
 
-.dim {
-    text-decoration: underline;
-}
-
-.caption {
+body.main-index-page .caption {
     font-style: italic;
     text-align: center;
     color: #f39c12;
@@ -53,6 +96,105 @@ h1 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+
+body.main-index-page #content-wrapper {
+    max-width: 900px;
+    margin: 60px auto 100px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+body.main-index-page .girone-content-section {
+    background: rgba(42, 10, 10, 0.7);
+    border: 1px solid rgba(107, 46, 46, 0.5);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 150px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    transition: background 0.3s ease, border-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+body.main-index-page .girone-content-section.is-visible {
+    animation: fadeInSlideUpSection 1s forwards ease-out;
+}
+
+body.main-index-page .girone-content-section:last-child {
+    margin-bottom: 0;
+}
+
+body.main-index-page .girone-content-section:hover {
+    background: rgba(62, 15, 15, 0.85);
+    border-color: #ff6347;
+}
+
+body.main-index-page .girone-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+body.main-index-page .girone-body {
+    color: #e0e0e0;
+}
+
+body.main-index-page .girone-body p {
+    margin-bottom: 15px;
+}
+
+body.main-index-page .girone-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+body.main-index-page .girone-body li {
+    background: rgba(255, 69, 0, 0.08);
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-left: 3px solid #ff4500;
+    transition: background 0.3s ease;
+    font-size: 1.2em;
+}
+
+body.main-index-page .girone-body li:hover {
+    background: rgba(255, 69, 0, 0.2);
+}
+
+body.main-index-page .girone-header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body.main-index-page .girone-body li a.dim {
+    text-decoration: underline;
+    color: inherit;
+}
+
+body.page-content {
+    font-family: "Segoe UI", sans-serif;
+    padding: 40px 60px;
+    width: 65vw;
+    margin: 0 auto;
+}
+
+body.page-content p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+body.page-content h2 {
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #913131;
+    padding-bottom: 5px;
+    letter-spacing: 0.5px;
 }
 
 @keyframes fadeInQuote {
@@ -67,33 +209,6 @@ h1 {
     }
 }
 
-
-#content-wrapper {
-    max-width: 900px;
-    margin: 60px auto 100px auto;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.girone-content-section {
-    background: rgba(42, 10, 10, 0.7);
-    border: 1px solid rgba(107, 46, 46, 0.5);
-    border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 150px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    transition: background 0.3s ease, border-color 0.3s ease;
-    opacity: 0;
-    transform: translateY(50px);
-}
-
-.girone-content-section.is-visible {
-    animation: fadeInSlideUpSection 1s forwards ease-out;
-}
-
 @keyframes fadeInSlideUpSection {
     to {
         opacity: 1;
@@ -101,99 +216,43 @@ h1 {
     }
 }
 
-.girone-content-section:last-child {
-    margin-bottom: 0;
-}
-
-.girone-content-section:hover {
-    background: rgba(62, 15, 15, 0.85);
-    border-color: #ff6347;
-}
-
-.girone-header {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.girone-header h2 {
-    color: #ff6347;
-    font-size: 2.2em;
-    text-shadow: 1px 1px 3px rgba(255, 0, 0, 0.5);
-    margin: 0;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #8b0000;
-}
-
-.girone-body {
-    color: #e0e0e0;
-}
-
-.girone-body p {
-    margin-bottom: 15px;
-}
-
-.girone-body ul {
-    list-style: none;
-    padding: 0;
-}
-
-.girone-body li {
-    background: rgba(255, 69, 0, 0.08);
-    margin-bottom: 8px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border-left: 3px solid #ff4500;
-    transition: background 0.3s ease;
-    font-size: 1.2em;
-}
-
-.girone-body li:hover {
-    background: rgba(255, 69, 0, 0.2);
-}
-
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    font-style: italic;
-    margin-top: 50px;
-}
-
 @media (max-width: 768px) {
+
     body {
         padding: 10px;
     }
 
-    h1 {
+    body.main-index-page h1 {
         font-size: 2.2em;
         position: static;
         margin-top: 10px;
     }
 
-    .caption {
+    body.main-index-page .caption {
         font-size: 1em;
         margin-bottom: 20px;
     }
 
-    #content-wrapper {
+    body.main-index-page #content-wrapper {
         padding: 0 10px;
         margin-top: 30px;
         margin-bottom: 60px;
     }
 
-    .girone-content-section {
+    body.main-index-page .girone-content-section {
         padding: 20px;
         margin-bottom: 100px;
     }
 
-    .girone-header h2 {
+    body.main-index-page .girone-header h2 {
         font-size: 1.8em;
     }
 
-    .girone-body {
+    body.main-index-page .girone-body {
         font-size: 0.95em;
     }
 
-    .girone-body li {
+    body.main-index-page .girone-body li {
         padding: 8px 12px;
     }
 }
