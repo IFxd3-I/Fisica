@@ -5,8 +5,8 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    color: #e0e0e0;
+    font-family: 'Lato', sans-serif;
+    color: #000000;
     line-height: 1.7;
     margin: 0;
     padding: 25px;
@@ -56,6 +56,10 @@ h2 {
     margin-right: auto;
 }
 
+.MathJax {
+    font-size: 1.1em !important;
+}
+
 .math-display {
     text-align: center;
     font-size: 32px;
@@ -79,6 +83,7 @@ a.dim {
 a.dim:hover {
     color: #6CB6DE;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 @keyframes fadeInQuote {
