@@ -247,7 +247,7 @@
         }
         
         contentDisplay.classList.remove('animate-content');
-        contentDisplay.innerHTML = DOMPurify.sanitize(contentHTML);
+        contentDisplay.innerHTML = contentHTML;
 
         if (typeof MathJax !== 'undefined') {
             MathJax.typeset();
