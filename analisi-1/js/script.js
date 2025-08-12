@@ -44,11 +44,6 @@
         }
     }
 
-    // Questa funzione non è più necessaria, la logica di sanificazione viene applicata alla fine
-    // function sanitizeHTML(htmlString) {
-    //     return DOMPurify.sanitize(htmlString, { USE_PROFILES: { html: true } });
-    // }
-
     function renderMath(text) {
         if (typeof text !== 'string') {
             return '';
@@ -124,7 +119,6 @@
 
         contentDisplay.classList.remove('animate-content');
 
-        // Sanifichiamo la stringa HTML completa qui, un solo punto
         contentDisplay.innerHTML = DOMPurify.sanitize(contentHTML, {
             ADD_TAGS: ['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'li', 'em', 'strong', 'mark', 'figure', 'figcaption', 'img', 'div', 'hr', 'span'],
             ADD_ATTR: ['class', 'id', 'src', 'alt']
