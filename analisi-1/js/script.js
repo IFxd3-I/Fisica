@@ -46,15 +46,17 @@
 
     function renderMath(text) {
         if (typeof text !== 'string') {
-            return '';
+            return text;
         }
 
-        let renderedText = text.replace(/\\\\\((.*?)\\\\\)/g, (match, p1) => {
+        let renderedText = text.replace(/\\\((.*?)\\\)/g, (match, p1) => {
             return `<span class="inline-math">\\(${p1}\\)</span>`;
         });
+
         renderedText = renderedText.replace(/\$\$(.*?)\$\$/g, (match, p1) => {
             return `<div class="math-block">$$${p1}$$</div>`;
         });
+
         return renderedText;
     }
 
@@ -75,41 +77,46 @@
             return;
         }
 
-        let contentHTML = `<h2 class="chapter-title">${data.title}</h2>`;
+        const sanitizeConfig = {
+            ADD_TAGS: ['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'li', 'em', 'strong', 'mark', 'figure', 'figcaption', 'img', 'div', 'hr', 'span'],
+            ADD_ATTR: ['class', 'id', 'src', 'alt']
+        };
 
-        const tocListHTML = data.toc.map(item => `<li>${item}</li>`).join('');
+        let contentHTML = `<h2 class="chapter-title">${DOMPurify.sanitize(renderMath(data.title), sanitizeConfig)}</h2>`;
+        const tocListHTML = data.toc.map(item => `<li>${DOMPurify.sanitize(renderMath(item), sanitizeConfig)}</li>`).join('');
         contentHTML += `<ul class="topic-list">${tocListHTML}</ul>`;
 
         if (showFullContent && data.content && data.content.length > 0) {
             contentHTML += `<div class="chapter-full-content">`;
             data.content.forEach(item => {
                 const itemClass = `content-${item.type}${item.level ? `-${item.level}` : ''}`;
+                const sanitizedText = item.text ? DOMPurify.sanitize(renderMath(item.text), sanitizeConfig) : '';
 
                 switch (item.type) {
                     case 'paragraph':
-                        contentHTML += `<p class="${itemClass}">${renderMath(item.text)}</p>`;
+                        contentHTML += `<p class="${itemClass}">${sanitizedText}</p>`;
                         break;
                     case 'heading':
-                        contentHTML += `<h${item.level} class="${itemClass}">${item.text}</h${item.level}>`;
+                        contentHTML += `<h${item.level} class="${itemClass}">${DOMPurify.sanitize(item.text, sanitizeConfig)}</h${item.level}>`;
                         break;
                     case 'math':
-                        contentHTML += `<div class="${itemClass}">${renderMath(`$$${item.text}$$`)}</div>`;
+                        contentHTML += `<div class="${itemClass}">$$${item.text}$$</div>`;
                         break;
                     case 'divider':
                         contentHTML += `<hr class="${itemClass}"></hr>`;
                         break;
                     case 'image':
                         contentHTML += `<figure class="${itemClass}">
-                                            <img src="${item.src}" alt="${item.alt}">
-                                            ${item.caption ? `<figcaption>${item.caption}</figcaption>` : ''}
+                                            <img src="${DOMPurify.sanitize(item.src, sanitizeConfig)}" alt="${DOMPurify.sanitize(item.alt, sanitizeConfig)}">
+                                            ${item.caption ? `<figcaption>${DOMPurify.sanitize(item.caption, sanitizeConfig)}</figcaption>` : ''}
                                         </figure>`;
                         break;
                     case 'list':
-                        const listItems = item.items.map(li => `<li>${renderMath(li)}</li>`).join('');
+                        const listItems = item.items.map(li => `<li>${DOMPurify.sanitize(renderMath(li), sanitizeConfig)}</li>`).join('');
                         contentHTML += `<ul class="${itemClass}">${listItems}</ul>`;
                         break;
                     default:
-                        contentHTML += `<p class="content-paragraph">${renderMath(item.text)}</p>`;
+                        contentHTML += `<p class="content-paragraph">${sanitizedText}</p>`;
                 }
             });
             contentHTML += `</div>`;
@@ -119,13 +126,12 @@
 
         contentDisplay.classList.remove('animate-content');
 
-        contentDisplay.innerHTML = DOMPurify.sanitize(contentHTML, {
-            ADD_TAGS: ['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'li', 'em', 'strong', 'mark', 'figure', 'figcaption', 'img', 'div', 'hr', 'span'],
-            ADD_ATTR: ['class', 'id', 'src', 'alt']
-        });
+        contentDisplay.innerHTML = contentHTML;
 
         if (typeof MathJax !== 'undefined') {
-            MathJax.typesetPromise(contentDisplay);
+            MathJax.typesetPromise([contentDisplay]).then(() => {
+                console.log("MathJax typesetting complete!");
+            });
         }
 
         if (!isSinglePanel) {
