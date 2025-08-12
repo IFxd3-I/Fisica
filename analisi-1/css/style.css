@@ -102,8 +102,6 @@ strong {
 
 a {
   color: #69F0AE;
-  text-decoration: none;
-  border-bottom: 1px dotted rgba(105, 240, 174, 0.5);
   transition: all 0.3s ease;
 }
 
@@ -122,6 +120,7 @@ a.dim {
 a.dim:hover {
   color: #b0b0b0;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .placeholder-text {

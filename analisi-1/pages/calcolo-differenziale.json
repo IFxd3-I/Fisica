@@ -1,0 +1,19 @@
+{
+    "title": "Calcolo differenziale",
+    "toc": [
+        "Derivata: definizione e significato geometrico",
+        "Retta tangente",
+        "<a class=\"dim\"> Continuità e derivabilita</a>",
+        "Derivata delle funzioni elementari",
+        "<a class=\"dim\">Derivata e operazioni</a>, composizione e funzione inversa",
+        "Estremanti locali",
+        "<a class=\"dim\">Teoremi di Fermat, Cauchy, Rolle, Lagrange e loro conseguenze</a>",
+        "Teoremi di de l'Hopital",
+        "<a class=\"dim\">Formula di Taylor con resto secondo Peano</a> (per funzioni due volte derivabili) e secondo Lagrange",
+        "Sviluppi delle funzioni elementari, <a class=\"dim\">unicità dello sviluppo</a>",
+        "<a class=\"dim\">Concavità e convessità in un intervallo</a>",
+        "Punti di flesso",
+        "<a class=\"dim\">Test per estremi relativi</a>"
+    ],
+    "content": []
+}

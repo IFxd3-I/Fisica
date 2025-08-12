@@ -1,0 +1,12 @@
+{
+    "title": "Teoria degli spazi metrici",
+    "toc": [
+        "Spazi metrici: definizione, primi esempi inclusi spazi euclidei",
+        "Intorni e classificazione dei punti",
+        "<a class=\"dim\">Insiemi aperti, chiusi, limitati e compatti: loro proprieta</a>",
+        "<a class=\"dim\">Successioni a valori in spazi metrici: successioni convergenti e unicità del limite</a>",
+        "<a class=\"dim\">Condizioni necessarie per la convergenza: limitatezza, sottosuccessioni e la condizione di Cauchy</a>",
+        "Spazi metrici completi"
+    ],
+    "content": []
+}
