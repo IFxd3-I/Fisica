@@ -5,5 +5,33 @@
         "Limiti delle funzioni elementari e di quelle monotone",
         "Asintoti al grafico di una funzione"
     ],
-    "content": []
+    "content": [
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Definizione metrica e successionale: equivalenza"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Limiti delle funzioni elementari e di quelle monotone"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Asintoti al grafico di una funzione"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        }
+    ]
 }

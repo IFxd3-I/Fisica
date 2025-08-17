@@ -7,5 +7,51 @@
         "<a class=\"dim\"> Serie a termini non negativi e criteri per la convergenza: del confronto, del confronto asintotico, del rapporto e della radice</a>",
         "<a class=\"dim\">Serie a termini di segno alterno: criterio di Leibniz (eventualmente via il criterio di Abel)</a>"
     ],
-    "content": []
+    "content": [
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Definizioni ed esempi di carattere di una serie"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Condizione di Cauchy e quella necessaria per la convergenza"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Convergenza assoluta"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Serie a termini non negativi e criteri per la convergenza: del confronto, del confronto asintotico, del rapporto e della radice"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Serie a termini di segno alterno: criterio di Leibniz (eventualmente via il criterio di Abel)"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        }
+    ]
 }

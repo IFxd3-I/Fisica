@@ -15,5 +15,123 @@
         "Punti di flesso",
         "<a class=\"dim\">Test per estremi relativi</a>"
     ],
-    "content": []
+    "content": [
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Derivata: definizione e significato geometrico"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Retta tangente"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Continuità e derivabilita"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Derivata delle funzioni elementari"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Derivata e operazioni, composizione e funzione inversa"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Estremanti locali"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Teoremi di Fermat, Cauchy, Rolle, Lagrange e loro conseguenze"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Teoremi di de l'Hopital"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Formula di Taylor con resto secondo Peano (per funzioni due volte derivabili) e secondo Lagrange"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Sviluppi delle funzioni elementari, unicità dello sviluppo"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Concavità e convessità in un intervallo"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Punti di flesso"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Test per estremi relativi"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        }
+    ]
 }

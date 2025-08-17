@@ -9,6 +9,59 @@
         "Insiemi equipotenti: <a class=\"dim\">insiemi numerabili</a>, <a class=\"dim\">non numerabilità di <strong>R</strong></a>"
     ],
     "content": [
-        
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Insiemi numerici noti N, Z, Q"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Rappresentazione decimale dei razionali"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Numeri reali R: definizione, estremo superiore/inferiore"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Densità di Q in R, la completezza di R"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Richiami sul concetto di funzione tra insieme"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Insiemi equipotenti: insiemi numerabili, non numerabilità di R"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        }
     ]
 }

@@ -9,5 +9,69 @@
         "<a class=\"dim\">Funzioni reali e continue: teorema degli zeri , dei valori intermedi e conseguenze</a>",
         "Funzioni monotone e discontinuità. Continuità dell'inversa"
     ],
-    "content": []
+    "content": [
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Continuità puntuale e globale in spazi metrici"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Controimmagini di aperti e continuità"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Continuità e composizione"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Teorema di Weierstrass"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Continuità uniforme, teorema di Heine-Cantor"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Funzioni reali e continue: teorema degli zeri, dei valori intermedi e conseguenze"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Funzioni monotone e discontinuità. Continuità dell'inversa"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        }
+    ]
 }

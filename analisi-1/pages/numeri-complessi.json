@@ -6,5 +6,42 @@
         "Forma trigonometrica dei numeri complessi",
         "<a class=\"dim\"> Radici nel campo complesso</a>"
     ],
-    "content": []
+    "content": [
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Il campo complesso"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Forma algebrica dei numeri complessi"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Forma trigonometrica dei numeri complessi"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Radici nel campo complesso"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        }
+    ]
 }

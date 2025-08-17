@@ -8,5 +8,60 @@
         "<a class=\"dim\">Condizioni necessarie per la convergenza: limitatezza, sottosuccessioni e la condizione di Cauchy</a>",
         "Spazi metrici completi"
     ],
-    "content": []
+    "content": [
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Spazi metrici: definizione, primi esempi inclusi spazi euclidei"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Intorni e classificazione dei punti"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Insiemi aperti, chiusi, limitati e compatti: loro proprietà"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Successioni a valori in spazi metrici: successioni convergenti e unicità del limite"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Condizioni necessarie per la convergenza: limitatezza, sottosuccessioni e la condizione di Cauchy"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Spazi metrici completi"
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        }
+    ]
 }
