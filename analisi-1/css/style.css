@@ -475,3 +475,56 @@ a.dim:hover {
 .main-wrapper.single-panel .chapter-full-content {
   display: block;
 }
+
+/* Stili per gli heading del contenuto JSON */
+.content-heading-3 {
+  font-family: var(--font-heading);
+  color: var(--accent-color);
+  font-size: 1.8em;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.content-heading-3::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 8px var(--active-shadow-color);
+}
+
+.content-heading-4 {
+  font-family: var(--font-heading);
+  color: #88CCEE;
+  font-size: 1.5em;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-sm);
+  border-left: 3px solid #88CCEE;
+}
+
+.content-heading-5 {
+  font-family: var(--font-heading);
+  color: #FFC107;
+  font-size: 1.3em;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.content-heading-6 {
+  font-family: var(--font-heading);
+  color: var(--secondary-text-color);
+  font-size: 1.1em;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

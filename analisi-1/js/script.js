@@ -161,10 +161,23 @@
             return;
         }
         const chapterKey = clickedLi.dataset.chapter;
-
+        
+        window.location.hash = chapterKey;
         isSinglePanel = true;
         mainWrapper.classList.add('single-panel');
         await renderChapter(chapterKey, true);
+    });
+
+    window.addEventListener('hashchange', async () => {
+        const chapterKey = window.location.hash.substring(1);
+        if (chapterKey && validChapters.includes(chapterKey)) {
+            isSinglePanel = true;
+            mainWrapper.classList.add('single-panel');
+            document.querySelector('#chapters-list .active')?.classList.remove('active');
+            const activeLi = chaptersList.querySelector(`li[data-chapter="${chapterKey}"]`);
+            if (activeLi) activeLi.classList.add('active');
+            await renderChapter(chapterKey, true);
+        }
     });
 
     const rightPanel = document.querySelector('.right-panel');
@@ -174,6 +187,7 @@
     rightPanel.prepend(backButton);
 
     backButton.addEventListener('click', async () => {
+        window.location.hash = '';
         isSinglePanel = false;
         mainWrapper.classList.remove('single-panel');
         const activeChapter = chaptersList.querySelector('li.active');
@@ -182,9 +196,19 @@
         }
     });
 
-    const firstChapter = chaptersList.querySelector('li');
-    if (firstChapter) {
-        firstChapter.classList.add('active');
-        await renderChapter(firstChapter.dataset.chapter, false);
+    const urlChapter = window.location.hash.substring(1);
+    if (urlChapter && validChapters.includes(urlChapter)) {
+        isSinglePanel = true;
+        mainWrapper.classList.add('single-panel');
+        const activeLi = chaptersList.querySelector(`li[data-chapter="${urlChapter}"]`);
+        if (activeLi) activeLi.classList.add('active');
+        await renderChapter(urlChapter, true);
+    } else {
+        const firstChapter = chaptersList.querySelector('li');
+        if (firstChapter) {
+            firstChapter.classList.add('active');
+            await renderChapter(firstChapter.dataset.chapter, false);
+        }
     }
+
 })();
