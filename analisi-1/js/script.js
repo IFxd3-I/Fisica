@@ -1,3 +1,15 @@
+
+// Gestione click su titolo Analisi 1 per tornare all'index generale
+document.addEventListener('DOMContentLoaded', function() {
+    const title = document.getElementById('analisi-1-title');
+    if(title) {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function() {
+            window.location.href = '../index.html';
+        });
+    }
+});
+
 (async () => {
 
     const chaptersList = document.getElementById('chapters-list');
@@ -183,6 +195,9 @@
             return;
         }
 
+        // Reset del menu quando si naviga sui capitoli
+        isShowingMenu = false;
+
         document.querySelector('#chapters-list .active')?.classList.remove('active');
         hoveredLi.classList.add('active');
 
@@ -195,6 +210,10 @@
         if (!clickedLi) {
             return;
         }
+        
+        // Reset del menu quando si clicca su un capitolo
+        isShowingMenu = false;
+        
         const chapterKey = clickedLi.dataset.chapter;
         
         window.location.hash = chapterKey;
@@ -222,14 +241,212 @@
     rightPanel.prepend(backButton);
 
     backButton.addEventListener('click', async () => {
-        window.location.hash = '';
-        isSinglePanel = false;
-        mainWrapper.classList.remove('single-panel');
-        const activeChapter = chaptersList.querySelector('li.active');
-        if (activeChapter) {
-            await renderChapter(activeChapter.dataset.chapter, false);
+        // Controlla se siamo nel menu principale
+        const isInMainMenu = contentDisplay.querySelector('.fullscreen-menu');
+        
+        if (isInMainMenu) {
+            // Torna dalla modalità menu principale ad Analisi 1
+            isSinglePanel = false;
+            mainWrapper.classList.remove('single-panel');
+            
+            // Ripristina il contenuto originale se disponibile
+            if (originalContent) {
+                contentDisplay.innerHTML = originalContent;
+                originalContent = null;
+            } else {
+                // Fallback: carica il primo capitolo
+                const firstChapter = chaptersList.querySelector('li');
+                if (firstChapter) {
+                    firstChapter.classList.add('active');
+                    await renderChapter(firstChapter.dataset.chapter, false);
+                }
+            }
+        } else {
+            // Comportamento normale: torna dalla vista capitolo alla lista
+            window.location.hash = '';
+            isSinglePanel = false;
+            mainWrapper.classList.remove('single-panel');
+            const activeChapter = chaptersList.querySelector('li.active');
+            if (activeChapter) {
+                await renderChapter(activeChapter.dataset.chapter, false);
+            }
         }
     });
+
+    // Gestore click sul titolo per tornare all'index principale
+    const titleElement = document.querySelector('.left-panel h2');
+    let originalContent = null;
+    let isShowingMenu = false;
+
+    if (titleElement) {
+        // Click sul titolo: non deve fare nulla
+        titleElement.addEventListener('click', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        // Hover per mostrare menu principale (senza delay)
+        titleElement.addEventListener('mouseenter', async () => {
+            // Rimuovi highlight dalla lista capitoli
+            const activeChapter = chaptersList.querySelector('li.active');
+            if (activeChapter) {
+                activeChapter.classList.remove('active');
+            }
+            await showMainMenu();
+        });
+    }
+
+    async function showMainMenuFullScreen() {
+        try {
+            const response = await fetch('pages/menu-principale.json');
+            if (!response.ok) {
+                throw new Error(`Errore di rete: ${response.statusText}`);
+            }
+            
+            const menuData = await response.json();
+            renderMainMenuFullScreen(menuData);
+
+        } catch (error) {
+            console.error("Errore durante il caricamento del menu principale:", error);
+            contentDisplay.innerHTML = DOMPurify.sanitize('<p class="placeholder-text">Errore nel caricamento del menu.</p>');
+        }
+    }
+
+    function renderMainMenuFullScreen(data) {
+        const sanitizeConfig = {
+            ADD_TAGS: ['h2', 'p', 'ul', 'li', 'div', 'span', 'strong', 'em'],
+            ADD_ATTR: ['class', 'data-url', 'data-status']
+        };
+
+        let menuHTML = `
+            <h2 class="chapter-title">${DOMPurify.sanitize(data.title, sanitizeConfig)}</h2>
+            <p class="menu-description">${DOMPurify.sanitize(data.description, sanitizeConfig)}</p>
+            <ul class="subjects-list fullscreen-menu">
+        `;
+
+        data.subjects.forEach(subject => {
+            const statusClass = subject.status === 'Completo' ? 'status-complete' : 'status-development';
+            menuHTML += `
+                <li class="subject-item" data-url="${DOMPurify.sanitize(subject.url, sanitizeConfig)}">
+                    <div class="subject-info">
+                        <h3 class="subject-name">${DOMPurify.sanitize(subject.name, sanitizeConfig)}</h3>
+                        <p class="subject-description">${DOMPurify.sanitize(subject.description, sanitizeConfig)}</p>
+                        <span class="subject-status ${statusClass}">${DOMPurify.sanitize(subject.status, sanitizeConfig)}</span>
+                    </div>
+                </li>
+            `;
+        });
+
+        menuHTML += '</ul>';
+
+        contentDisplay.innerHTML = DOMPurify.sanitize(menuHTML, sanitizeConfig);
+
+        // Aggiungi event listeners per la navigazione
+        const subjectItems = contentDisplay.querySelectorAll('.subject-item');
+        subjectItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const url = item.getAttribute('data-url');
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+        });
+
+        // Aggiungi animazioni
+        contentDisplay.classList.add('animate-content');
+    }
+
+    async function showMainMenu() {
+        console.log("showMainMenu chiamata, isShowingMenu:", isShowingMenu);
+
+        try {
+            console.log("Caricamento menu principale...");
+            
+            // Salva il contenuto corrente se non già salvato
+            if (!originalContent) {
+                originalContent = contentDisplay.innerHTML;
+            }
+
+            const response = await fetch('pages/menu-principale.json');
+            if (!response.ok) {
+                throw new Error(`Errore di rete: ${response.statusText}`);
+            }
+            
+            const menuData = await response.json();
+            console.log("Dati menu caricati:", menuData);
+            
+            renderMainMenu(menuData);
+            isShowingMenu = true;
+
+        } catch (error) {
+            console.error("Errore durante il caricamento del menu principale:", error);
+        }
+    }
+
+    function renderMainMenu(data) {
+        console.log("Rendering menu principale:", data);
+        
+        const sanitizeConfig = {
+            ADD_TAGS: ['h2', 'p', 'ul', 'li', 'div', 'span', 'strong', 'em'],
+            ADD_ATTR: ['class', 'data-url', 'data-status']
+        };
+
+        let menuHTML = `
+            <h2 class="chapter-title">${data.title}</h2>
+            <ul class="subjects-list">
+        `;
+
+        data.subjects.forEach(subject => {
+            const statusClass = subject.status === 'Completo' ? 'status-complete' : 'status-development';
+            menuHTML += `
+                <li class="subject-item" data-url="${subject.url}">
+                    <div class="subject-info">
+                        <h3 class="subject-name">${subject.name}</h3>
+                        <p class="subject-description">${subject.description}</p>
+                        <span class="subject-status ${statusClass}">${subject.status}</span>
+                    </div>
+                </li>
+            `;
+        });
+
+        menuHTML += '</ul>';
+
+        // Usa DOMPurify solo se disponibile, altrimenti usa il contenuto diretto
+        if (typeof DOMPurify !== 'undefined') {
+            contentDisplay.innerHTML = DOMPurify.sanitize(menuHTML, sanitizeConfig);
+        } else {
+            contentDisplay.innerHTML = menuHTML;
+        }
+
+        console.log("Menu HTML generato e inserito");
+
+        // Aggiungi event listeners per la navigazione
+        const subjectItems = contentDisplay.querySelectorAll('.subject-item');
+        console.log("Subject items trovati:", subjectItems.length);
+        
+        subjectItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const url = item.getAttribute('data-url');
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+
+            // Aggiungi effetto hover
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateY(-2px)';
+                item.style.boxShadow = '0 8px 20px rgba(105, 240, 174, 0.15)';
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = '';
+                item.style.boxShadow = '';
+            });
+        });
+
+        // Aggiungi animazioni
+        contentDisplay.classList.add('animate-content');
+    }
 
     const urlChapter = window.location.hash.substring(1);
     if (urlChapter && validChapters.includes(urlChapter)) {

@@ -15,3 +15,14 @@ document.querySelectorAll('ex .procedimento').forEach(procedimento => {
         procedimento.classList.toggle('unblurred');
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    initializeStaticElements();
+});
+
+function initializeStaticElements() {
+    const lastUpdatedElement = document.querySelector('.last-updated');
+    if (lastUpdatedElement) {
+        lastUpdatedElement.textContent = 'Ultimo aggiornamento: Agosto 2025';
+    }
+}

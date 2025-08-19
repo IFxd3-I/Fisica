@@ -136,15 +136,13 @@ p {
   font-size: 1.1em; /* Testo più grande */
 }
 
-/* Aumentiamo anche il testo delle liste */
 ul li,
 ol li {
   margin-bottom: 10px;
   line-height: 1.6;
-  font-size: 1.05em; /* Leggermente più grande */
+  font-size: 1.05em;
 }
 
-/* Testo matematico più leggibile */
 .math-block {
   font-size: 1.2em;
   margin: 20px 0;
@@ -154,15 +152,13 @@ ol li {
   font-size: 1.1em;
 }
 
-/* Stile per i blocchi matematici dal JSON (type: "math") */
 .content-math {
-  font-size: 1.3em; /* Proporzionato al testo aumentato */
+  font-size: 1.3em; 
   margin: 25px 0;
   text-align: center;
   line-height: 1.6;
 }
 
-/* === SISTEMA ESEMPI ELEGANTE === */
 .example-container {
   margin: 15px 0;
 }
@@ -302,15 +298,50 @@ a.dim:hover {
 
 .left-panel h2 {
   font-family: var(--font-heading);
-  font-size: 2em;
-  color: var(--accent-color);
+  font-size: 1.3em;
+  color: var(--secondary-text-color);
   margin: 0 0 var(--spacing-lg) 0;
-  padding-bottom: var(--spacing-md);
-  border-bottom: 3px solid var(--accent-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
   position: relative;
-  z-index: 1;
   text-transform: uppercase;
   letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  user-select: none;
+  will-change: transform, box-shadow;
+  background: transparent;
+  text-align: center;
+}
+
+.left-panel h2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(105, 240, 174, 0.1), transparent);
+  transition: left 0.6s;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.left-panel h2:hover::before {
+  left: 100%;
+}
+
+.left-panel h2:hover {
+  background-color: var(--border-color);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  box-shadow: 0 8px 20px rgba(105, 240, 174, 0.15);
+}
+
+.left-panel h2:active {
+  transform: scale(0.98);
 }
 
 #chapters-list {
@@ -325,13 +356,33 @@ a.dim:hover {
   padding: var(--spacing-sm) var(--spacing-md);
   cursor: pointer;
   border-radius: 10px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-size: 1.1em;
   font-weight: 500;
   margin-bottom: var(--spacing-xs);
   color: var(--secondary-text-color);
   position: relative;
   overflow: hidden;
+  background: transparent;
+  border: 1px solid transparent;
+  will-change: transform, box-shadow;
+}
+
+#chapters-list li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(105, 240, 174, 0.1), transparent);
+  transition: left 0.6s;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#chapters-list li:hover::before {
+  left: 100%;
 }
 
 #chapters-list li::after {
@@ -348,23 +399,25 @@ a.dim:hover {
 }
 
 #chapters-list li:hover {
-  background-color: var(--border-color);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  color: var(--text-color);
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 30px rgba(105, 240, 174, 0.15);
+  color: var(--accent-color);
+  background: transparent;
 }
 
 #chapters-list li:hover::after {
   transform: scaleX(1);
 }
 
+#chapters-list li:active {
+  transform: translateY(-2px) scale(1.01);
+}
+
 #chapters-list li.active {
-  background: linear-gradient(45deg, var(--active-gradient-start), var(--active-gradient-end));
-  color: var(--background-color);
+  color: var(--accent-color);
   font-weight: bold;
-  box-shadow: 0 5px 20px var(--active-shadow-color);
-  transform: scale(1.05);
-  border: none;
+  border: 1px solid var(--accent-color);
 }
 
 #chapters-list li.active::after {
@@ -566,7 +619,7 @@ a.dim:hover {
 .back-button {
   position: absolute;
   top: var(--spacing-lg);
-  left: var(--spacing-lg);
+  right: var(--spacing-lg);
   background-color: var(--panel-color);
   color: var(--secondary-text-color);
   border: 1px solid var(--border-color);
@@ -575,10 +628,25 @@ a.dim:hover {
   cursor: pointer;
   font-family: var(--font-body);
   font-size: 0.9em;
-  transition: all var(--transition-duration) var(--transition-timing);
+  transition: all 0.2s ease;
   z-index: 20;
   opacity: 0;
   pointer-events: none;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+}
+
+.back-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(105, 240, 174, 0.1), transparent);
+  transition: left 0.6s;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .main-wrapper.single-panel .back-button {
@@ -587,10 +655,19 @@ a.dim:hover {
   transform: translateY(0);
 }
 
+.back-button:hover::before {
+  left: 100%;
+}
+
 .back-button:hover {
   background-color: var(--border-color);
+  border-color: var(--accent-color);
   color: var(--accent-color);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(105, 240, 174, 0.15);
+}
+
+.back-button:active {
+  transform: scale(0.98);
 }
 
 .chapter-full-content {
@@ -655,4 +732,118 @@ a.dim:hover {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+/* === STILI PER IL MENU PRINCIPALE === */
+.menu-description {
+  font-size: 1.2em;
+  color: var(--secondary-text-color);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-style: italic;
+}
+
+.subjects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.subject-item {
+  background: var(--panel-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.subject-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(105, 240, 174, 0.1), transparent);
+  transition: left 0.6s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.subject-item:hover::before {
+  left: 100%;
+}
+
+.subject-item:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(105, 240, 174, 0.15);
+}
+
+.subject-info {
+  position: relative;
+  z-index: 1;
+}
+
+.subject-name {
+  font-family: var(--font-heading);
+  font-size: 1.4em;
+  color: var(--accent-color);
+  margin: 0 0 var(--spacing-sm) 0;
+  font-weight: 600;
+}
+
+.subject-description {
+  color: var(--text-color);
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: 1.5;
+}
+
+.subject-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-complete {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.status-development {
+  background: rgba(255, 193, 7, 0.2);
+  color: #FFC107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+/* === STILI PER MENU FULLSCREEN === */
+.subjects-list.fullscreen-menu {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.fullscreen-menu .subject-item {
+  padding: var(--spacing-lg);
+  min-height: 120px;
+}
+
+.fullscreen-menu .subject-name {
+  font-size: 1.6em;
+  margin-bottom: var(--spacing-md);
+}
+
+.fullscreen-menu .subject-description {
+  font-size: 1.1em;
+  margin-bottom: var(--spacing-md);
 }
