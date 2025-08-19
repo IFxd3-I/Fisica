@@ -78,7 +78,7 @@
         }
 
         const sanitizeConfig = {
-            ADD_TAGS: ['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'li', 'em', 'strong', 'mark', 'figure', 'figcaption', 'img', 'div', 'hr', 'span'],
+            ADD_TAGS: ['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'li', 'em', 'strong', 'mark', 'figure', 'figcaption', 'img', 'div', 'hr', 'span', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
             ADD_ATTR: ['class', 'id', 'src', 'alt']
         };
 
@@ -114,6 +114,41 @@
                     case 'list':
                         const listItems = item.items.map(li => `<li>${DOMPurify.sanitize(renderMath(li), sanitizeConfig)}</li>`).join('');
                         contentHTML += `<ul class="${itemClass}">${listItems}</ul>`;
+                        break;
+                    case 'example':
+                        const exampleId = `example-${Math.random().toString(36).substr(2, 9)}`;
+                        contentHTML += `
+                            <div class="example-container">
+                                <span class="example-trigger" onclick="toggleExample('${exampleId}')">
+                                    💡 <span class="example-label">Esempio</span>
+                                </span>
+                                <div class="example-content" id="${exampleId}" style="display: none;">
+                                    ${DOMPurify.sanitize(renderMath(item.text), sanitizeConfig)}
+                                </div>
+                            </div>`;
+                        break;
+                    case 'table':
+                        let tableHTML = `<table class="${itemClass}">`;
+                        if (item.headers) {
+                            tableHTML += '<thead><tr>';
+                            item.headers.forEach(header => {
+                                tableHTML += `<th>${DOMPurify.sanitize(renderMath(header), sanitizeConfig)}</th>`;
+                            });
+                            tableHTML += '</tr></thead>';
+                        }
+                        if (item.rows) {
+                            tableHTML += '<tbody>';
+                            item.rows.forEach(row => {
+                                tableHTML += '<tr>';
+                                row.forEach(cell => {
+                                    tableHTML += `<td>${DOMPurify.sanitize(renderMath(cell), sanitizeConfig)}</td>`;
+                                });
+                                tableHTML += '</tr>';
+                            });
+                            tableHTML += '</tbody>';
+                        }
+                        tableHTML += '</table>';
+                        contentHTML += tableHTML;
                         break;
                     default:
                         contentHTML += `<p class="content-paragraph">${sanitizedText}</p>`;
@@ -210,5 +245,26 @@
             await renderChapter(firstChapter.dataset.chapter, false);
         }
     }
+
+    // Funzione per toggle degli esempi
+    window.toggleExample = function(exampleId) {
+        const exampleContent = document.getElementById(exampleId);
+        const trigger = exampleContent.previousElementSibling;
+        
+        if (exampleContent.style.display === 'none') {
+            exampleContent.style.display = 'block';
+            trigger.classList.add('expanded');
+            trigger.querySelector('.example-label').textContent = 'Nascondi esempio';
+        } else {
+            exampleContent.style.display = 'none';
+            trigger.classList.remove('expanded');
+            trigger.querySelector('.example-label').textContent = 'Esempio';
+        }
+        
+        // Re-render MathJax se necessario
+        if (typeof MathJax !== 'undefined') {
+            MathJax.typesetPromise([exampleContent]);
+        }
+    };
 
 })();

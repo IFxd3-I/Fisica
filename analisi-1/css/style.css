@@ -72,6 +72,58 @@ h5 {
   margin-bottom: var(--spacing-md);
 }
 
+/* Proporzioni corrette per i titoli */
+h3 {
+  font-size: 1.4em; /* Proporzionato al testo più grande */
+}
+
+h4 {
+  font-size: 1.2em; /* Leggermente più grande dei paragrafi */
+}
+
+h5 {
+  font-size: 1.1em; /* Appena più grande dei paragrafi */
+}
+
+mark {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+/* === STYLE GUIDE PER ANALISI 1 === */
+/* Facilmente modificabile cambiando solo i colori qui sotto */
+
+/* 🟢 Verde - Definizioni fondamentali */
+.definition {
+  background-color: transparent;
+  color: var(--accent-color); /* #69F0AE */
+  font-weight: 500;
+}
+
+/* 🔵 Azzurro - Teoremi e risultati importanti */
+.theorem {
+  background-color: transparent;
+  color: #88CCEE;
+  font-weight: 600;
+}
+
+/* 🟡 Giallo - Warning/Attenzione */
+.warning {
+  background-color: transparent;
+  color: #FFC107;
+  font-weight: 500;
+}
+
+/* 📐 Formule in evidenza */
+.formula-highlight {
+  background-color: rgba(105, 240, 174, 0.1);
+  border-left: 3px solid var(--accent-color);
+  padding: 8px 12px;
+  margin: 12px 0;
+  border-radius: 4px;
+}
+
+/* Per compatibilità manteniamo mark = definition */
 mark {
   background-color: transparent;
   color: var(--accent-color);
@@ -81,12 +133,88 @@ p {
   line-height: 1.8;
   margin-bottom: 16px;
   margin-top: 16px;
+  font-size: 1.1em; /* Testo più grande */
 }
 
+/* Aumentiamo anche il testo delle liste */
 ul li,
 ol li {
   margin-bottom: 10px;
   line-height: 1.6;
+  font-size: 1.05em; /* Leggermente più grande */
+}
+
+/* Testo matematico più leggibile */
+.math-block {
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+.inline-math {
+  font-size: 1.1em;
+}
+
+/* Stile per i blocchi matematici dal JSON (type: "math") */
+.content-math {
+  font-size: 1.3em; /* Proporzionato al testo aumentato */
+  margin: 25px 0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* === SISTEMA ESEMPI ELEGANTE === */
+.example-container {
+  margin: 15px 0;
+}
+
+.example-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: var(--accent-color);
+  font-size: 0.95em;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(105, 240, 174, 0.1);
+  border: 1px solid rgba(105, 240, 174, 0.3);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.example-trigger:hover {
+  background: rgba(105, 240, 174, 0.2);
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(105, 240, 174, 0.2);
+}
+
+.example-trigger.expanded {
+  background: rgba(105, 240, 174, 0.25);
+  border-color: var(--accent-color);
+}
+
+.example-content {
+  margin-top: 12px;
+  padding: 16px 20px;
+  background: rgba(105, 240, 174, 0.05);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 0 8px 8px 0;
+  animation: slideDown 0.3s ease-out;
+  font-style: italic;
+  color: var(--secondary-text-color);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 em {

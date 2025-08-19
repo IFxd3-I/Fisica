@@ -16,7 +16,39 @@
         },
         {
             "type": "paragraph",
-            "text": ""
+            "text": "Richiamo degli insiemi numerici fondamentali per la costruzione dei numeri reali."
+        },
+        {
+            "type": "math",
+            "text": "\\mathbb{N} = \\{1, 2, 3, 4, ...\\}"
+        },
+        {
+            "type": "paragraph",
+            "text": "<mark>Numeri naturali</mark>: insieme per contare. Variante: \\(\\mathbb{N}_0 = \\{0, 1, 2, 3, ...\\}\\) include lo zero."
+        },
+        {
+            "type": "math",
+            "text": "\\mathbb{Z} = \\{..., -2, -1, 0, 1, 2, ...\\}"
+        },
+        {
+            "type": "paragraph",
+            "text": "<mark>Numeri interi</mark>: estensione di ℕ con negativi e zero."
+        },
+        {
+            "type": "math",
+            "text": "\\mathbb{Q} = \\left\\{\\frac{p}{q} : p \\in \\mathbb{Z}, q \\in \\mathbb{Z} \\setminus \\{0\\}\\right\\}"
+        },
+        {
+            "type": "paragraph",
+            "text": "<mark>Numeri razionali</mark>: frazioni con numeratore intero e denominatore intero ≠ 0."
+        },
+        {
+            "type": "paragraph",
+            "text": "I naturali ℕ permettono solo addizione e moltiplicazione, mentre gli interi ℤ aggiungono la sottrazione. I razionali ℚ completano il quadro rendendo possibile anche la divisione (tranne per zero)."
+        },
+        {
+            "type": "paragraph",
+            "text": "La catena di inclusioni \\(\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}\\) mostra come ogni insieme estenda le possibilità del precedente. Tuttavia, anche ℚ presenta limitazioni che vedremo nella sezione sui numeri reali."
         },
         {
             "type": "heading",
@@ -31,6 +63,74 @@
             "type": "heading",
             "level": 3,
             "text": "Numeri reali R: definizione, estremo superiore/inferiore"
+        },
+        {
+            "type": "paragraph",
+            "text": "I numeri razionali <mark>non bastano</mark> per l'analisi matematica: esistono numeri come \\(\\sqrt{2}\\), \\(\\pi\\), e \\(e\\) che non possono essere espressi come frazioni. Questa <em>incompletezza</em> di ℚ rende necessaria l'introduzione dei numeri reali ℝ."
+        },
+        {
+            "type": "paragraph",
+            "text": "I <mark>numeri reali</mark> ℝ includono tutti i razionali più tutti gli irrazionali, creando una \"retta numerica completa\" senza buchi."
+        },
+        {
+            "type": "divider"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Maggioranti ed estremo superiore"
+        },
+        {
+            "type": "paragraph",
+            "text": "Per lavorare con gli insiemi in ℝ, introduciamo alcuni concetti fondamentali."
+        },
+        {
+            "type": "paragraph",
+            "text": "Consideriamo un insieme \\(A \\subseteq \\mathbb{R}\\) non vuoto, ad esempio \\(A = (0, 1)\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Un <mark>maggiorante</mark> di \\(A\\) è un numero \\(M\\) tale che tutti gli elementi di \\(A\\) sono ≤ \\(M\\)."
+        },
+        {
+            "type": "example",
+            "text": "Per \\(A = (0, 1)\\), i numeri 1, 2, 5, 100 sono tutti maggioranti."
+        },
+        {
+            "type": "paragraph",
+            "text": ""
+        },
+        {
+            "type": "paragraph",
+            "text": "L'<mark>estremo superiore</mark> \\(\\sup A\\) è il più piccolo di tutti i maggioranti."
+        },
+        {
+            "type": "example",
+            "text": "Per \\(A = (0, 1)\\), abbiamo \\(\\sup A = 1\\). Nota che 1 ∉ \\(A\\), ma è comunque il \"confine superiore\"."
+        },
+        {
+            "type": "divider"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Minoranti ed estremo inferiore"
+        },
+        {
+            "type": "paragraph",
+            "text": "Analogamente, un <mark>minorante</mark> è un numero \\(m\\) tale che \\(m\\) ≤ tutti gli elementi di \\(A\\)."
+        },
+        {
+            "type": "example",
+            "text": "Per \\(A = (0, 1)\\), i numeri 0, -1, -5, -100 sono tutti minoranti."
+        },
+        {
+            "type": "paragraph",
+            "text": "L'<mark>estremo inferiore</mark> \\(\\inf A\\) è il più grande di tutti i minoranti."
+        },
+        {
+            "type": "example",
+            "text": "Per \\(A = (0, 1)\\), abbiamo \\(\\inf A = 0\\)."
         },
         {
             "type": "paragraph",
