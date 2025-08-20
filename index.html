@@ -3,133 +3,54 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Menu Principale - Corso di Fisica L-30</title>
+    <title>Fisica L-30</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Menu principale del corso di Fisica L-30 - Università di Bologna">
-    <meta name="keywords" content="fisica, università, appunti, analisi, meccanica, onde">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Styles -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="global-css/style.css">
-    <link rel="stylesheet" href="analisi-1/css/style.css">
 </head>
 
 <body>
-    <div class="main-container">
-        <header class="header">
-            <h1>Menu Principale</h1>
-            <p class="caption">📚 Seleziona una materia per iniziare</p>
-            <div class="header-subtitle">
-                <span>🎓 Università di Bologna</span>
-                <span class="last-updated">Ultimo aggiornamento: Agosto 2025</span>
-            </div>
-        </header>
+    <header class="site-header" role="banner">
 
-        <main>
-            <div class="subjects-list custom-grid-menu">
-                <div class="row row-top">
-                    <a class="subject-item" href="./analisi-1/index.html">
-                        <div class="subject-info">
-                            <h3 class="subject-name">Analisi 1</h3>
-                            <p class="subject-description">Limiti, derivate, integrali e serie</p>
-                            <span class="subject-status status-complete">Completo</span>
-                        </div>
-                    </a>
-                    <a class="subject-item" href="./analisi-2/index.html">
-                        <div class="subject-info">
-                            <h3 class="subject-name">Analisi 2</h3>
-                            <p class="subject-description">Funzioni di più variabili</p>
-                            <span class="subject-status status-development">In sviluppo</span>
-                        </div>
-                    </a>
-                    <a class="subject-item" href="./analisi-3/index.html">
-                        <div class="subject-info">
-                            <h3 class="subject-name">Analisi 3</h3>
-                            <p class="subject-description">Equazioni differenziali</p>
-                            <span class="subject-status status-development">In sviluppo</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="row row-bottom">
-                    <a class="subject-item" href="./geometria-e-algebra-lineare/index.html">
-                        <div class="subject-info">
-                            <h3 class="subject-name">Geometria e Algebra Lineare</h3>
-                            <p class="subject-description">Spazi vettoriali e geometria</p>
-                        </div>
-                    </a>
-                    <a class="subject-item" href="./meccanica/index.html">
-                        <div class="subject-info">
-                            <h3 class="subject-name">Meccanica</h3>
-                            <p class="subject-description">Cinematica e dinamica</p>
-                            <span class="subject-status status-development">In sviluppo</span>
-                        </div>
-                    </a>
+        <a class="site-title" href="index.html">Fisica</a>
+
+        <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Apri menu">☰</button>
+
+        <nav id="main-nav" class="nav" role="navigation" aria-label="Menu principale">
+
+            <div class="dropdown">
+                <button class="dropdown-toggle" aria-expanded="false">Primo anno</button>
+                <div class="dropdown-menu" role="menu">
+                    <a role="menuitem" href="analisi-1/index.html">Analisi 1</a>
+                    <a role="menuitem" href="geometria-e-algebra-lineare/index.html">Geometria & Algebra</a>
+                    <a role="menuitem" href="informatica/index.html">Informatica</a>
                 </div>
             </div>
 
-                <a class="subject-item" href="./informatica/index.html">
-                    <div class="subject-info">
-                        <h3 class="subject-name">Informatica</h3>
-                        <p class="subject-description">Programmazione e algoritmi</p>
-                        <span class="subject-status status-development">In sviluppo</span>
-                    </div>
-                </a>
-
-                <a class="subject-item" href="./laboratorio-e-statistica/index.html">
-                    <div class="subject-info">
-                        <h3 class="subject-name">Laboratorio e Statistica</h3>
-                        <p class="subject-description">Analisi dati e statistica</p>
-                        <span class="subject-status status-development">In sviluppo</span>
-                    </div>
-                </a>
+            <div class="dropdown">
+                <button class="dropdown-toggle" aria-expanded="false">Secondo anno</button>
+                <div class="dropdown-menu" role="menu">
+                    <a role="menuitem" href="analisi-2/index.html">Analisi 2</a>
+                    <a role="menuitem" href="laboratorio-e-statistica/index.html">Laboratorio e Statistica</a>
+                    <a role="menuitem" href="meccanica/index.html">Meccanica</a>
+                </div>
             </div>
-        </main>
-    </div>
+
+            <div class="dropdown">
+                <button class="dropdown-toggle" aria-expanded="false">Terzo anno</button>
+                <div class="dropdown-menu" role="menu">
+                    <a role="menuitem" href="analisi-3/index.html">Analisi 3</a>
+                    <a role="menuitem" href="onde-e-oscillazioni/index.html">Onde & Oscillazioni</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <script src="global-js/script.js"></script>
-        <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            const container = document.getElementById('main-menu');
-            try {
-                const response = await fetch('analisi-1/pages/menu-principale.json');
-                if (!response.ok) throw new Error('Errore nel caricamento del menu');
-                const data = await response.json();
-                let html = `
-                    <div class="main-container">
-                        <header class="header">
-                            <h1>${data.title}</h1>
-                            <p class="caption">📚 ${data.description}</p>
-                            <div class="header-subtitle">
-                                <span>🎓 Università di Bologna</span>
-                                <span class="last-updated">Ultimo aggiornamento: Agosto 2025</span>
-                            </div>
-                        </header>
-                        <main>
-                            <div class="subjects-list simple-grid">
-                `;
-                data.subjects.forEach(subject => {
-                    const statusClass = subject.status === 'Completo' ? 'status-complete' : 'status-development';
-                    html += `
-                        <a class="subject-item" href="${subject.url}">
-                            <div class="subject-info">
-                                <h3 class="subject-name">${subject.name}</h3>
-                                <p class="subject-description">${subject.description}</p>
-                                <span class="subject-status ${statusClass}">${subject.status}</span>
-                            </div>
-                        </a>
-                    `;
-                });
-                html += `</div></main></div>`;
-                container.innerHTML = html;
-            } catch (e) {
-                container.innerHTML = '<p>Errore nel caricamento del menu principale.</p>';
-            }
-        });
-        </script>
 </body>
 
 </html>
