@@ -5,15 +5,15 @@
 }
 
 :root {
-  --background-color: #1a1a1a;
-  --panel-color: #2a2a2a;
-  --border-color: #333;
-  --text-color: #e0e0e0;
-  --secondary-text-color: #b0b0b0;
-  --accent-color: #69F0AE;
-  --active-gradient-start: #69F0AE;
-  --active-gradient-end: #00C853;
-  --active-shadow-color: rgba(0, 200, 83, 0.4);
+  /* Oceanic Warm theme */
+  --background-color: #071826; /* deep navy */
+  --panel-color: #0E3947; /* dark teal panel */
+  --border-color: #123B47; /* subtle border */
+  --text-color: #E6F6FF; /* pale cyan text */
+  --secondary-text-color: #B6D7E8; /* muted cyan */
+  --active-gradient-start: #FFD166; /* accent start */
+  --active-gradient-end: #FFB347; /* accent end */
+  --active-shadow-color: rgba(255, 177, 71, 0.18);
 
   --font-body: 'Lato', sans-serif;
   --font-heading: 'Poppins', sans-serif;
@@ -110,17 +110,21 @@ body {
 .dropdown-menu {
   position: absolute;
   left: 0;
-  top: calc(100% + 8px);
+  top: 100%;
   background: var(--panel-color);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   min-width: 200px;
   padding: 10px 8px;
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 8px;
   box-shadow: var(--shadow-main);
   z-index: 1200;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 220ms var(--transition-timing), transform 220ms var(--transition-timing);
 }
 
 .dropdown-menu a {
@@ -134,12 +138,26 @@ body {
 }
 
 .dropdown-menu a:hover {
-  background: linear-gradient(90deg, var(--active-gradient-start), var(--active-gradient-end));
   color: var(--text-color);
 }
 
-.dropdown:hover>.dropdown-menu {
-  display: flex;
+/* show when .open */
+.dropdown.open > .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* open on hover for devices that support hover (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  .dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .dropdown:hover .dropdown-toggle::after {
+    transform: rotate(45deg);
+  }
 }
 
 .nav-toggle {

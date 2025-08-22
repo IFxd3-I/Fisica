@@ -5,15 +5,35 @@
 }
 
 :root {
+  /* Structural colors (can be overridden per-theme) */
   --background-color: #1a1a1a;
-  --panel-color: #2a2a2a;
-  --border-color: #333;
+  --panel-color: #1a1a1a;
+  --border-color: #1a1a1a;
   --text-color: #e0e0e0;
   --secondary-text-color: #b0b0b0;
-  --accent-color: #69F0AE;
-  --active-gradient-start: #69F0AE;
-  --active-gradient-end: #00C853;
-  --active-shadow-color: rgba(0, 200, 83, 0.4);
+
+  /* Semantic colors */
+  --accent-color: #69F0AE; /* primary accent */
+  --accent-hover: #02aa48; /* accent on hover */
+  --theorem-color: #88CCEE; /* used for highlighting theorems/titles */
+  --warning-color: #FFC107; /* warning / attention */
+  --h2-border: #5a4b2a; /* h2 underline color */
+
+  /* Accent glow / variants (rgba versions) */
+  --accent-glow-weak: rgba(105, 240, 174, 0.05);
+  --accent-glow: rgba(105, 240, 174, 0.1);
+  --accent-border-rgba: rgba(105, 240, 174, 0.3);
+  --accent-glow-strong: rgba(105, 240, 174, 0.2);
+  --accent-glow-medium: rgba(105, 240, 174, 0.15);
+
+  /* Status colors */
+  --status-complete-bg: rgba(76, 175, 80, 0.2);
+  --status-complete-color: #4CAF50;
+  --status-complete-border: rgba(76, 175, 80, 0.3);
+  --status-development-bg: rgba(255, 193, 7, 0.2);
+  --status-development-color: #FFC107;
+  --status-development-border: rgba(255, 193, 7, 0.3);
+  --highlight-color: #ffcc00;
 
   --font-body: 'Lato', sans-serif;
   --font-heading: 'Poppins', sans-serif;
@@ -24,9 +44,10 @@
   --spacing-lg: 30px;
   --spacing-xl: 40px;
   --border-radius: 12px;
-  --shadow-main: 0 10px 30px rgba(0, 0, 0, 0.4);
   --transition-duration: 0.5s;
   --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  --panel-shadow: 0 5px 20px var(--shadow-color);
+  --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -48,18 +69,18 @@ h1 {
   font-size: 3.8em;
   letter-spacing: 1.5px;
   padding: 15px;
-  color: #88CCEE;
+  color: var(--theorem-color);
   font-family: 'Montserrat', sans-serif;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 4px 10px var(--shadow-color);
 }
 
 h2 {
   text-align: center;
-  color: #FFC107;
+  color: var(--warning-color);
   font-size: 2.5em;
   margin: 0;
   padding-bottom: 12px;
-  border-bottom: 2px solid #5a4b2a;
+  border-bottom: 2px solid var(--h2-border);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -91,49 +112,79 @@ mark {
 }
 
 /* === STYLE GUIDE PER ANALISI 1 === */
-/* Facilmente modificabile cambiando solo i colori qui sotto */
 
 /* 🟢 Verde - Definizioni fondamentali */
 .definition {
   background-color: transparent;
-  color: var(--accent-color); /* #69F0AE */
+  color: var(--accent-color);
   font-weight: 500;
 }
 
 /* 🔵 Azzurro - Teoremi e risultati importanti */
 .theorem {
   background-color: transparent;
-  color: #88CCEE;
+  color: var(--theorem-color);
   font-weight: 600;
 }
 
 /* 🟡 Giallo - Warning/Attenzione */
 .warning {
   background-color: transparent;
-  color: #FFC107;
+  color: var(--warning-color);
   font-weight: 500;
 }
 
 /* 📐 Formule in evidenza */
 .formula-highlight {
-  background-color: rgba(105, 240, 174, 0.1);
+  background-color: var(--accent-glow-weak);
   border-left: 3px solid var(--accent-color);
   padding: 8px 12px;
   margin: 12px 0;
-  border-radius: 4px;
+  color: var(--accent-hover);
 }
 
-/* Per compatibilità manteniamo mark = definition */
-mark {
-  background-color: transparent;
+/* Esempi espandibili */
+.example-container {
+  margin: 15px 0;
+}
+
+.example-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
   color: var(--accent-color);
+  font-size: 0.95em;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--accent-glow);
+  border: 1px solid var(--accent-border-rgba);
+  transition: all 0.3s ease;
+  user-select: none;
 }
 
-p {
-  line-height: 1.8;
-  margin-bottom: 16px;
-  margin-top: 16px;
-  font-size: 1.1em; /* Testo più grande */
+.example-trigger:hover {
+  background: var(--accent-glow-strong);
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--accent-glow-strong);
+}
+
+.example-trigger.expanded {
+  background: var(--accent-glow-strong);
+  border-color: var(--accent-color);
+}
+
+.example-content {
+  margin-top: 12px;
+  padding: 16px 20px;
+  background: var(--accent-glow-weak);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 0 8px 8px 0;
+  animation: slideDown 0.3s ease-out;
+  font-style: italic;
+  color: var(--secondary-text-color);
 }
 
 ul li,
@@ -159,48 +210,7 @@ ol li {
   line-height: 1.6;
 }
 
-.example-container {
-  margin: 15px 0;
-}
-
-.example-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  color: var(--accent-color);
-  font-size: 0.95em;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 20px;
-  background: rgba(105, 240, 174, 0.1);
-  border: 1px solid rgba(105, 240, 174, 0.3);
-  transition: all 0.3s ease;
-  user-select: none;
-}
-
-.example-trigger:hover {
-  background: rgba(105, 240, 174, 0.2);
-  border-color: var(--accent-color);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(105, 240, 174, 0.2);
-}
-
-.example-trigger.expanded {
-  background: rgba(105, 240, 174, 0.25);
-  border-color: var(--accent-color);
-}
-
-.example-content {
-  margin-top: 12px;
-  padding: 16px 20px;
-  background: rgba(105, 240, 174, 0.05);
-  border-left: 3px solid var(--accent-color);
-  border-radius: 0 8px 8px 0;
-  animation: slideDown 0.3s ease-out;
-  font-style: italic;
-  color: var(--secondary-text-color);
-}
+/* duplicate example block removed (uses canonical .example-trigger/.example-content above) */
 
 @keyframes slideDown {
   from {
@@ -215,23 +225,23 @@ ol li {
 
 em {
   font-style: normal;
-  color: #ffcc00;
+  color: var(--highlight-color);
   font-weight: 500;
 }
 
 strong {
-  color: #88CCEE;
+  color: var(--theorem-color);
   font-weight: bold;
 }
 
 a {
-  color: #69F0AE;
+  color: var(--accent-color);
   transition: all 0.3s ease;
 }
 
 a:hover {
-  color: #00C853;
-  border-bottom: 1px solid #00C853;
+  color: var(--accent-hover);
+  border-bottom: 1px solid var(--accent-hover);
 }
 
 a.dim {
@@ -242,7 +252,7 @@ a.dim {
 }
 
 a.dim:hover {
-  color: #b0b0b0;
+  color: var(--secondary-text-color);
   text-decoration: underline;
   cursor: pointer;
 }
@@ -260,7 +270,6 @@ a.dim:hover {
   gap: var(--spacing-lg);
   width: 95%;
   max-width: 1400px;
-  box-shadow: var(--shadow-main);
   border-radius: var(--border-radius);
   overflow: hidden;
   transition: all var(--transition-duration) var(--transition-timing);
@@ -269,8 +278,6 @@ a.dim:hover {
 .left-panel,
 .right-panel {
   background-color: var(--panel-color);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
   padding: var(--spacing-xl);
   box-sizing: border-box;
   min-height: 85vh;
@@ -291,7 +298,6 @@ a.dim:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(0, 150, 136, 0.1));
   opacity: 0.2;
   z-index: 0;
 }
@@ -323,7 +329,7 @@ a.dim:hover {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(105, 240, 174, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
   transition: left 0.6s;
   pointer-events: none;
   z-index: -1;
@@ -337,7 +343,7 @@ a.dim:hover {
   background-color: var(--border-color);
   border-color: var(--accent-color);
   color: var(--accent-color);
-  box-shadow: 0 8px 20px rgba(105, 240, 174, 0.15);
+  box-shadow: 0 8px 20px var(--accent-glow-medium);
 }
 
 .left-panel h2:active {
@@ -375,7 +381,7 @@ a.dim:hover {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(105, 240, 174, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
   transition: left 0.6s;
   pointer-events: none;
   z-index: -1;
@@ -401,7 +407,7 @@ a.dim:hover {
 #chapters-list li:hover {
   transform: translateY(-5px) scale(1.02);
   border-color: var(--accent-color);
-  box-shadow: 0 15px 30px rgba(105, 240, 174, 0.15);
+  box-shadow: 0 15px 30px var(--accent-glow-medium);
   color: var(--accent-color);
   background: transparent;
 }
@@ -502,7 +508,7 @@ a.dim:hover {
   height: auto;
   display: block;
   border-radius: var(--border-radius);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--panel-shadow);
 }
 
 .right-panel figcaption {
@@ -618,13 +624,17 @@ a.dim:hover {
 
 .back-button {
   position: absolute;
-  top: var(--spacing-lg);
-  right: var(--spacing-lg);
+  top: calc(var(--spacing-lg) + 8px);
+  left: var(--spacing-lg);
   background-color: var(--panel-color);
   color: var(--secondary-text-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: 6px 10px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   font-family: var(--font-body);
   font-size: 0.9em;
@@ -643,7 +653,7 @@ a.dim:hover {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(105, 240, 174, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
   transition: left 0.6s;
   pointer-events: none;
   z-index: -1;
@@ -663,7 +673,7 @@ a.dim:hover {
   background-color: var(--border-color);
   border-color: var(--accent-color);
   color: var(--accent-color);
-  box-shadow: 0 8px 20px rgba(105, 240, 174, 0.15);
+  box-shadow: 0 8px 20px var(--accent-glow-medium);
 }
 
 .back-button:active {
@@ -701,22 +711,21 @@ a.dim:hover {
   width: 50px;
   height: 2px;
   background-color: var(--accent-color);
-  box-shadow: 0 0 8px var(--active-shadow-color);
 }
 
 .content-heading-4 {
   font-family: var(--font-heading);
-  color: #88CCEE;
+  color: var(--theorem-color);
   font-size: 1.5em;
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-md);
   padding-left: var(--spacing-sm);
-  border-left: 3px solid #88CCEE;
+  border-left: 3px solid var(--theorem-color);
 }
 
 .content-heading-5 {
   font-family: var(--font-heading);
-  color: #FFC107;
+  color: var(--warning-color);
   font-size: 1.3em;
   margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-sm);
@@ -770,7 +779,7 @@ a.dim:hover {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(105, 240, 174, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
   transition: left 0.6s;
   pointer-events: none;
   z-index: 0;
@@ -783,7 +792,7 @@ a.dim:hover {
 .subject-item:hover {
   border-color: var(--accent-color);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(105, 240, 174, 0.15);
+  box-shadow: 0 8px 20px var(--accent-glow-medium);
 }
 
 .subject-info {
@@ -816,15 +825,15 @@ a.dim:hover {
 }
 
 .status-complete {
-  background: rgba(76, 175, 80, 0.2);
-  color: #4CAF50;
-  border: 1px solid rgba(76, 175, 80, 0.3);
+  background: var(--status-complete-bg);
+  color: var(--status-complete-color);
+  border: 1px solid var(--status-complete-border);
 }
 
 .status-development {
-  background: rgba(255, 193, 7, 0.2);
-  color: #FFC107;
-  border: 1px solid rgba(255, 193, 7, 0.3);
+  background: var(--status-development-bg);
+  color: var(--status-development-color);
+  border: 1px solid var(--status-development-border);
 }
 
 /* === STILI PER MENU FULLSCREEN === */

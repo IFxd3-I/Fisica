@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         contentHTML += `<div class="${itemClass}">$$${item.text}$$</div>`;
                         break;
                     case 'divider':
-                        contentHTML += `<hr class="${itemClass}"></hr>`;
+                        contentHTML += `<hr class="${itemClass}">`;
                         break;
                     case 'image':
                         contentHTML += `<figure class="${itemClass}">
@@ -243,6 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
     backButton.addEventListener('click', async () => {
         // Controlla se siamo nel menu principale
         const isInMainMenu = contentDisplay.querySelector('.fullscreen-menu');
+        let originalContent = null;
         
         if (isInMainMenu) {
             // Torna dalla modalità menu principale ad Analisi 1
@@ -275,7 +276,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Gestore click sul titolo per tornare all'index principale
     const titleElement = document.querySelector('.left-panel h2');
-    let originalContent = null;
     let isShowingMenu = false;
 
     if (titleElement) {
@@ -292,160 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (activeChapter) {
                 activeChapter.classList.remove('active');
             }
-            await showMainMenu();
         });
-    }
-
-    async function showMainMenuFullScreen() {
-        try {
-            const response = await fetch('pages/menu-principale.json');
-            if (!response.ok) {
-                throw new Error(`Errore di rete: ${response.statusText}`);
-            }
-            
-            const menuData = await response.json();
-            renderMainMenuFullScreen(menuData);
-
-        } catch (error) {
-            console.error("Errore durante il caricamento del menu principale:", error);
-            contentDisplay.innerHTML = DOMPurify.sanitize('<p class="placeholder-text">Errore nel caricamento del menu.</p>');
-        }
-    }
-
-    function renderMainMenuFullScreen(data) {
-        const sanitizeConfig = {
-            ADD_TAGS: ['h2', 'p', 'ul', 'li', 'div', 'span', 'strong', 'em'],
-            ADD_ATTR: ['class', 'data-url', 'data-status']
-        };
-
-        let menuHTML = `
-            <h2 class="chapter-title">${DOMPurify.sanitize(data.title, sanitizeConfig)}</h2>
-            <p class="menu-description">${DOMPurify.sanitize(data.description, sanitizeConfig)}</p>
-            <ul class="subjects-list fullscreen-menu">
-        `;
-
-        data.subjects.forEach(subject => {
-            const statusClass = subject.status === 'Completo' ? 'status-complete' : 'status-development';
-            menuHTML += `
-                <li class="subject-item" data-url="${DOMPurify.sanitize(subject.url, sanitizeConfig)}">
-                    <div class="subject-info">
-                        <h3 class="subject-name">${DOMPurify.sanitize(subject.name, sanitizeConfig)}</h3>
-                        <p class="subject-description">${DOMPurify.sanitize(subject.description, sanitizeConfig)}</p>
-                        <span class="subject-status ${statusClass}">${DOMPurify.sanitize(subject.status, sanitizeConfig)}</span>
-                    </div>
-                </li>
-            `;
-        });
-
-        menuHTML += '</ul>';
-
-        contentDisplay.innerHTML = DOMPurify.sanitize(menuHTML, sanitizeConfig);
-
-        // Aggiungi event listeners per la navigazione
-        const subjectItems = contentDisplay.querySelectorAll('.subject-item');
-        subjectItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const url = item.getAttribute('data-url');
-                if (url) {
-                    window.location.href = url;
-                }
-            });
-        });
-
-        // Aggiungi animazioni
-        contentDisplay.classList.add('animate-content');
-    }
-
-    async function showMainMenu() {
-        console.log("showMainMenu chiamata, isShowingMenu:", isShowingMenu);
-
-        try {
-            console.log("Caricamento menu principale...");
-            
-            // Salva il contenuto corrente se non già salvato
-            if (!originalContent) {
-                originalContent = contentDisplay.innerHTML;
-            }
-
-            const response = await fetch('pages/menu-principale.json');
-            if (!response.ok) {
-                throw new Error(`Errore di rete: ${response.statusText}`);
-            }
-            
-            const menuData = await response.json();
-            console.log("Dati menu caricati:", menuData);
-            
-            renderMainMenu(menuData);
-            isShowingMenu = true;
-
-        } catch (error) {
-            console.error("Errore durante il caricamento del menu principale:", error);
-        }
-    }
-
-    function renderMainMenu(data) {
-        console.log("Rendering menu principale:", data);
-        
-        const sanitizeConfig = {
-            ADD_TAGS: ['h2', 'p', 'ul', 'li', 'div', 'span', 'strong', 'em'],
-            ADD_ATTR: ['class', 'data-url', 'data-status']
-        };
-
-        let menuHTML = `
-            <h2 class="chapter-title">${data.title}</h2>
-            <ul class="subjects-list">
-        `;
-
-        data.subjects.forEach(subject => {
-            const statusClass = subject.status === 'Completo' ? 'status-complete' : 'status-development';
-            menuHTML += `
-                <li class="subject-item" data-url="${subject.url}">
-                    <div class="subject-info">
-                        <h3 class="subject-name">${subject.name}</h3>
-                        <p class="subject-description">${subject.description}</p>
-                        <span class="subject-status ${statusClass}">${subject.status}</span>
-                    </div>
-                </li>
-            `;
-        });
-
-        menuHTML += '</ul>';
-
-        // Usa DOMPurify solo se disponibile, altrimenti usa il contenuto diretto
-        if (typeof DOMPurify !== 'undefined') {
-            contentDisplay.innerHTML = DOMPurify.sanitize(menuHTML, sanitizeConfig);
-        } else {
-            contentDisplay.innerHTML = menuHTML;
-        }
-
-        console.log("Menu HTML generato e inserito");
-
-        // Aggiungi event listeners per la navigazione
-        const subjectItems = contentDisplay.querySelectorAll('.subject-item');
-        console.log("Subject items trovati:", subjectItems.length);
-        
-        subjectItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const url = item.getAttribute('data-url');
-                if (url) {
-                    window.location.href = url;
-                }
-            });
-
-            // Aggiungi effetto hover
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = 'translateY(-2px)';
-                item.style.boxShadow = '0 8px 20px rgba(105, 240, 174, 0.15)';
-            });
-
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = '';
-                item.style.boxShadow = '';
-            });
-        });
-
-        // Aggiungi animazioni
-        contentDisplay.classList.add('animate-content');
     }
 
     const urlChapter = window.location.hash.substring(1);
@@ -471,7 +318,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (exampleContent.style.display === 'none') {
             exampleContent.style.display = 'block';
             trigger.classList.add('expanded');
-            trigger.querySelector('.example-label').textContent = 'Nascondi esempio';
+            const label = trigger.querySelector('.example-label');
+            if (label) {
+                label.textContent = 'Nascondi esempio';
+            }
         } else {
             exampleContent.style.display = 'none';
             trigger.classList.remove('expanded');
