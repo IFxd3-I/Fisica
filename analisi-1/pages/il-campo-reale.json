@@ -12,11 +12,15 @@
         {
             "type": "heading",
             "level": 3,
-            "text": "Insiemi numerici noti N, Z, Q"
+            "text": "Insiemi numerici noti ℕ, ℤ, ℚ"
         },
         {
             "type": "paragraph",
             "text": "Richiamo degli insiemi numerici fondamentali per la costruzione dei numeri reali."
+        },
+        {
+            "type": "paragraph",
+            "text": "<mark>Numeri naturali \\(\\mathbb{N}\\)</mark>: insieme per contare. Variante: \\(\\mathbb{N}_0 = \\{0, 1, 2, 3, ...\\}\\) include lo zero."
         },
         {
             "type": "math",
@@ -24,7 +28,15 @@
         },
         {
             "type": "paragraph",
-            "text": "<mark>Numeri naturali</mark>: insieme per contare. Variante: \\(\\mathbb{N}_0 = \\{0, 1, 2, 3, ...\\}\\) include lo zero."
+            "text": "<em>Struttura algebrica:</em> con l'addizione non è un gruppo (manca l'inverso), né con la moltiplicazione (manca l'inverso e l'elemento neutro se non includiamo lo zero)."
+        },
+        {
+            "type": "paragraph",
+            "text": "<em>Ordinamento:</em> è un insieme ordinato: per ogni coppia di numeri \\(a, b \\in \\mathbb{N}\\), vale sempre una e una sola delle relazioni \\(a < b\\), \\(a = b\\), \\(a > b\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "<mark>Numeri interi \\(\\mathbb{Z}\\)</mark>: estensione di ℕ con negativi e zero."
         },
         {
             "type": "math",
@@ -32,7 +44,15 @@
         },
         {
             "type": "paragraph",
-            "text": "<mark>Numeri interi</mark>: estensione di ℕ con negativi e zero."
+            "text": "<em>Struttura algebrica:</em> con l'addizione è un gruppo abeliano (commutativo), ma non è un campo perché non ha inversi moltiplicativi."
+        },
+        {
+            "type": "paragraph",
+            "text": "<em>Ordinamento:</em> è un gruppo ordinato, ossia esiste una relazione d'ordine totale compatibile con l'addizione, cioè se \\(a < b\\) allora \\(a + c < b + c\\) per ogni \\(c\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "<mark>Numeri razionali \\(\\mathbb{Q}\\)</mark>: frazioni con numeratore intero e denominatore intero ≠ 0."
         },
         {
             "type": "math",
@@ -40,11 +60,11 @@
         },
         {
             "type": "paragraph",
-            "text": "<mark>Numeri razionali</mark>: frazioni con numeratore intero e denominatore intero ≠ 0."
+            "text": "<em>Struttura algebrica:</em> con addizione e moltiplicazione è un campo. Con l'addizione è un gruppo abeliano, e \\(\\mathbb{Q}\\setminus\\{0\\}\\) con la moltiplicazione è anch'esso un gruppo abeliano. La moltiplicazione è distributiva rispetto all'addizione."
         },
         {
             "type": "paragraph",
-            "text": "I naturali ℕ permettono solo addizione e moltiplicazione, mentre gli interi ℤ aggiungono la sottrazione. I razionali ℚ completano il quadro rendendo possibile anche la divisione (tranne per zero)."
+            "text": "<em>Ordinamento:</em> è un campo ordinato, ossia esiste una relazione d'ordine totale compatibile sia con l'addizione che con la moltiplicazione positiva, cioè se \\(a < b\\) allora \\(a + c < b + c\\) e se \\(0 < c\\) allora \\(ac < bc\\)."
         },
         {
             "type": "paragraph",
@@ -57,12 +77,32 @@
         },
         {
             "type": "paragraph",
-            "text": ""
+            "text": "Ogni numero razionale può essere rappresentato come un numero decimale, cioè come una sequenza di cifre dopo la virgola. Questa rappresentazione si ottiene dividendo il numeratore per il denominatore."
+        },
+        {
+            "type": "example",
+            "text": "Ad esempio, \\(\\frac{1}{2} = 0,5\\), \\(\\frac{1}{4} = 0,25\\), \\(\\frac{1}{3} = 0,333...\\)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Le rappresentazioni decimali dei razionali sono sempre <mark>decimali finiti</mark> oppure <mark>decimali periodici</mark> (cioè, dopo un certo punto, una sequenza di cifre si ripete all'infinito)."
+        },
+        {
+            "type": "example",
+            "text": "Esempi di decimali periodici: \\(\\frac{1}{3} = 0,333... = 0,\\overline{3}\\), \\(\\frac{2}{7} = 0,285714285714... = 0,\\overline{285714}\\)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Un numero decimale finito può essere scritto anche come decimale periodico con periodo 0: ad esempio, \\(0,5 = 0,5000... = 0,5\\overline{0}\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Viceversa, ogni numero decimale finito o periodico rappresenta un numero razionale. Questo permette di distinguere i razionali dagli irrazionali, che invece hanno una rappresentazione decimale infinita non periodica."
         },
         {
             "type": "heading",
             "level": 3,
-            "text": "Numeri reali R: definizione, estremo superiore/inferiore"
+            "text": "Numeri reali ℝ: definizione, estremo superiore/inferiore"
         },
         {
             "type": "paragraph",
@@ -70,19 +110,12 @@
         },
         {
             "type": "paragraph",
-            "text": "I <mark>numeri reali</mark> ℝ includono tutti i razionali più tutti gli irrazionali, creando una \"retta numerica completa\" senza buchi."
-        },
-        {
-            "type": "divider"
+            "text": "I <mark>numeri reali</mark> ℝ includono tutti i razionali più tutti gli irrazionali, creando una \"retta numerica completa\" senza buchi. Vediamo ora alcune proprietà importanti."
         },
         {
             "type": "heading",
             "level": 4,
-            "text": "Maggioranti ed estremo superiore"
-        },
-        {
-            "type": "paragraph",
-            "text": "Per lavorare con gli insiemi in ℝ, introduciamo alcuni concetti fondamentali."
+            "text": "Maggioranti e Insiemi Superiormente Limitati"
         },
         {
             "type": "paragraph",
@@ -90,7 +123,7 @@
         },
         {
             "type": "paragraph",
-            "text": "Un <mark>maggiorante</mark> di \\(A\\) è un numero \\(M\\) tale che tutti gli elementi di \\(A\\) sono ≤ \\(M\\)."
+            "text": "Un <mark>maggiorante</mark> di \\(A\\) è un numero reale \\(M\\) tale che tutti gli elementi di \\(A\\) sono ≤ \\(M\\). Formalmente: \\(\\forall x \\in A, x \\le M\\)."
         },
         {
             "type": "example",
@@ -98,27 +131,11 @@
         },
         {
             "type": "paragraph",
-            "text": ""
+            "text": "Se un insieme ammette almeno un maggiorante, si dice che è <mark>superiormente limitato</mark>."
         },
         {
             "type": "paragraph",
-            "text": "L'<mark>estremo superiore</mark> \\(\\sup A\\) è il più piccolo di tutti i maggioranti."
-        },
-        {
-            "type": "example",
-            "text": "Per \\(A = (0, 1)\\), abbiamo \\(\\sup A = 1\\). Nota che 1 ∉ \\(A\\), ma è comunque il \"confine superiore\"."
-        },
-        {
-            "type": "divider"
-        },
-        {
-            "type": "heading",
-            "level": 4,
-            "text": "Minoranti ed estremo inferiore"
-        },
-        {
-            "type": "paragraph",
-            "text": "Analogamente, un <mark>minorante</mark> è un numero \\(m\\) tale che \\(m\\) ≤ tutti gli elementi di \\(A\\)."
+            "text": "Analogamente, un <mark>minorante</mark> di \\(A\\) è un numero reale \\(m\\) tale che \\(m\\) ≤ tutti gli elementi di \\(A\\). Formalmente: \\(\\forall x \\in A, m \\le x\\)."
         },
         {
             "type": "example",
@@ -126,24 +143,53 @@
         },
         {
             "type": "paragraph",
-            "text": "L'<mark>estremo inferiore</mark> \\(\\inf A\\) è il più grande di tutti i minoranti."
+            "text": "Se un insieme ammette almeno un minorante, si dice che è <mark>inferiormente limitato</mark>."
         },
         {
-            "type": "example",
-            "text": "Per \\(A = (0, 1)\\), abbiamo \\(\\inf A = 0\\)."
+            "type": "heading",
+            "level": 4,
+            "text": "Estremi"
         },
         {
             "type": "paragraph",
-            "text": ""
+            "text": "Una volta che un insieme è limitato, possiamo definire i suoi estremi."
+        },
+        {
+            "type": "paragraph",
+            "text": "L'<mark>estremo superiore</mark> \\(\\sup A\\) è il più piccolo dei maggioranti di \\(A\\). Formalmente: \\(\\sup A = \\min\\{M \\in \\mathbb{R} : M \\text{ è maggiorante di } A\\}\\). Egli non è necessariamente un elemento dell'insieme. Se lo è, si chiama <mark>massimo</mark> dell'insieme."
+        },
+        {
+            "type": "example",
+            "text": "Per \\(A = (0, 1)\\), abbiamo \\(\\sup A = 1\\). Nota che 1 non appartiene a \\(A\\). <br>Per l'insieme \\(B = (0, 1]\\), \\(\\sup B = 1\\) e in questo caso 1 appartiene a \\(B\\), quindi \\(\\max B = 1\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "L'<mark>estremo inferiore</mark> \\(\\inf A\\) è il più grande dei minoranti di \\(A\\). Formalmente: \\(\\inf A = \\max\\{m \\in \\mathbb{R} : m \\text{ è minorante di } A\\}\\). Egli non è necessariamente un elemento dell'insieme. Se lo è, si chiama <mark>minimo</mark> dell'insieme."
+        },
+        {
+            "type": "example",
+            "text": "<strong>Esempi:</strong><br>Per \\(A = (0, 1)\\), abbiamo \\(\\inf A = 0\\). In questo caso, 0 non appartiene a \\(A\\).<br>Per l'insieme \\(C = [0, 1)\\), \\(\\inf C = 0\\) e in questo caso 0 appartiene a \\(C\\), quindi \\(\\min C = 0\\)."
         },
         {
             "type": "heading",
             "level": 3,
-            "text": "Densità di Q in R, la completezza di R"
+            "text": "Densità di Q in R, Completezza di R"
         },
         {
             "type": "paragraph",
-            "text": ""
+            "text": "I numeri razionali \\(\\mathbb{Q}\\) sono \"sparsi\" lungo la retta reale, ma sorprendentemente tra due numeri reali qualsiasi, per quanto vicini, si trova sempre almeno un razionale. Questa proprietà, detta <mark>densità di \\(\\mathbb{Q}\\) in \\(\\mathbb{R}\\)</mark>, è fondamentale per comprendere la struttura dei numeri reali e per molte dimostrazioni in analisi matematica."
+        },
+        {
+            "type": "theorem",
+            "text": "<strong>Teorema (di Densità):</strong> Tra due numeri reali distinti esiste sempre almeno un numero razionale compreso tra essi."
+        },
+        {
+            "type": "proof",
+            "text": "<strong>Dimostrazione:</strong> Siano \\(a, b \\in \\mathbb{R}\\) con \\(a < b\\). Esiste un intero positivo \\(n\\) tale che \\(\\frac{1}{n} < b - a\\). Consideriamo gli interi \\(k\\) tali che \\(a < \\frac{k}{n} < b\\). Tali \\(k\\) esistono per la proprietà di Archimede, quindi \\(\\frac{k}{n}\\) è un razionale compreso tra \\(a\\) e \\(b\\). \\(\\square\\)"
+        },
+        {
+            "type": "theorem",
+            "text": "<strong>Teorema (di Completezza):</strong> Se A è un insieme limitato superiormente, l'insieme dei maggioranti di A ammette un minimo. Se A è un insieme limitato inferiormente, l'insieme dei minoranti di A ammette un massimo."
         },
         {
             "type": "heading",
@@ -152,7 +198,62 @@
         },
         {
             "type": "paragraph",
-            "text": ""
+            "text": "<strong>Definizione</strong>: Siano \\(X, Y\\) due insiemi non vuoti. Una funzione \\(f\\), definita in \\(X\\) e a valori in \\(Y\\), è una legge che associa ad ogni elemento \\(x \\in X\\) uno e un solo elemento \\(y \\in Y\\)."
+        },
+        {
+            "type": "math",
+            "text": "f: X \\to Y"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<mark>Dominio</mark>: l'insieme \\(X\\) da cui la funzione prende gli input.",
+                "<mark>Codominio</mark>: l'insieme \\(Y\\) in cui la funzione prende i valori.",
+                "<mark>Valore di \\(f\\) in \\(x\\)</mark>: dato \\(x \\in X\\), il valore \\(f(x)\\) è l'elemento di \\(Y\\) associato a \\(x\\) dalla funzione.",
+                "<mark>Immagine di \\(x\\) tramite \\(f\\)</mark>: è proprio \\(f(x)\\), cioè il valore della funzione in \\(x\\)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Ogni funzione \\(f: X \\to Y\\) è un terna \\( (X, Y, f) \\) composta dal dominio, dal codominio e dalla legge di corrispondenza e tutti e tre servono per determinare il grafico di \\(f\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "<strong>Definizione</strong>: Sia \\(f: X \\to Y\\) una funzione, per ogni \\(B \\subseteq Y\\), allora \\( f^{-1}(B) = \\{x \\in X : f(x) \\in B\\} \\) è detto <mark>controimmagine</mark> di \\(B\\) tramite \\(f\\)."
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Proprietà delle funzioni"
+        },
+        {
+            "type": "paragraph",
+            "text": "<mark>Suriettiva:</mark> La funzione \\(f\\) si dice suriettiva se \\(f(x) = Y\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "<mark>Iniettiva:</mark> La funzione \\(f\\) si dice iniettiva se per ogni \\(x_1, x_2 \\in X\\), \\(f(x_1) = f(x_2) \\Rightarrow x_1 = x_2\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "<mark>Biunivoca:</mark> La funzione \\(f\\) si dice biunivoca se è sia iniettiva che suriettiva."
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Restrizione, Funzione inversa e Funzione composta"
+        },
+        {
+            "type": "paragraph",
+            "text": "<strong>Definizione:</strong> Sia \\(f: X \\to Y\\) una funzione e \\(A \\subseteq X\\) non vuoto. Si chiama <mark>restrizione</mark> di \\(f\\) ad \\(A\\) la funzione \\(f|_A: A \\to Y\\) tale che \\(\\forall x \\in A\\), \\(f|_A(x) = f(x)\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "<strong>Definizione:</strong> Sia \\(f: X \\to Y\\) biunivoca. La <mark>funzione inversa</mark> \\(f^{-1}: Y \\to X\\) è la funzione che associa a ogni \\(y \\in Y\\) l'unico elemento \\(x \\in X\\) tale che \\(f(x) = y\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "<strong>Definizione:</strong> Sia \\(f: X \\to Y\\) e \\(g: Y \\to Z\\). Si chiama <mark>funzione composta</mark> di \\(g\\) e \\(f\\) (in questo ordine) la funzione \\(g \\circ f: X \\to Z\\) definita \\(\\forall x \\in X\\), \\((g \\circ f)(x) = g(f(x))\\) ."
         },
         {
             "type": "heading",
@@ -161,7 +262,47 @@
         },
         {
             "type": "paragraph",
-            "text": ""
+            "text": "<strong>Definizione:</strong> Sia \\(X\\) un insieme non vuoto. Si dice che \\(X\\) è finito se esiste \\(n \\in \\mathbb{N}\\) tale che \\(X\\) sia in corrispondenza biunivoca con l'insieme \\(\\{1, 2, \\ldots, n\\}\\). Il numero \\(n\\) è detto <mark>potenza</mark>, o <mark>cardinalità</mark>, di \\(X\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Si dice che un insieme \\(X\\) è <mark>numerabile</mark> se esiste una corrispondenza biunivoca tra \\(X\\) e un sottoinsieme di \\(\\mathbb{N}\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Se \\(X = \\emptyset\\), allora \\(X\\) è finito e la sua cardinalità è 0."
+        },
+        {
+            "type": "paragraph",
+            "text": "<strong>Definizione:</strong> Un insieme non vuoto si dice infinito se non è finito."
+        },
+        {
+            "type": "paragraph",
+            "text": "<strong>Definizione:</strong> Si dice che due insiemi non vuoti \\(X\\) e \\(Y\\) sono <mark>equipotenti</mark> se esiste una corrispondenza biunivoca tra di essi. La notazione utilizzata è \\(X \\sim Y\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Inoltre, se \\(X\\) non è equipotente a \\(Y\\) ed esiste un sottoinsieme proprio \\(A \\subseteq X\\) tale che \\(A \\sim Y\\), allora \\(X\\) ha potenza maggiore di \\(Y\\). Ciò significa che un insieme non vuoto è infinito se e solo se ha un sottoinsieme proprio della sua stessa cardinalità."
+        },
+        {
+            "type": "paragraph",
+            "text": "Diciamo che un insieme ha la potenza del continuo se è equipotente a \\(\\mathbb{R}\\). Ad esempio, l'intervallo \\((0, 1)\\) ha la potenza del continuo."
+        },
+        {
+            "type": "theorem",
+            "text": "<strong>Teorema sugli insiemi numerabili:</strong> \\(Z\\) e \\(Q\\) sono numerabili."
+        },
+        {
+            "type": "proof",
+            "text": "Dimostrazione: \\(Z = N_0 \\cup (N^-)\\) con \\(N_0\\) e \\(N^-\\) numerabili, quindi \\(Z\\) è numerabile in quanto unione di insiemi numerabili. \\(Q = { \\frac{p}{q} | p \\in Z, q \\in N}\\) è infinito. Prendiamo  la funzione suriettiva \\(f: Z \\times N\\ \\to Q\\) che porta \\((p,q) \\to \\frac{p}{q}\\), possiamo quindi identificare \\(Q\\) con un sottoinsieme infinito di \\(Z \\times N\\), che è numerabile. \\(\\square\\)"
+        },
+        {
+            "type": "theorem",
+            "text": "<strong>Teorema di Cantor:</strong> L'insieme dei numeri reali \\(R\\) non è numerabile."
+        },
+        {
+            "type": "proof",
+            "text": "Dimostrazione: Partiamo dal presupposto che \\(R\\) sia equipotente a \\((0,1)\\). Supponiamo per assurdo che \\((0,1)\\) sia numerabile, e che quindi esista una funzione biunivoca \\(f: N \\to (0,1)\\) con \\(x_n = f(n)\\) per ogni \\( n \\in N\\) . Costruiamo un numero reale \\(x \\in (0,1)\\) che non appartiene all'immagine di \\(f\\). Scriviamo ogni \\(f(n)\\) in forma decimale: \\(f(1) = 0.a_{11}a_{12}a_{13}...\\), \\(f(2) = 0.a_{21}a_{22}a_{23}...\\), e così via. Definiamo \\(x = 0.b_1b_2b_3...\\) dove \\(b_n\\) è una cifra diversa da \\(a_{nn}\\) (ad esempio, se \\(a_{nn} = 5\\), scegliamo \\(b_n = 6\\), altrimenti \\(b_n = 5\\)). In questo modo, \\(x\\) differisce da ogni \\(f(n)\\) almeno nella n-esima cifra decimale, quindi x apparterrà ad R senza appartenenre all'immagine di \\(f\\), il che è assurdo. \\(\\square\\)"
         }
     ]
 }

@@ -100,10 +100,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (showFullContent && data.content && data.content.length > 0) {
             contentHTML += `<div class="chapter-full-content">`;
-            data.content.forEach(item => {
+            for (let i = 0; i < data.content.length; i++) {
+                const item = data.content[i];
                 const itemClass = `content-${item.type}${item.level ? `-${item.level}` : ''}`;
                 const sanitizedText = item.text ? DOMPurify.sanitize(renderMath(item.text), sanitizeConfig) : '';
 
+                // If item is a theorem, check if next item is a proof and render as unified container
+                if (item.type === 'theorem') {
+                    const rawTitle = item.title ? String(item.title).trim() : '';
+                    const thTitle = rawTitle ? DOMPurify.sanitize(rawTitle, sanitizeConfig) : '';
+                    const statement = DOMPurify.sanitize(renderMath(item.text || ''), sanitizeConfig);
+                    const headerText = thTitle;
+
+                    // lookahead for proof
+                    if (i + 1 < data.content.length && (data.content[i + 1].type === 'proof' || data.content[i + 1].type === 'dimostrazione')) {
+                        const proofItem = data.content[i + 1];
+                        const proofId = `theorem-proof-${Math.random().toString(36).substr(2, 9)}`;
+                        // bottone posizionato in alto a destra della box teorema
+                        const proofButton = `<button class=\"theorem-proof-button corner\" onclick=\"toggleTheorem('${proofId}')\" aria-label=\"Mostra dimostrazione\" aria-expanded=\"false\"></button>`;
+                        const proofContent = `\n                            <div class=\"example-content theorem-proof\" id=\"${proofId}\" style=\"display: none;\">\n                                ${DOMPurify.sanitize(renderMath(proofItem.text || ''), sanitizeConfig)}\n                            </div>`;
+                        i++; // consume proof
+
+                        contentHTML += `\n                        <div class=\"theorem-container ${itemClass}\">\n                            <div class=\"theorem-header\" style=\"position:relative\">\n                                <span class=\"theorem-category\">${headerText}</span>\n                                ${proofButton}\n                            </div>\n                            <div class=\"theorem-statement\">${statement}</div>\n                            ${proofContent}\n                        </div>`;
+                    } else {
+                        contentHTML += `\n                        <div class="theorem-container ${itemClass}">\n                            <div class="theorem-header">\n                                <span class="theorem-category">${headerText}</span>\n                            </div>\n                            <div class="theorem-statement">${statement}</div>\n                        </div>`;
+                    }
+                    continue;
+                }
+
+                // Non-theorem rendering (unchanged)
                 switch (item.type) {
                     case 'paragraph':
                         contentHTML += `<p class="${itemClass}">${sanitizedText}</p>`;
@@ -118,26 +143,19 @@ document.addEventListener('DOMContentLoaded', function() {
                         contentHTML += `<hr class="${itemClass}">`;
                         break;
                     case 'image':
-                        contentHTML += `<figure class="${itemClass}">
-                                            <img src="${DOMPurify.sanitize(item.src, sanitizeConfig)}" alt="${DOMPurify.sanitize(item.alt, sanitizeConfig)}">
-                                            ${item.caption ? `<figcaption>${DOMPurify.sanitize(item.caption, sanitizeConfig)}</figcaption>` : ''}
-                                        </figure>`;
+                        contentHTML += `<figure class="${itemClass}">\n                                            <img src="${DOMPurify.sanitize(item.src, sanitizeConfig)}" alt="${DOMPurify.sanitize(item.alt, sanitizeConfig)}">\n                                            ${item.caption ? `<figcaption>${DOMPurify.sanitize(item.caption, sanitizeConfig)}</figcaption>` : ''}\n                                        </figure>`;
                         break;
                     case 'list':
                         const listItems = item.items.map(li => `<li>${DOMPurify.sanitize(renderMath(li), sanitizeConfig)}</li>`).join('');
                         contentHTML += `<ul class="${itemClass}">${listItems}</ul>`;
                         break;
+                    case 'olist':
+                        const olistItems = item.items.map(li => `<li>${DOMPurify.sanitize(renderMath(li), sanitizeConfig)}</li>`).join('');
+                        contentHTML += `<ol class="${itemClass}">${olistItems}</ol>`;
+                        break;
                     case 'example':
                         const exampleId = `example-${Math.random().toString(36).substr(2, 9)}`;
-                        contentHTML += `
-                            <div class="example-container">
-                                <span class="example-trigger" onclick="toggleExample('${exampleId}')">
-                                    💡 <span class="example-label">Esempio</span>
-                                </span>
-                                <div class="example-content" id="${exampleId}" style="display: none;">
-                                    ${DOMPurify.sanitize(renderMath(item.text), sanitizeConfig)}
-                                </div>
-                            </div>`;
+                        contentHTML += `\n                            <div class="example-container">\n                                <span class="example-trigger" onclick="toggleExample('${exampleId}')">\n                                    💡 <span class="example-label">Esempio</span>\n                                </span>\n                                <div class="example-content" id="${exampleId}" style="display: none;">\n                                    ${DOMPurify.sanitize(renderMath(item.text), sanitizeConfig)}\n                                </div>\n                            </div>`;
                         break;
                     case 'table':
                         let tableHTML = `<table class="${itemClass}">`;
@@ -165,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     default:
                         contentHTML += `<p class="content-paragraph">${sanitizedText}</p>`;
                 }
-            });
+            }
             contentHTML += `</div>`;
         } else if (showFullContent && (!data.content || data.content.length === 0)) {
             contentHTML += `<p class="placeholder-text chapter-full-content">Contenuto esteso non ancora disponibile.</p>`;
@@ -331,6 +349,43 @@ document.addEventListener('DOMContentLoaded', function() {
         // Re-render MathJax se necessario
         if (typeof MathJax !== 'undefined') {
             MathJax.typesetPromise([exampleContent]);
+        }
+    };
+
+    // Funzione per toggle delle dimostrazioni nei teoremi
+    window.toggleTheorem = function(proofId) {
+        const proofContent = document.getElementById(proofId);
+        if (!proofContent) return;
+
+        // Trova il bottone associato (cerca nel parent precedente, che è .theorem-statement)
+        let button = null;
+        let trigger = null;
+        if (proofContent.previousElementSibling && proofContent.previousElementSibling.classList.contains('theorem-statement')) {
+            trigger = proofContent.previousElementSibling;
+            button = trigger.querySelector('.theorem-proof-button');
+        } else {
+            // fallback: cerca il bottone nel parent
+            button = proofContent.parentElement && proofContent.parentElement.querySelector('.theorem-proof-button');
+        }
+
+        if (proofContent.style.display === 'none') {
+            proofContent.style.display = 'block';
+            if (trigger) trigger.classList.add('expanded');
+            if (button) {
+                button.setAttribute('aria-expanded', 'true');
+                button.setAttribute('aria-label', 'Nascondi dimostrazione');
+            }
+        } else {
+            proofContent.style.display = 'none';
+            if (trigger) trigger.classList.remove('expanded');
+            if (button) {
+                button.setAttribute('aria-expanded', 'false');
+                button.setAttribute('aria-label', 'Mostra dimostrazione');
+            }
+        }
+
+        if (typeof MathJax !== 'undefined') {
+            MathJax.typesetPromise([proofContent]);
         }
     };
 

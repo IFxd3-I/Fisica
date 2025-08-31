@@ -7,7 +7,6 @@
 | Classe | Colore | Uso | Esempio HTML |
 |--------|--------|-----|--------------|
 | `<mark>` o `.definition` | 🟢 Verde (#69F0AE) | Definizioni fondamentali | `<mark>Numeri naturali</mark>` |
-| `.theorem` | 🔵 Azzurro (#88CCEE) | Teoremi e risultati importanti | `<span class="theorem">Teorema di Weierstrass</span>` |
 | `.warning` | 🟡 Giallo (#FFC107) | Warning/Attenzione | `<span class="warning">Attenzione: divisione per zero!</span>` |
 | `<em>` | 🟡 Giallo (#ffcc00) | Osservazioni e note | `<em>nota importante</em>` |
 | `<strong>` | 🔵 Azzurro (#88CCEE) | Enfasi generica | `<strong>proprietà</strong>` |
@@ -22,7 +21,6 @@
 | `example` | Esempi espandibili con click | `{"type": "example", "text": "Per A=(0,1)..."}` |
 | `list` | Liste puntate | `{"type": "list", "items": ["item1", "item2"]}` |
 | `divider` | Separatori orizzontali | `{"type": "divider"}` |
-| `table` | Tabelle con headers e rows | Con supporto LaTeX nelle celle |
 
 ### Sistema esempi interattivi:
 

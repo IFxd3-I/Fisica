@@ -13,11 +13,16 @@
   --secondary-text-color: #b0b0b0;
 
   /* Semantic colors */
-  --accent-color: #69F0AE; /* primary accent */
-  --accent-hover: #02aa48; /* accent on hover */
-  --theorem-color: #88CCEE; /* used for highlighting theorems/titles */
-  --warning-color: #FFC107; /* warning / attention */
-  --h2-border: #5a4b2a; /* h2 underline color */
+  --accent-color: #97d3b6;
+  /* primary accent */
+  --accent-hover: #02aa48;
+  /* accent on hover */
+  --theorem-color: #88CCEE;
+  /* used for highlighting theorems/titles */
+  --warning-color: #FFC107;
+  /* warning / attention */
+  --h2-border: #5a4b2a;
+  /* h2 underline color */
 
   /* Accent glow / variants (rgba versions) */
   --accent-glow-weak: rgba(105, 240, 174, 0.05);
@@ -25,15 +30,6 @@
   --accent-border-rgba: rgba(105, 240, 174, 0.3);
   --accent-glow-strong: rgba(105, 240, 174, 0.2);
   --accent-glow-medium: rgba(105, 240, 174, 0.15);
-
-  /* Status colors */
-  --status-complete-bg: rgba(76, 175, 80, 0.2);
-  --status-complete-color: #4CAF50;
-  --status-complete-border: rgba(76, 175, 80, 0.3);
-  --status-development-bg: rgba(255, 193, 7, 0.2);
-  --status-development-color: #FFC107;
-  --status-development-border: rgba(255, 193, 7, 0.3);
-  --highlight-color: #ffcc00;
 
   --font-body: 'Lato', sans-serif;
   --font-heading: 'Poppins', sans-serif;
@@ -50,6 +46,12 @@
   --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
+/* Keep page scrollbar visible to avoid layout shift */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -58,9 +60,11 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* top-align content to avoid vertical shifts when panels change size */
+  align-items: flex-start;
   padding: var(--spacing-md);
   box-sizing: border-box;
+  scrollbar-gutter: stable;
 }
 
 h1 {
@@ -95,15 +99,18 @@ h5 {
 
 /* Proporzioni corrette per i titoli */
 h3 {
-  font-size: 1.4em; /* Proporzionato al testo più grande */
+  font-size: 1.4em;
+  /* Proporzionato al testo più grande */
 }
 
 h4 {
-  font-size: 1.2em; /* Leggermente più grande dei paragrafi */
+  font-size: 1.2em;
+  /* Leggermente più grande dei paragrafi */
 }
 
 h5 {
-  font-size: 1.1em; /* Appena più grande dei paragrafi */
+  font-size: 1.1em;
+  /* Appena più grande dei paragrafi */
 }
 
 mark {
@@ -120,11 +127,14 @@ mark {
   font-weight: 500;
 }
 
-/* 🔵 Azzurro - Teoremi e risultati importanti */
+/* 🔵 Teoremi: usare lo stesso font e colore del corpo; differenziazione tramite <strong> nel contenuto */
 .theorem {
   background-color: transparent;
-  color: var(--theorem-color);
-  font-weight: 600;
+  color: var(--text-color);
+  /* same as normal text */
+  font-family: var(--font-body);
+  font-weight: inherit;
+  /* keep author's strong tags for emphasis */
 }
 
 /* 🟡 Giallo - Warning/Attenzione */
@@ -133,6 +143,132 @@ mark {
   color: var(--warning-color);
   font-weight: 500;
 }
+
+/* =========================
+   Theorem unified border
+   - Prefer a wrapper element with class .theorem-container
+   - Fallback: when .theorem is immediately followed by .proof, visually merge borders
+   ========================= */
+
+/* Wrapper that encloses header, statement and proof in one continuous bordered block */
+.theorem-container {
+  border: 1px solid var(--theorem-color);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 20px 0;
+  background: transparent;
+}
+
+.theorem-container .theorem-header {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.theorem-container .theorem-statement {
+  margin: 0 0 10px 0;
+  /* remove left padding so the statement text aligns with the proof border */
+  padding: 12px 12px 12px 0;
+  background: transparent;
+  /* no background to keep the theorem visually light */
+  border-radius: 8px;
+  line-height: 1.7;
+}
+
+/* Small square button appended to theorem statements to toggle proof */
+.theorem-proof-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--theorem-color);
+  background: var(--panel-color);
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(136, 204, 238, 0.08);
+  transition: box-shadow 0.2s, background 0.2s;
+  z-index: 2;
+}
+
+.theorem-proof-button.corner {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+}
+
+.theorem-proof-button:hover {
+  background: var(--theorem-color);
+  box-shadow: 0 4px 12px var(--theorem-color);
+}
+
+/* Ensure the proof inside the wrapper doesn't add its own left border */
+.theorem-container .proof,
+.theorem-container .theorem-proof,
+.theorem-container .example-content.theorem-proof {
+  margin-top: 12px;
+  padding: 6px 0 0 0;
+  /* no left padding, no border */
+  /* slightly larger for readability */
+  font-size: 1.06em;
+  line-height: 1.85;
+  /* improved readability for proofs */
+  background: transparent;
+  color: var(--text-color);
+  font-family: var(--font-body);
+}
+
+/* Fallback when there is no wrapper: make adjacent .theorem + .proof appear as one block */
+.theorem,
+.proof {
+  border: 1px solid var(--theorem-color);
+  border-radius: 12px;
+  /* keep left padding removed for theorem so it aligns with proof border */
+  padding: 12px 12px 12px 0;
+  margin: 12px 0;
+  background: transparent;
+  /* remove gradient fallback background */
+  /* slightly increased base size for statements and proofs */
+  font-size: 1.05em;
+}
+
+.theorem+.proof {
+  /* remove the dividing border and adjust radii to visually merge */
+  margin-top: 0;
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding-top: 12px;
+  /* slightly more breathing room between statement and proof */
+}
+
+.theorem {
+  /* ensure top part has no top overlap when merged */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.proof {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  /* boost proof text slightly more to improve legibility */
+  font-size: 1.08em;
+  line-height: 1.8;
+}
+
+/* Minor visual tweaks inside merged block */
+.theorem .theorem-header,
+.proof .theorem-header {
+  margin-bottom: 6px;
+}
+
 
 /* 📐 Formule in evidenza */
 .formula-highlight {
@@ -187,11 +323,33 @@ mark {
   color: var(--secondary-text-color);
 }
 
+/* When example-content is used to render a theorem's proof, remove the accent line
+   and keep the content visually subtle and aligned with the theorem block. */
+.example-content.theorem-proof {
+  border-left: none;
+  padding-left: 0;
+  background: transparent;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  border-radius: 0 8px 8px 0;
+  /* keep rounded right corners */
+}
+
 ul li,
 ol li {
   margin-bottom: 10px;
   line-height: 1.6;
   font-size: 1.05em;
+}
+
+/* Paragraphs produced by the JSON renderer */
+.content-paragraph {
+  font-size: 1.06em;
+  /* slightly larger for readability */
+  line-height: 1.75;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  margin-bottom: 0.9em;
 }
 
 .math-block {
@@ -204,7 +362,7 @@ ol li {
 }
 
 .content-math {
-  font-size: 1.3em; 
+  font-size: 1.3em;
   margin: 25px 0;
   text-align: center;
   line-height: 1.6;
@@ -217,6 +375,7 @@ ol li {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -230,7 +389,6 @@ em {
 }
 
 strong {
-  color: var(--theorem-color);
   font-weight: bold;
 }
 
@@ -245,14 +403,13 @@ a:hover {
 }
 
 a.dim {
-  color: var(--secondary-text-color);
+  color: var(--theorem-color);
   font-style: italic;
   font-weight: normal;
   border: none;
 }
 
 a.dim:hover {
-  color: var(--secondary-text-color);
   text-decoration: underline;
   cursor: pointer;
 }
@@ -408,7 +565,7 @@ a.dim:hover {
   transform: translateY(-5px) scale(1.02);
   border-color: var(--accent-color);
   box-shadow: 0 15px 30px var(--accent-glow-medium);
-  color: var(--accent-color);
+  /* keep text color unchanged on hover */
   background: transparent;
 }
 
@@ -468,9 +625,7 @@ a.dim:hover {
   transition: color 0.3s ease;
 }
 
-.topic-list li:hover {
-  color: var(--accent-color);
-}
+/* hover kept without color change; no additional rules needed */
 
 .topic-list li::before {
   content: '→';
@@ -622,10 +777,110 @@ a.dim:hover {
   min-width: 0;
 }
 
+.content-list {
+  list-style: decimal inside;
+  padding-left: 22px;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.content-olist {
+  list-style: decimal inside;
+  padding-left: 22px;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.content-list li {
+  font-size: 1.1em;
+  color: var(--text-color);
+  margin-bottom: 0.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  background: transparent;
+  border-radius: 8px;
+  position: relative;
+  left: 0;
+  padding-left: 2.5em;
+}
+
+.content-olist li {
+  font-size: 1.1em;
+  color: var(--text-color);
+  margin-bottom: 0.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  background: transparent;
+  border-radius: 8px;
+  position: relative;
+  left: 0;
+  padding-left: 2.5em;
+}
+
+.content-list li .math-block,
+.content-list li .inline-math {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  display: inline-block;
+}
+
+.content-olist li .math-block,
+.content-olist li .inline-math {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  display: inline-block;
+}
+
+.content-list li::before {
+  content: none;
+}
+
+.content-olist li::before {
+  content: none;
+}
+
+.content-list li:last-child {
+  margin-bottom: 1.5em;
+}
+
+.content-olist li:last-child {
+  margin-bottom: 1.5em;
+}
+
+/* Liste dentro teoremi */
+.theorem-container ol,
+.theorem-container ul {
+  list-style: decimal inside;
+  padding-left: 22px;
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: 1.1em;
+  color: var(--text-color);
+  margin-bottom: 0.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  background: transparent;
+  border-radius: 8px;
+  position: relative;
+  left: 0;
+  padding-left: 2.5em;
+}
+
+.theorem-container ol li .math-block,
+.theorem-container ol li .inline-math,
+.theorem-container ul li .math-block,
+.theorem-container ul li .inline-math {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  display: inline-block;
+}
+
+.theorem-container ol li::before,
+.theorem-container ul li::before {
+  content: none;
+}
+
 .back-button {
-  position: absolute;
-  top: calc(var(--spacing-lg) + 8px);
-  left: var(--spacing-lg);
+  position: fixed;
+  top: 24px;
+  left: 24px;
   background-color: var(--panel-color);
   color: var(--secondary-text-color);
   border: 1px solid var(--border-color);
@@ -638,8 +893,8 @@ a.dim:hover {
   cursor: pointer;
   font-family: var(--font-body);
   font-size: 0.9em;
-  transition: all 0.2s ease;
-  z-index: 20;
+  transition: opacity 0.2s;
+  z-index: 1000;
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
@@ -662,7 +917,7 @@ a.dim:hover {
 .main-wrapper.single-panel .back-button {
   opacity: 1;
   pointer-events: all;
-  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
 .back-button:hover::before {
