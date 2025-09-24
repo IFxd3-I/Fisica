@@ -357,15 +357,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const proofContent = document.getElementById(proofId);
         if (!proofContent) return;
 
-        // Trova il bottone associato (cerca nel parent precedente, che è .theorem-statement)
+        // Trova il bottone associato in modo più robusto
         let button = null;
         let trigger = null;
-        if (proofContent.previousElementSibling && proofContent.previousElementSibling.classList.contains('theorem-statement')) {
-            trigger = proofContent.previousElementSibling;
-            button = trigger.querySelector('.theorem-proof-button');
-        } else {
-            // fallback: cerca il bottone nel parent
-            button = proofContent.parentElement && proofContent.parentElement.querySelector('.theorem-proof-button');
+
+        // 1. Cerca tra i fratelli precedenti
+        let sibling = proofContent.previousElementSibling;
+        while (sibling) {
+            if (sibling.classList && sibling.classList.contains('theorem-header')) {
+                button = sibling.querySelector('.theorem-proof-button');
+                break;
+            }
+            sibling = sibling.previousElementSibling;
+        }
+
+        // 2. Se non trovato, cerca nel parent più vicino
+        if (!button && proofContent.parentElement) {
+            button = proofContent.parentElement.querySelector('.theorem-proof-button');
+        }
+
+        // 3. Trova la .theorem-statement per trigger (per espansione grafica)
+        if (proofContent.parentElement) {
+            trigger = proofContent.parentElement.querySelector('.theorem-statement');
         }
 
         if (proofContent.style.display === 'none') {

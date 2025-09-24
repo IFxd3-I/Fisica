@@ -5,50 +5,133 @@
     <meta charset="UTF-8">
     <title>Fisica L-30</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="global-css/style.css">
 </head>
 
 <body>
-    <header class="site-header" role="banner">
+    <h1>Fisica L-30</h1>
+    <div class="years-container">
+        <div class="year-box" data-year="1">Anno 1</div>
+        <div class="year-box" data-year="2">Anno 2</div>
+        <div class="year-box" data-year="3">Anno 3</div>
+    </div>
 
-        <a class="site-title" href="index.html">Fisica</a>
+    <div id="year-1" class="year-section" style="display: none;">
+        <h2>Anno 1</h2>
+        <h3>Primo Semestre</h3>
+        <div class="subjects-grid">
+            <a href="analisi-1/" class="subject-card">
+                <h3>Analisi 1</h3>
+                <p>Fondamenti di calcolo differenziale e continuità.</p>
+            </a>
+            <a href="meccanica/" class="subject-card">
+                <h3>Meccanica</h3>
+                <p>Meccanica classica.</p>
+            </a>
+            <a href="laboratorio-e-statistica/" class="subject-card">
+                <h3>Laboratorio e Statistica</h3>
+                <p>Metodi statistici e esperimenti.</p>
+            </a>
+            <a href="informatica/" class="subject-card">
+                <h3>Informatica</h3>
+                <p>Algoritmi e strutture dati.</p>
+            </a>
+        </div>
+        <h3>Secondo Semestre</h3>
+        <div class="subjects-grid">
+            <a href="geometria-e-algebra-lineare/" class="subject-card">
+                <h3>Geometria e Algebra Lineare</h3>
+                <p>Spazi vettoriali e trasformazioni lineari.</p>
+            </a>
+            <a href="analisi-2/" class="subject-card">
+                <h3>Analisi 2</h3>
+                <p>Integrazione e funzioni di più variabili.</p>
+            </a>
+            <a href="onde-e-oscillazioni/" class="subject-card">
+                <h3>Onde e Oscillazioni</h3>
+                <p>Ottica, acustica e fisica ondulatoria.</p>
+            </a>
+        </div>
+        <button class="back-btn">Torna Indietro</button>
+    </div>
 
-        <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Apri menu">☰</button>
+    <div id="year-2" class="year-section" style="display: none;">
+        <h2>Anno 2</h2>
+        <h3>Primo Semestre</h3>
+        <div class="subjects-grid">
+            <a href="elettromagnetismo/" class="subject-card">
+                <h3>Elettromagnetismo</h3>
+                <p>Campi elettrici e magnetici.</p>
+            </a>
+            <a href="analisi-3/" class="subject-card">
+                <h3>Analisi 3</h3>
+                <p>Topologia e analisi funzionale.</p>
+            </a>
+            <a href="laboratorio-di-ottica-e-fisica-moderna/" class="subject-card">
+                <h3>Laboratorio di Ottica e Fisica Moderna</h3>
+                <p>Esperimenti di ottica e fisica moderna.</p>
+            </a>
+            <a href="laboratorio-numerico-di-dati-sperimentali/" class="subject-card">
+                <h3>Laboratorio Numerico di Dati Sperimentali</h3>
+                <p>Analisi numerica di dati sperimentali.</p>
+            </a>
+            <a href="meccanica-analitica/" class="subject-card">
+                <h3>Meccanica Analitica</h3>
+                <p>Meccanica lagrangiana e hamiltoniana.</p>
+            </a>
+        </div>
+        <h3>Secondo Semestre</h3>
+        <div class="subjects-grid">
+            <a href="fisica-quantistica-modulo-1/" class="subject-card">
+                <h3>Fisica Quantistica (Modulo 1)</h3>
+                <p>Principi della meccanica quantistica.</p>
+            </a>
+            <a href="laboratorio-di-strumentazione-elettronica/" class="subject-card">
+                <h3>Laboratorio di Strumentazione Elettronica</h3>
+                <p>Strumenti elettronici per esperimenti.</p>
+            </a>
+            <a href="metodi-matematici-della-fisica/" class="subject-card">
+                <h3>Metodi Matematici della Fisica</h3>
+                <p>Matematica applicata alla fisica.</p>
+            </a>
+            <a href="termodinamica/" class="subject-card">
+                <h3>Termodinamica</h3>
+                <p>Principi della termodinamica.</p>
+            </a>
+        </div>
+        <button class="back-btn">Torna Indietro</button>
+    </div>
 
-        <nav id="main-nav" class="nav" role="navigation" aria-label="Menu principale">
-
-            <div class="dropdown">
-                <button class="dropdown-toggle" aria-expanded="false">Primo anno</button>
-                <div class="dropdown-menu" role="menu">
-                    <a role="menuitem" href="analisi-1/index.html">Analisi 1</a>
-                    <a role="menuitem" href="geometria-e-algebra-lineare/index.html">Geometria & Algebra</a>
-                    <a role="menuitem" href="informatica/index.html">Informatica</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropdown-toggle" aria-expanded="false">Secondo anno</button>
-                <div class="dropdown-menu" role="menu">
-                    <a role="menuitem" href="analisi-2/index.html">Analisi 2</a>
-                    <a role="menuitem" href="laboratorio-e-statistica/index.html">Laboratorio e Statistica</a>
-                    <a role="menuitem" href="meccanica/index.html">Meccanica</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropdown-toggle" aria-expanded="false">Terzo anno</button>
-                <div class="dropdown-menu" role="menu">
-                    <a role="menuitem" href="analisi-3/index.html">Analisi 3</a>
-                    <a role="menuitem" href="onde-e-oscillazioni/index.html">Onde & Oscillazioni</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <div id="year-3" class="year-section" style="display: none;">
+        <h2>Anno 3</h2>
+        <h3>Primo Semestre</h3>
+        <div class="subjects-grid">
+            <a href="fisica-quantistica-modulo-2/" class="subject-card">
+                <h3>Fisica Quantistica (Modulo 2)</h3>
+                <p>Approfondimenti sulla meccanica quantistica.</p>
+            </a>
+            <a href="istituzioni-di-fisica-nucleare-e-subnucleare/" class="subject-card">
+                <h3>Istituzioni di Fisica Nucleare e Subnucleare</h3>
+                <p>Fisica del nucleo e delle particelle.</p>
+            </a>
+            <a href="struttura-della-materia-1/" class="subject-card">
+                <h3>Struttura della Materia 1</h3>
+                <p>Proprietà fisiche della materia.</p>
+            </a>
+            <a href="introduzione-all-astrofisica/" class="subject-card">
+                <h3>Introduzione all'Astrofisica</h3>
+                <p>Principi dell'astrofisica.</p>
+            </a>
+        </div>
+        <h3>Secondo Semestre</h3>
+        <div class="subjects-grid">
+            <a href="chimica-1/" class="subject-card">
+                <h3>Chimica 1</h3>
+                <p>Fondamenti di chimica.</p>
+            </a>
+        </div>
+        <button class="back-btn">Torna Indietro</button>
+    </div>
 
     <script src="global-js/script.js"></script>
 </body>

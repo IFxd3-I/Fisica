@@ -1,91 +1,102 @@
+/* =========================
+  CSS RESET & GLOBAL BOX MODEL
+  ========================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* =========================
+  ROOT VARIABLES (THEME COLORS, FONTS, SPACING)
+  ========================= */
 :root {
   /* Structural colors (can be overridden per-theme) */
-  --background-color: #1a1a1a;
-  --panel-color: #1a1a1a;
-  --border-color: #1a1a1a;
-  --text-color: #e0e0e0;
-  --secondary-text-color: #b0b0b0;
+  --background-color: #1a1a1a;        
+  --panel-color: #1a1a1a;           
+  --border-color: #1a1a1a;         
+  --text-color: #e0e0e0;            
+  --secondary-text-color: #b0b0b0;    
 
   /* Semantic colors */
-  --accent-color: #97d3b6;
-  /* primary accent */
-  --accent-hover: #02aa48;
-  /* accent on hover */
-  --theorem-color: #88CCEE;
-  /* used for highlighting theorems/titles */
-  --warning-color: #FFC107;
-  /* warning / attention */
-  --h2-border: #5a4b2a;
-  /* h2 underline color */
+  --accent-color: #97d3b6;           
+  --accent-hover: #02aa48;           
+  --theorem-color: #88CCEE;          
+  --warning-color: #FFC107;          
+  --h2-border: #5a4b2a;              
 
   /* Accent glow / variants (rgba versions) */
-  --accent-glow-weak: rgba(105, 240, 174, 0.05);
-  --accent-glow: rgba(105, 240, 174, 0.1);
-  --accent-border-rgba: rgba(105, 240, 174, 0.3);
-  --accent-glow-strong: rgba(105, 240, 174, 0.2);
-  --accent-glow-medium: rgba(105, 240, 174, 0.15);
+  --accent-glow-weak: rgba(105, 240, 174, 0.05);    
+  --accent-glow: rgba(105, 240, 174, 0.1);         
+  --accent-border-rgba: rgba(105, 240, 174, 0.3);   
+  --accent-glow-strong: rgba(105, 240, 174, 0.2);   
+  --accent-glow-medium: rgba(105, 240, 174, 0.15); 
 
-  --font-body: 'Lato', sans-serif;
-  --font-heading: 'Poppins', sans-serif;
+  /* Fonts */
+  --font-body: 'Lato', sans-serif;                
+  --font-heading: 'Poppins', sans-serif;           
 
-  --spacing-xs: 12px;
-  --spacing-sm: 15px;
-  --spacing-md: 20px;
-  --spacing-lg: 30px;
-  --spacing-xl: 40px;
-  --border-radius: 12px;
-  --transition-duration: 0.5s;
-  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
-  --panel-shadow: 0 5px 20px var(--shadow-color);
-  --shadow-color: rgba(0, 0, 0, 0.3);
+  /* Spacing & layout */
+  --spacing-xs: 12px;     
+  --spacing-sm: 15px;   
+  --spacing-md: 20px;      
+  --spacing-lg: 30px;      
+  --spacing-xl: 40px;     
+  --border-radius: 12px;   
+  --transition-duration: 0.5s;                
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1); 
+
+  /* Shadows */
+  --panel-shadow: 0 5px 20px var(--shadow-color);   
+  --shadow-color: rgba(0, 0, 0, 0.3);               
 }
 
-/* Keep page scrollbar visible to avoid layout shift */
+/* =========================
+  Page Base Styles
+  ========================= */
+
 html {
-  overflow-y: scroll;
-  scrollbar-gutter: stable;
+  overflow-y: scroll; /* Always show vertical scrollbar to prevent layout shift */
+  scrollbar-gutter: stable; /* Reserve space for scrollbar to prevent layout shift */
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--background-color); 
   color: var(--text-color);
-  font-family: var(--font-body);
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  /* top-align content to avoid vertical shifts when panels change size */
-  align-items: flex-start;
-  padding: var(--spacing-md);
+  font-family: var(--font-body);  
+  margin: 0; 
+  min-height: 100vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: flex-start; 
+  padding: var(--spacing-md); 
   box-sizing: border-box;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable; 
 }
 
+/* =========================
+  Titles & Headings
+  ========================= */
+
 h1 {
-  text-align: center;
-  margin-bottom: 35px;
-  font-size: 3.8em;
-  letter-spacing: 1.5px;
-  padding: 15px;
-  color: var(--theorem-color);
-  font-family: 'Montserrat', sans-serif;
-  text-shadow: 0 4px 10px var(--shadow-color);
+  text-align: center; 
+  margin-bottom: 35px;  
+  font-size: 3.8em; 
+  letter-spacing: 1.5px; 
+  padding: 15px; 
+  color: var(--theorem-color);  
+  font-family: 'Montserrat', sans-serif;  
+  text-shadow: 0 4px 10px var(--shadow-color); 
 }
 
 h2 {
   text-align: center;
-  color: var(--warning-color);
-  font-size: 2.5em;
-  margin: 0;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--h2-border);
-  font-family: 'Montserrat', sans-serif;
+  color: var(--warning-color); 
+  font-size: 2.5em; 
+  margin: 0;  
+  padding-bottom: 12px; 
+  border-bottom: 2px solid var(--h2-border);  
+  font-family: 'Montserrat', sans-serif;  
 }
 
 h3,
@@ -97,20 +108,16 @@ h5 {
   margin-bottom: var(--spacing-md);
 }
 
-/* Proporzioni corrette per i titoli */
 h3 {
   font-size: 1.4em;
-  /* Proporzionato al testo più grande */
 }
 
 h4 {
   font-size: 1.2em;
-  /* Leggermente più grande dei paragrafi */
 }
 
 h5 {
   font-size: 1.1em;
-  /* Appena più grande dei paragrafi */
 }
 
 mark {
@@ -118,37 +125,28 @@ mark {
   color: var(--accent-color);
 }
 
-/* === STYLE GUIDE PER ANALISI 1 === */
+/* =========================
+   Theorem, Definition, Warning Styles
+   ========================= */
 
-/* 🟢 Verde - Definizioni fondamentali */
 .definition {
   background-color: transparent;
   color: var(--accent-color);
   font-weight: 500;
 }
 
-/* 🔵 Teoremi: usare lo stesso font e colore del corpo; differenziazione tramite <strong> nel contenuto */
 .theorem {
   background-color: transparent;
   color: var(--text-color);
-  /* same as normal text */
   font-family: var(--font-body);
   font-weight: inherit;
-  /* keep author's strong tags for emphasis */
 }
 
-/* 🟡 Giallo - Warning/Attenzione */
 .warning {
   background-color: transparent;
   color: var(--warning-color);
   font-weight: 500;
 }
-
-/* =========================
-   Theorem unified border
-   - Prefer a wrapper element with class .theorem-container
-   - Fallback: when .theorem is immediately followed by .proof, visually merge borders
-   ========================= */
 
 /* Wrapper that encloses header, statement and proof in one continuous bordered block */
 .theorem-container {
@@ -169,15 +167,13 @@ mark {
 
 .theorem-container .theorem-statement {
   margin: 0 0 10px 0;
-  /* remove left padding so the statement text aligns with the proof border */
   padding: 12px 12px 12px 0;
   background: transparent;
-  /* no background to keep the theorem visually light */
   border-radius: 8px;
   line-height: 1.7;
 }
 
-/* Small square button appended to theorem statements to toggle proof */
+/* Small circle button on the top right to theorem statements to toggle proof */
 .theorem-proof-button {
   display: inline-flex;
   align-items: center;
@@ -211,11 +207,8 @@ mark {
 .theorem-container .example-content.theorem-proof {
   margin-top: 12px;
   padding: 6px 0 0 0;
-  /* no left padding, no border */
-  /* slightly larger for readability */
   font-size: 1.06em;
   line-height: 1.85;
-  /* improved readability for proofs */
   background: transparent;
   color: var(--text-color);
   font-family: var(--font-body);
@@ -226,27 +219,21 @@ mark {
 .proof {
   border: 1px solid var(--theorem-color);
   border-radius: 12px;
-  /* keep left padding removed for theorem so it aligns with proof border */
   padding: 12px 12px 12px 0;
   margin: 12px 0;
   background: transparent;
-  /* remove gradient fallback background */
-  /* slightly increased base size for statements and proofs */
   font-size: 1.05em;
 }
 
 .theorem+.proof {
-  /* remove the dividing border and adjust radii to visually merge */
   margin-top: 0;
   border-top: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   padding-top: 12px;
-  /* slightly more breathing room between statement and proof */
 }
 
 .theorem {
-  /* ensure top part has no top overlap when merged */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: none;
@@ -258,19 +245,14 @@ mark {
   border-top: none;
   color: var(--text-color);
   font-family: var(--font-body);
-  /* boost proof text slightly more to improve legibility */
   font-size: 1.08em;
   line-height: 1.8;
 }
 
-/* Minor visual tweaks inside merged block */
-.theorem .theorem-header,
-.proof .theorem-header {
-  margin-bottom: 6px;
-}
+/* =========================
+   Other Content Styles
+   ========================= */
 
-
-/* 📐 Formule in evidenza */
 .formula-highlight {
   background-color: var(--accent-glow-weak);
   border-left: 3px solid var(--accent-color);
@@ -279,7 +261,6 @@ mark {
   color: var(--accent-hover);
 }
 
-/* Esempi espandibili */
 .example-container {
   margin: 15px 0;
 }
@@ -332,7 +313,6 @@ mark {
   color: var(--text-color);
   font-family: var(--font-body);
   border-radius: 0 8px 8px 0;
-  /* keep rounded right corners */
 }
 
 ul li,
@@ -342,10 +322,12 @@ ol li {
   font-size: 1.05em;
 }
 
-/* Paragraphs produced by the JSON renderer */
+/* =========================
+  Json content styles
+   ========================= */
+
 .content-paragraph {
   font-size: 1.06em;
-  /* slightly larger for readability */
   line-height: 1.75;
   color: var(--text-color);
   font-family: var(--font-body);
@@ -367,8 +349,6 @@ ol li {
   text-align: center;
   line-height: 1.6;
 }
-
-/* duplicate example block removed (uses canonical .example-trigger/.example-content above) */
 
 @keyframes slideDown {
   from {
@@ -565,7 +545,6 @@ a.dim:hover {
   transform: translateY(-5px) scale(1.02);
   border-color: var(--accent-color);
   box-shadow: 0 15px 30px var(--accent-glow-medium);
-  /* keep text color unchanged on hover */
   background: transparent;
 }
 
@@ -946,7 +925,10 @@ a.dim:hover {
   display: block;
 }
 
-/* Stili per gli heading del contenuto JSON */
+/* =========================
+   Json content heading styles
+   ========================= */
+
 .content-heading-3 {
   font-family: var(--font-heading);
   color: var(--accent-color);
@@ -996,118 +978,4 @@ a.dim:hover {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-/* === STILI PER IL MENU PRINCIPALE === */
-.menu-description {
-  font-size: 1.2em;
-  color: var(--secondary-text-color);
-  text-align: center;
-  margin-bottom: var(--spacing-xl);
-  font-style: italic;
-}
-
-.subjects-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-md);
-}
-
-.subject-item {
-  background: var(--panel-color);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-md);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.subject-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
-  transition: left 0.6s;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.subject-item:hover::before {
-  left: 100%;
-}
-
-.subject-item:hover {
-  border-color: var(--accent-color);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px var(--accent-glow-medium);
-}
-
-.subject-info {
-  position: relative;
-  z-index: 1;
-}
-
-.subject-name {
-  font-family: var(--font-heading);
-  font-size: 1.4em;
-  color: var(--accent-color);
-  margin: 0 0 var(--spacing-sm) 0;
-  font-weight: 600;
-}
-
-.subject-description {
-  color: var(--text-color);
-  margin: 0 0 var(--spacing-sm) 0;
-  line-height: 1.5;
-}
-
-.subject-status {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8em;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.status-complete {
-  background: var(--status-complete-bg);
-  color: var(--status-complete-color);
-  border: 1px solid var(--status-complete-border);
-}
-
-.status-development {
-  background: var(--status-development-bg);
-  color: var(--status-development-color);
-  border: 1px solid var(--status-development-border);
-}
-
-/* === STILI PER MENU FULLSCREEN === */
-.subjects-list.fullscreen-menu {
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: var(--spacing-lg);
-}
-
-.fullscreen-menu .subject-item {
-  padding: var(--spacing-lg);
-  min-height: 120px;
-}
-
-.fullscreen-menu .subject-name {
-  font-size: 1.6em;
-  margin-bottom: var(--spacing-md);
-}
-
-.fullscreen-menu .subject-description {
-  font-size: 1.1em;
-  margin-bottom: var(--spacing-md);
 }

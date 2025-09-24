@@ -5,14 +5,13 @@
 }
 
 :root {
-  /* Oceanic Warm theme */
-  --background-color: #071826; /* deep navy */
-  --panel-color: #0E3947; /* dark teal panel */
-  --border-color: #123B47; /* subtle border */
-  --text-color: #E6F6FF; /* pale cyan text */
-  --secondary-text-color: #B6D7E8; /* muted cyan */
-  --active-gradient-start: #FFD166; /* accent start */
-  --active-gradient-end: #FFB347; /* accent end */
+  --background-color: #000000;
+  --panel-color: #0E3947;
+  --border-color: #123B47;
+  --text-color: #E6F6FF;
+  --secondary-text-color: #B6D7E8;
+  --active-gradient-start: #FFD166;
+  --active-gradient-end: #FFB347; 
   --active-shadow-color: rgba(255, 177, 71, 0.18);
 
   --font-body: 'Lato', sans-serif;
@@ -38,172 +37,130 @@ body {
   font-family: var(--font-body);
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  text-align: center;
   padding: var(--spacing-md);
   box-sizing: border-box;
 }
 
-.site-title {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.5em;
-}
-
-.site-header {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  right: 16px;
-  padding: 16px 28px;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xxl);
-  font-size: var(--header-font-size);
-  z-index: 1000;
-  backdrop-filter: blur(6px);
-}
-
-.site-header * {
-  font-size: inherit;
-}
-
-.nav {
-  margin-left: 64px;
-  display: flex;
-  gap: 36px;
-  align-items: center;
-}
-
-.nav a {
-  color: var(--secondary-text-color);
-  text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  transition: background var(--transition-duration) var(--transition-timing), color var(--transition-duration) var(--transition-timing);
+h1 {
+  text-align: center;
   font-family: var(--font-elegant);
-  font-style: italic;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-toggle {
-  background: transparent;
-  border: 0;
-  color: var(--secondary-text-color);
-  padding: 10px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: var(--font-elegant);
-  font-style: italic;
-  font-size: inherit;
-}
-
-.dropdown-toggle:hover,
-.dropdown-toggle:focus {
+  font-size: 3em;
+  margin-top: 10vh;
   color: var(--text-color);
 }
 
-.dropdown-menu {
-  position: absolute;
-  left: 0;
-  top: 100%;
-  background: var(--panel-color);
+.years-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.year-box {
+  width: 200px;
+  height: 200px;
+  background-color: var(--panel-color);
   border: 1px solid var(--border-color);
-  border-radius: 10px;
-  min-width: 200px;
-  padding: 10px 8px;
+  border-radius: var(--border-radius);
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-family: var(--font-heading);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: var(--transition-duration);
   box-shadow: var(--shadow-main);
-  z-index: 1200;
-  opacity: 0;
-  transform: translateY(-6px);
-  pointer-events: none;
-  transition: opacity 220ms var(--transition-timing), transform 220ms var(--transition-timing);
 }
 
-.dropdown-menu a {
-  color: var(--secondary-text-color);
-  padding: 10px 14px;
-  text-decoration: none;
-  border-radius: 8px;
+.year-box:hover {
+  background-color: var(--active-gradient-start);
+  color: var(--background-color);
+  transform: scale(1.05);
+}
+
+.year-section {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.year-section h2 {
   font-family: var(--font-elegant);
-  font-style: italic;
-  font-size: inherit;
-}
-
-.dropdown-menu a:hover {
+  font-size: 2.5em;
+  margin-bottom: var(--spacing-lg);
   color: var(--text-color);
 }
 
-/* show when .open */
-.dropdown.open > .dropdown-menu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* open on hover for devices that support hover (desktop) */
-@media (hover: hover) and (pointer: fine) {
-  .dropdown:hover > .dropdown-menu {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-  .dropdown:hover .dropdown-toggle::after {
-    transform: rotate(45deg);
-  }
-}
-
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: 0;
+.year-section h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8em;
+  margin: var(--spacing-lg) 0 var(--spacing-md);
   color: var(--text-color);
-  font-size: inherit;
-  margin-right: 12px;
 }
 
-@media (max-width: 860px) {
-  body {
-    padding-top: 84px;
-  }
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1000px;
+  margin: 0 auto var(--spacing-lg);
+}
 
-  .nav {
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    top: 64px;
+.subject-card {
+  background-color: var(--panel-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: var(--transition-duration);
+  box-shadow: var(--shadow-main);
+  display: block;
+}
+
+.subject-card:hover {
+  background-color: var(--active-gradient-start);
+  color: var(--background-color);
+  transform: translateY(-5px);
+}
+
+.subject-card h3 {
+  font-family: var(--font-heading);
+  margin-bottom: var(--spacing-xs);
+}
+
+.subject-card p {
+  font-size: 0.9em;
+  color: var(--secondary-text-color);
+}
+
+.back-btn {
+  background: var(--active-gradient-start);
+  color: var(--background-color);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-size: 1em;
+  cursor: pointer;
+  transition: var(--transition-duration);
+  margin-top: var(--spacing-lg);
+}
+
+.back-btn:hover {
+  background: var(--active-gradient-end);
+}
+
+@media (max-width: 768px) {
+  .years-container {
     flex-direction: column;
-    background: var(--panel-color);
-    padding: 10px;
-    border-radius: 12px;
-    display: none;
+    gap: var(--spacing-md);
   }
-
-  .nav.show {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: inline-block;
-    margin-left: auto;
-  }
-
-  .dropdown-menu {
-    position: static;
-    top: auto;
-    left: auto;
-    box-shadow: none;
-    padding-left: 6px;
-  }
-
-  .dropdown:hover>.dropdown-menu {
-    display: none;
+  .year-box {
+    width: 150px;
+    height: 150px;
   }
 }
