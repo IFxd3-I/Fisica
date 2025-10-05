@@ -260,6 +260,29 @@ document.querySelectorAll('.module').forEach(module => {
         const chaptersList = document.createElement('ul');
         chaptersList.className = 'chapters-list';
 
+        // Popola anche il sidebar con i capitoli
+        const sidebar = document.getElementById('sidebar-menu');
+        const moduleName = module.textContent;
+
+        if (sidebar) {
+            // Rimuovi capitoli e titolo precedenti dal sidebar
+            const prevTitle = sidebar.querySelector('.sidebar-chapters-title');
+            if (prevTitle) prevTitle.remove();
+            const prevList = sidebar.querySelector('.sidebar-chapters-list');
+            if (prevList) prevList.remove();
+
+            // Aggiungi un titolo per i capitoli nel sidebar
+            const chaptersTitle = document.createElement('h3');
+            chaptersTitle.className = 'sidebar-chapters-title';
+            chaptersTitle.textContent = moduleName;
+            sidebar.appendChild(chaptersTitle);
+
+            // Crea lista capitoli per il sidebar
+            const sidebarChaptersList = document.createElement('ul');
+            sidebarChaptersList.className = 'sidebar-chapters-list';
+            sidebar.appendChild(sidebarChaptersList);
+        }
+
         if (chapters[moduleKey]) {
             chapters[moduleKey].forEach(chapter => {
                 const li = document.createElement('li');
@@ -271,6 +294,28 @@ document.querySelectorAll('.module').forEach(module => {
                     showChapterPage(chapter.title);
                 });
                 chaptersList.appendChild(li);
+
+                // Aggiungi anche al sidebar
+                if (sidebar) {
+                    const sidebarLi = document.createElement('li');
+                    const sidebarLink = document.createElement('a');
+                    sidebarLink.href = '#';
+                    sidebarLink.textContent = chapter.title;
+                    sidebarLink.setAttribute('data-chapter', chapter.json);
+                    sidebarLink.setAttribute('data-module', moduleKey); // Aggiungo il data-module
+                    sidebarLink.setAttribute('data-year', year);       // Aggiungo il data-year
+                    sidebarLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        
+                        // Imposto le variabili globali prima di chiamare showChapterPage
+                        currentlyOpenModuleKey = e.target.getAttribute('data-module');
+                        currentYear = e.target.getAttribute('data-year');
+
+                        showChapterPage(chapter.title);
+                    });
+                    sidebarLi.appendChild(sidebarLink);
+                    sidebar.querySelector('.sidebar-chapters-list').appendChild(sidebarLi);
+                }
             });
         }
 
@@ -289,7 +334,17 @@ document.getElementById('back-button').addEventListener('click', () => {
     document.getElementById('chapter-page').classList.add('hidden');
     // Show years container
     document.querySelector('.years-container').classList.remove('hidden');
+    // Rimuovi il gradiente da main e header
+    document.querySelector('main').style.background = '';
+    document.querySelector('header').style.background = '';
+    
+    // Nascondi il menu laterale e il pulsante
+    document.getElementById('sidebar-menu').classList.add('hidden');
+    document.getElementById('toggle-menu-btn').classList.add('hidden');
 });
+
+// Toggle menu button handler
+document.getElementById('toggle-menu-btn').addEventListener('click', toggleMenu);
 
 // Reset accordion section state when mouse leaves each section
 document.querySelectorAll('.accordion-section').forEach(section => {
@@ -341,15 +396,31 @@ function toggleExample(exampleId) {
     }
 }
 
+function toggleMenu() {
+    const sidebar = document.querySelector('.sidebar-menu');
+    if (sidebar) {
+        sidebar.classList.toggle('open');
+    }
+}
+
 async function showChapterPage(chapterTitle) {
 
     const chapterPage = document.getElementById('chapter-page');
     const yearsContainer = document.querySelector('.years-container');
+    const main = document.querySelector('main');
+    const header = document.querySelector('header');
 
     // Nascondi la lista anni
     yearsContainer.classList.add('hidden');
     // Mostra la pagina capitolo
     chapterPage.classList.remove('hidden');
+    // Aggiungi sfondo opaco a main e header
+    main.style.background = 'rgba(0, 0, 0, 0.6)';
+    header.style.background = 'rgba(0, 0, 0, 0.6)';
+
+    // Mostra il menu laterale e il pulsante
+    document.getElementById('sidebar-menu').classList.remove('hidden');
+    document.getElementById('toggle-menu-btn').classList.remove('hidden');
 
     // Trova il capitolo selezionato
     const chapter = chapters[currentlyOpenModuleKey]?.find(c => c.title === chapterTitle);

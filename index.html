@@ -19,6 +19,15 @@
     <header>
         <h1>Fisica L-30</h1>
     </header>
+    
+    <!-- Menu laterale sinistro -->
+    <nav class="sidebar-menu hidden" id="sidebar-menu">
+        
+    </nav>
+    
+    <!-- Pulsante toggle menu -->
+    <button id="toggle-menu-btn" class="hidden">☰</button>
+    
     <main>
         <div class="years-container">
             <div class="accordion">
@@ -48,22 +57,22 @@
                         <h2>Anno 2</h2>
                         <h3>Primo Semestre</h3>
                         <ul>
-                            <li class="module" data-content="elettromagnetismo">Elettromagnetismo</li>
-                            <li class="module" data-content="analisi-3">Analisi III</li>
-                            <li class="module" data-content="laboratorio-ottica">Laboratorio di ottica e fisica Moderna
+                            <li class="module" data-year="2" data-subject="elettromagnetismo">Elettromagnetismo</li>
+                            <li class="module" data-year="2" data-subject="analisi-3">Analisi III</li>
+                            <li class="module" data-year="2" data-subject="laboratorio-ottica">Laboratorio di ottica e fisica Moderna
                             </li>
-                            <li class="module" data-content="laboratorio-trattamento-numerico">Laboratorio di
+                            <li class="module" data-year="2" data-subject="laboratorio-trattamento-numerico">Laboratorio di
                                 trattamento numerico dei dati sperimentali</li>
-                            <li class="module" data-content="meccanica-analitica">Meccanica analitica</li>
+                            <li class="module" data-year="2" data-subject="meccanica-analitica">Meccanica analitica</li>
                         </ul>
                         <h3>Secondo Semestre</h3>
                         <ul>
-                            <li class="module" data-content="fisica-quantistica-1">Fisica quantistica I</li>
-                            <li class="module" data-content="laboratorio-strumentazione-elettronica">Laboratorio di
+                            <li class="module" data-year="2" data-subject="fisica-quantistica-1">Fisica quantistica I</li>
+                            <li class="module" data-year="2" data-subject="laboratorio-strumentazione-elettronica">Laboratorio di
                                 strumentazione elettronica</li>
-                            <li class="module" data-content="metodi-matematici-fisica">Metodi matematici della fisica
+                            <li class="module" data-year="2" data-subject="metodi-matematici-fisica">Metodi matematici della fisica
                             </li>
-                            <li class="module" data-content="termodinamica">Termodinamica</li>
+                            <li class="module" data-year="2" data-subject="termodinamica">Termodinamica</li>
                         </ul>
                     </div>
                 </div>
@@ -73,17 +82,17 @@
                         <h2>Anno 3</h2>
                         <h3>Primo Semestre</h3>
                         <ul>
-                            <li class="module">Fisica quantistica II</li>
-                            <li class="module">Istituzioni di fisica nucleare e subnucleare</li>
-                            <li class="module">Struttura della materia I</li>
-                            <li class="module">Introduzione all'astrofisica</li>
-                            <li class="module">Introduzione all'intelligenza Artificiale</li>
+                            <li class="module" data-year="3" data-subject="fisica-quantistica-2">Fisica quantistica II</li>
+                            <li class="module" data-year="3" data-subject="istituzioni-fisica-nucleare-subnucleare">Istituzioni di fisica nucleare e subnucleare</li>
+                            <li class="module" data-year="3" data-subject="struttura-materia-1">Struttura della materia I</li>
+                            <li class="module" data-year="3" data-subject="introduzione-astrofisica">Introduzione all'astrofisica</li>
+                            <li class="module" data-year="3" data-subject="introduzione-intelligenza-artificiale">Introduzione all'intelligenza Artificiale</li>
                         </ul>
                         <h3>Secondo Semestre</h3>
                         <ul>
-                            <li class="module">Fisica Generale</li>
-                            <li class="module">Informatica</li>
-                            <li class="module">Informazione e calcolo quantistico</li>
+                            <li class="module" data-year="3" data-subject="fisica-generale">Fisica Generale</li>
+                            <li class="module" data-year="3" data-subject="informatica">Informatica</li>
+                            <li class="module" data-year="3" data-subject="informazione-calcolo-quantistico">Informazione e calcolo quantistico</li>
                         </ul>
                     </div>
                 </div>
@@ -91,7 +100,6 @@
         </div>
     </main>
     <div id="chapter-page" class="chapter-page hidden">
-        <h1 id="chapter-title"></h1>
         <div id="chapter-content"></div>
         <button id="back-button">Torna indietro</button>
     </div>
