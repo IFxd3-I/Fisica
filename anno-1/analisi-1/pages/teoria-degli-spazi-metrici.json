@@ -1,0 +1,26 @@
+{
+    "content": [
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Spazi metrici: definizione, primi esempi inclusi spazi euclidei"
+        },
+        {
+            "type": "paragraph",
+            "text": "Per questa sezione fare riferimento al corso di <a href=\"/home/fede/fisica/geometria-e-algebra-lineare/pages/index.html\">geometria e algebra lineare.</a>."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Intorni e classificazione dei punti"
+        },
+        {
+            "type": "paragraph",
+            "text": "Per misurare la distanza all'interno di un isnieme, ci avvaliamo della nozione di intorno."
+        },
+        {
+            "type": "paragraph",
+            "text": "<strong>Definizione:</strong> Sia \\((X,d)\\) uno spazio metrico. Sia \\(p \\in X\\) e \\(r > 0\\). Si chiama <mark>intorno</mark> di \\(p\\) di raggio \\(r\\) l'insieme \\(B(p,r) = \\{x \\in X : d(x,p) < r\\}\\). Il punto \\(p\\) si chiama <mark>centro</mark> dell'intorno."
+        }
+    ]
+}

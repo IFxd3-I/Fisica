@@ -5,37 +5,381 @@
 }
 
 :root {
-  --header-bg-color: #000000;
-  --main-content-bg-color: #311212;
-  --main-text-color: #FFFFFF;
+  --main-text-color: #ffffff;
+  --years-section-hover-color: #310b2f;
+  --transition-duration: 0.4s;
 }
 
 body {
-  background-color: var(--header-bg-color);
   color: var(--main-text-color);
   min-height: 100vh;
-  padding: 20px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0px;
   display: grid;
   grid-template-rows: 80px 1fr;
+  grid-template-columns: 1fr;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background-image 1s ease-in-out;
 }
 
 header {
-  background-color: var(--header-bg-color);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+  backdrop-filter: blur(1px);
+  display: flex;
+  padding: 20px;
+  position: relative;
+  align-items: center;
+}
+
+header h1 {
+  margin-left: 40px;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: var(--main-text-color);
-  padding: 0 20px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
 }
 
 main {
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  min-height: 0;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: var(--main-content-bg-color);
-  color: var(--main-text-color);
-  padding: 40px;
-  gap: 20px;
   position: relative;
+}
+
+.years-container {
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.years-container.hidden {
+  display: none;
+}
+
+.accordion {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.accordion-section {
+  flex: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+  border-radius: 8px;
+  margin: 0 4px;
+  transition: flex var(--transition-duration) cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  position: relative;
+}
+
+.accordion-section:first-child {
+  margin-left: 0;
+}
+
+.accordion-section:last-child {
+  margin-right: 0;
+}
+
+.accordion-section:hover {
+  flex: 6;
+  background-color: rgba(49, 11, 47, 0.5);
+}
+
+.accordion-section:hover .accordion-section-content {
+  opacity: 1;
+}
+
+.accordion-section:hover .accordion-title-vertical {
+  opacity: 0;
+}
+
+.accordion-title-vertical {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  writing-mode: vertical-rl;
+  transform: translate(-50%, -50%) rotate(180deg);
+  white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--main-text-color);
+  letter-spacing: 1px;
+  transition: opacity var(--transition-duration) ease;
+}
+
+.accordion-section-content {
+  padding: 1.5rem;
+  width: 100%;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity var(--transition-duration) ease;
+  transition-delay: 0.1s;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.accordion-section-content::-webkit-scrollbar {
+  display: none;
+}
+
+.accordion-section-content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.accordion-section-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--main-text-color);
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.accordion-section-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.accordion-section-content h3 {
+  font-size: 1.2rem;
+  margin: 1.5rem 0 0.75rem 0;
+  color: var(--main-text-color);
+  font-weight: 500;
+  border-bottom: 2px solid var(--years-section-hover-color);
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.accordion-section-content ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.accordion-section-content li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.accordion-section-content .module {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-align: left;
+}
+
+.accordion-section-content .module:hover {
+  transform: translateX(5px) scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.chapters-list {
+  list-style-type: none;
+  padding-left: 0;
+  padding: 1.5rem;
+  width: 100%;
+  z-index: 2;
+  transition: opacity var(--transition-duration) ease;
+  transition-delay: 2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  ;
+}
+
+.chapters-list li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.chapters-list .chapter {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-align: left;
+}
+
+.chapters-list .chapter:hover {
+  transform: translateX(5px) scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.chapter-page {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem;
+  overflow-y: auto;
+  z-index: 10;
+  line-height: 1.6;
+}
+
+.chapter-page .chapter-content {
+  background: rgba(0, 0, 0, 0.5);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-page:not(.hidden) {
+  display: block;
+}
+
+#back-button {
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--years-section-bg-color);
+  color: var(--main-text-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Stili per teoremi e dimostrazioni */
+.theorem-container {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.theorem-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.theorem-category {
+  font-weight: bold;
+  color: #ffa500;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.theorem-statement {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.theorem-proof-button {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') no-repeat center;
+  background-size: 20px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #333;
+}
+
+.theorem-proof-button:hover {
+  background-color: #555;
+}
+
+.theorem-proof {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-left: 4px solid #ffa500;
+  background: rgba(255, 165, 0, 0.1);
+}
+
+.example-content {
+  line-height: 1.6;
+}
+
+/* Stili per esempi */
+.example-container {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.example-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.example-button:hover {
+  background-color: #555;
+}
+
+.example-content {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-left: 4px solid #00aaff;
+  background: rgba(0, 170, 255, 0.1);
+  line-height: 1.6;
+}
+
+/* Stili per titoli di contenuto */
+.content-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--main-text-color);
+  margin: 1rem 0;
+  text-align: center;
+  border-bottom: 2px solid #ffa500;
+  padding-bottom: 0.5rem;
+}
+
+/* Stili per liste */
+.content-list {
+  margin: 1rem 0;
+  padding-left: 2rem;
+  line-height: 1.6;
+}
+
+.content-list li {
+  margin-bottom: 0.5rem;
 }

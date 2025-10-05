@@ -1,14 +1,9 @@
 {
-    "title": "Il Campo Reale",
-    "toc": [
-        "Insiemi numerici noti <strong>N</strong>, <strong>Z</strong>, <strong>Q</strong>",
-        "Rappresentazione decimale dei razionali",
-        "Numeri reali <strong>R</strong>: definizione, estremo superiore/inferiore",
-        "<a class=\"dim\">Densità di <strong>Q</strong> in <strong>R</strong></a>, la completezza di <strong>R</strong>",
-        "Richiami sul concetto di funzione tra insieme",
-        "Insiemi equipotenti: <a class=\"dim\">insiemi numerabili</a>, <a class=\"dim\">non numerabilità di <strong>R</strong></a>"
-    ],
     "content": [
+        {
+            "type": "title",
+            "text": "Il Campo Reale"
+        },
         {
             "type": "heading",
             "level": 3,
