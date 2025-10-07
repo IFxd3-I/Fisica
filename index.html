@@ -13,21 +13,21 @@
 
     <link rel="stylesheet" href="global-css/style.css">
 
-</head> 
+</head>
 
 <body>
     <header>
-        <h1>Fisica L-30</h1>
+        <h1><a href="index.html" id="home-link">Fisica L-30</a></h1>
     </header>
-    
+
     <!-- Menu laterale sinistro -->
     <nav class="sidebar-menu hidden" id="sidebar-menu">
-        
+
     </nav>
-    
+
     <!-- Pulsante toggle menu -->
     <button id="toggle-menu-btn" class="hidden">☰</button>
-    
+
     <main>
         <div class="years-container">
             <div class="accordion">
@@ -40,7 +40,8 @@
                             <li class="module" data-year="1" data-subject="analisi-1">Analisi I</li>
                             <li class="module" data-year="1" data-subject="informatica">Informatica</li>
                             <li class="module" data-year="1" data-subject="meccanica">Meccanica</li>
-                            <li class="module" data-year="1" data-subject="laboratorio-fisica">Laboratorio di Fisica con elementi di
+                            <li class="module" data-year="1" data-subject="laboratorio-fisica">Laboratorio di Fisica con
+                                elementi di
                                 statistica</li>
                         </ul>
                         <h3>Secondo Semestre</h3>
@@ -59,18 +60,23 @@
                         <ul>
                             <li class="module" data-year="2" data-subject="elettromagnetismo">Elettromagnetismo</li>
                             <li class="module" data-year="2" data-subject="analisi-3">Analisi III</li>
-                            <li class="module" data-year="2" data-subject="laboratorio-ottica">Laboratorio di ottica e fisica Moderna
+                            <li class="module" data-year="2" data-subject="laboratorio-ottica">Laboratorio di ottica e
+                                fisica Moderna
                             </li>
-                            <li class="module" data-year="2" data-subject="laboratorio-trattamento-numerico">Laboratorio di
+                            <li class="module" data-year="2" data-subject="laboratorio-trattamento-numerico">Laboratorio
+                                di
                                 trattamento numerico dei dati sperimentali</li>
                             <li class="module" data-year="2" data-subject="meccanica-analitica">Meccanica analitica</li>
                         </ul>
                         <h3>Secondo Semestre</h3>
                         <ul>
-                            <li class="module" data-year="2" data-subject="fisica-quantistica-1">Fisica quantistica I</li>
-                            <li class="module" data-year="2" data-subject="laboratorio-strumentazione-elettronica">Laboratorio di
+                            <li class="module" data-year="2" data-subject="fisica-quantistica-1">Fisica quantistica I
+                            </li>
+                            <li class="module" data-year="2" data-subject="laboratorio-strumentazione-elettronica">
+                                Laboratorio di
                                 strumentazione elettronica</li>
-                            <li class="module" data-year="2" data-subject="metodi-matematici-fisica">Metodi matematici della fisica
+                            <li class="module" data-year="2" data-subject="metodi-matematici-fisica">Metodi matematici
+                                della fisica
                             </li>
                             <li class="module" data-year="2" data-subject="termodinamica">Termodinamica</li>
                         </ul>
@@ -82,17 +88,23 @@
                         <h2>Anno 3</h2>
                         <h3>Primo Semestre</h3>
                         <ul>
-                            <li class="module" data-year="3" data-subject="fisica-quantistica-2">Fisica quantistica II</li>
-                            <li class="module" data-year="3" data-subject="istituzioni-fisica-nucleare-subnucleare">Istituzioni di fisica nucleare e subnucleare</li>
-                            <li class="module" data-year="3" data-subject="struttura-materia-1">Struttura della materia I</li>
-                            <li class="module" data-year="3" data-subject="introduzione-astrofisica">Introduzione all'astrofisica</li>
-                            <li class="module" data-year="3" data-subject="introduzione-intelligenza-artificiale">Introduzione all'intelligenza Artificiale</li>
+                            <li class="module" data-year="3" data-subject="fisica-quantistica-2">Fisica quantistica II
+                            </li>
+                            <li class="module" data-year="3" data-subject="istituzioni-fisica-nucleare-subnucleare">
+                                Istituzioni di fisica nucleare e subnucleare</li>
+                            <li class="module" data-year="3" data-subject="struttura-materia-1">Struttura della materia
+                                I</li>
+                            <li class="module" data-year="3" data-subject="introduzione-astrofisica">Introduzione
+                                all'astrofisica</li>
+                            <li class="module" data-year="3" data-subject="introduzione-intelligenza-artificiale">
+                                Introduzione all'intelligenza Artificiale</li>
                         </ul>
                         <h3>Secondo Semestre</h3>
                         <ul>
                             <li class="module" data-year="3" data-subject="fisica-generale">Fisica Generale</li>
                             <li class="module" data-year="3" data-subject="informatica">Informatica</li>
-                            <li class="module" data-year="3" data-subject="informazione-calcolo-quantistico">Informazione e calcolo quantistico</li>
+                            <li class="module" data-year="3" data-subject="informazione-calcolo-quantistico">
+                                Informazione e calcolo quantistico</li>
                         </ul>
                     </div>
                 </div>
@@ -103,6 +115,14 @@
         <div id="chapter-content"></div>
         <button id="back-button">Torna indietro</button>
     </div>
+
+    <!-- Lightbox per le immagini -->
+    <div id="lightbox" class="lightbox-overlay" style="display: none;">
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Immagine ingrandita" />
+        </div>
+    </div>
+
     <script src="global-js/script.js"></script>
 </body>
 

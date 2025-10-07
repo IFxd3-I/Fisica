@@ -1,3 +1,7 @@
+/* ===========================================
+   RESET E VARIABILI GLOBALI
+   =========================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +18,12 @@
   display: none !important;
 }
 
+/* ===========================================
+   LAYOUT GENERALE
+   =========================================== */
+
 body {
+  background-color: #000000;
   color: var(--main-text-color);
   min-height: 100vh;
   overflow-y: hidden;
@@ -27,6 +36,27 @@ body {
   background-position: center;
   background-attachment: fixed;
   transition: background-image 1s ease-in-out;
+}
+
+strong {
+  font-weight: 700;
+  /* Più audace per maggiore enfasi */
+  color: #ffa500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  /* Ombra sottile per contrasto */
+  transition: color 0.3s ease;
+  /* Transizione fluida per interazioni */
+}
+
+mark {
+  background-color: transparent;
+  color: #ffd700;
+  padding: 2px 6px;
+  /* Padding leggermente aumentato per bilanciamento */
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /* Transizioni fluide */
+  font-style: italic;
 }
 
 header {
@@ -45,6 +75,11 @@ header h1 {
   letter-spacing: 1px;
 }
 
+header h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -53,6 +88,10 @@ main {
   overflow-x: hidden;
   position: relative;
 }
+
+/* ===========================================
+   CONTENITORE ANNI
+   =========================================== */
 
 .years-container {
   width: 100%;
@@ -65,9 +104,9 @@ main {
   position: relative;
 }
 
-.hidden {
-  display: none !important;
-}
+/* ===========================================
+   ACCORDION - SEZIONI ANNI
+   =========================================== */
 
 .accordion {
   width: 100%;
@@ -202,6 +241,10 @@ main {
   transition: all 0.3s ease;
 }
 
+/* ===========================================
+   LISTA CAPITOLI
+   =========================================== */
+
 .chapters-list {
   list-style-type: none;
   padding-left: 0;
@@ -217,7 +260,6 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  ;
 }
 
 .chapters-list li {
@@ -241,6 +283,10 @@ main {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
+
+/* ===========================================
+   PAGINA CAPITOLO
+   =========================================== */
 
 .chapter-page {
   display: none;
@@ -278,7 +324,10 @@ main {
   cursor: pointer;
 }
 
-/* Stili per teoremi e dimostrazioni */
+/* ===========================================
+   CONTENUTO SPECIFICO - TEOREMI E DIMOSTRAZIONI
+   =========================================== */
+
 .theorem-container {
   margin: 1.5rem 0;
   padding: 1rem;
@@ -328,7 +377,10 @@ main {
   background: rgba(255, 165, 0, 0.1);
 }
 
-/* Stili per esempi */
+/* ===========================================
+   CONTENUTO SPECIFICO - ESEMPI
+   =========================================== */
+
 .example-container {
   margin: 1.5rem 0;
   padding: 1rem;
@@ -360,18 +412,92 @@ main {
   line-height: 1.6;
 }
 
-/* Stili per titoli di contenuto */
-.content-title {
-  font-size: 1.8rem;
-  font-weight: bold;
+/* ===========================================
+   CONTENUTO SPECIFICO - TITOLI E TESTO
+   =========================================== */
+
+.chapter-page .chapter-content {
+  font-size: 1.2rem;
   color: var(--main-text-color);
-  margin: 1rem 0;
-  text-align: center;
-  border-bottom: 2px solid #ffa500;
-  padding-bottom: 0.5rem;
+  line-height: 1.7;
+  padding: 1rem;
 }
 
-/* Stili per liste */
+.content-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--main-text-color);
+  margin: 1.5rem 0;
+  text-align: center;
+  border-bottom: 4px solid var(--accent-color-1);
+  padding-bottom: 0.75rem;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.4);
+}
+
+.chapter-page .chapter-content h3 {
+  font-size: 1.4rem;
+  margin: 2rem 0 0.8rem 0;
+  color: var(--main-text-color);
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent-color-2);
+  padding-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: 2px solid #310b2f;
+  text-shadow: 0 0 5px rgba(187, 134, 252, 0.2);
+}
+
+.chapter-page .chapter-content h4 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.75rem 0;
+  color: var(--main-text-color);
+  font-weight: 600;
+  border-bottom: 1px solid var(--accent-color-2);
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  opacity: 0.9;
+}
+
+/* ===========================================
+   CONTENUTO SPECIFICO - MATEMATICA
+   =========================================== */
+
+.math-block {
+  background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 215, 0, 0.05));
+  border: 2px solid rgba(255, 165, 0, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.math-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ffa500, #ffd700, #ffa500);
+  border-radius: 12px 12px 0 0;
+}
+
+.inline-math {
+  color: #ffd700;
+  font-weight: 600;
+  font-size: 1.05em;
+  padding: 0.1rem 0.2rem;
+  border-radius: 3px;
+}
+
+/* ===========================================
+   CONTENUTO SPECIFICO - LISTE
+   =========================================== */
+
 .content-list {
   margin: 1rem 0;
   padding-left: 2rem;
@@ -382,11 +508,43 @@ main {
   margin-bottom: 0.5rem;
 }
 
-/* Menu laterale sinistro */
+/* ===========================================
+   CONTENUTO SPECIFICO - IMMAGINI
+   =========================================== */
+
+.content-image {
+  margin: 20px 0;
+  text-align: center;
+  max-width: 100%;
+}
+
+.content-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 0 auto;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.content-image figcaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #cccccc;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ===========================================
+   MENU LATERALE
+   =========================================== */
+
 .sidebar-menu {
   position: fixed;
   top: 80px;
-  left: -300px; /* Nascosto a sinistra */
+  left: -300px;
   width: 300px;
   height: calc(100vh - 80px);
   background: rgba(0, 0, 0, 0.8);
@@ -463,7 +621,10 @@ main {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Pulsante toggle menu */
+/* ===========================================
+   PULSANTI E CONTROLLI
+   =========================================== */
+
 #toggle-menu-btn {
   position: fixed;
   top: 50%;
@@ -480,6 +641,41 @@ main {
   transition: left 0.3s ease;
 }
 
-.sidebar-menu.open ~ #toggle-menu-btn {
+.sidebar-menu.open~#toggle-menu-btn {
   left: 310px;
+}
+
+/* ===========================================
+   LIGHTBOX PER IMMAGINI
+   =========================================== */
+
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }

@@ -1,0 +1,55 @@
+# Ignora tutte le cartelle img ovunque nel progetto
+img/
+**/img/
+*Zone.Identifier
+
+# Sicurezza: evita di tracciare chiavi API, token, password
+.env
+.env.local
+.env.development
+.env.production
+config/secrets.js
+*.key
+*.pem
+*_private*
+*_secret*
+*.cert
+
+# File di log che potrebbero contenere informazioni sensibili
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache e file temporanei
+.cache/
+dist/
+build/
+*.tmp
+*.temp
+
+# Dipendenze (se aggiungi npm/yarn)
+node_modules/
+package-lock.json
+yarn.lock
+
+# File di sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Editor/IDE
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vs/
+*.code-workspace
+
+# Backup automatici
+*~
+*.bak
+*.backup

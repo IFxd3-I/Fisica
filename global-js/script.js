@@ -145,6 +145,7 @@ caricaAPOD();
 // Hard-coded chapters for each module (to be filled later)
 const chapters = {
     "analisi-1": [
+        { title: "Algebra Superiori", json: "algebra-superiori.json" },
         { title: "Il Campo Reale", json: "il-campo-reale.json" },
         { title: "Teoria degli spazi metrici", json: "teoria-degli-spazi-metrici.json" },
         { title: "Serie", json: "serie.json" },
@@ -158,9 +159,8 @@ const chapters = {
         { title: "Strutture dati", json: "strutture-dati.json" }
     ],
     "meccanica": [
-        { title: "Cinematica", json: "cinematica.json" },
-        { title: "Dinamica", json: "dinamica.json" },
-        { title: "Energetica", json: "energetica.json" }
+        { title: "Analisi Vettoriale", json: "analisi-vettoriale.json" },
+        { title: "Cinematica", json: "cinematica.json" }
     ],
     "laboratorio-fisica": [
         { title: "Statistica", json: "statistica.json" },
@@ -306,7 +306,7 @@ document.querySelectorAll('.module').forEach(module => {
                     sidebarLink.setAttribute('data-year', year);       // Aggiungo il data-year
                     sidebarLink.addEventListener('click', (e) => {
                         e.preventDefault();
-                        
+
                         // Imposto le variabili globali prima di chiamare showChapterPage
                         currentlyOpenModuleKey = e.target.getAttribute('data-module');
                         currentYear = e.target.getAttribute('data-year');
@@ -337,7 +337,7 @@ document.getElementById('back-button').addEventListener('click', () => {
     // Rimuovi il gradiente da main e header
     document.querySelector('main').style.background = '';
     document.querySelector('header').style.background = '';
-    
+
     // Nascondi il menu laterale e il pulsante
     document.getElementById('sidebar-menu').classList.add('hidden');
     document.getElementById('toggle-menu-btn').classList.add('hidden');
@@ -472,6 +472,15 @@ async function showChapterPage(chapterTitle) {
                             html += '</ul>';
                         }
                         break;
+                    case 'olist':
+                        if (item.items && Array.isArray(item.items)) {
+                            html += '<ol class="content-list">';
+                            item.items.forEach(listItem => {
+                                html += `<li>${renderMath(listItem)}</li>`;
+                            });
+                            html += '</ol>';
+                        }
+                        break;
                     case 'theorem':
                         const rawTitle = item.title ? String(item.title).trim() : '';
                         const thTitle = rawTitle || 'Teorema';
@@ -491,6 +500,18 @@ async function showChapterPage(chapterTitle) {
                             html += `<div class="theorem-container"><div class="theorem-header"><span class="theorem-category">${headerText}</span></div><div class="theorem-statement">${statement}</div></div>`;
                         }
                         break;
+                    case 'image':
+                        const imgSrc = item.src || '';
+                        const imgAlt = item.alt || 'Immagine';
+                        const imgCaption = item.caption ? `<figcaption>${renderMath(item.caption)}</figcaption>` : '';
+                        const imgClass = item.class || '';
+                        const imgId = `img-${Math.random().toString(36).substr(2, 9)}`;
+                    
+                        html += `<figure class="content-image ${imgClass}">
+                            <img id="${imgId}" src="${imgSrc}" alt="${imgAlt}" loading="lazy" onclick="openLightbox(this)" style="cursor: pointer;" />
+                            ${imgCaption}
+                        </figure>`;
+                        break;
                     // Aggiungi altri casi per tipi aggiuntivi se necessario
                     default:
                         html += `<p>Tipo di contenuto non supportato: ${item.type}</p>`;
@@ -509,3 +530,65 @@ async function showChapterPage(chapterTitle) {
         chapterPage.querySelector('.chapter-content').textContent = 'Errore nel caricamento del capitolo.';
     }
 }
+
+document.getElementById('home-link').addEventListener('click', (e) => {
+    e.preventDefault(); // Impedisce il ricaricamento della pagina
+
+    // Esegue la stessa logica del pulsante "indietro"
+    document.getElementById('chapter-page').classList.add('hidden');
+    document.querySelector('.years-container').classList.remove('hidden');
+    document.querySelector('main').style.background = '';
+    document.querySelector('header').style.background = '';
+    document.getElementById('sidebar-menu').classList.add('hidden');
+    document.getElementById('toggle-menu-btn').classList.add('hidden');
+
+    // Resetta lo stato dei moduli per permettere di ricliccare sugli stessi moduli
+    currentlyOpenModuleKey = null;
+    currentYear = null;
+});
+
+// Lightbox functionality for images
+
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (!lightbox || !lightboxImg) return;
+
+    lightboxImg.src = imgElement.src;
+    lightboxImg.alt = imgElement.alt;
+    lightbox.style.display = 'flex';
+
+    // Prevenire lo scroll del body quando la lightbox è aperta
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    lightbox.style.display = 'none';
+
+    // Riabilita lo scroll del body
+    document.body.style.overflow = 'auto';
+}
+
+// Event listeners per chiudere la lightbox
+document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById('lightbox');
+
+    if (lightbox) {
+        // Chiudi con click sull'overlay (non sull'immagine)
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Chiudi con tasto ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                closeLightbox();
+            }
+        });
+    }
+});
