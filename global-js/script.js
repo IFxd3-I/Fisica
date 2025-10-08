@@ -162,10 +162,9 @@ const chapters = {
         { title: "Analisi Vettoriale", json: "analisi-vettoriale.json" },
         { title: "Cinematica", json: "cinematica.json" }
     ],
-    "laboratorio-fisica": [
-        { title: "Statistica", json: "statistica.json" },
-        { title: "Errori", json: "errori.json" },
-        { title: "Misure", json: "misure.json" }
+    "el-fisica-con-statistica": [
+        { title: "Organizzazione dei dati", json: "organizzazione-dei-dati.json" },
+        { title: "Dati e Misure", json: "dati-e-misure.json" }
     ],
     "analisi-2": [
         { title: "Serie di funzioni", json: "serie-di-funzioni.json" },
@@ -371,15 +370,45 @@ function renderMath(text) {
         return text;
     }
 
-    let renderedText = text.replace(/\\\((.*?)\\\)/g, (match, p1) => {
-        return `<span class="inline-math">\\(${p1}\\)</span>`;
-    });
-
-    renderedText = renderedText.replace(/\$\$(.*?)\$\$/g, (match, p1) => {
-        return `<div class="math-block">$$${p1}$$</div>`;
-    });
+    let renderedText = text
+        .replace(/\\\((.*?)\\\)/g, (match, p1) => `<span class="inline-math">\\(${p1}\\)</span>`)
+        .replace(/\$\$(.*?)\$\$/g, (match, p1) => `<div class="math-block">$$${p1}$$</div>`)
+        .replace(/<class:([^>]+)>(.*?)<\/class:\1>/g, (match, className, content) => `<span class="${className}">${content}</span>`)
+        .replace(/<highlight>(.*?)<\/highlight>/g, (match, content) => `<span class="highlight">${content}</span>`);
 
     return renderedText;
+}
+
+
+function renderItem(item) {
+    if (typeof item === 'string') {
+        return `<li>${renderMath(item)}</li>`;
+    }
+    if (!item || !item.type) {
+        return `<li>Elemento non valido</li>`;
+    }
+
+    switch (item.type) {
+        case 'text':
+            return `<li>${renderMath(item.text || '')}</li>`;
+        case 'math':
+            return `<li><div class="math-block">$$${item.text || ''}$$</div></li>`;
+        case 'image':
+            const imgSrc = item.src || '';
+            const imgAlt = item.alt || 'Immagine';
+            return `<li><img src="${imgSrc}" alt="${imgAlt}" loading="lazy" /></li>`;
+        case 'paragraph':
+            return `<li><p>${renderMath(item.text || '')}</p></li>`;
+        case 'heading':
+            return `<li><h${item.level || 5}>${renderMath(item.text || '')}</h${item.level || 5}></li>`;
+        case 'list':
+            if (item.items && Array.isArray(item.items)) {
+                return `<ul class="content-list">${item.items.map(renderItem).join('')}</ul>`;
+            }
+            return `<li>Lista non valida</li>`;
+        default:
+            return `<li>Tipo non supportato: ${item.type}</li>`;
+    }
 }
 
 function toggleTheorem(proofId) {
@@ -447,6 +476,9 @@ async function showChapterPage(chapterTitle) {
                     case 'heading':
                         html += `<h${item.level}>${item.text}</h${item.level}>`;
                         break;
+                    case 'subtitle':
+                        html += `<h2 class="content-subtitle">${renderMath(item.text)}</h2>`;
+                        break;
                     case 'paragraph':
                         html += `<p>${renderMath(item.text)}</p>`;
                         break;
@@ -466,18 +498,14 @@ async function showChapterPage(chapterTitle) {
                     case 'list':
                         if (item.items && Array.isArray(item.items)) {
                             html += '<ul class="content-list">';
-                            item.items.forEach(listItem => {
-                                html += `<li>${renderMath(listItem)}</li>`;
-                            });
+                            html += item.items.map(renderItem).join('');
                             html += '</ul>';
                         }
                         break;
                     case 'olist':
                         if (item.items && Array.isArray(item.items)) {
                             html += '<ol class="content-list">';
-                            item.items.forEach(listItem => {
-                                html += `<li>${renderMath(listItem)}</li>`;
-                            });
+                            html += item.items.map(renderItem).join('');
                             html += '</ol>';
                         }
                         break;
@@ -506,7 +534,7 @@ async function showChapterPage(chapterTitle) {
                         const imgCaption = item.caption ? `<figcaption>${renderMath(item.caption)}</figcaption>` : '';
                         const imgClass = item.class || '';
                         const imgId = `img-${Math.random().toString(36).substr(2, 9)}`;
-                    
+
                         html += `<figure class="content-image ${imgClass}">
                             <img id="${imgId}" src="${imgSrc}" alt="${imgAlt}" loading="lazy" onclick="openLightbox(this)" style="cursor: pointer;" />
                             ${imgCaption}
@@ -573,19 +601,19 @@ function closeLightbox() {
 }
 
 // Event listeners per chiudere la lightbox
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const lightbox = document.getElementById('lightbox');
 
     if (lightbox) {
         // Chiudi con click sull'overlay (non sull'immagine)
-        lightbox.addEventListener('click', function(e) {
+        lightbox.addEventListener('click', function (e) {
             if (e.target === lightbox) {
                 closeLightbox();
             }
         });
 
         // Chiudi con tasto ESC
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && lightbox.style.display === 'flex') {
                 closeLightbox();
             }

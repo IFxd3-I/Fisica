@@ -1,0 +1,36 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Dati e Misure"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo introduciamo i concetti di dato e misura, fondamentali per l'analisi dei fenomeni fisici."
+        },
+        {
+            "type": "paragraph",
+            "text": "Un <highlight>esperimento</highlight> è un'operazione controllata e ripetibile, condotta in condizioni al meglio comprese e volta all'osservazione di un fenomeno fisico."
+        },
+        {
+            "type": "paragraph",
+            "text": "Effettuare un esperimento significa <highlight>misurare</highlight> una o più <highlight>grandezze fisiche</highlight>, con l'obiettivo di ottenere informazioni il più precise e accurate possibili. La qualità di un esperimento dipende da vari fattori, tra cui la progettazione dell'esperimento, la calibrazione degli strumenti di misura, le condizioni ambientali e l'abilità dell'operatore."
+        },
+        {
+            "type": "paragraph",
+            "text": "Una <highlight>grandezza fisica</highlight> è una quantità su cui può essere effettuata una misura."
+        },
+        {
+            "type": "paragraph",
+            "text": "Una <highlight> misura </highlight> è il rapporto tra la quantità e un campione di riferimento, chiamato <highlight>unità di misura</highlight>."
+        },
+        {
+            "type": "paragraph",
+            "text": "quando due o più grandezze hanno la stessa unità di misura, si dice che sono <highlight>grandezze fisiche omogenee</highlight>."
+        },
+        {
+            "type": "paragraph",
+            "text": "Le grandezze fisiche si dividono in due categorie principali:"
+        }
+    ]
+}

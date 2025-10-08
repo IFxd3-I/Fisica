@@ -6,8 +6,8 @@
             "text": "Analisi Vettoriale"
         },
         {
-            "type": "paragraph",
-            "text": "L'analisi vettoriale è un ramo della matematica che si occupa dello studio dei campi vettoriali e delle operazioni su di essi. È fondamentale in fisica e ingegneria per descrivere fenomeni come il flusso di fluidi, i campi elettrici e magnetici, e molto altro."
+            "type": "subtitle",
+            "text": "In questo capitolo introduciamo i concetti fondamentali dell'analisi vettoriale, che sono essenziali per comprendere e descrivere fenomeni fisici in più dimensioni."
         },
         {
             "type": "heading",

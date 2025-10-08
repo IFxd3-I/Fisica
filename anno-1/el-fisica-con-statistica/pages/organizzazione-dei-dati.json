@@ -1,0 +1,70 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Organizzazione dei dati"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo introduciamo alcune nozioni di base per l'organizzazione e la rappresentazione dei dati sperimentali."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Istogrammi"
+        },
+        {
+            "type": "paragraph",
+            "text": "Uno dei principali strumenti utilizzati per l'organizzazione e la rappresentazione dei dati è l'istogramma."
+        },
+        {
+            "type": "image",
+            "src": "/anno-1/el-fisica-con-statistica/img/istogramma.png",
+            "alt": "esempio di istogramma"
+        },
+        {
+            "type": "paragraph",
+            "text": "Un istogramma è un grafico a barre che rappresenta la distribuzione di un insieme di dati. L'asse orizzontale (asse x) rappresenta le classi o intervalli di valori, mentre l'asse verticale (asse y) rappresenta la frequenza o il numero di occorrenze di ciascuna classe. <br> Per costruire un istogramma, i dati vengono suddivisi in intervalli (o classi) e viene calcolata la frequenza di ciascun intervallo. Le barre dell'istogramma vengono disegnate in modo che l'altezza di ciascuna barra corrisponda alla frequenza dell'intervallo corrispondente."
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Costruzione di un Istogramma: asse x"
+        },
+        {
+            "type": "paragraph",
+            "text": "Per rappresentare un istogramma procediamo in questo modo:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Raccogliere i dati da rappresentare.",
+                "Definiamo un intervallo \\(L = x_{max} - x_{min}\\) che copra tutti i dati.",
+                "Suddividiamo quindi il nostro intervallo in un numero \\(r\\) di classi di ampiezza \\(\\Delta x\\ = L/r\\).",
+                "Identifichiamo con \\(n_k\\) il numero di dati che ricadono nell'intervallo \\((k − 1) \\Delta x ≤ x < k \\Delta x\\) con \\(k = 1, \\ldots, r\\).",
+                "Disegniamo infine dei rettangoli di base \\(\\Delta x\\) e altezza \\(n_k\\) per ogni classe \\(k\\), che siano centrati in \\(X_k = (k - \\frac{1}{2}) \\Delta x\\)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Alcuni suggerimenti da ricordare sono di avere circa dai 3 ai 5 elementi per classe, se necessario non tutti i delta x devono essere uguali, e infine non è scontato dire che a volte ci sono troppo pochi dati per fare un istogramma."
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Costruzione di un Istogramma: asse y"
+        },
+        {
+            "type": "paragraph",
+            "text": "Sull'asse delle y i dati possono essere rappresentati in due modi diversi:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Frequenza assoluta</highlight>: l'altezza di ogni barra rappresenta il numero di occorrenze (frequenza) dei dati in ciascuna classe, indicato con \\(n_k\\). Infatti \\(\\displaystyle \\sum^{r}_{k=1} n_k = N\\) ci restituisce il numero totale di dati \\(N\\).",
+                "<highlight>Frequenza relativa (o densità)</highlight>: l'altezza di ogni barra rappresenta la frequenza relativa, che è il rapporto tra la frequenza assoluta di una classe e il numero totale di dati. $$f_k = \\frac{n_k}{N} = \\displaystyle \\sum^{r}_{k=1} f_k = \\frac{1}{N} \\displaystyle \\sum^{r}_{k=1} n_k = 1$$",
+                "<highlight>Frequenza percentuale</highlight>: l'altezza di ogni barra rappresenta la frequenza percentuale, che è la frequenza relativa moltiplicata per 100, ossia \\(\\frac{n_k}{N} \\times 100 = f_k \\% \\) $$\\displaystyle \\sum^{r}_{k=1} f_k \\% = 100 \\%$$"
+            ]
+        }
+    ]
+}
