@@ -164,7 +164,8 @@ const chapters = {
     ],
     "el-fisica-con-statistica": [
         { title: "Organizzazione dei dati", json: "organizzazione-dei-dati.json" },
-        { title: "Dati e Misure", json: "dati-e-misure.json" }
+        { title: "Dati e Misure", json: "dati-e-misure.json" },
+        { title: "Indicatori per le distribuzioni statistiche", json: "indicatori-distribuzioni-statistiche.json" },
     ],
     "analisi-2": [
         { title: "Serie di funzioni", json: "serie-di-funzioni.json" },
