@@ -164,8 +164,9 @@ const chapters = {
     ],
     "el-fisica-con-statistica": [
         { title: "Organizzazione dei dati", json: "organizzazione-dei-dati.json" },
-        { title: "Dati e Misure", json: "dati-e-misure.json" },
+        { title: "Dati, Misure e cifre significative", json: "dati-misure-cifre-significative.json" },
         { title: "Indicatori per le distribuzioni statistiche", json: "indicatori-distribuzioni-statistiche.json" },
+        { title: "Concetti base di probabilità", json: "probabilita.json" }
     ],
     "analisi-2": [
         { title: "Serie di funzioni", json: "serie-di-funzioni.json" },
@@ -372,10 +373,12 @@ function renderMath(text) {
     }
 
     let renderedText = text
+        .replace(/&&(.*?)&&/g, (match, p1) => `<span class="highlight-inline-math">__HLMATH__${p1}__HLMATH__</span>`)
         .replace(/\\\((.*?)\\\)/g, (match, p1) => `<span class="inline-math">\\(${p1}\\)</span>`)
         .replace(/\$\$(.*?)\$\$/g, (match, p1) => `<div class="math-block">$$${p1}$$</div>`)
         .replace(/<class:([^>]+)>(.*?)<\/class:\1>/g, (match, className, content) => `<span class="${className}">${content}</span>`)
-        .replace(/<highlight>(.*?)<\/highlight>/g, (match, content) => `<span class="highlight">${content}</span>`);
+        .replace(/<highlight>(.*?)<\/highlight>/g, (match, content) => `<span class="highlight">${content}</span>`)
+        .replace(/__HLMATH__(.*?)__HLMATH__/g, (match, p1) => `\\(${p1}\\)`);
 
     return renderedText;
 }
@@ -486,13 +489,7 @@ async function showChapterPage(chapterTitle) {
                     case 'math':
                         html += `<div class="math-block">$$${item.text}$$</div>`;
                         break;
-                    case 'example': {
-                        const exampleId = `example-${Math.random().toString(36).substr(2, 9)}`;
-                        const exampleButton = `<button class="example-button" onclick="toggleExample('${exampleId}')" aria-label="Mostra esempio">Mostra Esempio</button>`;
-                        const exampleContent = `<div class="example-content" id="${exampleId}" style="display: none;">${renderMath(item.text || '')}</div>`;
-                        html += `<div class="example-container">${exampleButton}${exampleContent}</div>`;
-                        break;
-                    }
+                    
                     case 'title':
                         html += `<h1 class="content-title">${item.text}</h1>`;
                         break;
@@ -510,23 +507,87 @@ async function showChapterPage(chapterTitle) {
                             html += '</ol>';
                         }
                         break;
+                    case 'example':
+                        const exampleId = `example-${Math.random().toString(36).substr(2, 9)}`;
+                        const exampleButton = `<button class="example-button" onclick="toggleExample('${exampleId}')" aria-label="Mostra esempio">Mostra Esempio</button>`;
+                        let exampleContent = '';
+                        for (let j = 0; j < item.content.length; j++) {
+                            const subItem = item.content[j];
+                            switch (subItem.type) {
+                                case 'heading':
+                                    exampleContent += `<h${subItem.level}>${subItem.text}</h${subItem.level}>`;
+                                    break;
+                                case 'paragraph':
+                                    exampleContent += `<p>${renderMath(subItem.text)}</p>`;
+                                    break;
+                                case 'math':
+                                    exampleContent += `<div class="math-block">$$${subItem.text}$$</div>`;
+                                    break;
+                                case 'list':
+                                    if (subItem.items && Array.isArray(subItem.items)) {
+                                        exampleContent += '<ul class="content-list">';
+                                        exampleContent += subItem.items.map(renderItem).join('');
+                                        exampleContent += '</ul>';
+                                    }
+                                    break;
+                                case 'olist':
+                                    if (subItem.items && Array.isArray(subItem.items)) {
+                                        exampleContent += '<ol class="content-list">';
+                                        exampleContent += subItem.items.map(renderItem).join('');
+                                        exampleContent += '</ol>';
+                                    }
+                                    break;
+                                case 'image':
+                                    const imgSrc = subItem.src || '';
+                                    const imgAlt = subItem.alt || 'Immagine';
+                                    const imgCaption = subItem.caption ? `<figcaption>${renderMath(subItem.caption)}</figcaption>` : '';
+                                    const imgClass = subItem.class || '';
+                                    const imgId = `img-${Math.random().toString(36).substr(2, 9)}`;
+                                    exampleContent += `<figure class="content-image ${imgClass}">
+                                        <img id="${imgId}" src="${imgSrc}" alt="${imgAlt}" loading="lazy" onclick="openLightbox(this)" style="cursor: pointer;" />
+                                        ${imgCaption}
+                                    </figure>`;
+                                    break;
+                                default:
+                                    exampleContent += `<p>${renderMath(subItem.text || subItem)}</p>`;
+                                    break;
+                            }
+                        }
+                        const exampleContentDiv = `<div class="example-content" id="${exampleId}" style="display: none;">${exampleContent}</div>`;
+                        html += `<div class="example-container"><div class="example-header" style="position:relative"><span class="example-category">Esempio</span><button class="example-button" onclick="toggleExample('${exampleId}')" aria-label="Mostra esempio" aria-expanded="false"></button></div>${exampleContentDiv}</div>`;
+                        break;
                     case 'theorem':
-                        const rawTitle = item.title ? String(item.title).trim() : '';
-                        const thTitle = rawTitle || 'Teorema';
-                        const statement = renderMath(item.text || '');
-                        const headerText = thTitle;
+                        const theoremId = `theorem-${Math.random().toString(36).substr(2, 9)}`;
+                        let theoremTitle = 'Teorema';
+                        let theoremStatement = '';
+                        let theoremProof = '';
+                        let hasProof = false;
 
-                        // lookahead for proof
-                        if (i + 1 < data.content.length && (data.content[i + 1].type === 'proof' || data.content[i + 1].type === 'dimostrazione')) {
-                            const proofItem = data.content[i + 1];
+                        for (let j = 0; j < item.content.length; j++) {
+                            const subItem = item.content[j];
+                            switch (subItem.type) {
+                                case 'title':
+                                    theoremTitle = subItem.text || 'Teorema';
+                                    break;
+                                case 'statement':
+                                    theoremStatement = renderMath(subItem.text || '');
+                                    break;
+                                case 'proof':
+                                    theoremProof = renderMath(subItem.text || '');
+                                    hasProof = true;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                        if (hasProof) {
                             const proofId = `theorem-proof-${Math.random().toString(36).substr(2, 9)}`;
-                            const proofButton = `<button class="theorem-proof-button corner" onclick="toggleTheorem('${proofId}')" aria-label="Mostra dimostrazione" aria-expanded="false"></button>`;
-                            const proofContent = `<div class="example-content theorem-proof" id="${proofId}" style="display: none;">${renderMath(proofItem.text || '')}</div>`;
-                            i++; // consume proof
-
-                            html += `<div class="theorem-container"><div class="theorem-header" style="position:relative"><span class="theorem-category">${headerText}</span>${proofButton}</div><div class="theorem-statement">${statement}</div>${proofContent}</div>`;
+                            const proofButton = `<button class="theorem-proof-button" onclick="toggleTheorem('${proofId}')" aria-label="Mostra dimostrazione" aria-expanded="false"></button>`;
+                            const proofContent = `<div class="theorem-proof" id="${proofId}" style="display: none;">${theoremProof}</div>`;
+                            html += `<div class="theorem-container"><div class="theorem-header" style="position:relative"><span class="theorem-category">${theoremTitle}</span>${proofButton}</div><div class="theorem-statement">${theoremStatement}</div>${proofContent}</div>`;
                         } else {
-                            html += `<div class="theorem-container"><div class="theorem-header"><span class="theorem-category">${headerText}</span></div><div class="theorem-statement">${statement}</div></div>`;
+                            html += `<div class="theorem-container"><div class="theorem-header"><span class="theorem-category">${theoremTitle}</span></div><div class="theorem-statement">${theoremStatement}</div></div>`;
                         }
                         break;
                     case 'image':
@@ -541,7 +602,6 @@ async function showChapterPage(chapterTitle) {
                             ${imgCaption}
                         </figure>`;
                         break;
-                    // Aggiungi altri casi per tipi aggiuntivi se necessario
                     default:
                         html += `<p>Tipo di contenuto non supportato: ${item.type}</p>`;
                         break;
@@ -551,7 +611,6 @@ async function showChapterPage(chapterTitle) {
             html = '<p>Struttura del contenuto non valida.</p>';
         }
         chapterPage.querySelector('.chapter-content').innerHTML = html;
-        // Se MathJax è disponibile, renderizza le espressioni matematiche
         if (typeof MathJax !== 'undefined') {
             MathJax.typeset();
         }

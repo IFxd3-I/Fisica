@@ -32,7 +32,16 @@
         },
         {
             "type": "theorem",
-            "text": "<highlight>Teorema (Proprietà di Haudorff):</highlight> Sia \\(X,d\\) uno spazio metrico e siano \\(x,y \\in X\\). Se \\(x \\neq y\\), allora esiste \\(r > 0\\) tale che \\(B(x,r) \\cap B(y,r) = \\emptyset\\)."
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Proprietà di Haudorff)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(X,d\\) uno spazio metrico e siano \\(x,y \\in X\\). Se \\(x \\neq y\\), allora esiste \\(r > 0\\) tale che \\(B(x,r) \\cap B(y,r) = \\emptyset\\)."
+                }
+            ]
         },
         {
             "type": "paragraph",
@@ -59,7 +68,16 @@
         },
         {
             "type": "theorem",
-            "text": "<highlight>Teorema:</highlight> Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. Un punto \\(p\\) è di accumulazione per A se e solo se ogni suo intorno contiene i punti di A."
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. Un punto \\(p\\) è di accumulazione per A se e solo se ogni suo intorno contiene i punti di A."
+                }
+            ]
         },
         {
             "type": "heading",
@@ -76,11 +94,20 @@
         },
         {
             "type": "theorem",
-            "text": "<highlight>Teorema (Insiemi chiusi):</highlight> Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. L'insieme \\(A\\) è chiuso se e solo se \\(A' \\subseteq A\\), cioè contiene tutti i suoi punti di accumulazione."
-        },
-        {
-            "type": "proof",
-            "text": "<highlight>Dimostrazione:</highlight> \\((\\Rightarrow)\\) Sia \\(A\\) chiuso e sia \\(p \\in A^c\\). Poichè \\(p\\) è interno ad \\(A^c\\), esiste un intorno \\(B(p,r)\\) che non contiene punti di \\(A\\). Quindi \\(p\\) non è di accumulazione per \\(A\\). In altri termini, \\(A' \\subseteq A\\). \\((\\Leftarrow)\\) Viceversa, sia \\(A' \\subseteq A\\) e sia \\(p\\) un qualunque punto di \\(A^c\\). Per ipotesi \\(p\\) non è di accumulazione per \\(A\\). Questo significa che esiste un intorno \\(B(p,r)\\) che non contiene alcun punto di \\(A\\) diverso da p. Dato che \\(p \\in A^c\\), \\(B(p,r) \\cap A = \\emptyset\\); perciò \\(B(p,r) \\subseteq A^c\\). Quindi \\(p\\) è interno ad \\(A^c\\). Ne segue che \\(A^c\\) è aperto."
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Insiemi chiusi)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. L'insieme \\(A\\) è chiuso se e solo se \\(A' \\subseteq A\\), cioè contiene tutti i suoi punti di accumulazione."
+                },
+                {
+                    "type": "proof",
+                    "text": "\\((\\Rightarrow)\\) Sia \\(A\\) chiuso e sia \\(p \\in A^c\\). Poichè \\(p\\) è interno ad \\(A^c\\), esiste un intorno \\(B(p,r)\\) che non contiene punti di \\(A\\). Quindi \\(p\\) non è di accumulazione per \\(A\\). In altri termini, \\(A' \\subseteq A\\). \\((\\Leftarrow)\\) Viceversa, sia \\(A' \\subseteq A\\) e sia \\(p\\) un qualunque punto di \\(A^c\\). Per ipotesi \\(p\\) non è di accumulazione per \\(A\\). Questo significa che esiste un intorno \\(B(p,r)\\) che non contiene alcun punto di \\(A\\) diverso da p. Dato che \\(p \\in A^c\\), \\(B(p,r) \\cap A = \\emptyset\\); perciò \\(B(p,r) \\subseteq A^c\\). Quindi \\(p\\) è interno ad \\(A^c\\). Ne segue che \\(A^c\\) è aperto."
+                }
+            ]
         },
         {
             "type": "paragraph",
@@ -88,19 +115,37 @@
         },
         {
             "type": "theorem",
-            "text": "<highlight>Teorema (Chiusura):</highlight> Sia \\((X,d)\\) uno spazio metrico e sia \\(A \\subseteq X\\). Allora: <ol><li>\\(\\overline{A}\\) è un chiuso.</li><li>Se F è un insieme chiuso tale che \\(F \\supseteq A\\), allora \\(F \\supseteq \\overline{A}\\) (ossia \\(\\overline{A}\\) è il più \"piccolo\" insieme chiuso che contiene A).</li><li>\\(A\\) è chiuso se e solo se \\(A = \\overline{A}\\).</li><li>Se \\(A \\supset F\\), allora \\(\\overline{A} \\supset \\overline{F}\\).</li></ol>"
-        },
-        {
-            "type": "proof",
-            "text": "<highlight>Dimostrazione:</highlight> <ol><li> Se \\(p\\) è un punto di accumulazione per \\(A \\cup A'\\), allora \\(p\\) è di accumulazione per \\(A\\) o per \\(A'\\). Supponiamo che \\(p\\) sia di accumulazione per \\(A\\), allora \\(p \\in A'\\). Se \\(p\\) è invece di accumulazione per \\(A'\\), ogni intorno \\(B(p,r)\\) deve contenere un punto \\(x \\in A'\\). Poiché \\(B(p,r)\\) è aperto, esiste \\(s > 0\\) tale che \\(B(x,s) \\subset B(p,r)\\). Poiché \\(B(x,s)\\) contiene infiniti punti di \\(A\\), lo stesso vale per \\(B(p,r)\\). Quindi, di nuovo, \\(p \\in A'\\).</li><li>I punti di accumulazione di A sono anche punti di accumulazione di F. Poichè F è chiuso, si ha \\(F \\supseteq A \\cup A'\\).</li><li>\\(A \\subset \\overline{A}\\) sempre, ma per la \\((2.)\\), se \\(A\\) è chiuso con \\(A \\supseteq A\\), allora \\(A = \\overline{A}\\).</li><li>\\(A \\supset F \\Rightarrow \\overline{A} \\supset F\\), il quale essendo chiuso per \\((3.)\\), implica \\(\\overline{A} \\supset \\overline{F}\\).</li></ol>"
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Chiusura)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(A \\subseteq X\\). Allora: <ol><li>\\(\\overline{A}\\) è un chiuso.</li><li>Se F è un insieme chiuso tale che \\(F \\supseteq A\\), allora \\(F \\supseteq \\overline{A}\\) (ossia \\(\\overline{A}\\) è il più \"piccolo\" insieme chiuso che contiene A).</li><li>\\(A\\) è chiuso se e solo se \\(A = \\overline{A}\\).</li><li>Se \\(A \\supset F\\), allora \\(\\overline{A} \\supset \\overline{F}\\).</li></ol>"
+                },
+                {
+                    "type": "proof",
+                    "text": "<ol><li> Se \\(p\\) è un punto di accumulazione per \\(A \\cup A'\\), allora \\(p\\) è di accumulazione per \\(A\\) o per \\(A'\\). Supponiamo che \\(p\\) sia di accumulazione per \\(A\\), allora \\(p \\in A'\\). Se \\(p\\) è invece di accumulazione per \\(A'\\), ogni intorno \\(B(p,r)\\) deve contenere un punto \\(x \\in A'\\). Poiché \\(B(p,r)\\) è aperto, esiste \\(s > 0\\) tale che \\(B(x,s) \\subset B(p,r)\\). Poiché \\(B(x,s)\\) contiene infiniti punti di \\(A\\), lo stesso vale per \\(B(p,r)\\). Quindi, di nuovo, \\(p \\in A'\\).</li><li>I punti di accumulazione di A sono anche punti di accumulazione di F. Poichè F è chiuso, si ha \\(F \\supseteq A \\cup A'\\).</li><li>\\(A \\subset \\overline{A}\\) sempre, ma per la \\((2.)\\), se \\(A\\) è chiuso con \\(A \\supseteq A\\), allora \\(A = \\overline{A}\\).</li><li>\\(A \\supset F \\Rightarrow \\overline{A} \\supset F\\), il quale essendo chiuso per \\((3.)\\), implica \\(\\overline{A} \\supset \\overline{F}\\).</li></ol>"
+                }
+            ]
         },
         {
             "type": "theorem",
-            "text": "<highlight>Teorema (Unioni e Intersezioni):</highlight> Sia \\((X,d)\\) uno spazio metrico. <ol><li>\\(E_i\\) aperto \\(\\forall i \\in I \\Rightarrow \\bigcup_{i \\in I} E_i\\) è aperto.</li><li>\\(E_1, \\ldots, E_n\\) aperti \\(\\Rightarrow \\bigcap_{j=1}^n E_j\\) è aperto.</li>\\(E_i\\) chiuso \\(\\forall i \\in I \\Rightarrow \\bigcap_{i \\in I} E_i\\) è chiuso.</li><li>\\(E_1, \\ldots, E_n\\) chiusi \\(\\Rightarrow \\bigcup_{j=1}^n E_j\\) è chiuso.</li></ol>"
-        },
-        {
-            "type": "proof",
-            "text": "<highlight>Dimostrazione:</highlight> <ol><li> Poniamo \\(E = \\bigcup_{i \\in I} E_i\\) dove \\(\\mathring{E_i} \\supset E_i\\), \\(."
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Unioni e Intersezioni)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\((X,d)\\) uno spazio metrico. <ol><li>\\(E_i\\) aperto \\(\\forall i \\in I \\Rightarrow \\bigcup_{i \\in I} E_i\\) è aperto.</li><li>\\(E_1, \\ldots, E_n\\) aperti \\(\\Rightarrow \\bigcap_{j=1}^n E_j\\) è aperto.</li>\\(E_i\\) chiuso \\(\\forall i \\in I \\Rightarrow \\bigcap_{i \\in I} E_i\\) è chiuso.</li><li>\\(E_1, \\ldots, E_n\\) chiusi \\(\\Rightarrow \\bigcup_{j=1}^n E_j\\) è chiuso.</li></ol>"
+                },
+                {
+                    "type": "proof",
+                    "text": "<ol><li> Poniamo \\(E = \\bigcup_{i \\in I} E_i\\) dove \\(\\mathring{E_i} \\supset E_i\\), \\(."
+                }
+            ]
         },
         {
             "type": "heading",

@@ -80,7 +80,12 @@
         },
         {
             "type": "example",
-            "text": "Ad esempio, \\(\\frac{1}{2} = 0,5\\), \\(\\frac{1}{4} = 0,25\\), \\(\\frac{1}{3} = 0,333...\\)"
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Esempi di rappresentazioni decimali: \\(\\frac{1}{2} = 0,5\\), \\(\\frac{1}{4} = 0,25\\), \\(\\frac{1}{3} = 0,333...\\)"
+                }
+            ]
         },
         {
             "type": "paragraph",
@@ -88,7 +93,12 @@
         },
         {
             "type": "example",
-            "text": "Esempi di decimali periodici: \\(\\frac{1}{3} = 0,333... = 0,\\overline{3}\\), \\(\\frac{2}{7} = 0,285714285714... = 0,\\overline{285714}\\)"
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Esempi di decimali periodici: \\(\\frac{1}{3} = 0,333... = 0,\\overline{3}\\), \\(\\frac{2}{7} = 0,285714285714... = 0,\\overline{285714}\\)"
+                }
+            ]
         },
         {
             "type": "paragraph",
@@ -126,7 +136,12 @@
         },
         {
             "type": "example",
-            "text": "Per \\(A = (0, 1)\\), i numeri 1, 2, 5, 100 sono tutti maggioranti."
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Per \\(A = (0, 1)\\), i numeri 1, 2, 5, 100 sono tutti maggioranti."
+                }
+            ]
         },
         {
             "type": "paragraph",
@@ -138,7 +153,12 @@
         },
         {
             "type": "example",
-            "text": "Per \\(A = (0, 1)\\), i numeri 0, -1, -5, -100 sono tutti minoranti."
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Per \\(A = (0, 1)\\), i numeri 0, -1, -5, -100 sono tutti minoranti."
+                }
+            ]
         },
         {
             "type": "paragraph",
@@ -159,7 +179,12 @@
         },
         {
             "type": "example",
-            "text": "Per \\(A = (0, 1)\\), abbiamo \\(\\sup A = 1\\). Nota che 1 non appartiene a \\(A\\). <br>Per l'insieme \\(B = (0, 1]\\), \\(\\sup B = 1\\) e in questo caso 1 appartiene a \\(B\\), quindi \\(\\max B = 1\\)."
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Per \\(A = (0, 1)\\), abbiamo \\(\\sup A = 1\\). Nota che 1 non appartiene a \\(A\\). <br>Per l'insieme \\(B = (0, 1]\\), \\(\\sup B = 1\\) e in questo caso 1 appartiene a \\(B\\), quindi \\(\\max B = 1\\)."
+                }
+            ]
         },
         {
             "type": "paragraph",
@@ -167,7 +192,12 @@
         },
         {
             "type": "example",
-            "text": "<highlight>Esempi:</highlight><br>Per \\(A = (0, 1)\\), abbiamo \\(\\inf A = 0\\). In questo caso, 0 non appartiene a \\(A\\).<br>Per l'insieme \\(C = [0, 1)\\), \\(\\inf C = 0\\) e in questo caso 0 appartiene a \\(C\\), quindi \\(\\min C = 0\\)."
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Per \\(A = (0, 1)\\), abbiamo \\(\\inf A = 0\\). In questo caso, 0 non appartiene a \\(A\\).<br>Per l'insieme \\(C = [0, 1)\\), \\(\\inf C = 0\\) e in questo caso 0 appartiene a \\(C\\), quindi \\(\\min C = 0\\)."
+                }
+            ]
         },
         {
             "type": "heading",
@@ -180,15 +210,33 @@
         },
         {
             "type": "theorem",
-            "text": "<highlight>Teorema (di Densità):</highlight> Tra due numeri reali distinti esiste sempre almeno un numero razionale compreso tra essi."
-        },
-        {
-            "type": "proof",
-            "text": "<highlight>Dimostrazione:</highlight> Siano \\(a, b \\in \\mathbb{R}\\) con \\(a < b\\). Esiste un intero positivo \\(n\\) tale che \\(\\frac{1}{n} < b - a\\). Consideriamo gli interi \\(k\\) tali che \\(a < \\frac{k}{n} < b\\). Tali \\(k\\) esistono per la proprietà di Archimede, quindi \\(\\frac{k}{n}\\) è un razionale compreso tra \\(a\\) e \\(b\\). \\(\\square\\)"
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (di Densità)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Tra due numeri reali distinti esiste sempre almeno un numero razionale compreso tra essi."
+                },
+                {
+                    "type": "proof",
+                    "text": "Siano \\(a, b \\in \\mathbb{R}\\) con \\(a < b\\). Esiste un intero positivo \\(n\\) tale che \\(\\frac{1}{n} < b - a\\). Consideriamo gli interi \\(k\\) tali che \\(a < \\frac{k}{n} < b\\). Tali \\(k\\) esistono per la proprietà di Archimede, quindi \\(\\frac{k}{n}\\) è un razionale compreso tra \\(a\\) e \\(b\\). \\(\\square\\)"
+                }
+            ]
         },
         {
             "type": "theorem",
-            "text": "<highlight>Teorema (di Completezza):</highlight> Se A è un insieme limitato superiormente, l'insieme dei maggioranti di A ammette un minimo. Se A è un insieme limitato inferiormente, l'insieme dei minoranti di A ammette un massimo."
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (di Completezza)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Se A è un insieme limitato superiormente, l'insieme dei maggioranti di A ammette un minimo. Se A è un insieme limitato inferiormente, l'insieme dei minoranti di A ammette un massimo."
+                }
+            ]
         },
         {
             "type": "heading",
@@ -289,19 +337,37 @@
         },
         {
             "type": "theorem",
-            "text": "<highlight>Teorema sugli insiemi numerabili:</highlight> \\(Z\\) e \\(Q\\) sono numerabili."
-        },
-        {
-            "type": "proof",
-            "text": "Dimostrazione: \\(Z = N_0 \\cup (N^-)\\) con \\(N_0\\) e \\(N^-\\) numerabili, quindi \\(Z\\) è numerabile in quanto unione di insiemi numerabili. \\(Q = { \\frac{p}{q} | p \\in Z, q \\in N}\\) è infinito. Prendiamo  la funzione suriettiva \\(f: Z \\times N\\ \\to Q\\) che porta \\((p,q) \\to \\frac{p}{q}\\), possiamo quindi identificare \\(Q\\) con un sottoinsieme infinito di \\(Z \\times N\\), che è numerabile. \\(\\square\\)"
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema sugli insiemi numerabili"
+                },
+                {
+                    "type": "statement",
+                    "text": "\\(Z\\) e \\(Q\\) sono numerabili."
+                },
+                {
+                    "type": "proof",
+                    "text": "\\(Z = N_0 \\cup (N^-)\\) con \\(N_0\\) e \\(N^-\\) numerabili, quindi \\(Z\\) è numerabile in quanto unione di insiemi numerabili. \\(Q = { \\frac{p}{q} | p \\in Z, q \\in N}\\) è infinito. Prendiamo  la funzione suriettiva \\(f: Z \\times N\\ \\to Q\\) che porta \\((p,q) \\to \\frac{p}{q}\\), possiamo quindi identificare \\(Q\\) con un sottoinsieme infinito di \\(Z \\times N\\), che è numerabile. \\(\\square\\)"
+                }
+            ]
         },
         {
             "type": "theorem",
-            "text": "<highlight>Teorema di Cantor:</highlight> L'insieme dei numeri reali \\(R\\) non è numerabile."
-        },
-        {
-            "type": "proof",
-            "text": "Dimostrazione: Partiamo dal presupposto che \\(R\\) sia equipotente a \\((0,1)\\). Supponiamo per assurdo che \\((0,1)\\) sia numerabile, e che quindi esista una funzione biunivoca \\(f: N \\to (0,1)\\) con \\(x_n = f(n)\\) per ogni \\( n \\in N\\) . Costruiamo un numero reale \\(x \\in (0,1)\\) che non appartiene all'immagine di \\(f\\). Scriviamo ogni \\(f(n)\\) in forma decimale: \\(f(1) = 0.a_{11}a_{12}a_{13}...\\), \\(f(2) = 0.a_{21}a_{22}a_{23}...\\), e così via. Definiamo \\(x = 0.b_1b_2b_3...\\) dove \\(b_n\\) è una cifra diversa da \\(a_{nn}\\) (ad esempio, se \\(a_{nn} = 5\\), scegliamo \\(b_n = 6\\), altrimenti \\(b_n = 5\\)). In questo modo, \\(x\\) differisce da ogni \\(f(n)\\) almeno nella n-esima cifra decimale, quindi x apparterrà ad R senza appartenenre all'immagine di \\(f\\), il che è assurdo. \\(\\square\\)"
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema di Cantor"
+                },
+                {
+                    "type": "statement",
+                    "text": "L'insieme dei numeri reali \\(R\\) non è numerabile."
+                },
+                {
+                    "type": "proof",
+                    "text": "Partiamo dal presupposto che \\(R\\) sia equipotente a \\((0,1)\\). Supponiamo per assurdo che \\((0,1)\\) sia numerabile, e che quindi esista una funzione biunivoca \\(f: N \\to (0,1)\\) con \\(x_n = f(n)\\) per ogni \\( n \\in N\\) . Costruiamo un numero reale \\(x \\in (0,1)\\) che non appartiene all'immagine di \\(f\\). Scriviamo ogni \\(f(n)\\) in forma decimale: \\(f(1) = 0.a_{11}a_{12}a_{13}...\\), \\(f(2) = 0.a_{21}a_{22}a_{23}...\\), e così via. Definiamo \\(x = 0.b_1b_2b_3...\\) dove \\(b_n\\) è una cifra diversa da \\(a_{nn}\\) (ad esempio, se \\(a_{nn} = 5\\), scegliamo \\(b_n = 6\\), altrimenti \\(b_n = 5\\)). In questo modo, \\(x\\) differisce da ogni \\(f(n)\\) almeno nella n-esima cifra decimale, quindi x apparterrà ad R senza appartenenre all'immagine di \\(f\\), il che è assurdo. \\(\\square\\)"
+                }
+            ]
         }
     ]
 }

@@ -2,7 +2,7 @@
     "content": [
         {
             "type": "title",
-            "text": "Dati e Misure"
+            "text": "Dati, Misure e cifre significative"
         },
         {
             "type": "subtitle",
@@ -136,6 +136,80 @@
         {
             "type": "paragraph",
             "text": "Ogni grandezza fisica può essere espressa in termini del prodotto delle sette grandezze fondamentali del SI elevate a potenze intere. Importante ricordare che le funzioni trascendentali (esponenziali, logaritmi, trigonometriche) devono essere adimensionali, ossia restituire numeri pure, privi di unità di misura. La derivazione di una grandezza fisica si porta dietro anche le incertezze relative alla misura delle grandezze fondamentali."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Cifre significative"
+        },
+        {
+            "type": "paragraph",
+            "text": "Le <highlight>cifre significative</highlight> sono le cifre di un numero che contribuiscono alla sua precisione. Esse includono tutte le cifre certe più la prima cifra incerta, questo significa che in fisica il non riportare una cifra implica l'impossibilità di conoscere con tale precisione il valore misurato. Infatti, un numero esatto a infinite cifre significative. Le regole per determinare il numero di cifre significative in un dato numero sono le seguenti:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(123.45\\) ha 5 cifre significative.",
+                "\\(0.00456\\) ha 3 cifre significative (le zero iniziali non contano).",
+                "\\(100.0\\) ha 4 cifre significative (lo zero finale conta perché c'è il punto decimale)."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Regole per il prodotto e il quoziente"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando si moltiplicano o si dividono due grandezze fisiche, il risultato deve avere lo stesso numero di cifre significative della grandezza con il minor numero di cifre significative. Ad esempio:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(2.5 \\times 3.42 = 8.55\\) (3 cifre significative)",
+                "\\(6.022 \\div 2.0 = 3.0\\) (2 cifre significative)"
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Regole per la somma e la differenza"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando si sommano o si sottraggono due grandezze fisiche, il risultato deve essere arrotondato alla cifra decimale più incerta tra le grandezze coinvolte. Ad esempio:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(12.11 + 0.023 = 12.13\\) (2 cifre decimali)",
+                "\\(100.0 - 0.56 = 99.4\\) (1 cifra decimale)"
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Regole per la media"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando si calcola la media di una serie di misure, il risultato deve essere arrotondato alla cifra decimale più incerta tra le misure coinvolte. Ad esempio:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Misure: \\(12.1, 12.11, 12.123\\) --> Media: \\(12.11\\) (2 cifre decimali)",
+                "Misure: \\(100.0, 100.56, 100.567\\) --> Media: \\(100.4\\) (1 cifra decimale)"
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Regole per le funzioni trascendentali"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando si applicano funzioni trascendentali (come seno, coseno, logaritmo, ecc.) a un numero, le regole di approssimazione precedenti non valgono. Se però misuro una lunghezza del tipo \\(L = s * \\sin(30.0)\\), allora il risultato dovrà riportare cifre significative pari alla sensibilità della misura."
         }
     ]
 }
