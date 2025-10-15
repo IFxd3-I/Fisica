@@ -160,7 +160,7 @@ const chapters = {
     ],
     "meccanica": [
         { title: "Analisi Vettoriale", json: "analisi-vettoriale.json" },
-        { title: "Cinematica", json: "cinematica.json" }
+        { title: "Cinematica Vettoriale", json: "cinematica-vettoriale.json" }
     ],
     "el-fisica-con-statistica": [
         { title: "Organizzazione dei dati", json: "organizzazione-dei-dati.json" },
@@ -290,31 +290,75 @@ document.querySelectorAll('.module').forEach(module => {
                 li.className = 'chapter';
                 li.textContent = chapter.title;
                 li.setAttribute('data-chapter', chapter.json);
-                li.addEventListener('click', () => {
-                    // Show chapter page
-                    showChapterPage(chapter.title);
+                
+                // Creazione del contenitore per subchapters (inizialmente nascosto)
+                const subchaptersList = document.createElement('ul');
+                subchaptersList.className = 'subchapters-list';
+                subchaptersList.style.display = 'none';
+                
+                // Aggiungi l'evento di click per mostrare/nascondere i subchapters
+                li.addEventListener('click', (event) => {
+                    // Previeni la propagazione dell'evento ai genitori
+                    event.stopPropagation();
+                    
+                    // Se i subchapters sono già stati caricati, togliamo o mostriamo la lista
+                    if (subchaptersList.childElementCount > 0) {
+                        subchaptersList.style.display = subchaptersList.style.display === 'none' ? 'block' : 'none';
+                        return;
+                    }
+                    
+                    // Altrimenti carica i subchapters dal file JSON
+                    loadSubchapters(chapter.title, chapter.json, moduleKey, year, subchaptersList);
                 });
+                
+                li.appendChild(subchaptersList);
                 chaptersList.appendChild(li);
 
                 // Aggiungi anche al sidebar
                 if (sidebar) {
                     const sidebarLi = document.createElement('li');
+                    sidebarLi.className = 'sidebar-chapter';
+                    
                     const sidebarLink = document.createElement('a');
                     sidebarLink.href = '#';
                     sidebarLink.textContent = chapter.title;
+                    sidebarLink.className = 'sidebar-chapter-link';
                     sidebarLink.setAttribute('data-chapter', chapter.json);
-                    sidebarLink.setAttribute('data-module', moduleKey); // Aggiungo il data-module
-                    sidebarLink.setAttribute('data-year', year);       // Aggiungo il data-year
+                    sidebarLink.setAttribute('data-module', moduleKey);
+                    sidebarLink.setAttribute('data-year', year);
+                    
+                    // Contenitore per i sottocapitoli nella sidebar
+                    const sidebarSubchaptersList = document.createElement('ul');
+                    sidebarSubchaptersList.className = 'sidebar-subchapters-list';
+                    sidebarSubchaptersList.style.display = 'none';
+                    
+                    // Gestore click sul capitolo nella sidebar
                     sidebarLink.addEventListener('click', (e) => {
                         e.preventDefault();
-
-                        // Imposto le variabili globali prima di chiamare showChapterPage
+                        
+                        // Se i sottocapitoli sono già stati caricati, mostra/nascondi la lista
+                        if (sidebarSubchaptersList.childElementCount > 0) {
+                            sidebarSubchaptersList.style.display = 
+                                sidebarSubchaptersList.style.display === 'none' ? 'block' : 'none';
+                            return;
+                        }
+                        
+                        // Imposto le variabili globali
                         currentlyOpenModuleKey = e.target.getAttribute('data-module');
                         currentYear = e.target.getAttribute('data-year');
-
-                        showChapterPage(chapter.title);
+                        
+                        // Carica i sottocapitoli nella sidebar
+                        loadSidebarSubchapters(
+                            chapter.title,
+                            chapter.json,
+                            moduleKey,
+                            year,
+                            sidebarSubchaptersList
+                        );
                     });
+                    
                     sidebarLi.appendChild(sidebarLink);
+                    sidebarLi.appendChild(sidebarSubchaptersList);
                     sidebar.querySelector('.sidebar-chapters-list').appendChild(sidebarLi);
                 }
             });
@@ -436,7 +480,12 @@ function toggleMenu() {
     }
 }
 
-async function showChapterPage(chapterTitle) {
+/**
+ * Mostra la pagina di un capitolo e opzionalmente scorre a un ancoraggio specifico
+ * @param {string} chapterTitle - Titolo del capitolo da mostrare
+ * @param {string|null} anchorId - ID dell'elemento a cui scorrere (opzionale)
+ */
+async function showChapterPage(chapterTitle, anchorId = null) {
 
     const chapterPage = document.getElementById('chapter-page');
     const yearsContainer = document.querySelector('.years-container');
@@ -447,6 +496,8 @@ async function showChapterPage(chapterTitle) {
     yearsContainer.classList.add('hidden');
     // Mostra la pagina capitolo
     chapterPage.classList.remove('hidden');
+    // Memorizza il titolo del capitolo come attributo per poterlo recuperare facilmente
+    chapterPage.setAttribute('data-current-chapter', chapterTitle);
     // Aggiungi sfondo opaco a main e header
     main.style.background = 'rgba(0, 0, 0, 0.6)';
     header.style.background = 'rgba(0, 0, 0, 0.6)';
@@ -478,7 +529,21 @@ async function showChapterPage(chapterTitle) {
                 const item = data.content[i];
                 switch (item.type) {
                     case 'heading':
-                        html += `<h${item.level}>${item.text}</h${item.level}>`;
+                        const headingText = renderMath(item.text);
+                        let headingHtml = `<h${item.level}>${headingText}</h${item.level}>`;
+                        
+                        // Aggiungi ID univoco per heading di livello 3
+                        if (item.level === 3) {
+                            const slug = item.text
+                                .toLowerCase()
+                                .replace(/[^\w\s-]/g, '') // Rimuovi caratteri speciali
+                                .replace(/\s+/g, '-') // Sostituisci spazi con trattini
+                                .replace(/-+/g, '-') // Rimuovi trattini multipli
+                                .trim(); // Rimuovi spazi iniziali/finali
+                            headingHtml = `<h${item.level} id="${slug}">${headingText}</h${item.level}>`;
+                        }
+                        
+                        html += headingHtml;
                         break;
                     case 'subtitle':
                         html += `<h2 class="content-subtitle">${renderMath(item.text)}</h2>`;
@@ -489,7 +554,45 @@ async function showChapterPage(chapterTitle) {
                     case 'math':
                         html += `<div class="math-block">$$${item.text}$$</div>`;
                         break;
-                    
+                    case 'table':
+                        if (item.rows && Array.isArray(item.rows)) {
+                            const tableHtml = `<table class="content-table">
+                                <tbody>
+                                    ${item.rows.map(row => {
+                                        let colIndex = 0;
+                                        return `<tr>${row.map((cell, index) => {
+                                            // Support for colspan: if cell is empty and previous cell exists, skip it (handled by colspan)
+                                            if (cell === "" && index > 0 && row[index - 1] !== "") {
+                                                return ''; // Skip empty cells that follow non-empty ones
+                                            }
+                                            // Check if next cell is empty to determine colspan
+                                            const nextCell = row[index + 1];
+                                            const colspan = (nextCell === "") ? 2 : 1;
+                                            colIndex += colspan;
+                                            
+                                            // Support for cell properties
+                                            let cellContent = cell;
+                                            let cellClass = '';
+                                            let cellStyle = '';
+                                            
+                                            if (typeof cell === 'object' && cell !== null) {
+                                                cellContent = cell.text || '';
+                                                if (cell.align) cellStyle += `text-align: ${cell.align}; `;
+                                                if (cell.valign) cellStyle += `vertical-align: ${cell.valign}; `;
+                                                if (cell.class) cellClass = cell.class;
+                                            }
+                                            
+                                            const styleAttr = cellStyle ? ` style="${cellStyle}"` : '';
+                                            const classAttr = cellClass ? ` class="${cellClass}"` : '';
+                                            
+                                            return `<td${colspan > 1 ? ` colspan="${colspan}"` : ''}${styleAttr}${classAttr}>${renderMath(cellContent)}</td>`;
+                                        }).join('')}</tr>`;
+                                    }).join('')}
+                                </tbody>
+                            </table>`;
+                            html += tableHtml;
+                        }
+                        break;
                     case 'title':
                         html += `<h1 class="content-title">${item.text}</h1>`;
                         break;
@@ -602,6 +705,7 @@ async function showChapterPage(chapterTitle) {
                             ${imgCaption}
                         </figure>`;
                         break;
+                    
                     default:
                         html += `<p>Tipo di contenuto non supportato: ${item.type}</p>`;
                         break;
@@ -611,11 +715,274 @@ async function showChapterPage(chapterTitle) {
             html = '<p>Struttura del contenuto non valida.</p>';
         }
         chapterPage.querySelector('.chapter-content').innerHTML = html;
+        
+        // Elabora le formule MathJax con un piccolo ritardo per assicurarsi che il DOM sia aggiornato
         if (typeof MathJax !== 'undefined') {
-            MathJax.typeset();
+            setTimeout(() => {
+                // Elabora specificamente le tabelle e poi tutto il resto
+                const tables = chapterPage.querySelectorAll('.content-table');
+                tables.forEach(table => {
+                    MathJax.typeset([table]);
+                });
+                // Elabora tutto il resto
+                MathJax.typeset();
+                
+                // Scroll all'ancoraggio se specificato
+                if (anchorId) {
+                    setTimeout(() => {
+                        const element = document.getElementById(anchorId);
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 200); // Attendi un po' di più per assicurarti che il MathJax abbia finito
+                }
+            }, 100);
+        } else if (anchorId) {
+            // Se MathJax non è definito, scrollare comunque all'ancoraggio
+            setTimeout(() => {
+                const element = document.getElementById(anchorId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
         }
     } catch (e) {
         chapterPage.querySelector('.chapter-content').textContent = 'Errore nel caricamento del capitolo.';
+    }
+}
+
+/**
+ * Crea uno slug dall'ID per l'ancoraggio
+ * @param {string} text - Il testo da convertire in slug
+ * @returns {string} - Lo slug generato
+ */
+function createSlug(text) {
+    return text
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '') // Rimuovi caratteri speciali
+        .replace(/\s+/g, '-')     // Sostituisci spazi con trattini
+        .replace(/-+/g, '-')      // Rimuovi trattini multipli
+        .trim();                  // Rimuovi spazi iniziali/finali
+}
+
+/**
+ * Funzione per caricare i sottocapitoli di un capitolo
+ * @param {string} chapterTitle - Il titolo del capitolo
+ * @param {string} chapterJson - Il nome del file JSON
+ * @param {string} moduleKey - La chiave del modulo
+ * @param {string} year - L'anno accademico
+ * @param {HTMLElement} subchaptersList - L'elemento UL dove inserire i sottocapitoli
+ */
+async function loadSubchapters(chapterTitle, chapterJson, moduleKey, year, subchaptersList) {
+    // Costruisci il path del file JSON
+    const jsonPath = `anno-${year}/${moduleKey}/pages/${chapterJson}`;
+    
+    try {
+        // Carica il file JSON
+        const response = await fetch(jsonPath);
+        if (!response.ok) throw new Error('Errore nel caricamento del capitolo');
+        const data = await response.json();
+        
+        // Trova tutti i titoli di heading di livello 3 (sottocapitoli)
+        const subchapters = data.content.filter(item => 
+            item.type === 'heading' && item.level === 3
+        );
+        
+        // Se non ci sono sottocapitoli, mostra un messaggio
+        if (subchapters.length === 0) {
+            const noSubchaptersLi = document.createElement('li');
+            noSubchaptersLi.textContent = 'Nessun sottocapitolo disponibile';
+            noSubchaptersLi.className = 'subchapter no-subchapters';
+            subchaptersList.appendChild(noSubchaptersLi);
+            subchaptersList.style.display = 'block';
+            return;
+        }
+        
+        // Crea un elemento li per ogni sottocapitolo
+        subchapters.forEach((subchapter, index) => {
+            const subchapterLi = document.createElement('li');
+            subchapterLi.textContent = subchapter.text;
+            subchapterLi.className = 'subchapter';
+            
+            // Crea un ID univoco per l'ancoraggio basato sul testo
+            const slug = createSlug(subchapter.text);
+            
+            // Aggiungi evento click per navigare al sottocapitolo
+            subchapterLi.addEventListener('click', (event) => {
+                event.stopPropagation();
+                
+                // Se è il primo sottocapitolo, non specificare l'ancora
+                if (index === 0) {
+                    showChapterPage(chapterTitle);
+                } else {
+                    // Mostra la pagina del capitolo con l'ancora specifica
+                    showChapterPage(chapterTitle, slug);
+                }
+            });
+            
+            subchaptersList.appendChild(subchapterLi);
+        });
+        
+        // Mostra la lista dei sottocapitoli
+        subchaptersList.style.display = 'block';
+        
+    } catch (error) {
+        console.error('Errore nel caricamento dei sottocapitoli:', error);
+        
+        // Mostra un messaggio di errore
+        const errorLi = document.createElement('li');
+        errorLi.textContent = 'Errore nel caricamento dei sottocapitoli';
+        errorLi.className = 'subchapter error';
+        subchaptersList.appendChild(errorLi);
+        subchaptersList.style.display = 'block';
+    }
+}
+
+/**
+ * Funzione per caricare i sottocapitoli nella sidebar
+ * @param {string} chapterTitle - Il titolo del capitolo
+ * @param {string} chapterJson - Il nome del file JSON
+ * @param {string} moduleKey - La chiave del modulo
+ * @param {string} year - L'anno accademico
+ * @param {HTMLElement} sidebarSubchaptersList - L'elemento UL dove inserire i sottocapitoli nella sidebar
+ */
+async function loadSidebarSubchapters(chapterTitle, chapterJson, moduleKey, year, sidebarSubchaptersList) {
+    // Costruisci il path del file JSON
+    const jsonPath = `anno-${year}/${moduleKey}/pages/${chapterJson}`;
+    
+    try {
+        // Carica il file JSON
+        const response = await fetch(jsonPath);
+        if (!response.ok) throw new Error('Errore nel caricamento del capitolo');
+        const data = await response.json();
+        
+        // Trova tutti i titoli di heading di livello 3 (sottocapitoli)
+        const subchapters = data.content.filter(item => 
+            item.type === 'heading' && item.level === 3
+        );
+        
+        // Se non ci sono sottocapitoli, mostra un messaggio
+        if (subchapters.length === 0) {
+            const noSubchaptersLi = document.createElement('li');
+            noSubchaptersLi.textContent = 'Nessun sottocapitolo disponibile';
+            noSubchaptersLi.className = 'sidebar-subchapter no-subchapters';
+            sidebarSubchaptersList.appendChild(noSubchaptersLi);
+            sidebarSubchaptersList.style.display = 'block';
+            return;
+        }
+        
+        // Crea un elemento li per ogni sottocapitolo
+        subchapters.forEach((subchapter, index) => {
+            const subchapterLi = document.createElement('li');
+            subchapterLi.className = 'sidebar-subchapter';
+            
+            const subchapterLink = document.createElement('a');
+            subchapterLink.href = '#';
+            subchapterLink.textContent = subchapter.text;
+            subchapterLink.className = 'sidebar-subchapter-link';
+            
+            // Crea un ID univoco per l'ancoraggio basato sul testo
+            const slug = createSlug(subchapter.text);
+            
+            // Aggiungi evento click per navigare al sottocapitolo
+            // Memorizziamo tutte le informazioni necessarie come attributi per evitare problemi di closure
+            subchapterLink.setAttribute('data-chapter', chapterTitle);
+            subchapterLink.setAttribute('data-slug', slug);
+            subchapterLink.setAttribute('data-module', moduleKey);
+            subchapterLink.setAttribute('data-year', year);
+            subchapterLink.setAttribute('data-index', index); // Aggiungiamo l'indice per identificare il primo sottocapitolo
+            
+            subchapterLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Recupera tutti i dati dagli attributi dell'elemento
+                const clickedLink = e.currentTarget;
+                const targetChapter = clickedLink.getAttribute('data-chapter');
+                const targetSlug = clickedLink.getAttribute('data-slug');
+                const targetModule = clickedLink.getAttribute('data-module');
+                const targetYear = clickedLink.getAttribute('data-year');
+                const targetIndex = parseInt(clickedLink.getAttribute('data-index'), 10);
+                
+                console.log('Navigazione sottocapitolo:', {
+                    chapter: targetChapter,
+                    slug: targetSlug,
+                    module: targetModule,
+                    year: targetYear,
+                    currentModule: currentlyOpenModuleKey,
+                    index: targetIndex
+                });
+                
+                // Ottieni l'elemento del capitolo attualmente visualizzato
+                const chapterPage = document.getElementById('chapter-page');
+                const isChapterPageVisible = !chapterPage.classList.contains('hidden');
+                
+                // Leggi il titolo del capitolo attualmente visualizzato dall'attributo
+                const currentChapterTitle = chapterPage.getAttribute('data-current-chapter');
+                
+                // Aggiungiamo un log per debug
+                console.log('Verifica capitolo:', {
+                    clickedChapter: targetChapter,
+                    currentChapterTitle: currentChapterTitle
+                });
+                
+                // La condizione corretta è: pagina capitolo è visibile E il titolo del capitolo cliccato è uguale a quello attualmente visualizzato
+                const isCurrentChapter = isChapterPageVisible && (targetChapter === currentChapterTitle);
+                
+                // Se siamo già nella pagina del capitolo corrente
+                if (isCurrentChapter) {
+                    console.log('Stesso capitolo, gestione scroll');
+                    
+                    // Se è il primo sottocapitolo, scorriamo all'inizio della pagina
+                    if (targetIndex === 0) {
+                        // Ottieni l'elemento contenitore del capitolo e imposta lo scroll
+                        const contentContainer = document.querySelector('.chapter-content');
+                        if (contentContainer) {
+                            contentContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            document.body.scrollTop = 0; 
+                            document.documentElement.scrollTop = 0; 
+                        }
+                    } else {
+                        // Altrimenti scorriamo all'ancora specifica
+                        const element = document.getElementById(targetSlug);
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            console.error('Elemento ancora non trovato:', targetSlug);
+                        }
+                    }
+                } else {
+                    // Altrimenti, imposta le variabili globali e carica il capitolo
+                    console.log('Cambio capitolo:', targetModule, targetYear);
+                    currentlyOpenModuleKey = targetModule;
+                    currentYear = targetYear;
+                    
+                    // Se è il primo sottocapitolo, carica la pagina senza specificare ancora
+                    if (targetIndex === 0) {
+                        showChapterPage(targetChapter);
+                    } else {
+                        showChapterPage(targetChapter, targetSlug);
+                    }
+                }
+            });
+            
+            subchapterLi.appendChild(subchapterLink);
+            sidebarSubchaptersList.appendChild(subchapterLi);
+        });
+        
+        // Mostra la lista dei sottocapitoli
+        sidebarSubchaptersList.style.display = 'block';
+        
+    } catch (error) {
+        console.error('Errore nel caricamento dei sottocapitoli nella sidebar:', error);
+        
+        // Mostra un messaggio di errore
+        const errorLi = document.createElement('li');
+        errorLi.textContent = 'Errore nel caricamento dei sottocapitoli';
+        errorLi.className = 'sidebar-subchapter error';
+        sidebarSubchaptersList.appendChild(errorLi);
+        sidebarSubchaptersList.style.display = 'block';
     }
 }
 
