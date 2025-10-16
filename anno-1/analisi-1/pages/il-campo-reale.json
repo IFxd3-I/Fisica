@@ -11,7 +11,7 @@
         {
             "type": "heading",
             "level": 3,
-            "text": "Insiemi numerici noti ℕ, ℤ, ℚ"
+            "text": "Insiemi numerici noti"
         },
         {
             "type": "paragraph",
@@ -35,7 +35,7 @@
         },
         {
             "type": "paragraph",
-            "text": "<highlight>Numeri interi \\(\\mathbb{Z}\\)</highlight>: estensione di ℕ con negativi e zero."
+            "text": "<highlight>Numeri interi \\(\\mathbb{Z}\\)</highlight>: estensione di \\(\\mathbb{N}\\) con negativi e zero."
         },
         {
             "type": "math",
@@ -67,7 +67,7 @@
         },
         {
             "type": "paragraph",
-            "text": "La catena di inclusioni \\(\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}\\) mostra come ogni insieme estenda le possibilità del precedente. Tuttavia, anche ℚ presenta limitazioni che vedremo nella sezione sui numeri reali."
+            "text": "La catena di inclusioni \\(\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}\\) mostra come ogni insieme estenda le possibilità del precedente. Tuttavia, anche \\(\\mathbb{Q}\\) presenta limitazioni che vedremo nella sezione sui numeri reali."
         },
         {
             "type": "heading",
@@ -111,15 +111,15 @@
         {
             "type": "heading",
             "level": 3,
-            "text": "Numeri reali ℝ: definizione, estremo superiore/inferiore"
+            "text": "Numeri reali: definizione, estremo superiore/inferiore"
         },
         {
             "type": "paragraph",
-            "text": "I numeri razionali <highlight>non bastano</highlight> per l'analisi matematica: esistono numeri come \\(\\sqrt{2}\\), \\(\\pi\\), e \\(e\\) che non possono essere espressi come frazioni. Questa <em>incompletezza</em> di ℚ rende necessaria l'introduzione dei numeri reali ℝ."
+            "text": "I numeri razionali <highlight>non bastano</highlight> per l'analisi matematica: esistono numeri come \\(\\sqrt{2}\\), \\(\\pi\\), e \\(e\\) che non possono essere espressi come frazioni. Questa <em>incompletezza</em> di \\(\\mathbb{Q}\\) rende necessaria l'introduzione dei numeri reali \\(\\mathbb{R}\\)."
         },
         {
             "type": "paragraph",
-            "text": "I <highlight>numeri reali</highlight> ℝ includono tutti i razionali più tutti gli irrazionali, creando una \"retta numerica completa\" senza buchi. Vediamo ora alcune proprietà importanti."
+            "text": "I <highlight>numeri reali</highlight> \\(\\mathbb{R}\\) includono tutti i razionali più tutti gli irrazionali, creando una \"retta numerica completa\" senza buchi. Vediamo ora alcune proprietà importanti."
         },
         {
             "type": "heading",
@@ -201,7 +201,7 @@
         },
         {
             "type": "heading",
-            "level": 3,
+            "level": 4,
             "text": "Densità di Q in R, Completezza di R"
         },
         {
@@ -304,7 +304,7 @@
         },
         {
             "type": "heading",
-            "level": 3,
+            "level": 4,
             "text": "Insiemi equipotenti: insiemi numerabili, non numerabilità di R"
         },
         {

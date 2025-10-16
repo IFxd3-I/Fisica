@@ -1,69 +1,34 @@
 const API_KEY = "DEMO_KEY";
-
 const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
-
 const TODAY = '2023-10-01'; // Temporarily set to a past date for testing
 
-
-
 // Solo sfondo, niente altri elementi
-
 /**
-
  * Funzione principale per impostare lo sfondo.
-
  * Solo console per stato.
-
  */
 
 function visualizzaAPOD(data, isCached) {
-
     // --- Messaggio di stato: SOLO CONSOLE ---
-
     const status = isCached
-
         ? "APOD: Sfondo caricato dalla cache locale."
-
         : "APOD: Dati recuperati dall'API NASA (Richiesta effettuata).";
-
     console.log(status);
-
-
-
     // Imposta lo sfondo SOLO se è un'immagine
-
     if (data.media_type === 'image') {
-
         const imageUrl = data.hdurl || data.url;
-
-
-
         // Applica lo sfondo e gli stili
-
         document.body.style.backgroundImage = `url('${imageUrl}')`;
-
         document.body.style.backgroundSize = 'cover';
-
         document.body.style.backgroundPosition = 'center';
-
         document.body.style.backgroundAttachment = 'fixed';
-
-
-
     } else {
-
         // Gestione dei video: sfondo nero
-
         document.body.style.backgroundImage = 'none';
-
         document.body.style.backgroundColor = '#111';
-
         console.warn(`APOD: Oggi è un video (${data.title}). Sfondo non impostato.`);
-
     }
-
 }
-
 
 
 /**
@@ -73,71 +38,31 @@ function visualizzaAPOD(data, isCached) {
  */
 
 async function caricaAPOD() {
-
     try {
-
         const cachedString = localStorage.getItem('nasaAPOD');
-
         const cachedData = cachedString ? JSON.parse(cachedString) : null;
-
-
-
         // 1. **VERIFICA CACHE:** Se i dati esistono E la data è OGGI, usa la cache
-
         if (cachedData && cachedData.date === TODAY) {
-
             visualizzaAPOD(cachedData, true);
-
             return;
-
         }
-
-
-
         // 2. CACHE SCADUTA/ASSENTE: Chiama l'API NASA
-
         const response = await fetch(APOD_URL);
-
-
-
         if (!response.ok) {
-
             const error = await response.json();
-
             throw new Error(error.msg || `Errore HTTP: ${response.status}`);
-
         }
-
-
-
         const data = await response.json();
-
-
-
         // 3. SALVATAGGIO CACHE
-
         localStorage.setItem('nasaAPOD', JSON.stringify(data));
-
         visualizzaAPOD(data, false);
-
-
-
     } catch (error) {
-
         console.error("APOD: Errore nel recupero:", error);
-
-
-
         const fallbackData = JSON.parse(localStorage.getItem('nasaAPOD'));
-
         if (fallbackData) {
-
             visualizzaAPOD(fallbackData, true);
-
         }
-
     }
-
 }
 
 caricaAPOD();
@@ -301,6 +226,15 @@ document.querySelectorAll('.module').forEach(module => {
                     // Previeni la propagazione dell'evento ai genitori
                     event.stopPropagation();
                     
+                    // Prima di aprire questo sottocapitolo, chiudi tutti gli altri sottocapitoli aperti
+                    const allSubchapterLists = document.querySelectorAll('.subchapters-list');
+                    allSubchapterLists.forEach(list => {
+                        // Chiudi solo gli altri sottocapitoli, non quello corrente
+                        if (list !== subchaptersList && list.style.display === 'block') {
+                            list.style.display = 'none';
+                        }
+                    });
+                    
                     // Se i subchapters sono già stati caricati, togliamo o mostriamo la lista
                     if (subchaptersList.childElementCount > 0) {
                         subchaptersList.style.display = subchaptersList.style.display === 'none' ? 'block' : 'none';
@@ -335,6 +269,15 @@ document.querySelectorAll('.module').forEach(module => {
                     // Gestore click sul capitolo nella sidebar
                     sidebarLink.addEventListener('click', (e) => {
                         e.preventDefault();
+                        
+                        // Prima di aprire questo sottocapitolo, chiudi tutti gli altri sottocapitoli aperti nella sidebar
+                        const allSidebarSubchapterLists = document.querySelectorAll('.sidebar-subchapters-list');
+                        allSidebarSubchapterLists.forEach(list => {
+                            // Chiudi solo gli altri sottocapitoli, non quello corrente
+                            if (list !== sidebarSubchaptersList && list.style.display === 'block') {
+                                list.style.display = 'none';
+                            }
+                        });
                         
                         // Se i sottocapitoli sono già stati caricati, mostra/nascondi la lista
                         if (sidebarSubchaptersList.childElementCount > 0) {

@@ -24,11 +24,11 @@
         },
         {
             "type": "paragraph",
-            "text": "Per misurare la distanza all'interno di un isnieme, ci avvaliamo della nozione di intorno."
+            "text": "Per misurare la distanza all'interno di un insieme, ci avvaliamo della nozione di intorno."
         },
         {
             "type": "paragraph",
-            "text": "<highlight>Definizione:</highlight> Sia \\((X,d)\\) uno spazio metrico. Sia \\(p \\in X\\) e \\(r > 0\\). Si chiama <highlight>intorno</highlight> di \\(p\\) di raggio \\(r\\) l'insieme \\(B(p,r) = \\{x \\in X : d(x,p) < r\\}\\). Il punto \\(p\\) si chiama <highlight>centro</highlight> dell'intorno."
+            "text": "Sia \\((X,d)\\) uno spazio metrico. Sia \\(p \\in X\\) e \\(r > 0\\). Si chiama <highlight>intorno</highlight> di \\(p\\) di raggio \\(r\\) l'insieme \\(B(p,r) = \\{x \\in X : d(x,p) < r\\}\\). Il punto \\(p\\) si chiama <highlight>centro</highlight> dell'intorno."
         },
         {
             "type": "theorem",
@@ -45,7 +45,7 @@
         },
         {
             "type": "paragraph",
-            "text": "<highlight>Definizione:</highlight> Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. Un punto \\(p \\in X\\) si dice"
+            "text": "Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. Un punto \\(p \\in X\\) si dice"
         },
         {
             "type": "olist",
@@ -57,7 +57,7 @@
         },
         {
             "type": "paragraph",
-            "text": "<highlight>Definizione:</highlight> Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. Un punto \\(p \\in X\\) si dice"
+            "text": "Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. Un punto \\(p \\in X\\) si dice"
         },
         {
             "type": "olist",
@@ -86,11 +86,11 @@
         },
         {
             "type": "paragraph",
-            "text": "<highlight>Definizione:</highlight> Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. Si dice che \\(A\\) <highlight>Aperto</highlight> se \\(A = \\mathring{A}\\). Si dice che \\(A\\) è <highlight>Chiuso</highlight> se \\(A^c\\) è aperto."
+            "text": "Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. Si dice che \\(A\\) <highlight>Aperto</highlight> se \\(A = \\mathring{A}\\). Si dice che \\(A\\) è <highlight>Chiuso</highlight> se \\(A^c\\) è aperto."
         },
         {
             "type": "paragraph",
-            "text": "<span class=\"warning\">Nota Bene:</span> \\((-\\infty, b)\\), \\((a, +\\infty)\\), \\((-\\infty, +\\infty)\\) sono aperti, mentre \\((-\\infty,b]\\), \\([a,+\\infty)\\) sono chiusi."
+            "text": "\\((-\\infty, b)\\), \\((a, +\\infty)\\), \\((-\\infty, +\\infty)\\) sono aperti, mentre \\((-\\infty,b]\\), \\([a,+\\infty)\\) sono chiusi."
         },
         {
             "type": "theorem",
@@ -105,13 +105,13 @@
                 },
                 {
                     "type": "proof",
-                    "text": "\\((\\Rightarrow)\\) Sia \\(A\\) chiuso e sia \\(p \\in A^c\\). Poichè \\(p\\) è interno ad \\(A^c\\), esiste un intorno \\(B(p,r)\\) che non contiene punti di \\(A\\). Quindi \\(p\\) non è di accumulazione per \\(A\\). In altri termini, \\(A' \\subseteq A\\). \\((\\Leftarrow)\\) Viceversa, sia \\(A' \\subseteq A\\) e sia \\(p\\) un qualunque punto di \\(A^c\\). Per ipotesi \\(p\\) non è di accumulazione per \\(A\\). Questo significa che esiste un intorno \\(B(p,r)\\) che non contiene alcun punto di \\(A\\) diverso da p. Dato che \\(p \\in A^c\\), \\(B(p,r) \\cap A = \\emptyset\\); perciò \\(B(p,r) \\subseteq A^c\\). Quindi \\(p\\) è interno ad \\(A^c\\). Ne segue che \\(A^c\\) è aperto."
+                    "text": "\\((\\Rightarrow)\\) Sia \\(A\\) chiuso e sia \\(p \\in A^c\\). Poichè \\(p\\) è interno ad \\(A^c\\), esiste un intorno \\(B(p,r)\\) che non contiene punti di \\(A\\). Quindi \\(p\\) non è di accumulazione per \\(A\\). In altri termini, \\(A' \\subseteq A\\). \\((\\Leftarrow)\\) Viceversa, sia \\(A' \\subseteq A\\) e sia \\(p\\) un qualunque punto di \\(A^c\\). Per ipotesi \\(p\\) non è di accumulazione per \\(A\\). Questo significa che esiste un intorno \\(B(p,r)\\) che non contiene alcun punto di \\(A\\) diverso da p. Dato che \\(p \\in A^c\\), \\(B(p,r) \\cap A = \\emptyset\\); perciò \\(B(p,r) \\subseteq A^c\\). Quindi \\(p\\) è interno ad \\(A^c\\). Ne segue che \\(A^c\\) è aperto. \\(\\square\\)"
                 }
             ]
         },
         {
             "type": "paragraph",
-            "text": "<highlight>Definizione:</highlight> Sia \\((X,d)\\) uno spazio metrico e sia \\(A \\subseteq X\\). Si chiama <highlight>chiusura</highlight> di \\(A\\) l'insieme \\(\\overline{A} = A \\cup A'\\)."
+            "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(A \\subseteq X\\). Si chiama <highlight>chiusura</highlight> di \\(A\\) l'insieme \\(\\overline{A} = A \\cup A'\\)."
         },
         {
             "type": "theorem",
@@ -126,7 +126,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<ol><li> Se \\(p\\) è un punto di accumulazione per \\(A \\cup A'\\), allora \\(p\\) è di accumulazione per \\(A\\) o per \\(A'\\). Supponiamo che \\(p\\) sia di accumulazione per \\(A\\), allora \\(p \\in A'\\). Se \\(p\\) è invece di accumulazione per \\(A'\\), ogni intorno \\(B(p,r)\\) deve contenere un punto \\(x \\in A'\\). Poiché \\(B(p,r)\\) è aperto, esiste \\(s > 0\\) tale che \\(B(x,s) \\subset B(p,r)\\). Poiché \\(B(x,s)\\) contiene infiniti punti di \\(A\\), lo stesso vale per \\(B(p,r)\\). Quindi, di nuovo, \\(p \\in A'\\).</li><li>I punti di accumulazione di A sono anche punti di accumulazione di F. Poichè F è chiuso, si ha \\(F \\supseteq A \\cup A'\\).</li><li>\\(A \\subset \\overline{A}\\) sempre, ma per la \\((2.)\\), se \\(A\\) è chiuso con \\(A \\supseteq A\\), allora \\(A = \\overline{A}\\).</li><li>\\(A \\supset F \\Rightarrow \\overline{A} \\supset F\\), il quale essendo chiuso per \\((3.)\\), implica \\(\\overline{A} \\supset \\overline{F}\\).</li></ol>"
+                    "text": "<ol><li> Se \\(p\\) è un punto di accumulazione per \\(A \\cup A'\\), allora \\(p\\) è di accumulazione per \\(A\\) o per \\(A'\\). Supponiamo che \\(p\\) sia di accumulazione per \\(A\\), allora \\(p \\in A'\\). Se \\(p\\) è invece di accumulazione per \\(A'\\), ogni intorno \\(B(p,r)\\) deve contenere un punto \\(x \\in A'\\). Poiché \\(B(p,r)\\) è aperto, esiste \\(s > 0\\) tale che \\(B(x,s) \\subset B(p,r)\\). Poiché \\(B(x,s)\\) contiene infiniti punti di \\(A\\), lo stesso vale per \\(B(p,r)\\). Quindi, di nuovo, \\(p \\in A'\\).</li><li>I punti di accumulazione di A sono anche punti di accumulazione di F. Poichè F è chiuso, si ha \\(F \\supseteq A \\cup A'\\).</li><li>\\(A \\subset \\overline{A}\\) sempre, ma per la \\((2.)\\), se \\(A\\) è chiuso con \\(A \\supseteq A\\), allora \\(A = \\overline{A}\\).</li><li>\\(A \\supset F \\Rightarrow \\overline{A} \\supset F\\), il quale essendo chiuso per \\((3.)\\), implica \\(\\overline{A} \\supset \\overline{F}\\). \\(\\square\\)</li></ol>"
                 }
             ]
         },
@@ -139,11 +139,57 @@
                 },
                 {
                     "type": "statement",
-                    "text": "Sia \\((X,d)\\) uno spazio metrico. <ol><li>\\(E_i\\) aperto \\(\\forall i \\in I \\Rightarrow \\bigcup_{i \\in I} E_i\\) è aperto.</li><li>\\(E_1, \\ldots, E_n\\) aperti \\(\\Rightarrow \\bigcap_{j=1}^n E_j\\) è aperto.</li>\\(E_i\\) chiuso \\(\\forall i \\in I \\Rightarrow \\bigcap_{i \\in I} E_i\\) è chiuso.</li><li>\\(E_1, \\ldots, E_n\\) chiusi \\(\\Rightarrow \\bigcup_{j=1}^n E_j\\) è chiuso.</li></ol>"
+                    "text": "Sia \\((X,d)\\) uno spazio metrico. <ol><li>\\(E_i\\) aperto \\(\\forall i \\in I \\Rightarrow \\displaystyle\\bigcup_{i \\in I} E_i\\) è aperto.</li><li>\\(E_1, \\ldots, E_n\\) aperti \\(\\Rightarrow \\displaystyle\\bigcap_{j=1}^n E_j\\) è aperto.</li><li>\\(E_i\\) chiuso \\(\\forall i \\in I \\Rightarrow \\displaystyle\\bigcap_{i \\in I} E_i\\) è chiuso.</li><li>\\(E_1, \\ldots, E_n\\) chiusi \\(\\Rightarrow \\displaystyle\\bigcup_{j=1}^n E_j\\) è chiuso.</li></ol>"
                 },
                 {
                     "type": "proof",
-                    "text": "<ol><li> Poniamo \\(E = \\bigcup_{i \\in I} E_i\\) dove \\(\\mathring{E_i} \\supset E_i\\), \\(."
+                    "text": "Ricordiamo \\(E = \\displaystyle\\bigcup_{i \\in I} E_i = {x \\in X : \\exists i \\in I, x \\in E_i}\\) e \\(\\displaystyle\\bigcap_{i \\in I} E_i = {x \\in X : \\forall i \\in I, x \\in E_i}\\).<ol><li>\\(p \\in \\displaystyle\\bigcup_{i \\in I} E_i \\Rightarrow \\exists i_0 : p \\in E_{i_0}\\), aperto \\(\\Rightarrow \\exists r > 0 : B(p,r) \\subset E_{i_0} \\subset \\displaystyle\\bigcup_{i \\in I} E_i\\)</li><li>\\(p \\in \\displaystyle\\bigcap_{i = 1}^{N} E_i \\Rightarrow \\forall i = 1, \\ldots, N, p \\in E_{i} \\rightarrow \\forall i = 1, \\ldots, N, \\exists r_i > 0 : B(p,r_i) \\subset E_i\\). Sia \\(r:= \\min\\{r_i : i = 1, \\dots, N\\}\\); allora \\(B_r(p) \\subset B_{r_i}(p) \\subset E_i \\ \\ \\forall i = 1, \\cdots, N\\) cioè \\(B_r(p) \\subset \\displaystyle\\bigcap_{i = 1}^{N} E_i\\)</li><li> La terza e la quarta sono conseguenze delle regola di De Morgan: \\((\\displaystyle\\bigcup_{i \\in I} E_i)^c = \\displaystyle\\bigcap_{i \\in I} (E_i)^c\\) e \\((\\displaystyle\\bigcap_{i \\in I} E_i)^c = \\displaystyle\\bigcup_{i \\in I} (E_i)^c\\) e del fatto che \\(E\\) è chiuso se e solo se \\(E^c\\) è aperto.</li><li>Guardare il punto 3. \\(\\square\\)</li></ol>"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(E \\subset X\\). Si dice che \\(E\\) è <highlight>Limitato</highlight> se esiste \\(m,M : m \\leq x \\leq M \\ \\ \\forall x \\in E\\) "                                                                                                 
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\((X,d)\\) uno spazio metrico, \\(E \\subset X\\) e \\(E \\neq \\emptyset\\). Chiamiamo <highlight>diametro</highlight> di \\(E\\) il valore \\(diam(E) := \\sup\\{d(x,y) : x,y \\in E\\} \\in [0,+\\infty]\\)."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Proprietà degli insiemi limitati)"
+                },
+                {
+                    "type": "statement",
+                    "text": ""
+                },
+                {
+                    "type": "proof",
+                    "text": ""
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(A \\subseteq X\\). Si dice che \\(A\\) è <highlight>compatto</highlight> se"
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Proprietà degli insiemi compatti)"
+                },
+                {
+                    "type": "statement",
+                    "text": ""
+                },
+                {
+                    "type": "proof",
+                    "text": ""
                 }
             ]
         },
@@ -153,26 +199,14 @@
             "text": "Successioni a valori in spazi metrici: successioni convergenti e unicità del limite"
         },
         {
-            "type": "paragraph",
-            "text": ""
-        },
-        {
             "type": "heading",
             "level": 3,
             "text": "Condizioni necessarie per la convergenza: limitatezza, sottosuccessioni e la condizione di Cauchy"
         },
         {
-            "type": "paragraph",
-            "text": ""
-        },
-        {
             "type": "heading",
             "level": 3,
             "text": "Spazi metrici completi"
-        },
-        {
-            "type": "paragraph",
-            "text": ""
         }
     ]
 }
