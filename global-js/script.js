@@ -91,7 +91,8 @@ const chapters = {
         { title: "Organizzazione dei dati", json: "organizzazione-dei-dati.json" },
         { title: "Dati, Misure e cifre significative", json: "dati-misure-cifre-significative.json" },
         { title: "Indicatori per le distribuzioni statistiche", json: "indicatori-distribuzioni-statistiche.json" },
-        { title: "Concetti base di probabilità", json: "probabilita.json" }
+        { title: "Concetti base di probabilità", json: "probabilita.json" },
+        { title: "Distribuzioni di probabilità", json: "distribuzioni-di-probabilita.json" }
     ],
     "analisi-2": [
         { title: "Serie di funzioni", json: "serie-di-funzioni.json" },
@@ -631,9 +632,9 @@ async function showChapterPage(chapterTitle, anchorId = null) {
                             const proofId = `theorem-proof-${Math.random().toString(36).substr(2, 9)}`;
                             const proofButton = `<button class="theorem-proof-button" onclick="toggleTheorem('${proofId}')" aria-label="Mostra dimostrazione" aria-expanded="false"></button>`;
                             const proofContent = `<div class="theorem-proof" id="${proofId}" style="display: none;">${theoremProof}</div>`;
-                            html += `<div class="theorem-container"><div class="theorem-header" style="position:relative"><span class="theorem-category">${theoremTitle}</span>${proofButton}</div><div class="theorem-statement">${theoremStatement}</div>${proofContent}</div>`;
+                            html += `<div class="theorem-container"><div class="theorem-header" style="position:relative"><span class="theorem-title">${theoremTitle}</span>${proofButton}</div><div class="theorem-statement">${theoremStatement}</div>${proofContent}</div>`;
                         } else {
-                            html += `<div class="theorem-container"><div class="theorem-header"><span class="theorem-category">${theoremTitle}</span></div><div class="theorem-statement">${theoremStatement}</div></div>`;
+                            html += `<div class="theorem-container"><div class="theorem-header"><span class="theorem-title">${theoremTitle}</span></div><div class="theorem-statement">${theoremStatement}</div></div>`;
                         }
                         break;
                     case 'image':
@@ -989,4 +990,48 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+    
+    // Aggiorna la data dell'ultimo aggiornamento
+    updateLastModifiedDate();
 });
+
+/**
+ * Aggiorna la data dell'ultimo aggiornamento nel footer
+ */
+function updateLastModifiedDate() {
+    const lastUpdateElement = document.getElementById('last-update');
+    if (!lastUpdateElement) return;
+    
+    // Tenta di ottenere la data di ultima modifica tramite API fetch
+    fetch('index.html', { method: 'HEAD' })
+        .then(response => {
+            const lastModified = response.headers.get('last-modified');
+            if (lastModified) {
+                // Formatta la data in italiano
+                const date = new Date(lastModified);
+                const options = { 
+                    day: '2-digit', 
+                    month: 'long', 
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                const formattedDate = date.toLocaleDateString('it-IT', options);
+                lastUpdateElement.textContent = formattedDate;
+            } else {
+                // Se non riesce a ottenere la data dal server, mostra la data attuale
+                const currentDate = new Date();
+                const options = { 
+                    day: '2-digit', 
+                    month: 'long', 
+                    year: 'numeric' 
+                };
+                lastUpdateElement.textContent = currentDate.toLocaleDateString('it-IT', options);
+            }
+        })
+        .catch(error => {
+            console.error('Errore nel recupero della data di ultima modifica:', error);
+            // In caso di errore, mostra la data corrente
+            lastUpdateElement.textContent = new Date().toLocaleDateString('it-IT');
+        });
+}

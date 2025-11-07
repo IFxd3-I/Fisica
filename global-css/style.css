@@ -10,9 +10,11 @@
 
 :root {
   --main-text-color: #ffffff;
-  --years-section-hover-color: #310b2f;
+  --highlight-color: #178a20;
+  --theorem-color: #ffa500;
+  --example-color: #435add;
+  --boxes--background: rgba(50, 20, 80, 0.3);
   --transition-duration: 0.4s;
-  --accent-color-1: #ffffff; /* Arancione brillante */
 }
 
 body {
@@ -49,18 +51,25 @@ body {
 }
 
 .highlight {
-  font-weight: 700; /* Grassetto per maggiore enfasi */
-  color: #178a20; /* Colore giallo brillante da mark, più visibile di #ffa500 */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Ombra sottile per contrasto */
-  padding: 2px; /* Padding per bilanciamento */
-  background-color: transparent; /* Sfondo trasparente come in mark */
-  font-style: italic; /* Stile italico per enfasi visiva */
-  transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease; /* Transizioni fluide */
+  font-weight: 700;
+  /* Grassetto per maggiore enfasi */
+  color: var(--highlight-color);
+  /* Colore giallo brillante da mark, più visibile di #ffa500 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  /* Ombra sottile per contrasto */
+  padding: 2px;
+  /* Padding per bilanciamento */
+  background-color: transparent;
+  /* Sfondo trasparente come in mark */
+  font-style: italic;
+  /* Stile italico per enfasi visiva */
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+  /* Transizioni fluide */
 }
 
 .highlight-inline-math {
   font-weight: 700;
-  color: #178a20;
+  color: var(--highlight-color);
   font-size: 1.05em;
   padding: 0.1rem 0.2rem;
   border-radius: 3px;
@@ -80,7 +89,7 @@ main {
 
 /* ===========================================
    HEADER
-   =========================================== */                            
+   =========================================== */
 
 header {
   display: flex;
@@ -225,7 +234,7 @@ header h1 a {
   margin: 1.5rem 0 0.75rem 0;
   color: var(--main-text-color);
   font-weight: 500;
-  border-bottom: 2px solid var(--years-section-hover-color);
+  border-bottom: 2px solid;
   padding-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -285,6 +294,8 @@ header h1 a {
   margin-bottom: 0.75rem;
   position: relative;
   padding-left: 1.5rem;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
 .chapters-list .chapter {
@@ -352,21 +363,22 @@ header h1 a {
   padding: 1rem;
   border: 2px solid #444;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--boxes--background);
 }
 
 .theorem-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 
-.theorem-category {
+.theorem-title {
+  flex: 1;
   font-weight: bold;
-  color: #ffa500;
+  color: var(--theorem-color);
   text-transform: uppercase;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .theorem-statement {
@@ -395,12 +407,12 @@ header h1 a {
 }
 
 .theorem-proof-button:hover {
-  background-color: #555;
+  background-color: var(--theorem-color);
 }
 
 .theorem-proof {
   margin-top: 1rem;
-} 
+}
 
 .theorem-proof p {
   line-height: 1.6;
@@ -414,6 +426,13 @@ header h1 a {
   padding-left: 1.5rem;
 }
 
+.theorem-proof .dim {
+  display: block;
+  font-style: italic;
+  color: var(--theorem-color);
+  text-align: center;
+}
+
 /* ===========================================
    CONTENUTO SPECIFICO - ESEMPI
    =========================================== */
@@ -423,7 +442,7 @@ header h1 a {
   padding: 1rem;
   border: 2px solid #444;
   border-radius: 8px;
-  background: rgba(76, 41, 85, 0.3);
+  background: var(--boxes--background);
 }
 
 .example-header {
@@ -435,7 +454,7 @@ header h1 a {
 
 .example-category {
   font-weight: bold;
-  color: #14b858;
+  color: var(--example-color);
   text-transform: uppercase;
   font-size: 1.1rem;
 }
@@ -452,7 +471,7 @@ header h1 a {
 }
 
 .example-button:hover {
-  background-color: #555;
+  background-color: var(--example-color);
 }
 
 .example-content {
@@ -483,13 +502,13 @@ header h1 a {
 .chapter-page .chapter-content .content-subtitle {
   font-size: 1.2rem;
   font-weight: 500;
-  color: var(--accent-color-1);
+  color: var(--main-text-color);
   margin: 1.5rem 0 2rem 0;
   text-align: center;
   font-style: italic;
   padding-bottom: 0.5rem;
   opacity: 0.9;
-  border-bottom: 2px solid var(--accent-color-1);
+  border-bottom: 2px solid var(--main-text-color);
 }
 
 .chapter-page .chapter-content h3 {
@@ -522,6 +541,7 @@ header h1 a {
   line-height: 1.8;
   font-size: 1.1rem;
 }
+
 /* ===========================================
    CONTENUTO SPECIFICO - MATEMATICA
    =========================================== */
@@ -939,7 +959,7 @@ header h1 a {
 #site-footer {
   width: 100%;
   padding: 10px 0;
-  background-color: rgba(0, 0, 0,);
+  background-color: rgba(0, 0, 0, );
   color: var(--main-text-color);
   position: fixed;
   bottom: 0;

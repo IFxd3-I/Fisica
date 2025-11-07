@@ -57,7 +57,7 @@
         {
             "type": "heading",
             "level": 3,
-            "text": "Cinematica Vettoriale"
+            "text": "Moto in una dimensione"
         },
         {
             "type": "heading",
@@ -255,78 +255,193 @@
         {
             "type": "heading",
             "level": 3,
+            "text": "Moto nel piano"
+        },
+        {
+            "type": "paragraph",
+            "text": "La posizione \\(\\mathbf{r}\\) del punto materiale lungo la sua traiettoria curvilinea può essere espressa tramite coordinate cartesiane e polari, rispettivamente:"
+        },
+        {
+            "type": "math",
+            "text": "\\mathbf{r}(t) = x\\hat{i} + y\\hat{j} \\quad \\quad \\mathbf{r}(t) = R\\hat{r}(\\theta)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Inoltre, le coordinate polari costituiscono una base ortogonale, quindi ogni vettore può essere espresso come combinazione lineare delle due direzioni:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{A} = A_r \\hat{r} + A_{\\theta} \\hat{\\theta}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove \\(A_r\\) e \\(A_{\\theta}\\) sono le componenti radiale e tangenziale del vettore \\(\\vec{A}\\)."
+        },
+        {
+            "type": "heading",
+            "level": 3,
             "text": "Formule utili"
         },
         {
             "type": "table",
             "rows": [
                 [
-                    {"text": "Cinematica Vettoriale", "class": "table-cell-title"},
+                    {
+                        "text": "Cinematica Vettoriale",
+                        "class": "table-cell-title"
+                    },
                     ""
                 ],
                 [
-                    {"text": "Moto Rettilineo", "class": "table-cell-span"},
+                    {
+                        "text": "Moto Rettilineo",
+                        "class": "table-cell-span"
+                    },
                     ""
                 ],
                 [
-                    {"text": "Legge oraria MRU", "class": "table-cell-text"},
-                    {"text": "\\(x(t) = x(t_0) + v(t - t_0)\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Legge oraria MRU",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(x(t) = x(t_0) + v(t - t_0)\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Legge oraria MRUA", "class": "table-cell-text"},
-                    {"text": "\\(x(t) = x(t_0) + v_0 (t - t_0) + \\frac{1}{2} a (t - t_0)^2\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Legge oraria MRUA",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(x(t) = x(t_0) + v_0 (t - t_0) + \\frac{1}{2} a (t - t_0)^2\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Moto Verticale", "class": "table-cell-span"},
+                    {
+                        "text": "Moto Verticale",
+                        "class": "table-cell-span"
+                    },
                     ""
                 ],
                 [
-                    {"text": "Caduta libera", "class": "table-cell-text"},
-                    {"text": "\\(y(t) = y(t_0) - \\frac{1}{2} g (t - t_0)^2\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Caduta libera",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(y(t) = y(t_0) - \\frac{1}{2} g (t - t_0)^2\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Tempo di caduta", "class": "table-cell-text"},
-                    {"text": "\\(t_{caduta} = \\sqrt{\\frac{2h}{g}}\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Tempo di caduta",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(t_{caduta} = \\sqrt{\\frac{2h}{g}}\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Velocità finale al suolo", "class": "table-cell-text"},
-                    {"text": "\\(v_c = -\\sqrt{2gh}\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Velocità finale al suolo",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(v_c = -\\sqrt{2gh}\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Lancio verso il basso", "class": "table-cell-text"},
-                    {"text": "\\(y(t) = y(t_0) - v_0 (t - t_0) - \\frac{1}{2} g (t - t_0)^2\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Lancio verso il basso",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(y(t) = y(t_0) - v_0 (t - t_0) - \\frac{1}{2} g (t - t_0)^2\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Tempo di caduta", "class": "table-cell-text"},
-                    {"text": "\\(t_{caduta} = \\frac{v + \\sqrt{v^2 + 2gh}}{g}\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Tempo di caduta",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(t_{caduta} = \\frac{v + \\sqrt{v^2 + 2gh}}{g}\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Velocità finale al suolo", "class": "table-cell-text"},
-                    {"text": "\\(v_c = -\\sqrt{v^2 + 2gh}\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Velocità finale al suolo",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(v_c = -\\sqrt{v^2 + 2gh}\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Lancio verso l'alto", "class": "table-cell-text"},
-                    {"text": "\\(y(t) = y(t_0) + v_0 (t - t_0) - \\frac{1}{2} g (t - t_0)^2\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Lancio verso l'alto",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(y(t) = y(t_0) + v_0 (t - t_0) - \\frac{1}{2} g (t - t_0)^2\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Tempo di volo", "class": "table-cell-text"},
-                    {"text": "\\(t_{volo} = \\frac{2v}{g}\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Tempo di volo",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(t_{volo} = \\frac{2v}{g}\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Altezza massima", "class": "table-cell-text"},
-                    {"text": "\\(h_{max} = \\frac{v^2}{2g}\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Altezza massima",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(h_{max} = \\frac{v^2}{2g}\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Altri formule", "class": "table-cell-span"},
+                    {
+                        "text": "Altri formule",
+                        "class": "table-cell-span"
+                    },
                     ""
                 ],
                 [
-                    {"text": "Moto Armonico", "class": "table-cell-text"},
-                    {"text": "\\(x(t) = A \\cdot \\cos(\\omega t + \\phi)\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Moto Armonico",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(x(t) = A \\cdot \\cos(\\omega t + \\phi)\\)",
+                        "class": "table-cell-formula"
+                    }
                 ],
                 [
-                    {"text": "Moto Rettilineo Smorzato", "class": "table-cell-text"},
-                    {"text": "\\(x(t) = x_0 + v_0 t - \\frac{1}{2} \\gamma t^2\\)", "class": "table-cell-formula"}
+                    {
+                        "text": "Moto Rettilineo Smorzato",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(x(t) = x_0 + v_0 t - \\frac{1}{2} \\gamma t^2\\)",
+                        "class": "table-cell-formula"
+                    }
                 ]
             ]
         }

@@ -101,11 +101,11 @@
                 },
                 {
                     "type": "statement",
-                    "text": "Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. L'insieme \\(A\\) è chiuso se e solo se \\(A' \\subseteq A\\), cioè contiene tutti i suoi punti di accumulazione."
+                    "text": "Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. L'insieme \\(A\\) è chiuso se e solo se \\((\\Leftarrow \\Rightarrow)\\)\\(A' \\subseteq A\\), cioè contiene tutti i suoi punti di accumulazione."
                 },
                 {
                     "type": "proof",
-                    "text": "\\((\\Rightarrow)\\) Sia \\(A\\) chiuso e sia \\(p \\in A^c\\). Poichè \\(p\\) è interno ad \\(A^c\\), esiste un intorno \\(B(p,r)\\) che non contiene punti di \\(A\\). Quindi \\(p\\) non è di accumulazione per \\(A\\). In altri termini, \\(A' \\subseteq A\\). \\((\\Leftarrow)\\) Viceversa, sia \\(A' \\subseteq A\\) e sia \\(p\\) un qualunque punto di \\(A^c\\). Per ipotesi \\(p\\) non è di accumulazione per \\(A\\). Questo significa che esiste un intorno \\(B(p,r)\\) che non contiene alcun punto di \\(A\\) diverso da p. Dato che \\(p \\in A^c\\), \\(B(p,r) \\cap A = \\emptyset\\); perciò \\(B(p,r) \\subseteq A^c\\). Quindi \\(p\\) è interno ad \\(A^c\\). Ne segue che \\(A^c\\) è aperto. \\(\\square\\)"
+                    "text": "<span class=\"dim\">Dimostrazione</span> \\((\\Rightarrow)\\) Sia \\(A\\) chiuso e sia \\(p \\in A^c\\). Poichè \\(p\\) è interno ad \\(A^c\\), esiste un intorno \\(B(p,r)\\) che non contiene punti di \\(A\\). Quindi \\(p\\) non è di accumulazione per \\(A\\). In altri termini, \\(A' \\subseteq A\\). \\((\\Leftarrow)\\) Viceversa, sia \\(A' \\subseteq A\\) e sia \\(p\\) un qualunque punto di \\(A^c\\). Per ipotesi \\(p\\) non è di accumulazione per \\(A\\). Questo significa che esiste un intorno \\(B(p,r)\\) che non contiene alcun punto di \\(A\\) diverso da p. Dato che \\(p \\in A^c\\), \\(B(p,r) \\cap A = \\emptyset\\); perciò \\(B(p,r) \\subseteq A^c\\). Quindi \\(p\\) è interno ad \\(A^c\\). Ne segue che \\(A^c\\) è aperto. \\(\\square\\)"
                 }
             ]
         },
@@ -126,7 +126,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<ol><li> Se \\(p\\) è un punto di accumulazione per \\(A \\cup A'\\), allora \\(p\\) è di accumulazione per \\(A\\) o per \\(A'\\). Supponiamo che \\(p\\) sia di accumulazione per \\(A\\), allora \\(p \\in A'\\). Se \\(p\\) è invece di accumulazione per \\(A'\\), ogni intorno \\(B(p,r)\\) deve contenere un punto \\(x \\in A'\\). Poiché \\(B(p,r)\\) è aperto, esiste \\(s > 0\\) tale che \\(B(x,s) \\subset B(p,r)\\). Poiché \\(B(x,s)\\) contiene infiniti punti di \\(A\\), lo stesso vale per \\(B(p,r)\\). Quindi, di nuovo, \\(p \\in A'\\).</li><li>I punti di accumulazione di A sono anche punti di accumulazione di F. Poichè F è chiuso, si ha \\(F \\supseteq A \\cup A'\\).</li><li>\\(A \\subset \\overline{A}\\) sempre, ma per la \\((2.)\\), se \\(A\\) è chiuso con \\(A \\supseteq A\\), allora \\(A = \\overline{A}\\).</li><li>\\(A \\supset F \\Rightarrow \\overline{A} \\supset F\\), il quale essendo chiuso per \\((3.)\\), implica \\(\\overline{A} \\supset \\overline{F}\\). \\(\\square\\)</li></ol>"
+                    "text": "<span class=\"dim\">Dimostrazione</span> <ol><li> Se \\(p\\) è un punto di accumulazione per \\(A \\cup A'\\), allora \\(p\\) è di accumulazione per \\(A\\) o per \\(A'\\). Supponiamo che \\(p\\) sia di accumulazione per \\(A\\), allora \\(p \\in A'\\). Se \\(p\\) è invece di accumulazione per \\(A'\\), ogni intorno \\(B(p,r)\\) deve contenere un punto \\(x \\in A'\\). Poiché \\(B(p,r)\\) è aperto, esiste \\(s > 0\\) tale che \\(B(x,s) \\subset B(p,r)\\). Poiché \\(B(x,s)\\) contiene infiniti punti di \\(A\\), lo stesso vale per \\(B(p,r)\\). Quindi, di nuovo, \\(p \\in A'\\).</li><li>I punti di accumulazione di A sono anche punti di accumulazione di F. Poichè F è chiuso, si ha \\(F \\supseteq A \\cup A'\\).</li><li>\\(A \\subset \\overline{A}\\) sempre, ma per la \\((2.)\\), se \\(A\\) è chiuso con \\(A \\supseteq A\\), allora \\(A = \\overline{A}\\).</li><li>\\(A \\supset F \\Rightarrow \\overline{A} \\supset F\\), il quale essendo chiuso per \\((3.)\\), implica \\(\\overline{A} \\supset \\overline{F}\\). \\(\\square\\)</li></ol>"
                 }
             ]
         },
@@ -143,17 +143,17 @@
                 },
                 {
                     "type": "proof",
-                    "text": "Ricordiamo \\(E = \\displaystyle\\bigcup_{i \\in I} E_i = {x \\in X : \\exists i \\in I, x \\in E_i}\\) e \\(\\displaystyle\\bigcap_{i \\in I} E_i = {x \\in X : \\forall i \\in I, x \\in E_i}\\).<ol><li>\\(p \\in \\displaystyle\\bigcup_{i \\in I} E_i \\Rightarrow \\exists i_0 : p \\in E_{i_0}\\), aperto \\(\\Rightarrow \\exists r > 0 : B(p,r) \\subset E_{i_0} \\subset \\displaystyle\\bigcup_{i \\in I} E_i\\)</li><li>\\(p \\in \\displaystyle\\bigcap_{i = 1}^{N} E_i \\Rightarrow \\forall i = 1, \\ldots, N, p \\in E_{i} \\rightarrow \\forall i = 1, \\ldots, N, \\exists r_i > 0 : B(p,r_i) \\subset E_i\\). Sia \\(r:= \\min\\{r_i : i = 1, \\dots, N\\}\\); allora \\(B_r(p) \\subset B_{r_i}(p) \\subset E_i \\ \\ \\forall i = 1, \\cdots, N\\) cioè \\(B_r(p) \\subset \\displaystyle\\bigcap_{i = 1}^{N} E_i\\)</li><li> La terza e la quarta sono conseguenze delle regola di De Morgan: \\((\\displaystyle\\bigcup_{i \\in I} E_i)^c = \\displaystyle\\bigcap_{i \\in I} (E_i)^c\\) e \\((\\displaystyle\\bigcap_{i \\in I} E_i)^c = \\displaystyle\\bigcup_{i \\in I} (E_i)^c\\) e del fatto che \\(E\\) è chiuso se e solo se \\(E^c\\) è aperto.</li><li>Guardare il punto 3. \\(\\square\\)</li></ol>"
+                    "text": "<span class=\"dim\">Dimostrazione</span> <br> Ricordiamo \\(E = \\displaystyle\\bigcup_{i \\in I} E_i = {x \\in X : \\exists i \\in I, x \\in E_i}\\) e \\(\\displaystyle\\bigcap_{i \\in I} E_i = {x \\in X : \\forall i \\in I, x \\in E_i}\\).<ol><li>\\(p \\in \\displaystyle\\bigcup_{i \\in I} E_i \\Rightarrow \\exists i_0 : p \\in E_{i_0}\\), aperto \\(\\Rightarrow \\exists r > 0 : B(p,r) \\subset E_{i_0} \\subset \\displaystyle\\bigcup_{i \\in I} E_i\\)</li><li>\\(p \\in \\displaystyle\\bigcap_{i = 1}^{N} E_i \\Rightarrow \\forall i = 1, \\ldots, N, p \\in E_{i} \\rightarrow \\forall i = 1, \\ldots, N, \\exists r_i > 0 : B(p,r_i) \\subset E_i\\). Sia \\(r:= \\min\\{r_i : i = 1, \\dots, N\\}\\); allora \\(B_r(p) \\subset B_{r_i}(p) \\subset E_i \\ \\ \\forall i = 1, \\cdots, N\\) cioè \\(B_r(p) \\subset \\displaystyle\\bigcap_{i = 1}^{N} E_i\\)</li><li> La terza e la quarta sono conseguenze delle regola di De Morgan: \\((\\displaystyle\\bigcup_{i \\in I} E_i)^c = \\displaystyle\\bigcap_{i \\in I} (E_i)^c\\) e \\((\\displaystyle\\bigcap_{i \\in I} E_i)^c = \\displaystyle\\bigcup_{i \\in I} (E_i)^c\\) e del fatto che \\(E\\) è chiuso se e solo se \\(E^c\\) è aperto.</li><li>Guardare il punto 3. \\(\\square\\)</li></ol>"
                 }
             ]
         },
         {
             "type": "paragraph",
-            "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(E \\subset X\\). Si dice che \\(E\\) è <highlight>Limitato</highlight> se esiste \\(m,M : m \\leq x \\leq M \\ \\ \\forall x \\in E\\) "                                                                                                 
+            "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(E \\subset X\\). Si dice che \\(E\\) è <highlight>Limitato</highlight> se esiste \\(m,M : m \\leq x \\leq M \\ \\ \\forall x \\in E\\). <br> Si può anche dire che un insieme è limitato se è contenuto in una palla aperta di raggio finito \\(r > 0\\), ossia da definizione \\[E \\subseteq B_r(x) = \\{z \\in X : d(z,x) < r\\}\\]"
         },
         {
             "type": "paragraph",
-            "text": "Sia \\((X,d)\\) uno spazio metrico, \\(E \\subset X\\) e \\(E \\neq \\emptyset\\). Chiamiamo <highlight>diametro</highlight> di \\(E\\) il valore \\(diam(E) := \\sup\\{d(x,y) : x,y \\in E\\} \\in [0,+\\infty]\\)."
+            "text": "Sia \\((X,d)\\) uno spazio metrico, \\(E \\subset X\\) e \\(E \\neq \\emptyset\\). Chiamiamo <highlight>diametro</highlight> di \\(E\\) il valore \\(\\operatorname{diam}(E) := \\sup\\{d(x,y) : x,y \\in E\\} \\in [0,+\\infty]\\)."
         },
         {
             "type": "theorem",
@@ -164,11 +164,11 @@
                 },
                 {
                     "type": "statement",
-                    "text": ""
+                    "text": "Sia \\((X,d)\\) uno spazio metrico: <ol><li>Se \\(E\\) è finito, allora \\(E\\) è limitato.</li><li>Se \\(E_1\\) e \\(E_2\\) sono limitati, allora \\(E_1 \\cup E_2\\) è limitato.</li><li>Se \\(E \\neq \\emptyset\\) e \\(\\operatorname{diam}(E) = 0\\), allora \\(E = \\{p\\}\\), \\(p \\in X\\).</li></ol>"
                 },
                 {
                     "type": "proof",
-                    "text": ""
+                    "text": "<span class=\"dim\">Dimostrazione</span> <ol><li> Consideriamo l'insieme \\(E = \\{x_1, \\ldots, x_n\\}\\) per \\(n \\in N\\). <br> Per definizione, ricordiamo che \\[\\operatorname{diam}(E) = \\sup \\{ d(x, y) \\mid x, y \\in E \\}\\] Poichè \\(E\\) ha \\(n\\) punti, l'insieme delle distanza tra gli elementi di \\(E\\) è \\[\\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\}\\] Quest'ultimo è un insieme finito di numeri reali e in quanto insieme finito non vuoto ha un massimo, quindi esiste un indice \\(i_0, j_0\\) tale che \\[\\max \\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\} = d(x_{i_0}, x_{j_0}) < +\\infty\\] Ma allora \\[\\operatorname{diam}(E) = \\sup \\{ d(x,y) \\mid x,y \\in E \\} = \\max \\{ d(x_i, x_j) \\mid i,j = 1,\\ldots,n \\} < +\\infty\\] Dimostrando così che l'insieme \\(E\\) è limitato. \\(\\square\\)</li><li>Per ipotesi, gli insiemi \\(E_1\\) e \\(E_2\\) sono limitati, ossia \\[E_1 \\subseteq B_{r_1}(x_1) = \\{ z \\in X : d(z, x_1) < r_1 \\}\\] \\[E_2 \\subseteq B_{r_2}(x_2) = \\{ z \\in X : d(z, x_2) < r_2 \\}\\] Definiamo ora un nuovo raggio \\[R = r_1 + r_2 + d(x_1,x_2)\\] Scegliamo come centro il punto \\(x_1\\) (potremmo aver scelto \\(x_2\\) come centro e il ragionamento verrebbe simmetrico). Vogliamo dimostrare che \\(E_1 \\cup E_2\\) è contenuto in \\(B_R(x_1)\\), cioè \\[\\forall z \\in E_1 \\cup E_2, \\quad d(z, x_1) < R\\] Consideriamo ora un punto qualunque \\(z \\in E_1 \\cup E_2\\), ci sono due casi possibili:<ul><li>Caso 1: \\(z \\in E_1\\) <br> Per ipotesi, \\(z\\) appartiene a \\(E_1\\), quindi \\[d(z,x_1) < r_1\\] Ma \\(r_1 \\leq r_1 + r_2 + d(x_1,x_2) = R\\)inserthere</li><li>Poniamo per assurdo che \\(\\exists \\ p_1 \\neq p_2 \\in E\\), allora, avremmo che \\(\\operatorname{diam}(E) \\geq d(p_1,p_2) > 0\\) il che è in contraddizione con l'ipotesi. In conclusione, l'unico modo per avere un insieme \\(E\\) non vuoto di diametro 0 è che \\(E\\) contenga un solo punto \\(p\\) appartenente allo spazio metrico \\((X,d)\\). \\(\\square\\)</li></ol>"
                 }
             ]
         },
