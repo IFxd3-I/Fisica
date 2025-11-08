@@ -149,7 +149,7 @@
         },
         {
             "type": "paragraph",
-            "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(E \\subseteq X\\), \\(E \\neq \\emptyset\\). Chiamiamo <highlight>diametro</highlight> di \\(E\\) la quantità \\[\\operatorname{diam}(E) := \\sup\\{d(x,y) : x,y \\in E\\} Se \\(\\operatorname{diam}(E) < +\\infty\\), si dice che \\(E\\) è <highlight>limitato</highlight>."
+            "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(E \\subseteq X\\), \\(E \\neq \\emptyset\\). Chiamiamo <highlight>diametro</highlight> di \\(E\\) la quantità \\[\\operatorname{diam}(E) := \\sup\\{d(x,y) : x,y \\in E\\}\\] Se \\(\\operatorname{diam}(E) < +\\infty\\), si dice che \\(E\\) è <highlight>limitato</highlight>. Inoltre, l'essere finito implica l'essere limitato ma non viceversa."
         },
         {
             "type": "theorem",
@@ -213,25 +213,113 @@
         },
         {
             "type": "paragraph",
-            "text": "Forniamo ora la definizione di limite di successione in uno spazio metrico. Una successione \\((x_n)\\) a valori in uno spazio metrico \\((X,d)\\) è una funzione \\(f : \\mathbb{N} \\to X\\), ossia ad ogni numero naturale \\(n\\) associa un punto \\(x_n \\in X\\)."
+            "text": "Forniamo ora la definizione di limite di successione in uno spazio metrico. Una successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) a valori in uno spazio metrico \\((X,d)\\) è una funzione \\(f : \\mathbb{N} \\to X\\), ossia ad ogni numero naturale \\(n\\) associa un punto \\(x_n \\in X\\)."
         },
         {
             "type": "paragraph",
-            "text": "Si dice che la successione \\((x_n)\\) <highlight>converge</highlight> a un punto \\(x \\in X\\) se per ogni \\(\\epsilon > 0\\) esiste un intero \\(N \\in \\mathbb{N}\\) tale che per ogni \\(n \\geq N\\) si ha \\(d(x_n,x) < \\epsilon\\). In tal caso si scrive"
+            "text": "Si dice che la successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) <highlight>converge</highlight> a un punto \\(x \\in X\\) se per ogni \\(\\epsilon > 0\\) esiste un intero \\(N \\in \\mathbb{N}\\) tale che per ogni \\(n \\geq N\\) si ha \\(d(x_n,x) < \\epsilon\\). In tal caso si scrive"
         },
         {
             "type": "math",
             "text": "\\lim_{n \\to +\\infty} x_n = x"
         },
         {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Unicità del limite)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) una successione a valori in \\(X\\). Se \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge a \\(x \\in X\\) e a \\(y \\in X\\), allora \\(x = y\\)."
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> Supponiamo per assurdo che \\(x \\neq y\\). Allora, per la proprietà di Hausdorff, esiste un raggio \\(r > 0\\) tale che \\(B(x,r) \\cap B(y,r) = \\emptyset\\). Poiché \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge a \\(x\\), esiste un intero \\(N_1\\) tale che per ogni \\(n \\geq N_1\\), \\(x_n \\in B(x,r)\\). Analogamente, poiché \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge a \\(y\\), esiste un intero \\(N_2\\) tale che per ogni \\(n \\geq N_2\\), \\(x_n \\in B(y,r)\\). Sia ora \\(N = \\max(N_1, N_2)\\); allora per ogni \\(n \\geq N\\), si ha sia \\(x_n \\in B(x,r)\\) che \\(x_n \\in B(y,r)\\), il che implica che \\(x_n \\in B(x,r) \\cap B(y,r)\\), una contraddizione. Quindi, deve essere che \\(x = y\\). \\(\\square\\)"
+                }
+            ]
+        },
+        {
             "type": "heading",
             "level": 3,
-            "text": "Condizioni necessarie per la convergenza: limitatezza, sottosuccessioni e la condizione di Cauchy"
+            "text": "Condizioni necessarie per la convergenza"
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (convergenza delle sottosuccessioni)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Una successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge ad un limite \\(p\\) se e solo se \\((\\Leftarrow\\Rightarrow)\\) ogni sua sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) converge allo stesso limite \\(p\\)."
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> \\((\\Rightarrow)\\) Conseguenza diretta della definizione di limite per \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\). In breve, poiché per ogni \\(k > K=N\\) l'indice della sottosuccessione è \\(n_k \\ge k > N\\), i termini \\(x_{n_k}\\) rientrano tra quelli \\(x_n\\) (con \\(n>N\\)) che sono già nell'intorno \\((p-\\epsilon, p+\\epsilon)\\), ereditando così la convergenza a \\(p\\). <br> \\((\\Leftarrow)\\) Per ipotesi, esiste \\(p_0\\) tale che per ogni sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) di \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) si ha \\(x_{n_k} \\to p_0\\). Poniamo ora per assurdo che \\(\\{x_n\\}_{n \\in \\mathbb{N}} \\) non converga ad alcun limite. Allora, esiste un \\(\\epsilon > 0\\) tale che per ogni intero \\(N \\in \\mathbb{N}\\), esiste un \\(n > N\\) con \\(d(x_n,p_0) \\geq \\epsilon\\). Costruiamo una sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) scegliendo per ogni \\(k\\) un indice \\(n_k \\geq k\\) tale che \\(d(x_{n_k},p_0) \\geq \\epsilon\\). Allora, la sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) non converge a \\(p_0\\), contraddicendo l'ipotesi. Quindi, deve essere che \\(\\{x_n\\}_{n \\in \\mathbb{N}} \\to p_0\\). \\(\\square\\)"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\(X,d\\) uno spazio metrico, \\((x_n)_{n \\in \\mathbb{N}} \\subset X\\) si dice <highlight>successione di Cauchy</highlight> se per ogni \\(\\epsilon > 0\\) esiste un intero \\(N \\in \\mathbb{N(\\epsilon)}\\) tale che per ogni \\(m,n \\geq N\\) si ha \\(d(x_n,x_m) < \\epsilon\\). In altre parole, gli elementi della successione diventano definitivamente vicini tra loro al crescere di \\(n\\) e \\(m\\)."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (ogni successione convergente è di Cauchy)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) una successione a valori in \\(X\\). Se \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge a \\(x \\in X\\), allora \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è una successione di Cauchy."
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> Sia \\(p \\in X\\) il \\(lim_{n \\to +\\infty} x_n\\). Per ogni \\(\\epsilon > 0\\), esiste un intero \\(\\tilde{N} \\in \\mathbb{\\tilde{N(\\frac{\\epsilon}{2})}}\\) tale che per ogni \\(n \\geq N\\), si ha \\(d(x_n,p) < \\frac{\\epsilon}{2}\\). <br> Ora, per ogni \\(m,n \\geq \\mathbb{N(\\epsilon)} := \\mathbb{\\tilde{N(\\frac{\\epsilon}{2})}}\\), possiamo applicare la disuguaglianza triangolare per ottenere: \\[d(x_n,x_m) \\leq d(x_n,p) + d(p,x_m) < \\frac{\\epsilon}{2} + \\frac{\\epsilon}{2} = \\epsilon\\] Dimostrando così che \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è una successione di Cauchy. \\(\\square\\)"
+                }
+            ]
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (ogni successione di Cauchy è limitata)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\((x_n)_{n \\in \\mathbb{N}} \\subset X\\) una successione di Cauchy. Allora \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è limitata, cioè \\(E = \\{x : X \\mid x = x_n, n \\in \\mathbb{N}\\}\\) è limitato."
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> Per ogni \\(\\epsilon > 0\\), esiste un intero \\(N \\in \\mathbb{N(\\epsilon)}\\) tale che per ogni \\(m,n \\geq N\\), si ha \\(d(x_n,x_m) < \\epsilon\\). Scegliamo \\(\\epsilon = 1\\). <br> Ora, l'insieme \\[E_1 = \\{ x = x_n \\mid n = 1, 2, \\ldots, N_1 - 1 \\}\\] è limitato (è finito). Mentre, l'insieme \\[E_2 = \\{ x = x_n \\mid n \\geq N_1 \\} \\] è anch'esso limitato (\\(\\operatorname{diam}E \\leq 1\\)). <br> Quindi, l'insieme \\(E = E_1 \\cup E_2\\) è limitato per la proprietà degli insiemi limitati. \\(\\square\\)"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Ricordiamo quindi che:"
+        },
+        {
+            "type": "math",
+            "text": "\\text{Successione convergente} \\Rightarrow \\text{Successione di Cauchy} \\Rightarrow \\text{Successione limitata}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Tuttavia, non valgono le implicazioni inverse \\(\\Leftarrow\\)."
         },
         {
             "type": "heading",
             "level": 3,
             "text": "Spazi metrici completi"
+        },
+        {
+            "type": "paragraph",
+            "text": "Uno spazio metrico si dice <highlight>completo</highlight> se ogni successione di Cauchy è convergente. <br> Vedremo infatti che \\((R^n,d_e)\\) è uno spazio metrico completo."
         }
     ]
 }
