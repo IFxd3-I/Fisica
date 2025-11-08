@@ -149,11 +149,7 @@
         },
         {
             "type": "paragraph",
-            "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(E \\subset X\\). Si dice che \\(E\\) è <highlight>Limitato</highlight> se esiste \\(m,M : m \\leq x \\leq M \\ \\ \\forall x \\in E\\). <br> Si può anche dire che un insieme è limitato se è contenuto in una palla aperta di raggio finito \\(r > 0\\), ossia da definizione \\[E \\subseteq B_r(x) = \\{z \\in X : d(z,x) < r\\}\\]"
-        },
-        {
-            "type": "paragraph",
-            "text": "Sia \\((X,d)\\) uno spazio metrico, \\(E \\subset X\\) e \\(E \\neq \\emptyset\\). Chiamiamo <highlight>diametro</highlight> di \\(E\\) il valore \\(\\operatorname{diam}(E) := \\sup\\{d(x,y) : x,y \\in E\\} \\in [0,+\\infty]\\)."
+            "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(E \\subseteq X\\), \\(E \\neq \\emptyset\\). Chiamiamo <highlight>diametro</highlight> di \\(E\\) la quantità \\[\\operatorname{diam}(E) := \\sup\\{d(x,y) : x,y \\in E\\} Se \\(\\operatorname{diam}(E) < +\\infty\\), si dice che \\(E\\) è <highlight>limitato</highlight>."
         },
         {
             "type": "theorem",
@@ -168,7 +164,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> <ol><li> Consideriamo l'insieme \\(E = \\{x_1, \\ldots, x_n\\}\\) per \\(n \\in N\\). <br> Per definizione, ricordiamo che \\[\\operatorname{diam}(E) = \\sup \\{ d(x, y) \\mid x, y \\in E \\}\\] Poichè \\(E\\) ha \\(n\\) punti, l'insieme delle distanza tra gli elementi di \\(E\\) è \\[\\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\}\\] Quest'ultimo è un insieme finito di numeri reali e in quanto insieme finito non vuoto ha un massimo, quindi esiste un indice \\(i_0, j_0\\) tale che \\[\\max \\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\} = d(x_{i_0}, x_{j_0}) < +\\infty\\] Ma allora \\[\\operatorname{diam}(E) = \\sup \\{ d(x,y) \\mid x,y \\in E \\} = \\max \\{ d(x_i, x_j) \\mid i,j = 1,\\ldots,n \\} < +\\infty\\] Dimostrando così che l'insieme \\(E\\) è limitato. \\(\\square\\)</li><li>Per ipotesi, gli insiemi \\(E_1\\) e \\(E_2\\) sono limitati, ossia \\[E_1 \\subseteq B_{r_1}(x_1) = \\{ z \\in X : d(z, x_1) < r_1 \\}\\] \\[E_2 \\subseteq B_{r_2}(x_2) = \\{ z \\in X : d(z, x_2) < r_2 \\}\\] Definiamo ora un nuovo raggio \\[R = r_1 + r_2 + d(x_1,x_2)\\] Scegliamo come centro il punto \\(x_1\\) (potremmo aver scelto \\(x_2\\) come centro e il ragionamento verrebbe simmetrico). Vogliamo dimostrare che \\(E_1 \\cup E_2\\) è contenuto in \\(B_R(x_1)\\), cioè \\[\\forall z \\in E_1 \\cup E_2, \\quad d(z, x_1) < R\\] Consideriamo ora un punto qualunque \\(z \\in E_1 \\cup E_2\\), ci sono due casi possibili:<ul><li>Caso 1: \\(z \\in E_1\\) <br> Per ipotesi, \\(z\\) appartiene a \\(E_1\\), quindi \\[d(z,x_1) < r_1\\] Ma \\(r_1 \\leq r_1 + r_2 + d(x_1,x_2) = R\\)inserthere</li><li>Poniamo per assurdo che \\(\\exists \\ p_1 \\neq p_2 \\in E\\), allora, avremmo che \\(\\operatorname{diam}(E) \\geq d(p_1,p_2) > 0\\) il che è in contraddizione con l'ipotesi. In conclusione, l'unico modo per avere un insieme \\(E\\) non vuoto di diametro 0 è che \\(E\\) contenga un solo punto \\(p\\) appartenente allo spazio metrico \\((X,d)\\). \\(\\square\\)</li></ol>"
+                    "text": "<span class=\"dim\">Dimostrazione</span> <ol><li> Consideriamo l'insieme \\(E = \\{x_1, \\ldots, x_n\\}\\) per \\(n \\in N\\). <br> Per definizione, ricordiamo che \\[\\operatorname{diam}(E) = \\sup \\{ d(x, y) \\mid x, y \\in E \\}\\] Poichè \\(E\\) ha \\(n\\) punti, l'insieme delle distanza tra gli elementi di \\(E\\) è \\[\\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\}\\] Quest'ultimo è un insieme finito di numeri reali e in quanto insieme finito non vuoto ha un massimo, quindi esiste un indice \\(i_0, j_0\\) tale che \\[\\max \\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\} = d(x_{i_0}, x_{j_0}) < +\\infty\\] Ma allora \\[\\operatorname{diam}(E) = \\sup \\{ d(x,y) \\mid x,y \\in E \\} = \\max \\{ d(x_i, x_j) \\mid i,j = 1,\\ldots,n \\} < +\\infty\\] Dimostrando così che l'insieme \\(E\\) è limitato. \\(\\square\\)</li><li>Per ipotesi, gli insiemi \\(E_1\\) e \\(E_2\\) sono limitati, ossia \\[E_1 \\subseteq B_{r_1}(x_1) = \\{ z \\in X : d(z, x_1) < r_1 \\}\\] \\[E_2 \\subseteq B_{r_2}(x_2) = \\{ z \\in X : d(z, x_2) < r_2 \\}\\] Definiamo ora un nuovo raggio \\[R = r_1 + r_2 + d(x_1,x_2)\\] Scegliamo come centro il punto \\(x_1\\) (potremmo aver scelto \\(x_2\\) come centro e il ragionamento verrebbe simmetrico). Vogliamo dimostrare che \\(E_1 \\cup E_2\\) è contenuto in \\(B_R(x_1)\\), cioè \\[\\forall z \\in E_1 \\cup E_2, \\quad d(z, x_1) < R\\] Consideriamo ora un punto qualunque \\(z \\in E_1 \\cup E_2\\), ci sono due casi possibili:<ul><li>Caso 1: \\(z \\in E_1\\) <br> Per ipotesi, \\(z\\) appartiene a \\(E_1\\), quindi \\(d(z,x_1) < r_1\\). <br> Dalla definizione precedente di \\(R\\) troviamo la relazione \\[r_1 \\leq r_1 + r_2 + d(x_1,x_2) = R\\] <br> Quindi, abbiamo che \\[d(z,x_1) < r_1 \\leq R \\Rightarrow d(z,x_1) < R\\] Dimostrando che \\(z \\in B_R(x_1)\\).</li><li>Caso 2: \\(z \\in E_2\\) <br> In questo caso, dobbiamo usare un approccio differente poichè ci troviamo più \"lontani\" dal centro \\(x_1\\), possiamo applicare poichè siamo in uno spazio metrico la disuguaglianza triangolare \\[d(z,x_1) \\leq d(z,x_2) + d(x_2,x_1)\\] Ma \\(d(x_2,x_1) = d(x_1,x_2)\\) e \\(d(z,x_2) < r_2 \\) quindi \\[d(z, x_1) < r_2 + d(x_1, x_2)\\] Aggiungiamo infine \\(r_1\\) a entrambi i membri \\[d(z,x_1) + r_1 < r_2 + r_1 + d(x_1,x_2)\\] Arrivando così a scrivere \\[d(z,x_1) + r_1 < R\\] \\(d(z,x_1) + r_1 < R\\) è più debole di \\(d(z,x_1) < R\\), dimostrando così che \\(z \\in B_R(x_1)\\).</li></ul> Abbiamo così dimostrato che \\(E_1 \\cup E_2 \\subseteq B_R(x_1)\\), quindi \\(E_1 \\cup E_2\\) è limitato. \\(\\square\\)</li><li>Poniamo per assurdo che \\(\\exists \\ p_1 \\neq p_2 \\in E\\), allora, avremmo che \\(\\operatorname{diam}(E) \\geq d(p_1,p_2) > 0\\) il che è in contraddizione con l'ipotesi. In conclusione, l'unico modo per avere un insieme \\(E\\) non vuoto di diametro 0 è che \\(E\\) contenga un solo punto \\(p\\) appartenente allo spazio metrico \\((X,d)\\). \\(\\square\\)</li></ol>"
                 }
             ]
         },
@@ -194,9 +190,38 @@
             ]
         },
         {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema di Heine-Borel"
+                },
+                {
+                    "type": "statement",
+                    "text": ""
+                },
+                {
+                    "type": "proof",
+                    "text": ""
+                }
+            ]
+        },
+        {
             "type": "heading",
             "level": 3,
             "text": "Successioni a valori in spazi metrici: successioni convergenti e unicità del limite"
+        },
+        {
+            "type": "paragraph",
+            "text": "Forniamo ora la definizione di limite di successione in uno spazio metrico. Una successione \\((x_n)\\) a valori in uno spazio metrico \\((X,d)\\) è una funzione \\(f : \\mathbb{N} \\to X\\), ossia ad ogni numero naturale \\(n\\) associa un punto \\(x_n \\in X\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Si dice che la successione \\((x_n)\\) <highlight>converge</highlight> a un punto \\(x \\in X\\) se per ogni \\(\\epsilon > 0\\) esiste un intero \\(N \\in \\mathbb{N}\\) tale che per ogni \\(n \\geq N\\) si ha \\(d(x_n,x) < \\epsilon\\). In tal caso si scrive"
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} x_n = x"
         },
         {
             "type": "heading",
