@@ -313,13 +313,42 @@
             "text": "Tuttavia, non valgono le implicazioni inverse \\(\\Leftarrow\\)."
         },
         {
+            "type": "paragraph",
+            "text": "Uno spazio metrico si dice <highlight>completo</highlight> se ogni successione di Cauchy è convergente. <br> Vedremo infatti che \\((R^n,d_e)\\) è uno spazio metrico completo."
+        },
+        {
             "type": "heading",
             "level": 3,
-            "text": "Spazi metrici completi"
+            "text": "Successioni a valori reali"
         },
         {
             "type": "paragraph",
-            "text": "Uno spazio metrico si dice <highlight>completo</highlight> se ogni successione di Cauchy è convergente. <br> Vedremo infatti che \\((R^n,d_e)\\) è uno spazio metrico completo."
+            "text": "\\(\\{x_n\\}_n\\in\\mathbb{N} \\subset \\mathbb{R}\\) è una <highlight>successione convergente</highlight> se esiste \\(l \\in \\mathbb{R}\\) tale che per ogni \\(\\epsilon > 0\\), esiste un intero \\(n_0\\) tale che per ogni \\(n \\geq n_0\\), si ha \\(|x_n - l| < \\epsilon\\), ovvero: \\(l - \\epsilon < x_n < l + \\epsilon\\). In tal caso si scrive \\[\\lim_{n \\to +\\infty} x_n = l\\]"
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\(\\{x_n\\}_n\\in\\mathbb{N} \\subset \\mathbb{R}\\) una successione a valori reali. <br> Si dice che la successione <highlight>diverge</highlight> a \\(\\infty\\) se per ogni \\(M\\), esiste un intero \\(n_0\\) tale che per ogni \\(n \\geq n_0\\), si ha \\(x_n > M\\). <br> Si dice che la successione <highlight>diverge</highlight> a \\(-\\infty\\) se per ogni \\(M\\), esiste un intero \\(n_0\\) tale che per ogni \\(n \\geq n_0\\), si ha \\(x_n < M\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Come dimostrato in precedenza, anche per le successioni a valori reali valgono le seguenti proprietà:"
+        },
+        {
+            "type": "olist",
+            "items": [
+                "Il limite di una successione, se esiste, è unico.",
+                "Per ogni successione convergente, ogni sua sottosuccessione converge allo stesso limite."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Monotonia"
+        },
+        {
+            "type": "paragraph",
+            "text": "Una successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) si dice <highlight>monotona crescente</highlight> se \\(x_n \\leq x_{n+1}\\) per ogni \\(n \\in \\mathbb{N}\\). <br> Una successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) si dice <highlight>monotona decrescente</highlight> se \\(x_n \\geq x_{n+1}\\) per ogni \\(n \\in \\mathbb{N}\\)."
         }
-    ]
+        ]
+
 }
