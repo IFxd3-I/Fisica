@@ -105,7 +105,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> \\((\\Rightarrow)\\) Sia \\(A\\) chiuso e sia \\(p \\in A^c\\). Poichè \\(p\\) è interno ad \\(A^c\\), esiste un intorno \\(B(p,r)\\) che non contiene punti di \\(A\\). Quindi \\(p\\) non è di accumulazione per \\(A\\). In altri termini, \\(A' \\subseteq A\\). \\((\\Leftarrow)\\) Viceversa, sia \\(A' \\subseteq A\\) e sia \\(p\\) un qualunque punto di \\(A^c\\). Per ipotesi \\(p\\) non è di accumulazione per \\(A\\). Questo significa che esiste un intorno \\(B(p,r)\\) che non contiene alcun punto di \\(A\\) diverso da p. Dato che \\(p \\in A^c\\), \\(B(p,r) \\cap A = \\emptyset\\); perciò \\(B(p,r) \\subseteq A^c\\). Quindi \\(p\\) è interno ad \\(A^c\\). Ne segue che \\(A^c\\) è aperto. \\(\\square\\)"
+                    "text": "<span class=\"dim\">Dimostrazione</span> \\((\\Rightarrow)\\) Sia \\(A\\) chiuso e sia \\(p \\in A^c\\). Poichè \\(p\\) è interno ad \\(A^c\\), esiste un intorno \\(B(p,r)\\) che non contiene punti di \\(A\\). Quindi \\(p\\) non è di accumulazione per \\(A\\). In altri termini, \\(A' \\subseteq A\\). \\((\\Leftarrow)\\) Viceversa, sia \\(A' \\subseteq A\\) e sia \\(p\\) un qualunque punto di \\(A^c\\). Per ipotesi \\(p\\) non è di accumulazione per \\(A\\). Questo significa che esiste un intorno \\(B(p,r)\\) che non contiene alcun punto di \\(A\\) diverso da p. Dato che \\(p \\in A^c\\), \\(B(p,r) \\cap A = \\emptyset\\); perciò \\(B(p,r) \\subseteq A^c\\). Quindi \\(p\\) è interno ad \\(A^c\\). Ne segue che \\(A^c\\) è aperto. \\(\\blacksquare\\)"
                 }
             ]
         },
@@ -126,7 +126,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> <ol><li> Se \\(p\\) è un punto di accumulazione per \\(A \\cup A'\\), allora \\(p\\) è di accumulazione per \\(A\\) o per \\(A'\\). Supponiamo che \\(p\\) sia di accumulazione per \\(A\\), allora \\(p \\in A'\\). Se \\(p\\) è invece di accumulazione per \\(A'\\), ogni intorno \\(B(p,r)\\) deve contenere un punto \\(x \\in A'\\). Poiché \\(B(p,r)\\) è aperto, esiste \\(s > 0\\) tale che \\(B(x,s) \\subset B(p,r)\\). Poiché \\(B(x,s)\\) contiene infiniti punti di \\(A\\), lo stesso vale per \\(B(p,r)\\). Quindi, di nuovo, \\(p \\in A'\\).</li><li>I punti di accumulazione di A sono anche punti di accumulazione di F. Poichè F è chiuso, si ha \\(F \\supseteq A \\cup A'\\).</li><li>\\(A \\subset \\overline{A}\\) sempre, ma per la \\((2.)\\), se \\(A\\) è chiuso con \\(A \\supseteq A\\), allora \\(A = \\overline{A}\\).</li><li>\\(A \\supset F \\Rightarrow \\overline{A} \\supset F\\), il quale essendo chiuso per \\((3.)\\), implica \\(\\overline{A} \\supset \\overline{F}\\). \\(\\square\\)</li></ol>"
+                    "text": "<span class=\"dim\">Dimostrazione</span> <ol><li> Se \\(p\\) è un punto di accumulazione per \\(A \\cup A'\\), allora \\(p\\) è di accumulazione per \\(A\\) o per \\(A'\\). Supponiamo che \\(p\\) sia di accumulazione per \\(A\\), allora \\(p \\in A'\\). Se \\(p\\) è invece di accumulazione per \\(A'\\), ogni intorno \\(B(p,r)\\) deve contenere un punto \\(x \\in A'\\). Poiché \\(B(p,r)\\) è aperto, esiste \\(s > 0\\) tale che \\(B(x,s) \\subset B(p,r)\\). Poiché \\(B(x,s)\\) contiene infiniti punti di \\(A\\), lo stesso vale per \\(B(p,r)\\). Quindi, di nuovo, \\(p \\in A'\\).</li><li>I punti di accumulazione di A sono anche punti di accumulazione di F. Poichè F è chiuso, si ha \\(F \\supseteq A \\cup A'\\).</li><li>\\(A \\subset \\overline{A}\\) sempre, ma per la \\((2.)\\), se \\(A\\) è chiuso con \\(A \\supseteq A\\), allora \\(A = \\overline{A}\\).</li><li>\\(A \\supset F \\Rightarrow \\overline{A} \\supset F\\), il quale essendo chiuso per \\((3.)\\), implica \\(\\overline{A} \\supset \\overline{F}\\). \\(\\blacksquare\\)</li></ol>"
                 }
             ]
         },
@@ -143,7 +143,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> <br> Ricordiamo \\(E = \\displaystyle\\bigcup_{i \\in I} E_i = {x \\in X : \\exists i \\in I, x \\in E_i}\\) e \\(\\displaystyle\\bigcap_{i \\in I} E_i = {x \\in X : \\forall i \\in I, x \\in E_i}\\).<ol><li>\\(p \\in \\displaystyle\\bigcup_{i \\in I} E_i \\Rightarrow \\exists i_0 : p \\in E_{i_0}\\), aperto \\(\\Rightarrow \\exists r > 0 : B(p,r) \\subset E_{i_0} \\subset \\displaystyle\\bigcup_{i \\in I} E_i\\)</li><li>\\(p \\in \\displaystyle\\bigcap_{i = 1}^{N} E_i \\Rightarrow \\forall i = 1, \\ldots, N, p \\in E_{i} \\rightarrow \\forall i = 1, \\ldots, N, \\exists r_i > 0 : B(p,r_i) \\subset E_i\\). Sia \\(r:= \\min\\{r_i : i = 1, \\dots, N\\}\\); allora \\(B_r(p) \\subset B_{r_i}(p) \\subset E_i \\ \\ \\forall i = 1, \\cdots, N\\) cioè \\(B_r(p) \\subset \\displaystyle\\bigcap_{i = 1}^{N} E_i\\)</li><li> La terza e la quarta sono conseguenze delle regola di De Morgan: \\((\\displaystyle\\bigcup_{i \\in I} E_i)^c = \\displaystyle\\bigcap_{i \\in I} (E_i)^c\\) e \\((\\displaystyle\\bigcap_{i \\in I} E_i)^c = \\displaystyle\\bigcup_{i \\in I} (E_i)^c\\) e del fatto che \\(E\\) è chiuso se e solo se \\(E^c\\) è aperto.</li><li>Guardare il punto 3. \\(\\square\\)</li></ol>"
+                    "text": "<span class=\"dim\">Dimostrazione</span> <br> Ricordiamo \\(E = \\displaystyle\\bigcup_{i \\in I} E_i = {x \\in X : \\exists i \\in I, x \\in E_i}\\) e \\(\\displaystyle\\bigcap_{i \\in I} E_i = {x \\in X : \\forall i \\in I, x \\in E_i}\\).<ol><li>\\(p \\in \\displaystyle\\bigcup_{i \\in I} E_i \\Rightarrow \\exists i_0 : p \\in E_{i_0}\\), aperto \\(\\Rightarrow \\exists r > 0 : B(p,r) \\subset E_{i_0} \\subset \\displaystyle\\bigcup_{i \\in I} E_i\\)</li><li>\\(p \\in \\displaystyle\\bigcap_{i = 1}^{N} E_i \\Rightarrow \\forall i = 1, \\ldots, N, p \\in E_{i} \\rightarrow \\forall i = 1, \\ldots, N, \\exists r_i > 0 : B(p,r_i) \\subset E_i\\). Sia \\(r:= \\min\\{r_i : i = 1, \\dots, N\\}\\); allora \\(B_r(p) \\subset B_{r_i}(p) \\subset E_i \\ \\ \\forall i = 1, \\cdots, N\\) cioè \\(B_r(p) \\subset \\displaystyle\\bigcap_{i = 1}^{N} E_i\\)</li><li> La terza e la quarta sono conseguenze delle regola di De Morgan: \\((\\displaystyle\\bigcup_{i \\in I} E_i)^c = \\displaystyle\\bigcap_{i \\in I} (E_i)^c\\) e \\((\\displaystyle\\bigcap_{i \\in I} E_i)^c = \\displaystyle\\bigcup_{i \\in I} (E_i)^c\\) e del fatto che \\(E\\) è chiuso se e solo se \\(E^c\\) è aperto.</li><li>Guardare il punto 3. \\(\\blacksquare\\)</li></ol>"
                 }
             ]
         },
@@ -164,7 +164,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> <ol><li> Consideriamo l'insieme \\(E = \\{x_1, \\ldots, x_n\\}\\) per \\(n \\in N\\). <br> Per definizione, ricordiamo che \\[\\operatorname{diam}(E) = \\sup \\{ d(x, y) \\mid x, y \\in E \\}\\] Poichè \\(E\\) ha \\(n\\) punti, l'insieme delle distanza tra gli elementi di \\(E\\) è \\[\\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\}\\] Quest'ultimo è un insieme finito di numeri reali e in quanto insieme finito non vuoto ha un massimo, quindi esiste un indice \\(i_0, j_0\\) tale che \\[\\max \\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\} = d(x_{i_0}, x_{j_0}) < +\\infty\\] Ma allora \\[\\operatorname{diam}(E) = \\sup \\{ d(x,y) \\mid x,y \\in E \\} = \\max \\{ d(x_i, x_j) \\mid i,j = 1,\\ldots,n \\} < +\\infty\\] Dimostrando così che l'insieme \\(E\\) è limitato. \\(\\square\\)</li><li>Per ipotesi, gli insiemi \\(E_1\\) e \\(E_2\\) sono limitati, ossia \\[E_1 \\subseteq B_{r_1}(x_1) = \\{ z \\in X : d(z, x_1) < r_1 \\}\\] \\[E_2 \\subseteq B_{r_2}(x_2) = \\{ z \\in X : d(z, x_2) < r_2 \\}\\] Definiamo ora un nuovo raggio \\[R = r_1 + r_2 + d(x_1,x_2)\\] Scegliamo come centro il punto \\(x_1\\) (potremmo aver scelto \\(x_2\\) come centro e il ragionamento verrebbe simmetrico). Vogliamo dimostrare che \\(E_1 \\cup E_2\\) è contenuto in \\(B_R(x_1)\\), cioè \\[\\forall z \\in E_1 \\cup E_2, \\quad d(z, x_1) < R\\] Consideriamo ora un punto qualunque \\(z \\in E_1 \\cup E_2\\), ci sono due casi possibili:<ul><li>Caso 1: \\(z \\in E_1\\) <br> Per ipotesi, \\(z\\) appartiene a \\(E_1\\), quindi \\(d(z,x_1) < r_1\\). <br> Dalla definizione precedente di \\(R\\) troviamo la relazione \\[r_1 \\leq r_1 + r_2 + d(x_1,x_2) = R\\] <br> Quindi, abbiamo che \\[d(z,x_1) < r_1 \\leq R \\Rightarrow d(z,x_1) < R\\] Dimostrando che \\(z \\in B_R(x_1)\\).</li><li>Caso 2: \\(z \\in E_2\\) <br> In questo caso, dobbiamo usare un approccio differente poichè ci troviamo più \"lontani\" dal centro \\(x_1\\), possiamo applicare poichè siamo in uno spazio metrico la disuguaglianza triangolare \\[d(z,x_1) \\leq d(z,x_2) + d(x_2,x_1)\\] Ma \\(d(x_2,x_1) = d(x_1,x_2)\\) e \\(d(z,x_2) < r_2 \\) quindi \\[d(z, x_1) < r_2 + d(x_1, x_2)\\] Aggiungiamo infine \\(r_1\\) a entrambi i membri \\[d(z,x_1) + r_1 < r_2 + r_1 + d(x_1,x_2)\\] Arrivando così a scrivere \\[d(z,x_1) + r_1 < R\\] \\(d(z,x_1) + r_1 < R\\) è più debole di \\(d(z,x_1) < R\\), dimostrando così che \\(z \\in B_R(x_1)\\).</li></ul> Abbiamo così dimostrato che \\(E_1 \\cup E_2 \\subseteq B_R(x_1)\\), quindi \\(E_1 \\cup E_2\\) è limitato. \\(\\square\\)</li><li>Poniamo per assurdo che \\(\\exists \\ p_1 \\neq p_2 \\in E\\), allora, avremmo che \\(\\operatorname{diam}(E) \\geq d(p_1,p_2) > 0\\) il che è in contraddizione con l'ipotesi. In conclusione, l'unico modo per avere un insieme \\(E\\) non vuoto di diametro 0 è che \\(E\\) contenga un solo punto \\(p\\) appartenente allo spazio metrico \\((X,d)\\). \\(\\square\\)</li></ol>"
+                    "text": "<span class=\"dim\">Dimostrazione</span> <ol><li> Consideriamo l'insieme \\(E = \\{x_1, \\ldots, x_n\\}\\) per \\(n \\in N\\). <br> Per definizione, ricordiamo che \\[\\operatorname{diam}(E) = \\sup \\{ d(x, y) \\mid x, y \\in E \\}\\] Poichè \\(E\\) ha \\(n\\) punti, l'insieme delle distanza tra gli elementi di \\(E\\) è \\[\\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\}\\] Quest'ultimo è un insieme finito di numeri reali e in quanto insieme finito non vuoto ha un massimo, quindi esiste un indice \\(i_0, j_0\\) tale che \\[\\max \\{ d(x_i, x_j) \\mid 1 \\leq i, j \\leq n \\} = d(x_{i_0}, x_{j_0}) < +\\infty\\] Ma allora \\[\\operatorname{diam}(E) = \\sup \\{ d(x,y) \\mid x,y \\in E \\} = \\max \\{ d(x_i, x_j) \\mid i,j = 1,\\ldots,n \\} < +\\infty\\] Dimostrando così che l'insieme \\(E\\) è limitato. \\(\\blacksquare\\)</li><li>Per ipotesi, gli insiemi \\(E_1\\) e \\(E_2\\) sono limitati, ossia \\[E_1 \\subseteq B_{r_1}(x_1) = \\{ z \\in X : d(z, x_1) < r_1 \\}\\] \\[E_2 \\subseteq B_{r_2}(x_2) = \\{ z \\in X : d(z, x_2) < r_2 \\}\\] Definiamo ora un nuovo raggio \\[R = r_1 + r_2 + d(x_1,x_2)\\] Scegliamo come centro il punto \\(x_1\\) (potremmo aver scelto \\(x_2\\) come centro e il ragionamento verrebbe simmetrico). Vogliamo dimostrare che \\(E_1 \\cup E_2\\) è contenuto in \\(B_R(x_1)\\), cioè \\[\\forall z \\in E_1 \\cup E_2, \\quad d(z, x_1) < R\\] Consideriamo ora un punto qualunque \\(z \\in E_1 \\cup E_2\\), ci sono due casi possibili:<ul><li>Caso 1: \\(z \\in E_1\\) <br> Per ipotesi, \\(z\\) appartiene a \\(E_1\\), quindi \\(d(z,x_1) < r_1\\). <br> Dalla definizione precedente di \\(R\\) troviamo la relazione \\[r_1 \\leq r_1 + r_2 + d(x_1,x_2) = R\\] <br> Quindi, abbiamo che \\[d(z,x_1) < r_1 \\leq R \\Rightarrow d(z,x_1) < R\\] Dimostrando che \\(z \\in B_R(x_1)\\).</li><li>Caso 2: \\(z \\in E_2\\) <br> In questo caso, dobbiamo usare un approccio differente poichè ci troviamo più \"lontani\" dal centro \\(x_1\\), possiamo applicare poichè siamo in uno spazio metrico la disuguaglianza triangolare \\[d(z,x_1) \\leq d(z,x_2) + d(x_2,x_1)\\] Ma \\(d(x_2,x_1) = d(x_1,x_2)\\) e \\(d(z,x_2) < r_2 \\) quindi \\[d(z, x_1) < r_2 + d(x_1, x_2)\\] Aggiungiamo infine \\(r_1\\) a entrambi i membri \\[d(z,x_1) + r_1 < r_2 + r_1 + d(x_1,x_2)\\] Arrivando così a scrivere \\[d(z,x_1) + r_1 < R\\] \\(d(z,x_1) + r_1 < R\\) è più debole di \\(d(z,x_1) < R\\), dimostrando così che \\(z \\in B_R(x_1)\\).</li></ul> Abbiamo così dimostrato che \\(E_1 \\cup E_2 \\subseteq B_R(x_1)\\), quindi \\(E_1 \\cup E_2\\) è limitato. \\(\\blacksquare\\)</li><li>Poniamo per assurdo che \\(\\exists \\ p_1 \\neq p_2 \\in E\\), allora, avremmo che \\(\\operatorname{diam}(E) \\geq d(p_1,p_2) > 0\\) il che è in contraddizione con l'ipotesi. In conclusione, l'unico modo per avere un insieme \\(E\\) non vuoto di diametro 0 è che \\(E\\) contenga un solo punto \\(p\\) appartenente allo spazio metrico \\((X,d)\\). \\(\\blacksquare\\)</li></ol>"
                 }
             ]
         },
@@ -181,11 +181,7 @@
                 },
                 {
                     "type": "statement",
-                    "text": ""
-                },
-                {
-                    "type": "proof",
-                    "text": ""
+                    "text": "Sia \\((X,d)\\) uno spazio metrico e sia \\(E \\subseteq X\\) non vuoto. Se l'insieme \\(E\\) è compatto, allora: <ol><li> L'insieme \\(E\\) è limitato.</li><li> L'insieme \\(E\\) è chiuso.</li><li>Per ogni sottoinsieme \\(A \\subseteq E\\), si ha \\(A' \\neq \\emptyset\\).</li></ol>"
                 }
             ]
         },
@@ -198,13 +194,30 @@
                 },
                 {
                     "type": "statement",
-                    "text": ""
+                    "text": "Un insieme \\(E \\subset \\mathbb{R}\\) è compatto se e solo se è chiuso e limitato."
+                }
+            ]
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema di Bolzano-Weierstrass"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(A \\subset \\mathbb{R^n}\\) un insieme infinito limitato. Allora \\(A\\) ammette almeno un punto di accumulazione."
                 },
                 {
                     "type": "proof",
-                    "text": ""
+                    "text": "<span class=\"dim\">Dimostrazione</span> Poichè \\(A\\) è limitato, anche la sua chiusura \\(\\overline{A}\\) è limitata e, ovviamente, chiusa. Per il teorema di Heine-Borel, \\(\\overline{A}\\) è compatto. Poichè \\(A\\) è infinito e \\(A \\subseteq \\overline{A}\\), per la proprietà degli insiemi compatti, \\(A' \\neq \\emptyset\\) \\(\\blacksquare\\)"
                 }
             ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Un corollario del teorema di Bolzano-Weierstrass afferma che ogni successione limitata in \\(\\mathbb{R^n}\\) ammette almeno una sottosuccessione convergente. Ci tornerà utile per dimostrare la completezza di \\(\\mathbb{R}\\)."
         },
         {
             "type": "heading",
@@ -236,7 +249,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> Supponiamo per assurdo che \\(x \\neq y\\). Allora, per la proprietà di Hausdorff, esiste un raggio \\(r > 0\\) tale che \\(B(x,r) \\cap B(y,r) = \\emptyset\\). Poiché \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge a \\(x\\), esiste un intero \\(N_1\\) tale che per ogni \\(n \\geq N_1\\), \\(x_n \\in B(x,r)\\). Analogamente, poiché \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge a \\(y\\), esiste un intero \\(N_2\\) tale che per ogni \\(n \\geq N_2\\), \\(x_n \\in B(y,r)\\). Sia ora \\(N = \\max(N_1, N_2)\\); allora per ogni \\(n \\geq N\\), si ha sia \\(x_n \\in B(x,r)\\) che \\(x_n \\in B(y,r)\\), il che implica che \\(x_n \\in B(x,r) \\cap B(y,r)\\), una contraddizione. Quindi, deve essere che \\(x = y\\). \\(\\square\\)"
+                    "text": "<span class=\"dim\">Dimostrazione</span> Supponiamo per assurdo che \\(x \\neq y\\). Allora, per la proprietà di Hausdorff, esiste un raggio \\(r > 0\\) tale che \\(B(x,r) \\cap B(y,r) = \\emptyset\\). Poiché \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge a \\(x\\), esiste un intero \\(N_1\\) tale che per ogni \\(n \\geq N_1\\), \\(x_n \\in B(x,r)\\). Analogamente, poiché \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge a \\(y\\), esiste un intero \\(N_2\\) tale che per ogni \\(n \\geq N_2\\), \\(x_n \\in B(y,r)\\). Sia ora \\(N = \\max(N_1, N_2)\\); allora per ogni \\(n \\geq N\\), si ha sia \\(x_n \\in B(x,r)\\) che \\(x_n \\in B(y,r)\\), il che implica che \\(x_n \\in B(x,r) \\cap B(y,r)\\), una contraddizione. Quindi, deve essere che \\(x = y\\). \\(\\blacksquare\\)"
                 }
             ]
         },
@@ -258,7 +271,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> \\((\\Rightarrow)\\) Conseguenza diretta della definizione di limite per \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\). In breve, poiché per ogni \\(k > K=N\\) l'indice della sottosuccessione è \\(n_k \\ge k > N\\), i termini \\(x_{n_k}\\) rientrano tra quelli \\(x_n\\) (con \\(n>N\\)) che sono già nell'intorno \\((p-\\epsilon, p+\\epsilon)\\), ereditando così la convergenza a \\(p\\). <br> \\((\\Leftarrow)\\) Per ipotesi, esiste \\(p_0\\) tale che per ogni sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) di \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) si ha \\(x_{n_k} \\to p_0\\). Poniamo ora per assurdo che \\(\\{x_n\\}_{n \\in \\mathbb{N}} \\) non converga ad alcun limite. Allora, esiste un \\(\\epsilon > 0\\) tale che per ogni intero \\(N \\in \\mathbb{N}\\), esiste un \\(n > N\\) con \\(d(x_n,p_0) \\geq \\epsilon\\). Costruiamo una sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) scegliendo per ogni \\(k\\) un indice \\(n_k \\geq k\\) tale che \\(d(x_{n_k},p_0) \\geq \\epsilon\\). Allora, la sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) non converge a \\(p_0\\), contraddicendo l'ipotesi. Quindi, deve essere che \\(\\{x_n\\}_{n \\in \\mathbb{N}} \\to p_0\\). \\(\\square\\)"
+                    "text": "<span class=\"dim\">Dimostrazione</span> \\((\\Rightarrow)\\) Conseguenza diretta della definizione di limite per \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\). In breve, poiché per ogni \\(k > K=N\\) l'indice della sottosuccessione è \\(n_k \\ge k > N\\), i termini \\(x_{n_k}\\) rientrano tra quelli \\(x_n\\) (con \\(n>N\\)) che sono già nell'intorno \\((p-\\epsilon, p+\\epsilon)\\), ereditando così la convergenza a \\(p\\). <br> \\((\\Leftarrow)\\) Per ipotesi, esiste \\(p_0\\) tale che per ogni sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) di \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) si ha \\(x_{n_k} \\to p_0\\). Poniamo ora per assurdo che \\(\\{x_n\\}_{n \\in \\mathbb{N}} \\) non converga ad alcun limite. Allora, esiste un \\(\\epsilon > 0\\) tale che per ogni intero \\(N \\in \\mathbb{N}\\), esiste un \\(n > N\\) con \\(d(x_n,p_0) \\geq \\epsilon\\). Costruiamo una sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) scegliendo per ogni \\(k\\) un indice \\(n_k \\geq k\\) tale che \\(d(x_{n_k},p_0) \\geq \\epsilon\\). Allora, la sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) non converge a \\(p_0\\), contraddicendo l'ipotesi. Quindi, deve essere che \\(\\{x_n\\}_{n \\in \\mathbb{N}} \\to p_0\\). \\(\\blacksquare\\)"
                 }
             ]
         },
@@ -279,7 +292,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> Sia \\(p \\in X\\) il \\(lim_{n \\to +\\infty} x_n\\). Per ogni \\(\\epsilon > 0\\), esiste un intero \\(\\tilde{N} \\in \\mathbb{\\tilde{N(\\frac{\\epsilon}{2})}}\\) tale che per ogni \\(n \\geq N\\), si ha \\(d(x_n,p) < \\frac{\\epsilon}{2}\\). <br> Ora, per ogni \\(m,n \\geq \\mathbb{N(\\epsilon)} := \\mathbb{\\tilde{N(\\frac{\\epsilon}{2})}}\\), possiamo applicare la disuguaglianza triangolare per ottenere: \\[d(x_n,x_m) \\leq d(x_n,p) + d(p,x_m) < \\frac{\\epsilon}{2} + \\frac{\\epsilon}{2} = \\epsilon\\] Dimostrando così che \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è una successione di Cauchy. \\(\\square\\)"
+                    "text": "<span class=\"dim\">Dimostrazione</span> Sia \\(p \\in X\\) il \\(lim_{n \\to +\\infty} x_n\\). Per ogni \\(\\epsilon > 0\\), esiste un intero \\(\\tilde{N} \\in \\mathbb{\\tilde{N(\\frac{\\epsilon}{2})}}\\) tale che per ogni \\(n \\geq N\\), si ha \\(d(x_n,p) < \\frac{\\epsilon}{2}\\). <br> Ora, per ogni \\(m,n \\geq \\mathbb{N(\\epsilon)} := \\mathbb{\\tilde{N(\\frac{\\epsilon}{2})}}\\), possiamo applicare la disuguaglianza triangolare per ottenere: \\[d(x_n,x_m) \\leq d(x_n,p) + d(p,x_m) < \\frac{\\epsilon}{2} + \\frac{\\epsilon}{2} = \\epsilon\\] Dimostrando così che \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è una successione di Cauchy. \\(\\blacksquare\\)"
                 }
             ]
         },
@@ -296,7 +309,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> Per ogni \\(\\epsilon > 0\\), esiste un intero \\(N \\in \\mathbb{N(\\epsilon)}\\) tale che per ogni \\(m,n \\geq N\\), si ha \\(d(x_n,x_m) < \\epsilon\\). Scegliamo \\(\\epsilon = 1\\). <br> Ora, l'insieme \\[E_1 = \\{ x = x_n \\mid n = 1, 2, \\ldots, N_1 - 1 \\}\\] è limitato (è finito). Mentre, l'insieme \\[E_2 = \\{ x = x_n \\mid n \\geq N_1 \\} \\] è anch'esso limitato (\\(\\operatorname{diam}E \\leq 1\\)). <br> Quindi, l'insieme \\(E = E_1 \\cup E_2\\) è limitato per la proprietà degli insiemi limitati. \\(\\square\\)"
+                    "text": "<span class=\"dim\">Dimostrazione</span> Per ogni \\(\\epsilon > 0\\), esiste un intero \\(N \\in \\mathbb{N(\\epsilon)}\\) tale che per ogni \\(m,n \\geq N\\), si ha \\(d(x_n,x_m) < \\epsilon\\). Scegliamo \\(\\epsilon = 1\\). <br> Ora, l'insieme \\[E_1 = \\{ x = x_n \\mid n = 1, 2, \\ldots, N_1 - 1 \\}\\] è limitato (è finito). Mentre, l'insieme \\[E_2 = \\{ x = x_n \\mid n \\geq N_1 \\} \\] è anch'esso limitato (\\(\\operatorname{diam}E \\leq 1\\)). <br> Quindi, l'insieme \\(E = E_1 \\cup E_2\\) è limitato per la proprietà degli insiemi limitati. \\(\\blacksquare\\)"
                 }
             ]
         },
@@ -311,10 +324,6 @@
         {
             "type": "paragraph",
             "text": "Tuttavia, non valgono le implicazioni inverse \\(\\Leftarrow\\)."
-        },
-        {
-            "type": "paragraph",
-            "text": "Uno spazio metrico si dice <highlight>completo</highlight> se ogni successione di Cauchy è convergente. <br> Vedremo infatti che \\((R^n,d_e)\\) è uno spazio metrico completo."
         },
         {
             "type": "heading",
@@ -348,7 +357,57 @@
         {
             "type": "paragraph",
             "text": "Una successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) si dice <highlight>monotona crescente</highlight> se \\(x_n \\leq x_{n+1}\\) per ogni \\(n \\in \\mathbb{N}\\). <br> Una successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) si dice <highlight>monotona decrescente</highlight> se \\(x_n \\geq x_{n+1}\\) per ogni \\(n \\in \\mathbb{N}\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "La monotonia è stretta se le disuguaglianze sono strette (\\(<\\) o \\(>\\)). Inoltre, diciamo che la successione è definitivamente monotona se le proprietà di monotonia valgono per ogni \\(n \\geq n_0\\), per un certo \\(n_0 \\in \\mathbb{N}\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Una successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) si dice <highlight>regolare</highlight> se esiste, finito o infinito, il limite \\(\\lim_{n \\to +\\infty} x_n\\)."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Successioni monotone sono regolari)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) una successione monotona, anche definitivamente. Allora, essa è regolare. In particolare: <ol><li>Se \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è crescente, allora \\(\\lim_{n \\to +\\infty} x_n = \\sup\\{x_n : n \\geq n_0\\}\\).</li><li>Se \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è decrescente, allora \\(\\lim_{n \\to +\\infty} x_n = \\inf\\{x_n : n \\geq n_0\\}\\).</li></ol>"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Spazi metrici completi"
+        },
+        {
+            "type": "paragraph",
+            "text": "Uno spazio metrico si dice <highlight>completo</highlight> se ogni successione di Cauchy è convergente. <br> Vedremo infatti che \\((R^n,d_e)\\) è uno spazio metrico completo."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Completezza di \\((\\mathbb{R},d)\\))"
+                },
+                {
+                    "type": "statement",
+                    "text": "Lo spazio metrico \\((\\mathbb{R},d)\\) è completo."
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> Sia \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) una successione di Cauchy in \\((\\mathbb{R},d)\\). Allora, essa è limitata. <br> Attraverso il Teorema di Bolzano-Weierstrass, sappiamo che, poichè \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è limitata, esiste una sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) che converge a un certo limite \\(x \\in \\mathbb{R}\\). <br> Infine, se \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è una successione di Cauchy e almeno una sua sottosuccessione converge, allora anche la successione originale converge. Abbiamo così dimostrato che \\((\\mathbb{R},d)\\) è uno spazio metrico completo, ossia che in \\((\\mathbb{R},d)\\) se una successione è di Cauchy allora essa converge. \\(\\blacksquare\\)"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Un corollario del teorema estende la completezza a \\(\\mathbb{R^n}\\): <br> Nella sua formulazione più generale, il teorema può essere dimostrato tramite il caso \\(n=1\\): data una successione limitata in \\(\\mathbb{R}\\), la successione delle prime coordinate è una successione reale limitata e perciò essa ammette sottosuccessione convergente. Da questa possiamo estrarre una sottosottosuccessione (convergente) per la quale la seconda coordinata converga. Iterando questo procedimento per tutte le \\(n\\) coordinate si ottiene una \\(n\\) volte sottosuccessione della successione di partenza — che è a tutti gli effetti una sottosuccessione della successione di partenza — per la quale ogni coordinata è una successione convergente. Si è così ottenuta una sottosuccessione convergente della successione in \\(\\mathbb{R^n}\\)."
         }
-        ]
-
+    ]
 }

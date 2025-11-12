@@ -221,7 +221,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> Siano \\(a, b \\in \\mathbb{R}\\) con \\(a < b\\). Esiste un intero positivo \\(n\\) tale che \\(\\frac{1}{n} < b - a\\). Consideriamo gli interi \\(k\\) tali che \\(a < \\frac{k}{n} < b\\). Tali \\(k\\) esistono per la proprietà di Archimede, quindi \\(\\frac{k}{n}\\) è un razionale compreso tra \\(a\\) e \\(b\\). \\(\\square\\)"
+                    "text": "<span class=\"dim\">Dimostrazione</span> Siano \\(a, b \\in \\mathbb{R}\\) con \\(a < b\\). Esiste un intero positivo \\(n\\) tale che \\(\\frac{1}{n} < b - a\\). Consideriamo gli interi \\(k\\) tali che \\(a < \\frac{k}{n} < b\\). Tali \\(k\\) esistono per la proprietà di Archimede, quindi \\(\\frac{k}{n}\\) è un razionale compreso tra \\(a\\) e \\(b\\). \\(\\blacksquare\\)"
                 }
             ]
         },
@@ -348,7 +348,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> \\(Z = N_0 \\cup (N^-)\\) con \\(N_0\\) e \\(N^-\\) numerabili, quindi \\(Z\\) è numerabile in quanto unione di insiemi numerabili. \\(Q = { \\frac{p}{q} | p \\in Z, q \\in N}\\) è infinito. Prendiamo  la funzione suriettiva \\(f: Z \\times N\\ \\to Q\\) che porta \\((p,q) \\to \\frac{p}{q}\\), possiamo quindi identificare \\(Q\\) con un sottoinsieme infinito di \\(Z \\times N\\), che è numerabile. \\(\\square\\)"
+                    "text": "<span class=\"dim\">Dimostrazione</span> \\(Z = N_0 \\cup (N^-)\\) con \\(N_0\\) e \\(N^-\\) numerabili, quindi \\(Z\\) è numerabile in quanto unione di insiemi numerabili. \\(Q = { \\frac{p}{q} | p \\in Z, q \\in N}\\) è infinito. Prendiamo  la funzione suriettiva \\(f: Z \\times N\\ \\to Q\\) che porta \\((p,q) \\to \\frac{p}{q}\\), possiamo quindi identificare \\(Q\\) con un sottoinsieme infinito di \\(Z \\times N\\), che è numerabile. \\(\\blacksquare\\)"
                 }
             ]
         },
@@ -365,7 +365,7 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> Partiamo dal presupposto che \\(R\\) sia equipotente a \\((0,1)\\). Supponiamo per assurdo che \\((0,1)\\) sia numerabile, e che quindi esista una funzione biunivoca \\(f: N \\to (0,1)\\) con \\(x_n = f(n)\\) per ogni \\( n \\in N\\) . Costruiamo un numero reale \\(x \\in (0,1)\\) che non appartiene all'immagine di \\(f\\). Scriviamo ogni \\(f(n)\\) in forma decimale: \\(f(1) = 0.a_{11}a_{12}a_{13}...\\), \\(f(2) = 0.a_{21}a_{22}a_{23}...\\), e così via. Definiamo \\(x = 0.b_1b_2b_3...\\) dove \\(b_n\\) è una cifra diversa da \\(a_{nn}\\) (ad esempio, se \\(a_{nn} = 5\\), scegliamo \\(b_n = 6\\), altrimenti \\(b_n = 5\\)). In questo modo, \\(x\\) differisce da ogni \\(f(n)\\) almeno nella n-esima cifra decimale, quindi x apparterrà ad R senza appartenenre all'immagine di \\(f\\), il che è assurdo. \\(\\square\\)"
+                    "text": "<span class=\"dim\">Dimostrazione</span> Partiamo dal presupposto che \\(R\\) sia equipotente a \\((0,1)\\). Supponiamo per assurdo che \\((0,1)\\) sia numerabile, e che quindi esista una funzione biunivoca \\(f: N \\to (0,1)\\) con \\(x_n = f(n)\\) per ogni \\( n \\in N\\) . Costruiamo un numero reale \\(x \\in (0,1)\\) che non appartiene all'immagine di \\(f\\). Scriviamo ogni \\(f(n)\\) in forma decimale: \\(f(1) = 0.a_{11}a_{12}a_{13}...\\), \\(f(2) = 0.a_{21}a_{22}a_{23}...\\), e così via. Definiamo \\(x = 0.b_1b_2b_3...\\) dove \\(b_n\\) è una cifra diversa da \\(a_{nn}\\) (ad esempio, se \\(a_{nn} = 5\\), scegliamo \\(b_n = 6\\), altrimenti \\(b_n = 5\\)). In questo modo, \\(x\\) differisce da ogni \\(f(n)\\) almeno nella n-esima cifra decimale, quindi x apparterrà ad R senza appartenenre all'immagine di \\(f\\), il che è assurdo. \\(\\blacksquare\\)"
                 }
             ]
         }

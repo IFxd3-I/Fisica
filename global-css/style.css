@@ -376,7 +376,6 @@ header h1 a {
   flex: 1;
   font-weight: bold;
   color: var(--theorem-color);
-  text-transform: uppercase;
   font-size: 1.1rem;
   text-align: center;
 }

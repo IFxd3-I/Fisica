@@ -1,0 +1,208 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Calcolo dei Limiti"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo vedremo alcune tecniche per il calcolo dei limiti di funzioni."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Teorema di permanenza del segno"
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (di permanenza del segno)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) tale che esiste \\(\\lim_{n \\to +\\infty} x_n = l \\in > [-\\infty, +\\infty]\\). Allora: <ol><li>Se \\(l > 0\\) o \\(l = +\\infty\\), allora \\(x_n > 0\\) definitivamente</li><li>Se \\(l < 0\\) oppure \\(l = -\\infty\\), allora \\(x_n < 0\\) definitivamente</li><li>Se \\(x_n > 0\\) definitivamente, allora \\(l > 0\\) o \\(l = +\\infty\\)</li><li>Se \\(x_n < 0\\) definitivamente, allora \\(l < 0\\) o \\(l = -\\infty\\)</li></ol>"
+                }
+            ]
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (del confronto; convergenza)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\), \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\), \\(\\{z_n\\}_{n \\in \\mathbb{N}}\\)  tre successioni reali tali che: <ol><li> definitivamente \\(x_n \\leq z_n \\leq y_n\\);</li><li> \\(x_n\\) e \\(y_n\\) convergono allo stesso limite \\(p\\).</li></ol> Allora \\(z_n\\) converge a \\(p\\)."
+                },
+                {
+                    "type": "proof",
+                    "text": "Sia \\(\\epsilon > 0\\) scelto arbitrariamente. Per ipotesi \\(1)\\) valgono definitivamente le seguenti disuguaglianze: \\[p - \\epsilon < x_n < p + \\epsilon\\];  \\[p - \\epsilon < y_n < p + \\epsilon\\]. Quindi, per l'ipotesi \\(2)\\) e per quanto appena mostrato, vale definitivamente \\[p - \\epsilon < x_n \\leq z_n \\leq y_n < p + \\epsilon\\]. Da cui si deduce che \\(|z_n - p| < \\epsilon\\) definitivamente, e quindi che \\(z_n \\to p\\). \\(\\blacksquare\\)"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Quest'ultimo è anche noto come teorema dei carabinieri."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (del confronto; divergenza)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni reali tali che definitivamente \\(x_n \\leq y_n\\). Allora: <ol><li> Se \\(x_n\\) diverge a \\(+\\infty\\), allora anche \\(y_n\\) diverge a \\(+\\infty\\).</li><li> Se \\(y_n\\) diverge a \\(-\\infty\\), allora anche \\(x_n\\) diverge a \\(-\\infty\\).</li></ol>"
+                },
+                {
+                    "type": "proof",
+                    "text": "Dimostriamo la prima affermazione (la seconda si dimostra in modo analogo). Sia \\(M > 0\\) scelto arbitrariamente. Per ipotesi, esiste \\(N \\in \\mathbb{N}\\) tale che per ogni \\(n \\geq N\\) vale \\(x_n > M\\). Ma allora, per l'ipotesi di partenza, vale definitivamente anche \\(y_n \\geq x_n > M\\). Quindi \\(y_n \\to +\\infty\\). \\(\\blacksquare\\)"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Algebra dei limiti"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Calcolo dei Limiti in \\(\\mathbb{R}\\)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni reali entrambe convergenti. Allora valgono le seguenti proprietà:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[x_n + y_n \\to l + m\\] \\[x_n \\cdot y_n \\to l \\cdot m\\] \\[\\text{Se } m \\neq 0 \\text{ e } l \\neq 0, \\text{ allora } \\frac{x_n}{y_n} \\to \\frac{l}{m}\\] \\[\\text{Se } x_n > 0 \\text{ e } l > 0, \\text{ allora } x_n^{y_n} \\to l^{m}\\] \\[\\text{Se } x_n > 0 \\text{ e } x_n,l \\ne 1 \\text{ e } b_n,b > 0, \\text{ allora } \\log_{x_n} y_n \\to \\log_l m\\]"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Calcolo dei Limiti in \\(\\overline{\\mathbb{R}}\\)"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Somma"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni a valori reali. Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c|c} + & y_n \\to +\\infty & y_n \\to -\\infty & y_n \\to m\\\\ \\hline x_n \\to +\\infty & +\\infty & \\text{ind.} & +\\infty \\\\ \\hline x_n \\to -\\infty & \\text{ind.} & -\\infty & -\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Prodotto"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni a valori reali, ad eccezzione di \\(m = 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c|c} \\cdot & y_n \\to +\\infty & y_n \\to -\\infty & y_n \\to m > 0 & y_n \\to m < 0 \\\\ \\hline x_n \\to +\\infty & +\\infty & -\\infty & +\\infty & -\\infty \\\\ \\hline x_n \\to -\\infty & -\\infty & +\\infty & -\\infty & +\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Quoziente"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il comportamento al limite del quoziente \\(\\frac{x_n}{y_n}\\) si deduce combinando le regole del prodotto con il comportamento al limite di \\(\\frac{1}{y_n}\\). Sia quindi \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) una successione a valori reali, tale che \\(y_n \\ne 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c|c|c} & y_n \\to +\\infty & y_n \\to -\\infty & y_n \\to 0^+ & y_n \\to 0^- \\\\ \\hline 1 & \\frac{1}{y_n} \\to 0^+ & \\frac{1}{y_n} \\to 0^- & \\frac{1}{y_n} \\to +\\infty & \\frac{1}{y_n} \\to -\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Potenze"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni a valori reali e sia \\(x_n > 0\\) e \\(l > 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c} & y_n \\to +\\infty & y_n \\to -\\infty \\\\ \\hline x_n \\to l > 1 & x_n^{y_n} \\to +\\infty & x_n^{y_n} \\to 0^+ \\\\ \\hline x_n \\to l < 1 & x_n^{y_n} \\to 0^+ & x_n^{y_n} \\to +\\infty \\end{array}\\]"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni a valori reali e sia \\(x_n > 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c|c|c} & y_n \\to +\\infty & y_n \\to -\\infty & y_n \\to m > 0 & y_n \\to m < 0 \\\\ \\hline x_n \\to +\\infty & x_n^{y_n} \\to +\\infty & x_n^{y_n} \\to 0^+ & x_n^{y_n} \\to +\\infty & x_n^{y_n} \\to 0^+ \\\\ \\hline x_n \\to 0^+ & x_n^{y_n} \\to 0^+ & x_n^{y_n} \\to +\\infty & x_n^{y_n} \\to 0^+ & x_n^{y_n} \\to +\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Logaritmi"
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\(l > 0\\), \\(l \\neq 1\\). Sia \\(y_n \\ne 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c} & y_n \\to +\\infty & y_n \\to 0^+ \\\\ \\hline l > 1 & \\log_l y_n \\to +\\infty & \\log_l y_n \\to -\\infty \\\\ \\hline l < 1 & \\log_l y_n \\to -\\infty & \\log_l y_n \\to +\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Forme Indeterminate"
+        },
+        {
+            "type": "paragraph",
+            "text": "Riassumiamo infiine le forme indeterminate più comuni:"
+        },
+        {
+            "type": "math",
+            "text": "\\infty - \\infty, \\quad 0 \\cdot \\infty, \\quad \\frac{\\infty}{\\infty}, \\quad \\frac{0}{0}, \\quad 1^{\\infty}, \\quad 0^{0}, \\quad \\infty^{0}"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Condizioni per la convergenza"
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (criterio della radice)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) una successione di numeri reali tale che \\(x_n \\geq 0\\) (definitivamente) e esiste \\(\\lim_{n \\to +\\infty} x_n^{\\frac{1}{n}} = l \\in [0, +\\infty]\\). Allora: <ol><li> Se \\(l \\in [0, 1)\\), allora \\(x_n \\to 0\\) per \\(n \\to +\\infty\\).</li><li> Se \\(l \\in (1,+\\infty)\\), allora \\(x_n \\to +\\infty\\) per \\(n \\to +\\infty\\)</li></ol>"
+                }
+            ]
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (criterio del rapporto)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(\\{x_n\\}_{n \\in \\mathbb{N}} \\subset \\mathbb{R}\\) una successione di numeri reali tale che \\(x_n > 0\\) (definitivamente) e esiste \\(\\lim_{n \\to +\\infty} \\frac{x_{n+1}}{x_n} = l \\in [0, +\\infty)\\). Allora: <ol><li> Se \\(l \\in [0, 1)\\), allora \\(x_n \\to 0\\) per \\(n \\to +\\infty\\).</li><li> Se \\(l \\in (1,+\\infty)\\), allora \\(x_n \\to +\\infty\\) per \\(n \\to +\\infty\\)</li></ol>"
+                }
+            ]
+        }
+    ]
+}

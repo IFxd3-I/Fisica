@@ -73,7 +73,7 @@ const chapters = {
         { title: "Algebra Superiori", json: "algebra-superiori.json" },
         { title: "Il Campo Reale", json: "il-campo-reale.json" },
         { title: "Teoria degli spazi metrici", json: "teoria-degli-spazi-metrici.json" },
-        { title: "Serie", json: "serie.json" },
+        { title: "Limiti", json: "limiti.json" },
         { title: "Funzioni continue", json: "funzioni-continue.json" },
         { title: "Derivate", json: "derivate.json" },
         { title: "Integrali", json: "integrali.json" }
@@ -990,48 +990,29 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    
-    // Aggiorna la data dell'ultimo aggiornamento
-    updateLastModifiedDate();
 });
 
-/**
- * Aggiorna la data dell'ultimo aggiornamento nel footer
- */
-function updateLastModifiedDate() {
-    const lastUpdateElement = document.getElementById('last-update');
-    if (!lastUpdateElement) return;
+function updateSearchBarPath(currentModuleValue) {
+    // 1. Definisci il percorso base obbligatorio
+    const basePath = "/Fisica";
     
-    // Tenta di ottenere la data di ultima modifica tramite API fetch
-    fetch('index.html', { method: 'HEAD' })
-        .then(response => {
-            const lastModified = response.headers.get('last-modified');
-            if (lastModified) {
-                // Formatta la data in italiano
-                const date = new Date(lastModified);
-                const options = { 
-                    day: '2-digit', 
-                    month: 'long', 
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                };
-                const formattedDate = date.toLocaleDateString('it-IT', options);
-                lastUpdateElement.textContent = formattedDate;
-            } else {
-                // Se non riesce a ottenere la data dal server, mostra la data attuale
-                const currentDate = new Date();
-                const options = { 
-                    day: '2-digit', 
-                    month: 'long', 
-                    year: 'numeric' 
-                };
-                lastUpdateElement.textContent = currentDate.toLocaleDateString('it-IT', options);
-            }
-        })
-        .catch(error => {
-            console.error('Errore nel recupero della data di ultima modifica:', error);
-            // In caso di errore, mostra la data corrente
-            lastUpdateElement.textContent = new Date().toLocaleDateString('it-IT');
-        });
+    // 2. Trova l'elemento HTML della barra di ricerca (adatta l'ID)
+    const searchBarElement = document.getElementById('id-della-tua-barra-di-ricerca'); 
+
+    if (!searchBarElement) {
+        console.error("Elemento della barra di ricerca non trovato. Controlla l'ID.");
+        return; 
+    }
+
+    // 3. Logica di concatenazione:
+    let newPath = basePath;
+    
+    // Controlla se il valore del modulo è definito e non vuoto
+    if (currentModuleValue && currentModuleValue.trim() !== "") {
+        newPath += "/" + currentModuleValue;
+    }
+
+    // 4. Aggiorna il contenuto dell'elemento HTML
+    searchBarElement.textContent = newPath; 
+    // Puoi usare .innerHTML se preferisci, ma .textContent è più sicuro per il testo semplice.
 }
