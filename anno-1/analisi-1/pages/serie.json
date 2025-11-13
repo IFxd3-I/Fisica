@@ -1,0 +1,158 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Serie numeriche"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo vedremo cosa sono le serie numeriche, a cosa servono e è possibile analizzarle per capirne il comportamento."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Definizione di serie"
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\(\\{a_k\\}_{k \\in \\mathbb{N}} \\in \\mathbb{R}\\) una successione di numeri reali. Si definisce somma parziale n-esima la quantità:"
+        },
+        {
+            "type": "paragraph",
+            "text": "Si definisce <highlight>somma parziale n-esima</highlight> la quantità:"
+        },
+        {
+            "type": "math",
+            "text": "S_n := \\displaystyle\\sum_{k=1}^{n} a_k = a_1 + a_2 + a_3 + \\ldots + a_n, \\quad \\text{ per ogni } n \\in \\mathbb{N}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Si definisce <highlight>serie</highlight>, notazione \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\), di termine generale \\(a_k\\) la successione delle somme parziali n-esime:"
+        },
+        {
+            "type": "math",
+            "text": "\\{S_n\\}_{n \\in \\mathbb{N}}"
+        },
+        {
+            "type": "paragraph",
+            "text": "La successione \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) può essere di tipo:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Regolare</highlight>: \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) si definisce regolare se ha limite, finito o infinito, per \\(n \\to +\\infty\\), ossia: <ul><li>Se \\(S_n \\to S \\in \\mathbb{R}\\) per \\(n \\to \\infty\\), diciamo che la serie è <highlight>convergente</highlight> e chiamiamo \\(S\\) il suo valore di somma.</li><li>Se \\(S_n \\to +\\infty\\) o \\(S_n \\to -\\infty\\) per \\(n \\to +\\infty\\), diciamo che la serie è <highlight>divergente</highlight> a \\(\\pm\\infty\\).</li></ul>",
+                "<highlight>Irregolare</highlight> o <highlight>Oscillante</highlight>: \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) si definisce irregolare o oscillante se non ha limite per \\(n \\to +\\infty\\), ossia se la serie non converge e non diverge."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Tipi notevoli di serie"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Serie geometrica di ragione \\(q\\)"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum_{k=0}^{+\\infty} q^k = \\begin{cases} +\\infty & \\text{se } q \\ge 1 \\\\ \\frac{q}{1-q} & \\text{se } |q| < 1 \\\\ \\text{irregolare} & \\text{se } q \\le -1 \\end{cases}"
+        },
+        {
+            "type": "paragraph",
+            "text": "In modo analogo, facendo iniziare la somma da \\(k = 0\\) o da un certo \\(k = k_0\\), si ha rispettivamente:"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum_{k=0}^{+\\infty} q^k = \\begin{cases} +\\infty & \\text{se } q \\ge 1 \\\\ \\frac{1}{1-q} & \\text{se } |q| < 1 \\\\ \\text{irregolare} & \\text{se } q \\le -1 \\end{cases} \\quad \\quad \\quad \\displaystyle\\sum_{k=k_0}^{+\\infty} q^k = \\begin{cases} +\\infty & \\text{se } q \\ge 1 \\\\ \\frac{q^{k_0}}{1-q} & \\text{se } |q| < 1 \\\\ \\text{irregolare} & \\text{se } q \\le -1 \\end{cases}"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Serie telescopica"
+        },
+        {
+            "type": "paragraph",
+            "text": "Con il termine serie telescopica si indica una serie il cui termine generale può essere scritto come differenza di due termini consecutivi di una certa successione \\(\\{b_k\\}_{k \\in \\mathbb{N}}\\), ossia:"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum_{k=1}^{+\\infty} a_k \\quad \\text{con } a_k = A_{k+1} - A_{k}"
+        },
+        {
+            "type": "paragraph",
+            "text": "In questo caso, le somme parziali si possono esprimere come differenza del primo e ultimo termine della successione \\(\\{A_k\\}_{k \\in \\mathbb{N}}\\):"
+        },
+        {
+            "type": "math",
+            "text": "S_n = \\displaystyle\\sum_{k=1}^{n} a_k = \\displaystyle\\sum_{k=1}^{n} (A_{k+1} - A_k) = A_{n+1} - A_1"
+        },
+        {
+            "type": "paragraph",
+            "text": "e il calcolo della serie si riduce al calcolo del limite della successione \\(\\{A_k\\}_{k \\in \\mathbb{N}}\\):"
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} S_n = \\lim_{n \\to +\\infty} (A_{n+1} - A_1)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ad esempio, la serie geometrica può essere vista come una serie telescopica con \\(A_k = \\frac{1 - q^k}{1 - q}\\):"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum_{k=0}^{n} q^k = \\displaystyle\\sum_{k=0}^{n} \\left( \\frac{1 - q^{k+1}}{1 - q} - \\frac{1 - q^{k}}{1 - q} \\right) = \\frac{1 - q^{n+1}}{1 - q} \\quad \\text{per } q \\neq 1"
+        },
+        {
+            "type": "paragraph",
+            "text": "o, per \\(q = 1\\), semplicemente \\(\\displaystyle\\sum_{k=0}^{n} q^k = n + 1\\)."
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Serie di Mengoli"
+        },
+        {
+            "type": "paragraph",
+            "text": "Un altro esempio classico di serie telescopica è la serie di Mengoli, il cui termine generale è dato da:"
+        },
+        {
+            "type": "math",
+            "text": "a_k = \\frac{1}{k(k+1)}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Notiamo che si tratta di una serie telescopica con \\(A_k = -\\frac{1}{k}\\) e quindi:"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum \\frac{1}{k(k+1)} = \\lim_{n \\to +\\infty} \\left(-\\frac{1}{n+1}\\right) -  \\left(-1\\right) = 1"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Carattere di una serie"
+        },
+        {
+            "type": "paragraph",
+            "text": "Vedremo ora una serie di teoremi che ci permetteranno di studiare il carattere di una serie numerica, ossia se essa è convergente, divergente o irregolare."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (condizione necessaria e sufficiente di Cauchy per le serie)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Una serie \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) converge \\(\\iff\\) per ogni \\(\\varepsilon > 0\\), esiste un intero positivo \\(N = N(\\varepsilon)\\) tale che per ogni \\(m > N\\) e per ogni \\(h > 0\\) si ha: \\[\\left| \\displaystyle\\sum_{k=m}^{m+h} a_k \\right| < \\varepsilon\\]"
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> Per dimostrare il Teorema ci basterà applicare la condizione di Cauchy per le successioni alla successione delle somme parziali \\[\\{S_n\\}_{n \\in \\mathbb{N}} : \\quad \\forall \\varepsilon > 0 \\quad \\exists N : \\quad \\forall p > q \\ge N_\\varepsilon \\quad \\left|S_p - S_q\\right| < \\varepsilon\\] \\[\\iff \\left|\\displaystyle\\sum_{k=1}^{p} a_k - \\displaystyle\\sum_{k=1}^{q} a_k\\right| < \\varepsilon\\] \\[\\iff \\left| \\displaystyle\\sum_{k=q + 1}^{p} a_k + \\displaystyle\\sum_{k=1}^{q} a_k - \\displaystyle\\sum_{k=1}^{q} a_k \\right| < \\varepsilon\\] Ora chiamiamo \\(q+1:=m\\) e \\(p:=m+h\\) cioè \\(h=p-q-1 (\\text{ confermando } h\\ge 0)\\) e abbiamo:<ul><li> \\((\\Rightarrow)\\) Se la serie \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) converge \\(\\Rightarrow\\) vale Cauchy per \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\Rightarrow\\) vale Cauchy per questa serie;</li><li> \\((\\Leftarrow)\\) Se è soddisfatta la condizione di Cauche per la serie \\(\\Rightarrow\\) vale Cauchy per \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\), ossia \\(\\mathbb{R}\\) è completo \\(\\Rightarrow\\) \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) converge. </ul>"
+                }
+            ]
+        }
+    ]
+}

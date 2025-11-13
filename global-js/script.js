@@ -74,6 +74,7 @@ const chapters = {
         { title: "Il Campo Reale", json: "il-campo-reale.json" },
         { title: "Teoria degli spazi metrici", json: "teoria-degli-spazi-metrici.json" },
         { title: "Limiti", json: "limiti.json" },
+        { title: "Serie", json: "serie.json" },
         { title: "Funzioni continue", json: "funzioni-continue.json" },
         { title: "Derivate", json: "derivate.json" },
         { title: "Integrali", json: "integrali.json" }

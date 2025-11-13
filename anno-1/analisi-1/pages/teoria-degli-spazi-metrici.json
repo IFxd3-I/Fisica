@@ -101,7 +101,7 @@
                 },
                 {
                     "type": "statement",
-                    "text": "Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. L'insieme \\(A\\) è chiuso se e solo se \\((\\Leftarrow \\Rightarrow)\\)\\(A' \\subseteq A\\), cioè contiene tutti i suoi punti di accumulazione."
+                    "text": "Sia \\(X,d\\) uno spazio metrico e \\(A \\subseteq X\\) un suo sottoinsieme. L'insieme \\(A\\) è chiuso se e solo se \\(\\iff\\)\\(A' \\subseteq A\\), cioè contiene tutti i suoi punti di accumulazione."
                 },
                 {
                     "type": "proof",
@@ -267,7 +267,7 @@
                 },
                 {
                     "type": "statement",
-                    "text": "Una successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge ad un limite \\(p\\) se e solo se \\((\\Leftarrow\\Rightarrow)\\) ogni sua sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) converge allo stesso limite \\(p\\)."
+                    "text": "Una successione \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) converge ad un limite \\(p\\) se e solo se \\((\\iff\\) ogni sua sottosuccessione \\(\\{x_{n_k}\\}_{k \\in \\mathbb{N}}\\) converge allo stesso limite \\(p\\)."
                 },
                 {
                     "type": "proof",
