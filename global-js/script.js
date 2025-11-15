@@ -2,6 +2,7 @@ const API_KEY = "DEMO_KEY";
 const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 const TODAY = '2023-10-01'; // Temporarily set to a past date for testing
 
+//01-10-2023, 15-11-2025
 // Solo sfondo, niente altri elementi
 /**
  * Funzione principale per impostare lo sfondo.
