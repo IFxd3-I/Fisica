@@ -1,0 +1,218 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "level": 1,
+            "text": "Analisi Vettoriale"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo introduciamo i concetti fondamentali dell'analisi vettoriale, che sono essenziali per comprendere e descrivere fenomeni fisici in più dimensioni."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Struttura dei Vettori"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Modulo: definisce l'intensità del vettore, la lunghezza della freccia.",
+                "Direzione: definita come l'angolo formato tra il vettore ed un asse di riferimento, è la retta su cui giace il vettore.",
+                "Verso: indica il segno del vettore ed è rappresentato dalla punta della freccia."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "rappresentazione dei Vettori"
+        },
+        {
+            "type": "paragraph",
+            "text": "I vettori possono essere rappresentati sia in forma grafica come frecce in uno spazio cartesiano che in forma analitica come coordinate in uno spazio n-dimensionale. Ad esempio, un vettore in uno spazio tridimensionale può essere rappresentato come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{v} = (v_x, v_y, v_z)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove \\(v_x\\), \\(v_y\\) e \\(v_z\\) sono le componenti del vettore lungo gli assi x, y e z rispettivamente. <br> Un altro modo è attraverso i versori, ossia:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{v} = v_x \\hat{i} + v_y \\hat{j} + v_z \\hat{k}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove \\(\\hat{i}\\), \\(\\hat{j}\\) e \\(\\hat{k}\\) sono i versori unitari lungo gli assi x, y e z. <br> Inoltre, possiamo definire il modulo del vettore come:"
+        },
+        {
+            "type": "math",
+            "text": "||\\vec{v}|| = \\sqrt{v_x^2 + v_y^2 + v_z^2}"
+        },
+        {
+            "type": "paragraph",
+            "text": "E l'angolo di direzione rispetto all'asse x come:"
+        },
+        {
+            "type": "math",
+            "text": "\\theta = \\tan^{-1}(v_y/v_x)"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Operazioni sui Vettori"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Addizione"
+        },
+        {
+            "type": "paragraph",
+            "text": "L'addizione tra vettori si effettua sommando le componenti corrispondenti:"
+        },
+        {
+            "type": "math",
+            "text": " \\vec{a} + \\vec{b} = (a_x + b_x)\\hat{u}_x + (a_y + b_y)\\hat{u}_y + (a_z + b_z)\\hat{u}_z"
+        },
+        {
+            "type": "paragraph",
+            "text": "Gode inoltre delle seguenti proprietà:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Proprietà commutativa: \\(\\vec{a} + \\vec{b} = \\vec{b} + \\vec{a}\\)",
+                "Proprietà associativa: \\((\\vec{a} + \\vec{b}) + \\vec{c} = \\vec{a} + (\\vec{b} + \\vec{c})\\)",
+                "Elemento neutro: esiste un vettore nullo \\(\\vec{0}\\) tale che \\(\\vec{a} + \\vec{0} = \\vec{a}\\)",
+                "Elemento opposto: per ogni vettore \\(\\vec{a}\\) esiste un vettore opposto \\(-\\vec{a}\\) tale che \\(\\vec{a} + (-\\vec{a}) = \\vec{0}\\)"
+            ]
+        },
+        {
+            "type": "image",
+            "src": "/anno-1/meccanica/img/addizione-vettori.png",
+            "alt": "addizione tra vettori"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Prodotto per uno scalare"
+        },
+        {
+            "type": "paragraph",
+            "text": "La moltiplicazione di un vettore per uno scalare si effettua moltiplicando ogni componente del vettore per lo scalare:"
+        },
+        {
+            "type": "math",
+            "text": "\\alpha \\vec{a} = (\\alpha a_x)\\hat{u}_x + (\\alpha a_y)\\hat{u}_y + (\\alpha a_z)\\hat{u}_z"
+        },
+        {
+            "type": "paragraph",
+            "text": "Gode inoltre delle seguenti proprietà:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Distributiva rispetto alla somma di vettori: \\(\\alpha(\\vec{a} + \\vec{b}) = \\alpha\\vec{a} + \\alpha\\vec{b}\\)",
+                "Distributiva rispetto alla somma di scalari: \\((\\alpha + \\beta)\\vec{a} = \\alpha\\vec{a} + \\beta\\vec{a}\\)",
+                "Associativa rispetto alla moltiplicazione di scalari: \\(\\alpha(\\beta\\vec{a}) = (\\alpha\\beta)\\vec{a}\\)",
+                "Elemento neutro: \\(1\\vec{a} = \\vec{a}\\)"
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Prodotto scalare"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il prodotto scalare tra due vettori \\(\\vec{a}\\) e \\(\\vec{b}\\) è definito come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{a} \\cdot \\vec{b} = a_x b_x + a_y b_y + a_z b_z"
+        },
+        {
+            "type": "paragraph",
+            "text": "Che possiamo scrivere geometricamente come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{a} \\cdot \\vec{b} = ||\\vec{a}|| ||\\vec{b}|| \\cos(\\theta)"
+        },
+        {
+            "type": "paragraph",
+            "text": "E matricialmente come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{a} \\cdot \\vec{b} = \\begin{pmatrix} a_x & a_y & a_z \\end{pmatrix} \\begin{pmatrix} b_x \\\\ b_y \\\\ b_z \\end{pmatrix}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Gode inoltre delle seguenti proprietà:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Proprietà commutativa: \\(\\vec{a} \\cdot \\vec{b} = \\vec{b} \\cdot \\vec{a}\\)",
+                "Proprietà associativa: \\((\\vec{a} \\cdot \\vec{b}) \\cdot \\vec{c} = \\vec{a} \\cdot (\\vec{b} \\cdot \\vec{c})\\)",
+                "Elemento neutro: esiste un vettore nullo \\(\\vec{0}\\) tale che \\(\\vec{a} \\cdot \\vec{0} = 0\\)",
+                "Elemento opposto: per ogni vettore \\(\\vec{a}\\) esiste un vettore opposto \\(-\\vec{a}\\) tale che \\(\\vec{a} \\cdot (-\\vec{a}) = 0\\)"
+            ]
+        },
+        {
+            "type": "image",
+            "src": "/anno-1/meccanica/img/prodotto-scalare.png",
+            "alt": "prodotto scalare tra vettori"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Prodotto vettoriale"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il prodotto vettoriale tra due vettori \\(\\vec{a}\\) e \\(\\vec{b}\\) è definito come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{a} \\times \\vec{b} = (a_y b_z - a_z b_y)\\hat{u}_x + (a_z b_x - a_x b_z)\\hat{u}_y + (a_x b_y - a_y b_x)\\hat{u}_z"
+        },
+        {
+            "type": "paragraph",
+            "text": "Che possiamo scrivere geometricamente come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{a} \\times \\vec{b} = ||\\vec{a}|| ||\\vec{b}|| \\sin(\\theta) \\hat{n}"
+        },
+        {
+            "type": "paragraph",
+            "text": "E matricialmente come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{a} \\times \\vec{b} = \\begin{vmatrix} \\hat{u}_x & \\hat{u}_y & \\hat{u}_z \\\\ a_x & a_y & a_z \\\\ b_x & b_y & b_z \\end{vmatrix}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Gode inoltre delle seguenti proprietà:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Proprietà anticommutativa: \\(\\vec{a} \\times \\vec{b} = - (\\vec{b} \\times \\vec{a})\\)",
+                "Distributiva rispetto alla somma di vettori: \\(\\vec{a} \\times (\\vec{b} + \\vec{c}) = \\vec{a} \\times \\vec{b} + \\vec{a} \\times \\vec{c}\\)",
+                "Elemento neutro: esiste un vettore nullo \\(\\vec{0}\\) tale che \\(\\vec{a} \\times \\vec{0} = \\vec{0}\\)"
+            ]
+        },
+        {
+            "type": "image",
+            "src": "/anno-1/meccanica/img/prodotto-vettoriale.png",
+            "alt": "prodotto vettoriale tra vettori"
+        }
+    ]
+}

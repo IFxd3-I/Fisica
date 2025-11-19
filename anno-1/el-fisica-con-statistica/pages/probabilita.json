@@ -1,0 +1,228 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Concetti base di probabilità"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo introduciamo i concetti fondamentali della teoria della probabilità, essenziali per comprendere fenomeni aleatori e processi stocastici."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Teoria della Probabilità"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>teoria della probabilità</highlight> è un ramo della matematica che studia i fenomeni aleatori e fornisce strumenti per quantificare l'incertezza associata a eventi casuali. In particolare, quando effettuiamo una misura, stiamo collezionando risultati con un certo grado di variabilità; la statistica ci permette di arrivare a una conclusione generale partendo da un insieme frammentario di dati. Per fare ciò, ci si confronta con modelli teorici, da qui teoria della probabilità."
+        },
+        {
+            "type": "paragraph",
+            "text": "Diamo alcune definizioni fondamentali:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Spazio degli eventi</highlight>: È l'insieme di tutti i possibili risultati di un esperimento casuale.",
+                "<highlight>Evento</highlight>: È un sottoinsieme dello spazio degli eventi, cioè una collezione di uno o più risultati elementari che soddisfano una certa condizione. Gli eventi possono essere semplici (un singolo risultato, come \"esce il numero 3\") o composti (più risultati, come \"esce un numero pari\"). Ad esempio, nel lancio di un dado, l'evento \"uscire un numero pari\" è {2, 4, 6}.",
+                "<highlight>Permutazioni</highlight>: Sono disposizioni di oggetti in un ordine specifico. Il numero di permutazioni di \\(n\\) oggetti distinti è dato da \\(n!\\) (fattoriale di \\(n\\)). Ad esempio, le permutazioni delle lettere A, B e C sono ABC, ACB, BAC, BCA, CAB, CBA."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Eventi composti"
+        },
+        {
+            "type": "paragraph",
+            "text": "Gli eventi composti sono eventi che appunto possono essere suddivisi in più eventi semplici. Nel caso in cui si lanci un dado, un evento composto potrebbe essere \"uscire un numero pari\". Per analizzarli, dobbiamo prima determinare la situazione in cui ci troviamo, ossia:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Nel caso di <highlight>campionamento con reinserimento</highlight>, il numero di eventi composti è dato dal numero di esiti possibili elevato alla potenza del numero di esperimenti. $$N_{eventi} = n^{k}$$ dove \\(n\\) è il numero di esiti possibili e \\(k\\) il numero di esperimenti.",
+                "Nel caso di <highlight>campionamento senza reinserimento</highlight>, dipende se l'ordine con cui si presentano gli eventi è rilevante o meno. Se l'ordine è rilevante, il numero di eventi composti è dato dalla formula delle disposizioni:</br> $$N_{eventi} = \\frac{n!}{(n-k)!}$$ dove \\(n\\) è il numero di esiti possibili e \\(k\\) il numero di esperimenti. Mentre invece, se l'ordine non è rilevante, il numero di eventi composti è dato dalla formula delle combinazioni: $$N_{eventi} = \\frac{n!}{k!(n-k)!}$$ dove \\(n\\) è il numero di esiti possibili e \\(k\\) il numero di esperimenti. Quest'ultimo è anche conosciuto come <highlight>coefficiente binomiale</highlight> e si indica con \\(C(n, k)\\) oppure \\(\\binom{n}{k}\\)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Esiste inoltre una \"generalizzazione\" del coefficiente binomiale, chiamata <highlight>coefficiente multinomiale</highlight>, che estende il concetto a più di due gruppi. Il coefficiente multinomiale rappresenta il numero di modi in cui è possibile suddividere un insieme di \\(n\\) elementi in \\(m\\) gruppi di dimensioni specificate \\(k_1, k_2, \\ldots, k_m\\), dove la somma delle dimensioni dei gruppi è uguale a \\(n\\) (cioè, \\(k_1 + k_2 + \\ldots + k_m = n\\)). Si calcola come:"
+        },
+        {
+            "type": "math",
+            "text": "M(n; k_1, k_2, \\ldots, k_m) = \\frac{n!}{k_1! k_2! \\ldots k_m!}"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Probabilità matematica e assiomi di Kolmogorov"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>probabilità matematica</highlight> è una misura numerica che quantifica la possibilità che un evento si verifichi. Viene espressa come un numero compreso tra 0 e 1, dove 0 indica l'impossibilità dell'evento e 1 indica la certezza dell'evento (*). La probabilità di un evento \\(E\\) è denotata come \\(P(E)\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "<div style=\"font-size: smaller; color: #999999;\">(*) Nel caso in cui si abbia a che fare con spazi continui, al contrario degli spazi discreti, la probabilità di un singolo evento può essere zero, ma questo non significa che l'evento non possa verificarsi.</div>"
+        },
+        {
+            "type": "paragraph",
+            "text": "Gli assiomi di Kolmogorov sono i principi fondamentali su cui si basa la teoria della probabilità:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Non negatività</highlight>: La probabilità di qualsiasi evento \\(A\\) è sempre non negativa: \\(P(A) ≥ 0\\).",
+                "<highlight>Normalizzazione</highlight>: La probabilità dell'intero spazio degli eventi \\(S\\) è uguale a 1: \\(P(S) = 1\\).",
+                "<highlight>Additività</highlight>: Se \\(A\\) e \\(B\\) sono eventi mutuamente esclusivi (cioè non possono verificarsi contemporaneamente), allora la probabilità che si verifichi \\(A\\) o \\(B\\) è data dalla somma delle loro probabilità: \\(P(A \\cup B) = P(A) + P(B)\\)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Distinzione importante riguardo le proprietà degli eventi:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Due eventi \\(A\\) e \\(B\\) si dicono <highlight>mutuamente esclusivi</highlight> se non possono verificarsi contemporaneamente. Ossia, \\(P(A \\cap B) = 0\\).",
+                "Due eventi \\(A\\) e \\(B\\) si dicono <highlight>indipendenti</highlight> se la probabilità che si verifichi \\(A\\) non è influenzata dal fatto che \\(B\\) si verifichi o meno. Ossia, \\(P(A | B) = P(A)\\)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Da notare che un evento può essere o mutuamente esclusivo o indipendente, ma non entrambi, a meno che almeno uno dei due abbia probabilità zero. Infatti, per la regola del prodotto delle probabilità, se \\(A\\) e \\(B\\) sono indipendenti, allora \\(P(A \\cap B) = P(A) * P(B)\\). Se \\(A\\) e \\(B\\) fossero anche mutuamente esclusivi, allora \\(P(A \\cap B) = 0\\), il che implicherebbe che almeno uno dei due eventi ha probabilità zero."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Probabilità empirica"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>probabilità empirica</highlight> si basa sull'osservazione e sull'esperimento. Viene calcolata come il rapporto tra il numero di volte in cui un evento si verifica \\(M\\) e il numero totale di prove effettuate \\(N\\). Quando \\(N\\) tende a infinito, \\(\\frac{M}{N}\\) converge a \\(P(E)\\)."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Probabilità condizionata e Teorema di Bayes"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>probabilità condizionata</highlight> è la probabilità che un evento \\(A\\) si verifichi dato che un altro evento \\(B\\) è già accaduto. Si denota come \\(P(A | B)\\) \" P di A dato B \" e si calcola con la formula:"
+        },
+        {
+            "type": "math",
+            "text": "P(A | B) = \\frac{P(A \\cap B)}{P(B)}, \\quad \\text{se } P(B) > 0"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(P(A | B)\\) è la probabilità di \\(A\\) dato \\(B\\).",
+                "\\(P(A \\cap B)\\) è la probabilità che si verifichino entrambi gli eventi \\(A\\) e \\(B\\).",
+                "\\(P(B)\\) è la probabilità di \\(B\\)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Attenzione: la probabilità condizionata non è simmetrica, cioè in generale \\(P(A | B) \\neq P(B | A)\\). Infatti se \\(A\\) è la probabilità di pescare una carta nera e \\(B\\) è la probabilità di pescare una carta di fiori, allora \\(P(A | B) = 1\\) (se so che la carta è di fiori, allora so che è nera), mentre \\(P(B | A) = 1/2\\) (se so che la carta è nera, non so se è di fiori o di picche)."
+        },
+        {
+            "text": "Con la definizione di probabilità condizionata,possiamo fornire una generalizzazione della regola del prodotto delle probabilità per eventi non necessariamente indipendenti, ossia:"
+        },
+        {
+            "type": "math",
+            "text": "P(A \\cap B) = P(A | B) \\cdot P(B) = P(B | A) \\cdot P(A)"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Teorema di Bayes e statistica bayesiana"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il <highlight>Teorema di Bayes</highlight> fornisce un modo per aggiornare le probabilità alla luce di nuove informazioni. La formula del teorema di Bayes è:"
+        },
+        {
+            "type": "math",
+            "text": "P(A | B) = \\frac{P(B | A) \\cdot P(A)}{P(B)}, \\quad \\text{se } P(B) > 0"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(P(A | B)\\) è la probabilità di \\(A\\) dato \\(B\\) (probabilità a posteriori).",
+                "\\(P(B | A)\\) è la probabilità di \\(B\\) dato \\(A\\) (verosimiglianza).",
+                "\\(P(A)\\) è la probabilità di \\(A\\) (probabilità a priori).",
+                "\\(P(B)\\) è la probabilità di \\(B\\) (evidenza)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "La formula è ottenuta dalla relazione precedente sulla regola del prodotto e lega così le due probabilità condizionate \\(P(A | B)\\) e \\(P(B | A)\\)."
+        },
+        {
+            "type": "example",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Supponiamo di avere un test diagnostico per una malattia che ha le seguenti caratteristiche:"
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "La probabilità che una persona abbia la malattia (prevalenza) è \\(P(M) = 0.01\\) (1%).",
+                        "La probabilità che il test sia positivo se la persona ha la malattia è \\(P(T+ | M) = 0.99\\) (sensibilità del test).",
+                        "La probabilità che il test sia negativo se la persona non ha la malattia è \\(P(T- | M^c) = 0.95\\) (specificità del test)."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Ora, supponiamo che una persona faccia il test e risulti positiva. Vogliamo calcolare la probabilità che questa persona abbia effettivamente la malattia, cioè \\(P(M | T+)\\)."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Per applicare il teorema di Bayes, abbiamo bisogno di calcolare \\(P(T+)\\), la probabilità che il test sia positivo. Possiamo farlo usando la legge delle probabilità totali:"
+                },
+                {
+                    "type": "math",
+                    "text": "P(T+) = P(T+ | M) \\cdot P(M) + P(T+ | M^c) \\cdot P(M^c)"
+                },
+                {
+                    "type": "math",
+                    "text": "= 0.99 \\cdot 0.01 + (1 - 0.95) \\cdot 0.99 = 0.0099 + 0.0495 = 0.0594"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Ora possiamo applicare il teorema di Bayes:"
+                },
+                {
+                    "type": "math",
+                    "text": "P(M | T+) = \\frac{P(T+ | M) \\cdot P(M)}{P(T+)} = \\frac{0.99 \\cdot 0.01}{0.0594} \\approx 0.1667"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Quindi, nonostante il test sia positivo, la probabilità che la persona abbia effettivamente la malattia è solo circa il 16.67%. Questo esempio illustra l'importanza di considerare la prevalenza della malattia e le caratteristiche del test diagnostico quando si interpretano i risultati dei test."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "La maggiore differenza tra la statistica bayesiana e quella frequentista risiede nell'interpretazione della probabilità:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Nella <highlight>statistica frequentista</highlight>, la probabilità è interpretata come la frequenza relativa di un evento che si verifica in un gran numero di prove ripetute. In questo contesto, i parametri del modello sono considerati fissi ma sconosciuti, e l'obiettivo è stimarli utilizzando i dati osservati.",
+                "Nella <highlight>statistica bayesiana</highlight>, la probabilità è interpretata come un grado di credenza o fiducia in un evento. In questo contesto, i parametri del modello sono considerati variabili casuali con distribuzioni di probabilità a priori, che vengono aggiornate alla luce dei dati osservati per ottenere distribuzioni di probabilità a posteriori."
+            ]
+        }
+    ]
+}

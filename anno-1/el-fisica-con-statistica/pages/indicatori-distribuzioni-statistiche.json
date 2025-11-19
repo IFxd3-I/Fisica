@@ -1,0 +1,129 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Indicatori per le distribuzioni statistiche"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo esploriamo gli indicatori statistici fondamentali utilizzati per descrivere e analizzare le distribuzioni di dati."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Moda"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>moda</highlight> è uno dei principali indicatori di posizione centrale. Viene calcolata identificando il valore che appare con maggiore frequenza in un insieme di dati."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Mediana"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>mediana</highlight>, simbolo &&M&&, è un altro indicatore di posizione centrale. Viene calcolata ordinando i valori e identificando il valore centrale. Se ci sono due valori centrali, la mediana è la loro media."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Media Aritmetica"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>media aritmetica</highlight>, simbolo &&\\bar{x}&&, è un indicatore di posizione centrale che viene calcolato sommando tutti i valori e dividendo per il numero totale di valori."
+        },
+        {
+            "type": "math",
+            "text": "\\bar{x} = \\frac{1}{N} \\displaystyle \\sum_{i=1}^{N} x_i"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Varianza"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>varianza</highlight>, simbolo &&s^2&& o &&\\sigma^2&&, è un indicatore di dispersione che misura quanto i valori si discostano dalla media. Viene calcolata come la media dei quadrati delle differenze tra ogni valore e la media."
+        },
+        {
+            "type": "math",
+            "text": "\\sigma^2 = \\frac{1}{N} \\displaystyle \\sum_{i=1}^{N} (x_i - \\bar{x})^2 = \\bar{x^2} - \\bar{x}^2 \\quad \\text{o per variabili discrete (istogramma)  -->} \\quad \\sigma^2 = \\displaystyle \\sum_{i=1}^{r} f_i(x_i - \\bar{x})^2"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Deviazione Standard"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>deviazione standard</highlight>, simbolo &&s&& o &&\\sigma&&, è la radice quadrata della varianza. Fornisce una misura della dispersione dei dati rispetto alla media, ossia la larghezza della distribuzione."
+        },
+        {
+            "type": "math",
+            "text": "s = \\sqrt{s^2} = \\sqrt{\\frac{1}{N-1} \\displaystyle \\sum_{i=1}^{N} (x_i - \\bar{x})^2}"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Deviazione Standard della Media"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>deviazione standard della media</highlight>, simbolo &&SE&&, è una misura della precisione con cui la media campionaria stima la media della popolazione. Viene calcolata dividendo la deviazione standard per la radice quadrata del numero di osservazioni."
+        },
+        {
+            "type": "math",
+            "text": "s_{\\bar{x}} = \\frac{s}{\\sqrt{N}} = \\sqrt{\\frac{1}{N(N-1)} \\displaystyle \\sum_{i=1}^{N} (x_i - \\bar{x})^2}"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Asimmetria"
+        },
+        {
+            "type": "paragraph",
+            "text": "L'<highlight>asimmetria</highlight>, simbolo &&\\gamma&&, è un indicatore che descrive la simmetria di una distribuzione. Una distribuzione è simmetrica se i valori si distribuiscono uniformemente attorno alla media. L'assimmetria è una quantità adimensionale che si calcola come il rapporto tra il momento di terzo ordine centrato e la deviazione standard elevata al cubo, con risultato positivo per distribuzioni con coda a destra e negativo per distribuzioni con coda a sinistra."
+        },
+        {
+            "type": "math",
+            "text": "\\gamma = \\frac{1}{N s^3} \\displaystyle \\sum_{i=1}^{N} (x_i - \\bar{x})^3 = \\frac{M^3_\\bar{x}}{s^3}"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Momento di una distribuzione"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il <highlight>momento di una distribuzione</highlight>, simbolo &&M^k&&, è una misura della forma della distribuzione calcolata come la media pesata delle potenze delle deviazioni da un determinato elemento \\(x_0\\). Scegliendo opportunamente \\(x_0\\) (ad esempio la media \\(\\bar{x}\\)), si ottengono momenti centrati o non centrati."
+        },
+        {
+            "type": "math",
+            "text": "M^k (x_0) = \\frac{1}{N} \\displaystyle \\sum_{i=1}^{r} f_i(x_i - x_0)^k = \\frac{1}{N} \\displaystyle \\sum_{i=1}^{N} (x_i - x_0)^k"
+        },
+        {
+            "type": "paragraph",
+            "text": "Da notare come il momento di secondo ordine centrato sia la varianza e il momento di terzo ordine centrato sia legato all'asimmetria"
+        },
+        {
+            "type": "math",
+            "text": "M^2_\\bar{x} = \\sigma^2 = \\frac{1}{N} \\displaystyle \\sum_{i=1}^{N} (x_i - \\bar{x})^2 \\quad \\text{e} \\quad M^3_\\bar{x} = \\gamma s^3 = \\frac{1}{N} \\displaystyle \\sum_{i=1}^{N} (x_i - \\bar{x})^3"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Leggi di potenza"
+        },
+        {
+            "type": "paragraph",
+            "text": "Le <highlight>leggi di potenza</highlight> sono relazioni matematiche che descrivono come una quantità varia in funzione di un'altra secondo una potenza. I valori sugli assi sono spaziati in scala logaritmica, e la relazione lineare che si ottiene indica una legge di potenza del tipo:"
+        },
+        {
+            "type": "math",
+            "text": "y = k x^{-n}"
+        }
+    ]
+}

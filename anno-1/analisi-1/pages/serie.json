@@ -1,0 +1,239 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Serie numeriche"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo vedremo cosa sono le serie numeriche, a cosa servono e è possibile analizzarle per capirne il comportamento."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Definizione di serie"
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\(\\{a_k\\}_{k \\in \\mathbb{N}} \\in \\mathbb{R}\\) una successione di numeri reali. Si definisce somma parziale n-esima la quantità:"
+        },
+        {
+            "type": "paragraph",
+            "text": "Si definisce <highlight>somma parziale n-esima</highlight> la quantità:"
+        },
+        {
+            "type": "math",
+            "text": "S_n := \\displaystyle\\sum_{k=1}^{n} a_k = a_1 + a_2 + a_3 + \\ldots + a_n, \\quad \\text{ per ogni } n \\in \\mathbb{N}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Si definisce <highlight>serie</highlight>, notazione \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\), di termine generale \\(a_k\\) la successione delle somme parziali n-esime:"
+        },
+        {
+            "type": "math",
+            "text": "\\{S_n\\}_{n \\in \\mathbb{N}}"
+        },
+        {
+            "type": "paragraph",
+            "text": "La successione \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) può essere di tipo:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Regolare</highlight>: \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) si definisce regolare se ha limite, finito o infinito, per \\(n \\to +\\infty\\), ossia: <ul><li>Se \\(S_n \\to S \\in \\mathbb{R}\\) per \\(n \\to \\infty\\), diciamo che la serie è <highlight>convergente</highlight> e chiamiamo \\(S\\) il suo valore di somma.</li><li>Se \\(S_n \\to +\\infty\\) o \\(S_n \\to -\\infty\\) per \\(n \\to +\\infty\\), diciamo che la serie è <highlight>divergente</highlight> a \\(\\pm\\infty\\).</li></ul>",
+                "<highlight>Irregolare</highlight> o <highlight>Oscillante</highlight>: \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) si definisce irregolare o oscillante se non ha limite per \\(n \\to +\\infty\\), ossia se la serie non converge e non diverge."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Tipi notevoli di serie"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Serie geometrica di ragione \\(q\\)"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum_{k=0}^{+\\infty} q^k = \\begin{cases} +\\infty & \\text{se } q \\ge 1 \\\\ \\frac{q}{1-q} & \\text{se } |q| < 1 \\\\ \\text{irregolare} & \\text{se } q \\le -1 \\end{cases}"
+        },
+        {
+            "type": "paragraph",
+            "text": "In modo analogo, facendo iniziare la somma da \\(k = 0\\) o da un certo \\(k = k_0\\), si ha rispettivamente:"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum_{k=0}^{+\\infty} q^k = \\begin{cases} +\\infty & \\text{se } q \\ge 1 \\\\ \\frac{1}{1-q} & \\text{se } |q| < 1 \\\\ \\text{irregolare} & \\text{se } q \\le -1 \\end{cases} \\quad \\quad \\quad \\displaystyle\\sum_{k=k_0}^{+\\infty} q^k = \\begin{cases} +\\infty & \\text{se } q \\ge 1 \\\\ \\frac{q^{k_0}}{1-q} & \\text{se } |q| < 1 \\\\ \\text{irregolare} & \\text{se } q \\le -1 \\end{cases}"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Serie telescopica"
+        },
+        {
+            "type": "paragraph",
+            "text": "Con il termine serie telescopica si indica una serie il cui termine generale può essere scritto come differenza di due termini consecutivi di una certa successione \\(\\{b_k\\}_{k \\in \\mathbb{N}}\\), ossia:"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum_{k=1}^{+\\infty} a_k \\quad \\text{con } a_k = A_{k+1} - A_{k}"
+        },
+        {
+            "type": "paragraph",
+            "text": "In questo caso, le somme parziali si possono esprimere come differenza del primo e ultimo termine della successione \\(\\{A_k\\}_{k \\in \\mathbb{N}}\\):"
+        },
+        {
+            "type": "math",
+            "text": "S_n = \\displaystyle\\sum_{k=1}^{n} a_k = \\displaystyle\\sum_{k=1}^{n} (A_{k+1} - A_k) = A_{n+1} - A_1"
+        },
+        {
+            "type": "paragraph",
+            "text": "e il calcolo della serie si riduce al calcolo del limite della successione \\(\\{A_k\\}_{k \\in \\mathbb{N}}\\):"
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} S_n = \\lim_{n \\to +\\infty} (A_{n+1} - A_1)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ad esempio, la serie geometrica può essere vista come una serie telescopica con \\(A_k = \\frac{1 - q^k}{1 - q}\\):"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum_{k=0}^{n} q^k = \\displaystyle\\sum_{k=0}^{n} \\left( \\frac{1 - q^{k+1}}{1 - q} - \\frac{1 - q^{k}}{1 - q} \\right) = \\frac{1 - q^{n+1}}{1 - q} \\quad \\text{per } q \\neq 1"
+        },
+        {
+            "type": "paragraph",
+            "text": "o, per \\(q = 1\\), semplicemente \\(\\displaystyle\\sum_{k=0}^{n} q^k = n + 1\\)."
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Serie di Mengoli"
+        },
+        {
+            "type": "paragraph",
+            "text": "Un altro esempio classico di serie telescopica è la serie di Mengoli, il cui termine generale è dato da:"
+        },
+        {
+            "type": "math",
+            "text": "a_k = \\frac{1}{k(k+1)}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Notiamo che si tratta di una serie telescopica con \\(A_k = -\\frac{1}{k}\\) e quindi:"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle\\sum \\frac{1}{k(k+1)} = \\lim_{n \\to +\\infty} \\left(-\\frac{1}{n+1}\\right) -  \\left(-1\\right) = 1"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Carattere di una serie"
+        },
+        {
+            "type": "paragraph",
+            "text": "Vedremo ora una serie di teoremi che ci permetteranno di studiare il carattere di una serie numerica, ossia se essa è convergente, divergente o irregolare."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (condizione necessaria e sufficiente di Cauchy per le serie)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Una serie \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) converge \\(\\iff\\) per ogni \\(\\varepsilon > 0\\), esiste un intero positivo \\(N = N(\\varepsilon)\\) tale che per ogni \\(m > N\\) e per ogni \\(h > 0\\) si ha: \\[\\left| \\displaystyle\\sum_{k=m}^{m+h} a_k \\right| < \\varepsilon\\]"
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> Per dimostrare il Teorema ci basterà applicare la condizione di Cauchy per le successioni alla successione delle somme parziali \\[\\{S_n\\}_{n \\in \\mathbb{N}} : \\quad \\forall \\varepsilon > 0 \\quad \\exists N : \\quad \\forall p > q \\ge N_\\varepsilon \\quad \\left|S_p - S_q\\right| < \\varepsilon\\] \\[\\iff \\left|\\displaystyle\\sum_{k=1}^{p} a_k - \\displaystyle\\sum_{k=1}^{q} a_k\\right| < \\varepsilon\\] \\[\\iff \\left| \\displaystyle\\sum_{k=q + 1}^{p} a_k + \\displaystyle\\sum_{k=1}^{q} a_k - \\displaystyle\\sum_{k=1}^{q} a_k \\right| < \\varepsilon\\] Ora chiamiamo \\(q+1:=m\\) e \\(p:=m+h\\) cioè \\(h=p-q-1 (\\text{ confermando } h\\ge 0)\\) e abbiamo:<ul><li> \\((\\Rightarrow)\\) Se la serie \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) converge \\(\\Rightarrow\\) vale Cauchy per \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\Rightarrow\\) vale Cauchy per questa serie;</li><li> \\((\\Leftarrow)\\) Se è soddisfatta la condizione di Cauche per la serie \\(\\Rightarrow\\) vale Cauchy per \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\), ossia \\(\\mathbb{R}\\) è completo \\(\\Rightarrow\\) \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) converge. </ul>"
+                }
+            ]
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Corollario (Condizione necessaria di convergenza)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Se la serie \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) converge, allora \\(a_k \\to 0\\) per \\(k \\to +\\infty\\)."
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> E' sufficiente applicare la condizione di Cauchy per le serie con \\(h = 0\\): \\[\\left| \\displaystyle\\sum_{k=m}^{m} a_k \\right| = |a_m| < \\varepsilon\\] per ogni \\(\\varepsilon > 0\\) e per ogni \\(m > N(\\varepsilon)\\), da cui si deduce che \\(\\left| a_k \\right| \\to 0\\) per \\(k \\to +\\infty\\), ovvero \\(a_k \\to 0\\) per \\(k \\to +\\infty\\). \\(\\blacksquare\\)"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Precisiamo che il teorema precedente esprime una condizione necessaria ma non sufficiente di convergenza: infatti, esistono serie i cui termini generali tendono a zero ma che non sono convergenti (ad esempio la serie armonica \\(\\displaystyle\\sum_{k=1}^{+\\infty} \\frac{1}{k}\\))."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Regolarità delle serie a termini non negativi (definitivamente))"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\), \\(a_k \\ge 0\\) per ogni \\(k \\ge k_0\\), \\(S_n = \\displaystyle\\sum_{k=1}^{n} a_k\\). Allora \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) è monotona crescente. In particolare: <ul><li>Se \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) è sup. limitata, allora la serie converge;</li><li>Se \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) non è sup. limitata, allora la serie diverge a +\\(\\infty\\).</li></ul>Possiamo quindi affermare che ogni serie a termini non negativi definitivamente è regolare."
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Criteri di convergenza/divergenza per serie a termini non negativi"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ora che sappiamo che le serie a termini non negativi sono regolari, possiamo studiarne il carattere con i seguenti criteri di convergenza/divergenza."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Criterio del confronto)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Siano \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) e \\(\\displaystyle\\sum_{k=1}^{+\\infty} b_k\\) due serie a termini non negativi definitivamente tali che \\(0 \\le a_k \\le b_k\\) per ogni \\(k \\ge k_0\\). Allora: <ul><li>Se \\(\\displaystyle\\sum_{k=1}^{+\\infty} b_k\\) converge, allora anche \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) converge;</li><li>Se \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) diverge, allora anche \\(\\displaystyle\\sum_{k=1}^{+\\infty} b_k\\) diverge.</li></ul>"
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> Siano \\(S_n = \\displaystyle\\sum_{k=1}^{n} a_k\\) e \\(T_n = \\displaystyle\\sum_{k=1}^{n} b_k\\). Poichè il carattere di una serie non dipende dai suoi primi \\(\\mathrm{N}\\) termini, possiamo supporre che \\(0 \\le a_k \\le b_k\\) per ogni \\(k \\in \\mathbb{N}\\). Di conseguenza, \\(0 \\le S_n \\le T_n\\) per ogni \\(n \\in \\mathbb{N}\\), da cui:<ul><li>Se \\(S_n \\uparrow +\\infty \\quad \\Rightarrow T_n \\uparrow +\\infty\\), poiché per ipotesi \\(T_n \\ge S_n\\)</li><li>Se \\(T_n\\) converge, allora \\(Tn\\) è limitata: esiste quindi un valore \\(L\\) tale che \\(T_n \\le L\\) per ogni \\(n \\in \\mathbb{N}\\). <br> Di conseguenza, \\(0 \\le S_n \\le T_n \\le L \\Rightarrow \\{S_n\\}_{n \\in \\mathbb{N}}\\) è superiormente limitata. <br> Infine, poichè \\(a_k \\ge 0\\), allora \\(\\{S_n\\}_{n \\in \\mathbb{N}}\\) è monotona crescente e quindi convergente. \\(\\blacksquare\\) </li></ul>"
+                }
+            ]
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Criterio del confronto asintotico)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Siano \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) e \\(\\displaystyle\\sum_{k=1}^{+\\infty} b_k\\) tali che \\(a_k \\cdot b_k > 0\\) definitivamente e \\(a_k \\sim b_k\\) per \\(k \\to +\\infty\\). Allora le due serie hanno lo stesso carattere, ossia entrambe convergono o entrambe divergono."
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> Poichè \\(\\frac{b_k}{a_k} = 1\\) per \\(k \\to +\\infty\\), definitivamente si ha: \\[\\frac{1}{2} \\cdot a_k < b_k < \\frac{3}{2} \\cdot a_k \\] Le serie di termini generali \\(\\frac{1}{2}a_k\\) e \\(\\frac{3}{2}a_k\\) hanno lo stesso carattere di \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\). Quindi, per il teorema del confronto, le due serie hanno lo stesso carattere. \\(\\blacksquare\\)"    
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Quest'ultimo criterio non vale in generale per serie a termini di segno non costante."
+        }
+    ]
+}

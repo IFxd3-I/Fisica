@@ -1,0 +1,387 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Calcolo dei Limiti"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo vedremo alcune tecniche per il calcolo dei limiti di funzioni."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Teorema di permanenza del segno"
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (di permanenza del segno)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) tale che esiste \\(\\lim_{n \\to +\\infty} x_n = l \\in > [-\\infty, +\\infty]\\). Allora: <ol><li>Se \\(l > 0\\) o \\(l = +\\infty\\), allora \\(x_n > 0\\) definitivamente</li><li>Se \\(l < 0\\) oppure \\(l = -\\infty\\), allora \\(x_n < 0\\) definitivamente</li><li>Se \\(x_n > 0\\) definitivamente, allora \\(l > 0\\) o \\(l = +\\infty\\)</li><li>Se \\(x_n < 0\\) definitivamente, allora \\(l < 0\\) o \\(l = -\\infty\\)</li></ol>"
+                }
+            ]
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (del confronto; convergenza)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\), \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\), \\(\\{z_n\\}_{n \\in \\mathbb{N}}\\)  tre successioni reali tali che: <ol><li> definitivamente \\(x_n \\leq z_n \\leq y_n\\);</li><li> \\(x_n\\) e \\(y_n\\) convergono allo stesso limite \\(p\\).</li></ol> Allora \\(z_n\\) converge a \\(p\\)."
+                },
+                {
+                    "type": "proof",
+                    "text": "Sia \\(\\epsilon > 0\\) scelto arbitrariamente. Per ipotesi \\(1)\\) valgono definitivamente le seguenti disuguaglianze: \\[p - \\epsilon < x_n < p + \\epsilon\\];  \\[p - \\epsilon < y_n < p + \\epsilon\\]. Quindi, per l'ipotesi \\(2)\\) e per quanto appena mostrato, vale definitivamente \\[p - \\epsilon < x_n \\leq z_n \\leq y_n < p + \\epsilon\\]. Da cui si deduce che \\(|z_n - p| < \\epsilon\\) definitivamente, e quindi che \\(z_n \\to p\\). \\(\\blacksquare\\)"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Quest'ultimo è anche noto come teorema dei carabinieri."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (del confronto; divergenza)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni reali tali che definitivamente \\(x_n \\leq y_n\\). Allora: <ol><li> Se \\(x_n\\) diverge a \\(+\\infty\\), allora anche \\(y_n\\) diverge a \\(+\\infty\\).</li><li> Se \\(y_n\\) diverge a \\(-\\infty\\), allora anche \\(x_n\\) diverge a \\(-\\infty\\).</li></ol>"
+                },
+                {
+                    "type": "proof",
+                    "text": "Dimostriamo la prima affermazione (la seconda si dimostra in modo analogo). Sia \\(M > 0\\) scelto arbitrariamente. Per ipotesi, esiste \\(N \\in \\mathbb{N}\\) tale che per ogni \\(n \\geq N\\) vale \\(x_n > M\\). Ma allora, per l'ipotesi di partenza, vale definitivamente anche \\(y_n \\geq x_n > M\\). Quindi \\(y_n \\to +\\infty\\). \\(\\blacksquare\\)"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Algebra dei limiti"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Calcolo dei Limiti in \\(\\mathbb{R}\\)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni reali entrambe convergenti. Allora valgono le seguenti proprietà:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[x_n + y_n \\to l + m\\] \\[x_n \\cdot y_n \\to l \\cdot m\\] \\[\\text{Se } m \\neq 0 \\text{ e } l \\neq 0, \\text{ allora } \\frac{x_n}{y_n} \\to \\frac{l}{m}\\] \\[\\text{Se } x_n > 0 \\text{ e } l > 0, \\text{ allora } x_n^{y_n} \\to l^{m}\\] \\[\\text{Se } x_n > 0 \\text{ e } x_n,l \\ne 1 \\text{ e } b_n,b > 0, \\text{ allora } \\log_{x_n} y_n \\to \\log_l m\\]"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Calcolo dei Limiti in \\(\\overline{\\mathbb{R}}\\)"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Somma"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni a valori reali. Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c|c} + & y_n \\to +\\infty & y_n \\to -\\infty & y_n \\to m\\\\ \\hline x_n \\to +\\infty & +\\infty & \\text{ind.} & +\\infty \\\\ \\hline x_n \\to -\\infty & \\text{ind.} & -\\infty & -\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Prodotto"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni a valori reali, ad eccezzione di \\(m = 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c|c} \\cdot & y_n \\to +\\infty & y_n \\to -\\infty & y_n \\to m > 0 & y_n \\to m < 0 \\\\ \\hline x_n \\to +\\infty & +\\infty & -\\infty & +\\infty & -\\infty \\\\ \\hline x_n \\to -\\infty & -\\infty & +\\infty & -\\infty & +\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Quoziente"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il comportamento al limite del quoziente \\(\\frac{x_n}{y_n}\\) si deduce combinando le regole del prodotto con il comportamento al limite di \\(\\frac{1}{y_n}\\). Sia quindi \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) una successione a valori reali, tale che \\(y_n \\ne 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c|c|c} & y_n \\to +\\infty & y_n \\to -\\infty & y_n \\to 0^+ & y_n \\to 0^- \\\\ \\hline 1 & \\frac{1}{y_n} \\to 0^+ & \\frac{1}{y_n} \\to 0^- & \\frac{1}{y_n} \\to +\\infty & \\frac{1}{y_n} \\to -\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Potenze"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni a valori reali e sia \\(x_n > 0\\) e \\(l > 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c} & y_n \\to +\\infty & y_n \\to -\\infty \\\\ \\hline x_n \\to l > 1 & x_n^{y_n} \\to +\\infty & x_n^{y_n} \\to 0^+ \\\\ \\hline x_n \\to l < 1 & x_n^{y_n} \\to 0^+ & x_n^{y_n} \\to +\\infty \\end{array}\\]"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni a valori reali e sia \\(x_n > 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c|c|c} & y_n \\to +\\infty & y_n \\to -\\infty & y_n \\to m > 0 & y_n \\to m < 0 \\\\ \\hline x_n \\to +\\infty & x_n^{y_n} \\to +\\infty & x_n^{y_n} \\to 0^+ & x_n^{y_n} \\to +\\infty & x_n^{y_n} \\to 0^+ \\\\ \\hline x_n \\to 0^+ & x_n^{y_n} \\to 0^+ & x_n^{y_n} \\to +\\infty & x_n^{y_n} \\to 0^+ & x_n^{y_n} \\to +\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Logaritmi"
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\(l > 0\\), \\(l \\neq 1\\). Sia \\(y_n \\ne 0\\). Allora:"
+        },
+        {
+            "type": "paragraph",
+            "text": "\\[\\begin{array}{c|c|c} & y_n \\to +\\infty & y_n \\to 0^+ \\\\ \\hline l > 1 & \\log_l y_n \\to +\\infty & \\log_l y_n \\to -\\infty \\\\ \\hline l < 1 & \\log_l y_n \\to -\\infty & \\log_l y_n \\to +\\infty \\end{array}\\]"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Forme Indeterminate"
+        },
+        {
+            "type": "paragraph",
+            "text": "Durante il calcolo dei limiti, può capitare di imbattersi in espressioni che non permettono di determinare il limite della successione. Questo accade quando si mettono a confronto \"infiniti\" e \"infinitesimi\". Tali espressioni sono dette <highlight>forme indeterminate</highlight>."
+        },
+        {
+            "type": "paragraph",
+            "text": "Ricordiamo che:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Si definisce \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) successione <highlight>infinitesima</highlight> se \\(x_n \\to 0\\) per \\(n \\to +\\infty\\).",
+                "Si definisce \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) successione <highlight>infinita</highlight> se \\(|x_n| \\to +\\infty\\) per \\(n \\to +\\infty\\)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Riassumiamo infine le forme indeterminate più comuni:"
+        },
+        {
+            "type": "math",
+            "text": "\\infty - \\infty, \\quad 0 \\cdot \\infty, \\quad \\frac{\\infty}{\\infty}, \\quad \\frac{0}{0}, \\quad 1^{\\infty}, \\quad 0^{0}, \\quad \\infty^{0}"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Condizioni per la convergenza"
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (criterio della radice)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) una successione di numeri reali tale che \\(x_n \\geq 0\\) (definitivamente) e esiste \\(\\lim_{n \\to +\\infty} x_n^{\\frac{1}{n}} = l \\in [0, +\\infty]\\). Allora: <ol><li> Se \\(l \\in [0, 1)\\), allora \\(x_n \\to 0\\) per \\(n \\to +\\infty\\).</li><li> Se \\(l \\in (1,+\\infty)\\), allora \\(x_n \\to +\\infty\\) per \\(n \\to +\\infty\\)</li></ol>"
+                }
+            ]
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (criterio del rapporto)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(\\{x_n\\}_{n \\in \\mathbb{N}} \\subset \\mathbb{R}\\) una successione di numeri reali tale che \\(x_n > 0\\) (definitivamente) e esiste \\(\\lim_{n \\to +\\infty} \\frac{x_{n+1}}{x_n} = l \\in [0, +\\infty)\\). Allora: <ol><li> Se \\(l \\in [0, 1)\\), allora \\(x_n \\to 0\\) per \\(n \\to +\\infty\\).</li><li> Se \\(l \\in (1,+\\infty)\\), allora \\(x_n \\to +\\infty\\) per \\(n \\to +\\infty\\)</li></ol>"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Limiti notevoli, asintoti e notazione di Landau"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Numero di Nepero"
+        },
+        {
+            "type": "paragraph",
+            "text": "Iniziamo definendo il numero \\(e\\) di Nepero attraverso il seguente teorema:"
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (numero di Nepero)"
+                },
+                {
+                    "type": "statement",
+                    "text": "Sia \\(x_n := \\left(1 + \\frac{1}{n}\\right)^n\\). Allora \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) <ol><li> è monotona crescente;</li><li> è limitata superiormente;</li></ol>"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Si definisce <highlight>numero di Nepero</highlight> \\(e\\) il limite \\(e := \\lim_{n \\to +\\infty} \\left(1 + \\frac{1}{n}\\right)^n\\). Il suo valore è approssimativamente \\(2.71828\\)."
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Definizione di asintoto e notazione di Landau"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni tali che \\(x_n,y_n \\neq 0\\) (definitivamente). Si dice che \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) è un <highlight>asintotica</highlight> a \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\), o che \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) sono <highlight>asintotiche</highlight> se esiste \\(\\lim_{n \\to +\\infty} \\frac{x_n}{y_n} = 1\\). In questo caso, secondo la notazione di Landau, si scrive anche:"
+        },
+        {
+            "type": "math",
+            "text": "x_n \\sim y_n"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Limiti notevoli"
+        },
+        {
+            "type": "paragraph",
+            "text": "Passiamo infine ad elencare alcuni limiti notevoli e le relative approssimazioni tramite la notazione di o-piccolo:"
+        },
+        {
+            "type": "paragraph",
+            "text": "Sia \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) una successione tale che \\(x_n \\ne 0\\) e \\(x_n \\to 0\\) per \\(n \\to +\\infty\\). Allora:"
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} \\frac{\\sin x_n}{x_n} = 1 \\quad \\quad \\sin x_n = x_n + o(x_n)"
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} \\frac{\\tan x_n}{x_n} = 1 \\quad \\quad \\tan x_n = x_n + o(x_n)"
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} \\frac{1 - \\cos x_n}{x_n^2} = \\frac{1}{2} \\quad \\quad 1 - \\cos x_n = \\frac{x_n^2}{2} + o(x_n^2)"
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} \\frac{e^{x_n} - 1}{x_n} = 1 \\quad \\quad e^{x_n} = 1 + x_n + o(x_n)"
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} \\frac{\\ln(1 + x_n)}{x_n} = 1 \\quad \\quad \\ln(1 + x_n) = x_n + o(x_n)"
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} \\left(\\frac{(1 + x_n)^\\alpha - 1}{x_n}\\right) = \\alpha \\quad \\quad (1 + x_n)^\\alpha = 1 + \\alpha x_n + o(x_n)"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "O-piccolo"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quello che abbiamo appena visto è un esempio di utilizzo della notazione di o-piccolo. Questo nuovo simbolo ci permette di confrontare tra loro diversi infiniti o infinitesimi."
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni tali che \\(x_n \\ne 0\\) (definitivamente). Si dice che \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) è un <highlight>o-piccolo</highlight> di \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) (ossia \\(y_n\\) è infinitesima rispetto a \\(x_n\\)), se: "
+        },
+        {
+            "type": "math",
+            "text": "\\lim_{n \\to +\\infty} \\frac{y_n}{x_n} = 0"
+        },
+        {
+            "type": "paragraph",
+            "text": "Talvolta, viene anche indicato come:"
+        },
+        {
+            "type": "math",
+            "text": "y_n = o(x_n) \\quad \\text{ oppure } \\quad y_n << x_n \\quad \\text{ (\"molto più piccolo di\") }"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Proprietà della notazione di o-piccolo"
+        },
+        {
+            "type": "paragraph",
+            "text": "La classe degli o-piccolo è definita come \\[o(1) = \\left\\{ \\{x_n\\}_{n \\in \\mathbb{N}} : x_n \\to 0 \\right\\}\\] Questa classe va vista più come un insieme di successioni che come una singola successione, le quali hanno tutte in comune il fatto di \"essere molto più piccole di...\"."
+        },
+        {
+            "type": "heading",
+            "level": 4, 
+            "text": "Algebra di o-piccolo"
+        },
+        {
+            "type": "paragraph",
+            "text": "Siano \\(\\{x_n\\}_{n \\in \\mathbb{N}}\\) e \\(\\{y_n\\}_{n \\in \\mathbb{N}}\\) due successioni tali che  \\(x_n \\ne 0\\) (definitivamente). Allora, per \\(n \\to +\\infty\\), valgono le seguenti proprietà:"
+        },
+        {
+            "type": "olist",
+            "items": [
+                "\\(\\pm o(x_n) = o(x_n)\\), \\(c \\cdot o(x_n) = o(c \\cdot x_n) = o(x_n)\\) per ogni \\(c \\in \\mathbb{R} \\setminus \\{0\\}\\);",
+                "\\(o(x_n) \\pm o(x_n) = o(x_n)\\);",
+                "\\(y_n \\cdot o(x_n) = o(y_n \\cdot x_n)\\);",
+                "\\(o(o(x_n)) = o(x_n)\\);",
+                "\\(o(x_n) \\cdot o(y_n) = o(x_n \\cdot y_n)\\) e \\left[o(x_n)\\right]^p = o(x_n^p)."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Relazione tra o-piccolo e asintoticità"
+        },
+        {
+            "type": "paragraph",
+            "text": "Terminiamo il capitolo sull'o-piccolo con la relazione tra asintoticità e o-piccolo, che ci permette di ottenere informazioni più precise sul comportamento di due successioni asintotiche:"
+        },
+        {
+            "type": "math",
+            "text": "x_n \\sim y_n \\iff x_n - y_n = o(y_n)"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Gerarchia degli infiniti"
+        },
+        {
+            "type": "math",
+            "text": "\\text{Per } n \\to +\\infty: \\quad \\ln n << n^\\alpha << e^{n} << n! << n^n \\quad \\text{ per ogni } \\alpha > 0"
+        },
+        {
+            "type": "math",
+            "text": "\\text{Per } n \\to +\\infty: \\quad \\left(\\log_b n\\right)^q << n^\\alpha << a^{n} << n! << n^n \\quad \\text{ per ogni } \\alpha, q > 0 \\quad \\text{ per ogni } a, b > 1"
+        },
+        {
+            "type": "paragraph",
+            "text": "E' giusto comunque specificare che non è possibile enunciare una gerarchia completa degli infiniti, in quanto esisterà sempre almeno un infinito intermedio tra una coppia di infiniti qualsiasi."
+        }
+    ]
+}

@@ -1,0 +1,419 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Distribuzioni di probabilità"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo esploriamo le distribuzioni di probabilità, i loro indicatori statistici e alcune distribuzioni comuni utilizzate in statistica e fisica."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Definizione di distribuzione di probabilità"
+        },
+        {
+            "type": "paragraph",
+            "text": "Una <highlight>distribuzione di probabilità</highlight> è la probabilità \\(P(k_i)\\) che la variabile \\(k\\) assuma un certo valore \\(k_i\\). Inoltre, possiamo identificare \\(P(k_i)\\) come la mappa che associa tutti i possibili valori \\(k_i\\) con le loro rispettive probabilità \\(P(k_i)\\). Per trovare \\(P(k_i)\\), si sommano le probabilità di tutti gli eventi elementari che, secondo la definizione della variabile \\(k\\), risultano in quel valore specifico \\(k_i\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Ricordiamo che una distribuzione di probabilità è sempre una funzione a valori non negativi e deve essere sempre normalizzata, cioè la somma di tutte le probabilità deve essere uguale a 1:"
+        },
+        {
+            "type": "math",
+            "text": "\\displaystyle \\sum_{i=1}^N P(k_i) = 1"
+        },
+        {
+            "type": "example",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Consideriamo il lancio di due dadi a sei facce. Definiamo la variabile casuale \\(k\\) come la somma ottenuta dal lancio dei dadi. I possibili valori di \\(k\\) sono 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 e 12. Poiché il dado è equo, ogni faccia ha la stessa probabilità di uscire, che è \\(\\frac{1}{6}\\)."
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "\\(P(k = 2) = \\frac{1}{36}\\) \\(\\text{(1,1)})\\)",
+                        "\\(P(k = 3) = \\frac{2}{36}\\) \\(\\text{(1,2),(2,1)})\\)",
+                        "\\(P(k = 4) = \\frac{3}{36}\\) \\(\\text{(1,3),(2,2),(3,1)})\\)",
+                        "\\(P(k = 5) = \\frac{4}{36}\\) \\(\\text{(1,4),(2,3),(3,2),(4,1)})\\)",
+                        "\\(P(k = 6) = \\frac{5}{36}\\) \\(\\text{(1,5),(2,4),(3,3),(4,2),(5,1)})\\)",
+                        "\\(P(k = 7) = \\frac{6}{36}\\) \\(\\text{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)})\\)",
+                        "\\(P(k = 8) = \\frac{5}{36}\\) \\(\\text{(2,6),(3,5),(4,4),(5,3),(6,2)})\\)",
+                        "\\(P(k = 9) = \\frac{4}{36}\\) \\(\\text{(3,6),(4,5),(5,4),(6,3)})\\)",
+                        "\\(P(k = 10) = \\frac{3}{36}\\) \\(\\text{(4,6),(5,5),(6,4)})\\)",
+                        "\\(P(k = 11) = \\frac{2}{36}\\) \\(\\text{(5,6),(6,5)})\\)",
+                        "\\(P(k = 12) = \\frac{1}{36}\\) \\(\\text{(6,6)})\\)"
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Questo insieme di valori e delle loro probabilità costituisce la distribuzione di probabilità della variabile casuale \\(k\\). Ciascuna singola probabilità, \\(P(k_i)\\), è un elemento di tale distribuzione."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Possiamo infine verificare che la somma delle probabilità è effettivamente 1:"
+                },
+                {
+                    "type": "math",
+                    "text": "\\frac{1 + 2 + 3 + 4 + 5 + 6 + 5 + 4 + 3 + 2 + 1}{36} = \\frac{36}{36} = 1"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Indicatori statistici per una distribuzione di probabilità"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il <highlight>valore di aspettazione</highlight> è l'analogo al valor medio per una distrubizione di frequenze, con la differenza che la media descrive una distruzione di dati sperimentali, mentre il valore di aspettazione descrive una distribuzione teorica di probabilità. Si calcola come:"
+        },
+        {
+            "type": "math",
+            "text": "< k > = \\sum_{k=1}^N k_i P(k_i)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Inoltre, il valore di aspettazione coincide con il massimo della distribuzione se la distribuzione ha un valore massimo ed è simmetrica. Infine, nel caso di una variabile somma di una o più variabili, esso è la somma dei valori di aspettazione delle singole variabili."
+        },
+        {
+            "type": "paragraph",
+            "text": "Abbiamo poi la <highlight>varianza</highlight>, che misura la dispersione dei valori della variabile casuale intorno al valore di aspettazione. Si calcola come:"
+        },
+        {
+            "type": "math",
+            "text": "\\sigma_k^2 = < (k - < k >)^2 > = \\sum_{k=1}^N (k_i - < k >)^2 P(k_i) \\quad \\text{ o, analogamente } \\quad \\sigma_k^2 = < k^2 > - < k >^2"
+        },
+        {
+            "type": "paragraph",
+            "text": "C'è l'<highlight>indice della larghezza di distribuzione</highlight>, che altro non è che la radice quadrata della varianza. Si calcola come:"
+        },
+        {
+            "type": "math",
+            "text": "\\sigma_k = \\sqrt{\\sigma_k^2}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Infine, c'è l'<highlight>asimmetria della distribuzione</highlight>, che misura la simmetria della distribuzione rispetto al suo valore di aspettazione. Si calcola come:"
+        },
+        {
+            "type": "math",
+            "text": "\\gamma = \\frac{< (k - < k >)^3 >}{\\sigma_k^3} = \\frac{\\sum_{k=1}^N (k_i - < k >)^3 P(k_i)}{\\sigma_k^3}"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Distribuzione di Bernoulli o binomiale"
+        },
+        {
+            "type": "paragraph",
+            "text": "Iniziamo considerando n ripetizioni di un esperimento in cui un certo evento E si verifica con probabilità p. La variabile casuale k rappresenta il numero di successi in n prove. La distribuzione di Bernoulli descrive un singolo esperimento, ossia nel caso \\(n=1\\), mentre la distribuzione binomiale descrive il numero di successi in più n esperimenti indipendenti. Si calcola come:"
+        },
+        {
+            "type": "math",
+            "text": "P(k; n, p) = \\binom{n}{k} p^k (1-p)^{n-k}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(P(k; n, p)\\) è la probabilità di ottenere \\(k\\) successi in \\(n\\) prove.",
+                "\\(\\binom{n}{k}\\) è il coefficiente binomiale, che rappresenta il numero di modi in cui si possono scegliere \\(k\\) successi da \\(n\\) prove.",
+                "\\(p\\) è la probabilità di successo in una singola prova.",
+                "\\(1-p\\) è la probabilità di insuccesso in una singola prova."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Controlliamo che la distribuzione binomiale sia correttammente normalizzata:"
+        },
+        {
+            "type": "math",
+            "text": "(a + b)^n = \\sum_{k=0}^n \\binom{n}{k} a^k (b)^{n-k} \\rightarrow \\sum_{k=0}^n \\binom{n}{k} p^k (1-p)^{n-k} = (p + (1-p))^n = 1^n = 1"
+        },
+        {
+            "type": "paragraph",
+            "text": "Procediamo adesso a mettere in relazione il valore di aspettazione con la distribuzione binomiale. Ricordando che \\(< k > = \\displaystyle \\sum_{k} k_i P(k_i)\\), otteniamo: \\[< k > = \\sum_{k=0}^n k \\binom{n}{k} p^k (1-p)^{n-k} = \\sum_{k=0}^n k \\frac{n(n-1)!}{k(k-1)!(n-k)!}p \\cdot p^k(1-p)^{n-k}\\] Le due \\(k\\) si cancellano, portiamo fuori la \\(n\\) e la \\(p\\) e sostituiamo \\(n = n - 1\\) e \\(k = k - 1\\): \\[= np \\sum_{k=1}^n \\binom{n-1}{k-1} p^{k-1} (1-p)^{(n-1)-(k-1)} = np (p + (1-p))^{n-1} = np\\]"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quindi, il valore di aspettazione per una distribuzione binomiale è:"
+        },
+        {
+            "type": "math",
+            "text": "< k > = np"
+        },
+        {
+            "type": "paragraph",
+            "text": "Allo stesso modo, calcoliamo la varianza \\(\\sigma_k^2\\): \\[\\sigma_k^2 = < k^2 > - < k >^2 = \\sum_{k=0}^n k^2 \\binom{n}{k} p^k (1-p)^{n-k} - (np)^2 = np(1-p) + (np)^2 - (np)^2 = np(1-p)\\]"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quindi, la varianza per una distribuzione binomiale è:"
+        },
+        {
+            "type": "math",
+            "text": "\\sigma_k^2 = np(1-p)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Da cui segue che la deviazione standard è:"
+        },
+        {
+            "type": "math",
+            "text": "\\sigma_k = \\sqrt{np(1-p)}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Infine, la deviazione standard relativa è:"
+        },
+        {
+            "type": "math",
+            "text": "\\frac{\\sigma_k}{< k >} = \\frac{\\sqrt{np(1-p)}}{np} = \\frac{\\sqrt{(1-p)}}{\\sqrt{np}}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Notiamo come all'aumentare del numero di prove n, la deviazione standard relativa diminuisce, indicando una maggiore concentrazione dei risultati intorno al valore atteso."
+        },
+        {
+            "type": "paragraph",
+            "text": "La media e la varianza crescono come \\(n\\), la deviazione standard cresce come \\(\\sqrt{n}\\), e infine la deviazione standard relativa diminuisce come \\(\\frac{1}{\\sqrt{n}}\\)."
+        },
+        {
+            "type": "example",
+            "content": [
+                {
+                    "type": "heading",
+                    "level": 4,
+                    "text": "Qual'è la probabilità di ottenere quattro volte 3 in 10 lanci di un dado?"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "In questo caso, l'evento E è ottenere un 3, che ha una probabilità di \\(p = \\frac{1}{6}\\). Vogliamo calcolare la probabilità di ottenere \\(k = 4\\) successi (ottenere un 3) in \\(n = 10\\) lanci del dado. Utilizziamo la distribuzione binomiale:"
+                },
+                {
+                    "type": "math",
+                    "text": "P(4; 10, \\frac{1}{6}) = \\binom{10}{4} \\left(\\frac{1}{6}\\right)^4 \\left(\\frac{5}{6}\\right)^{10-4} = 210 \\cdot 7.7 \\cdot 10^{-4} \\cdot 0.33 \\approx 0.054 \\approx 5.4\\%"
+                },
+                {
+                    "type": "heading",
+                    "level": 4,
+                    "text": "Qual'è la probabilità di ottenere 10 croci su 20 lanci di una moneta?"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "In questo caso, l'evento E è ottenere una croce, che ha una probabilità di \\(p = \\frac{1}{2}\\). Vogliamo calcolare la probabilità di ottenere \\(k = 10\\) successi (ottenere una croce) in \\(n = 20\\) lanci della moneta. Prima di tutto calcoliamo:"
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "\\( < k > = np = 20 \\cdot \\frac{1}{2} = 10\\)",
+                        "\\(\\sigma_k = \\sqrt{np(1-p)} = \\sqrt{20 \\cdot \\frac{1}{2} \\cdot \\frac{1}{2}} = \\sqrt{5} \\approx 2.236\\)",
+                        "\\(\\frac{\\sigma_k}{< k >} = \\frac{2.236}{10} \\approx 0.2236\\)"
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Adesso possiamo calcolare la probabilità utilizzando la distribuzione binomiale:"
+                },
+                {
+                    "type": "math",
+                    "text": "P(10; 20, \\frac{1}{2}) = \\binom{20}{10} \\left(\\frac{1}{2}\\right)^{10} \\left(\\frac{1}{2}\\right)^{20-10} = 184756 \\cdot 0.00000095367431640625 \\approx 0.176 \\approx 17.6\\%"
+                },
+                {
+                    "type": "heading",
+                    "level": 4,
+                    "text": "Qual'è la probabilità di ottenere 100 croci su 200 lanci di una moneta?"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "In questo caso, l'evento E è ottenere una croce, che ha una probabilità di \\(p = \\frac{1}{2}\\). Vogliamo calcolare la probabilità di ottenere \\(k = 100\\) successi (ottenere una croce) in \\(n = 200\\) lanci della moneta. Prima di tutto calcoliamo:"
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "\\( < k > = np = 200 \\cdot \\frac{1}{2} = 100\\)",
+                        "\\(\\sigma_k = \\sqrt{np(1-p)} = \\sqrt{200 \\cdot \\frac{1}{2} \\cdot \\frac{1}{2}} = \\sqrt{50} \\approx 7.071\\)",
+                        "\\(\\frac{\\sigma_k}{< k >} = \\frac{7.071}{100} \\approx 0.07071\\)"
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Adesso possiamo calcolare la probabilità utilizzando la distribuzione binomiale:"
+                },
+                {
+                    "type": "math",
+                    "text": "P(100; 200, \\frac{1}{2}) = \\binom{200}{100} \\left(\\frac{1}{2}\\right)^{100} \\left(\\frac{1}{2}\\right)^{200-100} = 9.054 \\cdot 10^{57} \\cdot 7.888 \\cdot 10^{-31} \\approx 0.176 \\approx 17.6\\%"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Notiamo che, come detto in precedenza, all'aumentare del numero di prove, la probabilità di ottenere il valore atteso rimane costante, mentre la deviazione standard relativa diminuisce, indicando una maggiore concentrazione dei risultati intorno al valore atteso."
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Moto Browniano e random walk"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il <highlight>moto browniano</highlight> è il movimento casuale di particelle microscopiche sospese in un fluido, causato dalle collisioni con le molecole del fluido stesso. Questo fenomeno è stato osservato per la prima volta da Robert Brown nel 1827. Il moto browniano può essere modellato matematicamente come un <highlight>random walk</highlight> (passeggiata casuale), in cui una particella compie una serie di passi in direzioni casuali, più precisamente associamo alla possibilità di andare a sinistra o a destra egual valore \\(p = \\frac{1}{2}\\). A questo punto, possiamo utilizzare la distribuzione binomiale per descrivere la probabilità di trovare la particella a una certa distanza dalla posizione iniziale dopo un certo numero di passi. E' interessante notare come la larghezza dell'istogramma cresce come \\(L\\sqrt{N}\\) e la deviazione standard, dal valore \\(\\frac{\\sqrt{N}}{2}\\) cresce come \\(\\sigma = \\sqrt{N}\\)."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Distribuzione di Poisson"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>distribuzione di Poisson</highlight>, anche nota come legge degli eventi rari, è una distribuzione di probabilità discreta che descrive il numero di eventi che si verificano in un intervallo di tempo o spazio, dato un tasso medio di eventi. Essa si applica anche nel caso di punti disposti a caso su una linea, una superficie o un volume. In generale, i punti disposti a caso non sono distribuiti in modo uniforme, ma mostrano zone che sembrano più dense e altre più rarefatte e il numero di punti in ogni sotto-intervallo segue una distribuzione di Poisson; esempio le fluttuazioni spontanee di un numero di molecole in un volume di gas."
+        },
+        {
+            "type": "example",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Consideriamo un raggio di luce che attraversa una lastra di"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "La distribuzione di Poisson può essere ottenuta come limite delle distribuzioni binomiali \\(B(n, p)\\) con \\(\\lambda = np\\), \\(n \\to \\infty\\) e \\(p \\to 0\\) in modo tale che \\(np \\) rimanga costante, cosi da poter sostituire \\(p = \\dfrac{\\lambda}{n}\\). A quel punto, partendo da \\[P(k; n, p) = \\binom{n}{k} p^k (1-p)^{n-k}\\] si avrà \\( \\frac{n!}{(n-k)!} \\approx n^k\\), \\(p^k = \\frac{\\lambda^k}{n^k}\\) e \\( (1 - \\frac{\\lambda}{n})^{n-k} \\approx e^{-\\lambda} \\). La distribuzione di Poisson si esprime:"
+        },
+        {
+            "type": "math",
+            "text": "P(k; \\lambda) = \\frac{\\lambda^k e^{-\\lambda}}{k!}"
+        },
+        {
+            "type": "paragraph",
+            "text": "dove \\(k\\) è il numero di eventi che si vogliono osservare e \\(\\lambda\\) è il numero medio di eventi che si verificano nell'intervallo."
+        },
+        {
+            "type": "paragraph",
+            "text": "Importante al fine di facilitare i calcoli notare la possibilità di calcolare in modo ricorsivo:"
+        },
+        {
+            "type": "math",
+            "text": "P(k; \\lambda) = \\frac{\\lambda^k e^{-\\lambda}}{k!} = \\binom{\\lambda}{k} \\frac{\\lambda^{(k-1)} e^{-\\lambda}}{(k-1)!} = \\binom{\\lambda}{k} P(k-1; \\lambda)"
+        },
+        {
+            "type": "paragraph",
+            "text": "O, allo stesso modo, \\[P(k; \\lambda) \\binom{\\lambda}{k} = P(k+1; \\lambda)\\]"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dallo sviluppo in serie di Taylor di \\(e^x\\), possiamo verificare che la distribuzione di Poisson è normalizzata:"
+        },
+        {
+            "type": "math",
+            "text": "e^\\lambda = \\sum_{n=0}^{\\infty} \\frac{\\lambda^n}{n!}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Sostituendo nella formula della distribuzione di Poisson, otteniamo \\(P(k; \\lambda) =e^{\\lambda} e^{-\\lambda} = 1\\)"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Indicatori statistici per la distribuzione di Poisson:"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il <highlight>valore di aspettazione</highlight> si calcola come:"
+        },
+        {
+            "type": "math",
+            "text": "E[k] = \\sum_{k=0}^{\\infty} k P(k; \\lambda) = \\sum_{k=0}^{\\infty} k \\frac{\\lambda^k e^{-\\lambda}}{k!} = \\lambda e^{-\\lambda}\\sum_{k=1}^{\\infty} \\frac{\\lambda^{k-1}}{(k-1)!} = \\lambda e^{-\\lambda} e^{\\lambda} = \\lambda"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il <highlight>valore di varianza</highlight> si calcola come:"
+        },
+        {
+            "type": "math",
+            "text": "Var[k] = E[k^2] - (E[k])^2 = \\sum_{k=0}^{\\infty} k^2 P(k; \\lambda) - \\lambda^2 = \\lambda^2 + \\lambda - \\lambda^2 = \\lambda"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quindi, sia il valore di aspettazione che la varianza per una distribuzione di Poisson sono uguali a \\(\\lambda\\)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Concludiamo con <highlight>la deviazione standard</highlight> calcolata come:"
+        },
+        {
+            "type": "math",
+            "text": "\\sigma = \\sqrt{\\lambda}"
+        },
+        {
+            "type": "paragraph",
+            "text": "E <highlight>il fattore di asimmetria</highlight> calcolato come:"
+        },
+        {
+            "type": "math",
+            "text": "\\gamma = \\lambda^{-\\frac{1}{2}}"
+        },
+        {
+            "type": "paragraph",
+            "text": "In conclusione:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "La distribuzione di Poisson fornisce la probabilità di osservare \\(k\\) successi quando il numero medio di successi è \\(\\lambda\\).",
+                "La binomiale fornisce la probabilità di avere \\(k\\) successi quando la probabilità di un singolo successo è \\(p\\) e il numero di prove è \\(n\\)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Sebbene la distribuzione di Poisson ci permette di studiare eventi senza sapere il numero totale di prove o la probabilità di successo, essa non è sempre utilizzabile, come ad esempio in questi casi:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Quando il numero di prove è piccolo e la probabilità di successo non è bassa.",
+                "Quando gli eventi non sono indipendenti tra loro e sono sovrapposti (avvengono simultaneamente).",
+                "Gli eventi che stiamo considerando non sono discreti ma continui."
+            ]
+        },
+        {
+            "type": "example",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Un campione di Torio radioattivo emette particelle alfa a un tasso \\(R = 1.5\\) al minuto. \\(1)\\) Se si conta il numero di particelle alfa in due minuti qual'è il risultato medio atteso? \\(2)\\) Qual'è la probabilità di osservare \\(k\\) particelle per \\(k = 0, 1, 2, 3,4\\) e \\(k \\geq 5\\)?"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Per la domanda \\(1)\\), il risultato medio atteso in due minuti è dato da \\[\\lambda = R \\cdot t = 1.5 \\cdot 2 = 3\\]"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Per la domanda \\(2)\\), utilizziamo la distribuzione di Poisson per calcolare le probabilità:"
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "\\(P(0; 3) = \\frac{3^0 e^{-3}}{0!} = e^{-3} \\approx 0.0498 \\approx 4\\%\\)",
+                        "\\(P(1; 3) = \\frac{3^1 e^{-3}}{1!} = 3e^{-3} \\approx 0.1494 \\approx 15\\%\\)",
+                        "\\(P(2; 3) = \\frac{3^2 e^{-3}}{2!} = \\frac{9}{2}e^{-3} \\approx 0.2240 \\approx 22\\%\\)",
+                        "\\(P(3; 3) = \\frac{3^3 e^{-3}}{3!} = \\frac{27}{6}e^{-3} \\approx 0.2240 \\approx 22\\%\\)",
+                        "\\(P(4; 3) = \\frac{3^4 e^{-3}}{4!} = \\frac{81}{24}e^{-3} \\approx 0.1680 \\approx 17\\%\\)"
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Per calcolare \\(P(k \\geq 5; 3)\\), possiamo utilizzare la proprietà di normalizzazione della distribuzione di Poisson \\[P(k \\geq 5; 3) = 1 - \\sum_{k=0}^{4} P(k; 3) \\approx 1 - (0.0498 + 0.1494 + 0.2240 + 0.2240 + 0.1680) \\approx 0.1848\\]"
+                }
+            ]
+        }
+    ]
+}

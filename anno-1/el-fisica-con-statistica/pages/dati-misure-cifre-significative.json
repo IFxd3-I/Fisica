@@ -1,0 +1,215 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Dati, Misure e cifre significative"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo introduciamo i concetti di dato e misura, fondamentali per l'analisi dei fenomeni fisici."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Dati, Esperimenti e Misure"
+        },
+        {
+            "type": "paragraph",
+            "text": "Un <highlight>esperimento</highlight> è un'operazione controllata e ripetibile, condotta in condizioni al meglio comprese e volta all'osservazione di un fenomeno fisico."
+        },
+        {
+            "type": "paragraph",
+            "text": "Effettuare un esperimento significa <highlight>misurare</highlight> una o più <highlight>grandezze fisiche</highlight>, con l'obiettivo di ottenere informazioni il più precise e accurate possibili. La qualità di un esperimento dipende da vari fattori, tra cui la progettazione dell'esperimento, la calibrazione degli strumenti di misura, le condizioni ambientali e l'abilità dell'operatore."
+        },
+        {
+            "type": "paragraph",
+            "text": "Facciamo un piccolo inciso sui dati e le loro tipologie:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Dati qualitativi</highlight>: sono descrittivi e non numerici, come il colore, la forma o la consistenza di un oggetto.",
+                "<highlight>Dati quantitativi</highlight>: sono numerici e misurano delle grandezze, come la lunghezza, il peso o la temperatura. Questi ultimi si distinguono inoltre in dati <highlight>discreti</highlight>, che assumono valori distinti e separati (ad esempio, il numero di studenti in una classe), e dati <highlight>continui</highlight>, che possono assumere qualsiasi valore all'interno di un intervallo (ad esempio, l'altezza di una persona)."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Una <highlight>grandezza fisica</highlight> è una quantità su cui può essere effettuata una misura."
+        },
+        {
+            "type": "paragraph",
+            "text": "Una <highlight> misura </highlight> è il rapporto tra la quantità e un campione di riferimento, chiamato <highlight>unità di misura</highlight>."
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando due o più grandezze hanno la stessa unità di misura, si dice che sono <highlight>grandezze fisiche omogenee</highlight>."
+        },
+        {
+            "type": "paragraph",
+            "text": "Il risultato di una misura è un <highlight>dato sperimentale</highlight>, che può essere rappresentato solo e sempre come:"
+        },
+        {
+            "type": "math",
+            "text": "x = (x_\\text{measured} \\pm \\delta x) \\quad \\text{u.m.}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(x_\\text{measured}\\) è il valore numerico ottenuto dalla misura;",
+                "\\(\\delta x\\) è l'incertezza associata alla misura, che rappresenta la precisione della misura stessa;",
+                "\\(\\text{u.m.}\\) è l'unità di misura utilizzata per esprimere la grandezza fisica."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "L'<highlight>incertezza</highlight> definisce un intervallo di confidenza per il valore reale:"
+        },
+        {
+            "type": "math",
+            "text": "x_\\text{real} \\in [x_\\text{measured} - \\delta x, x_\\text{measured} + \\delta x]"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ricordiamo che l'incertezza può essere stimata e conosciuta. Essa può essere di due tipi:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "L'incertezza <highlight>strumentale</highlight> è quella che deriva dalla strumentazione utilizzata per effettuare la misura. Se le misure sono ripetibili entro l'incertezza strumentale, si usa questo valore come incertezza.",
+                "L'incertezza <highlight>statistica</highlight> è quella che deriva dalla natura statistica dei fenomeni, come le fluttuazioni ambientali. In questo caso l'unico modo per ridurla è ripetere la misura più volte.",
+                "L'incertezza <highlight>sistematica</highlight> A differenza delle precedenti, questa si manifesta sempre allo stesso modo modificando in eccesso o in difetto il valore misurato. Questo tipo di errore va identificato e corretto."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>precisione</highlight> di una misura è legata alla vicinanza del valore misurato al valore reale (centro della distribuzione), mentre l'<highlight>accuratezza</highlight> si riferisce alla capacità di fornire un valore vicino al valore reale. In altre parole, la precisione aumenta al ridursi dell'incertezza, mentre l'accuratezza aumenta al ridursi della differenza tra il valore misurato e il valore reale."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Sistema internazionale e grandezze fondamentali"
+        },
+        {
+            "type": "paragraph",
+            "text": "Torniamo ora alla misura. Nessuna misura è significativa se non si specificano le unità di misura utilizzate. Esiste per questo motivo un sistema internazionale di unità di misura, chiamato <highlight>Sistema Internazionale (SI)</highlight>, che definisce sette unità di base da cui derivano tutte le altre unità di misura."
+        },
+        {
+            "type": "paragraph",
+            "text": "Un sistema di unità di misura è un insieme di unità di misura standardizzate e tra loro consistenti, in modo che, se una grandezza fisica è definita in base ad altre grandezze, la sua unità di misura è automaticamente definita nello stesso modo, con coefficienti numerici unitari."
+        },
+        {
+            "type": "paragraph",
+            "text": "Un sistema ha un numero di grandezze fondamentali variabile e, nel nostro caso, il SI ne ha sette:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Metro (m)</highlight>: unità di misura della lunghezza.",
+                "<highlight>Chilogrammo (kg)</highlight>: unità di misura della massa.",
+                "<highlight>Secondo (s)</highlight>: unità di misura del tempo.",
+                "<highlight>Ampere (A)</highlight>: unità di misura della corrente elettrica.",
+                "<highlight>Kelvin (K)</highlight>: unità di misura della temperatura termodinamica.",
+                "<highlight>Mole (mol)</highlight>: unità di misura della quantità di sostanza.",
+                "<highlight>Candela (cd)</highlight>: unità di misura dell'intensità luminosa."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Per definire tutte queste unità di misura, il SI si basa su costanti fisiche fondamentali, che sono valori universali e invarianti nel tempo e nello spazio, di cui abbiamo valore numerico privo di incertezza:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "La velocità della luce nel vuoto \\(c = 299.792.458 \\ \\text{m/s}\\)",
+                "La costante di Planck \\(h = 6,62607015 \\times 10^{-34} \\ \\text{Kg} \\cdot \\text{m}^2 \\cdot \\text{s}^{-1}\\)",
+                "La frequenza iperfine del cesio-133 \\(\\Delta v_{Cs} = 9.192.631.770 \\ \\text{s}^{-1}\\)",
+                "La carica elettrica elementare \\(1A = 1,602176634 \\times 10^{19} \\ \\text{e/s}\\)",
+                "La costante di Boltzmann \\(k_B = 1,380649 \\times 10^{-23} \\ \\text{Kg} \\cdot \\text{m}^2 \\cdot \\text{s}^{-2} \\cdot \\text{K}^{-1}\\)",
+                "La costante di Avogadro \\(N_A = 6,02214076 \\times 10^{23} \\ \\text{mol}^{-1}\\)",
+                "L'efficienza luminosa della radiazione monocromatica di frequenza \\(v = 540 \\times 10^{12} \\ \\text{Hz}\\) (540 terahertz; \\(\\lambda = 555.18 \\ \\text{nm}\\)) è fissata a \\(K_{cd} = 683 \\ \\text{lm/W} = 683 \\ \\text{cd} \\ \\text{sr} \\ \\text{Kg}^{-1} \\ \\text{m}^{-2} \\ \\text{s}^{3}\\)"
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Ogni grandezza fisica può essere espressa in termini del prodotto delle sette grandezze fondamentali del SI elevate a potenze intere. Importante ricordare che le funzioni trascendentali (esponenziali, logaritmi, trigonometriche) devono essere adimensionali, ossia restituire numeri pure, privi di unità di misura. La derivazione di una grandezza fisica si porta dietro anche le incertezze relative alla misura delle grandezze fondamentali."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Cifre significative"
+        },
+        {
+            "type": "paragraph",
+            "text": "Le <highlight>cifre significative</highlight> sono le cifre di un numero che contribuiscono alla sua precisione. Esse includono tutte le cifre certe più la prima cifra incerta, questo significa che in fisica il non riportare una cifra implica l'impossibilità di conoscere con tale precisione il valore misurato. Infatti, un numero esatto a infinite cifre significative. Le regole per determinare il numero di cifre significative in un dato numero sono le seguenti:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(123.45\\) ha 5 cifre significative.",
+                "\\(0.00456\\) ha 3 cifre significative (le zero iniziali non contano).",
+                "\\(100.0\\) ha 4 cifre significative (lo zero finale conta perché c'è il punto decimale)."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Regole per il prodotto e il quoziente"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando si moltiplicano o si dividono due grandezze fisiche, il risultato deve avere lo stesso numero di cifre significative della grandezza con il minor numero di cifre significative. Ad esempio:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(2.5 \\times 3.42 = 8.55\\) (3 cifre significative)",
+                "\\(6.022 \\div 2.0 = 3.0\\) (2 cifre significative)"
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Regole per la somma e la differenza"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando si sommano o si sottraggono due grandezze fisiche, il risultato deve essere arrotondato alla cifra decimale più incerta tra le grandezze coinvolte. Ad esempio:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "\\(12.11 + 0.023 = 12.13\\) (2 cifre decimali)",
+                "\\(100.0 - 0.56 = 99.4\\) (1 cifra decimale)"
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Regole per la media"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando si calcola la media di una serie di misure, il risultato deve essere arrotondato alla cifra decimale più incerta tra le misure coinvolte. Ad esempio:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Misure: \\(12.1, 12.11, 12.123\\) --> Media: \\(12.11\\) (2 cifre decimali)",
+                "Misure: \\(100.0, 100.56, 100.567\\) --> Media: \\(100.4\\) (1 cifra decimale)"
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Regole per le funzioni trascendentali"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando si applicano funzioni trascendentali (come seno, coseno, logaritmo, ecc.) a un numero, le regole di approssimazione precedenti non valgono. Se però misuro una lunghezza del tipo \\(L = s * \\sin(30.0)\\), allora il risultato dovrà riportare cifre significative pari alla sensibilità della misura."
+        }
+    ]
+}

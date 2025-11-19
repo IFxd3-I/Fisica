@@ -1,0 +1,449 @@
+{
+    "content": [
+        {
+            "type": "title",
+            "text": "Cinematica"
+        },
+        {
+            "type": "subtitle",
+            "text": "In questo capitolo esploreremo i concetti fondamentali della cinematica, analizzando il moto dei corpi e le grandezze che lo descrivono."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Introduzione alle grandezze Cinematiche"
+        },
+        {
+            "type": "image",
+            "src": "/anno-1/meccanica/img/vettore-spostamento.png",
+            "alt": "vettore spostamento"
+        },
+        {
+            "type": "paragraph",
+            "text": "Si definisce <highlight>punto materiale</highlight> un corpo le cui dimensioni sono trascurabili rispetto alle distanze percorse. La sua posizione nello spazio in funzione del tempo è detta moto di un punto materiale. Concludiamo definendo <highlight>quiete</highlight> l'assenza di movimento rispetto a un dato sistema di riferimento e <highlight>traiettoria</highlight> come il luogo geometrico delle posizioni occupate dal punto materiale nel suo moto."
+        },
+        {
+            "type": "paragraph",
+            "text": "Consideriamo allora un punto materiale che si muove nel piano lungo una certa traiettoria. La sua posizione all'istante di tempo \\(t\\) è data dal vettore posizione \\(\\vec{r}(t)\\), mentre la sua posizione all'istante di tempo \\(t + \\Delta t\\) è data dal vettore posizione \\(\\vec{r}(t + \\Delta t)\\). La differenza tra i vettori posizione si chiama <highlight>vettore spostamento</highlight> \\(\\Delta \\vec{r}(t)\\), mentre la distanza effettivamente percorsa è indicata con \\(d(t)\\) ed è una grandezza scalare. Tramite il vettore spostamento possiamo definire la velocità media come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{v}_m(t) = \\frac{\\Delta \\vec{r}(t)}{\\Delta t} = \\frac{\\vec{r}(t + \\Delta t) - \\vec{r}(t)}{\\Delta t}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ora supponiamo di dividere la nostra traiettoria in spostamenti che avvengono in un intervallo di tempo molto \\(\\Delta t\\) molto piccolo, abbiamo così a che fare con la velocità istantanea:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{v}(t) = \\lim_{\\Delta t \\to 0} \\vec{v}_m(t) = \\frac{d\\vec{r}(t)}{dt} \\quad [\\mathrm{m/s}]"
+        },
+        {
+            "type": "paragraph",
+            "text": "Analogamente, possiamo definire l'accelerazione media come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{a}_m(t) = \\frac{\\Delta \\vec{v}(t)}{\\Delta t} = \\frac{\\vec{v}(t + \\Delta t) - \\vec{v}(t)}{\\Delta t}"
+        },
+        {
+            "type": "paragraph",
+            "text": "E l'accelerazione istantanea come:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{a}(t) = \\lim_{\\Delta t \\to 0} \\vec{a}_m(t) = \\frac{d\\vec{v}(t)}{dt} = \\frac{d^2\\vec{r}(t)}{dt^2}"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Moto in una dimensione"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Moto Rettilineo"
+        },
+        {
+            "type": "image",
+            "src": "/anno-1/meccanica/img/moto-rettilineo.png",
+            "alt": "moto rettilineo"
+        },
+        {
+            "type": "paragraph",
+            "text": "Si svolge in un sistema di riferimento costituito da una retta, di cui fissiamo origine e verso. La posizione è definita solo dalla variabile x. La posizione del punto materiale rispetto al tempo, funzione x(t), è la legge oraria. Definiamo:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Spostamento</highlight>: \\(\\Delta x = x(t_2) - x(t_1)\\)",
+                "<highlight>Intervallo di tempo</highlight>: \\(\\Delta t = t_2 - t_1\\)"
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Se la velocità rimane costante durante il moto, allora si parla di moto rettilineo uniforme. La legge oraria si ricava integrando la velocità:"
+        },
+        {
+            "type": "math",
+            "text": "v = \\frac{dx}{dt} \\implies dx = v \\cdot dt \\implies \\int_{x(t_0)}^{x(t_1)} dx = \\int_{t_0}^{t_1} v \\cdot dt"
+        },
+        {
+            "type": "paragraph",
+            "text": "Da cui si ricava la legge oraria del moto rettilineo uniforme:"
+        },
+        {
+            "type": "math",
+            "text": "x(t) = x(t_0) + \\int_{t_0}^{t} v(t') dt' = x(t_0) + v(t - t_0)"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Moto Rettilineo Uniformemente Accelerato"
+        },
+        {
+            "type": "paragraph",
+            "text": "Si ha quando la velocità varia nel tempo in modo lineare, ossia l'accelerazione è costante. La legge oraria si ricava integrando l'accelerazione:"
+        },
+        {
+            "type": "math",
+            "text": "a = \\frac{dv}{dt} \\implies dv = a \\cdot dt \\implies \\int_{v(t_0)}^{v(t_1)} dv = \\int_{t_0}^{t_1} a \\cdot dt"
+        },
+        {
+            "type": "paragraph",
+            "text": "Da cui si ricava la legge della velocità:"
+        },
+        {
+            "type": "math",
+            "text": "v(t) = v(t_0) + a(t - t_0)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Integrando nuovamente la velocità si ottiene la legge oraria del moto rettilineo uniformemente accelerato:"
+        },
+        {
+            "type": "math",
+            "text": "x(t) = x(t_0) + v(t_0)(t - t_0) + \\frac{1}{2}a(t - t_0)^2"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Moto Verticale"
+        },
+        {
+            "type": "paragraph",
+            "text": "È un caso particolare di moto rettilineo uniformemente accelerato in cui l'accelerazione è dovuta alla forza di gravità, con modulo \\(g \\approx 9.81 \\mathrm{m/s^2}\\) e direzione verticale verso il basso (segno negativo)."
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Caduta Libera (\\(v_0 = 0\\))"
+        },
+        {
+            "type": "paragraph",
+            "text": "La legge oraria per un oggetto lasciato cadere in caduta libera (senza resistenza dell'aria) è:"
+        },
+        {
+            "type": "math",
+            "text": "y(t) = y(t_0) + (t - t_0) - \\frac{1}{2}g(t - t_0)^2"
+        },
+        {
+            "type": "paragraph",
+            "text": "Da qui, ponendo \\(t_0 = 0\\) e \\(y(t_0) = 0\\), possiamo ricavare il <highlight>tempo di caduta</highlight> (11) e la <highlight>velocità finale al suolo</highlight> (12):"
+        },
+        {
+            "type": "math",
+            "text": "t_{caduta} = \\sqrt{\\frac{2h}{g}}"
+        },
+        {
+            "type": "math",
+            "text": "v_c = v(t_c) = -g\\sqrt{\\frac{2h}{g}} = -\\sqrt{2gh}"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Oggetto lanciato verso il basso con velocità iniziale non nulla (\\(v_0 = -v\\))"
+        },
+        {
+            "type": "paragraph",
+            "text": "La legge oraria per un oggetto lanciato verso il basso con una velocità iniziale non nulla è:"
+        },
+        {
+            "type": "math",
+            "text": "y(t) = y(t_0) -v(t_0)(t - t_0) - \\frac{1}{2}g(t - t_0)^2"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ponendo \\(t_0 = 0\\) e \\(y(t_0) = 0\\), possiamo ricavare il <highlight>tempo di caduta</highlight> (14) e la <highlight>velocità finale al suolo</highlight> (15):"
+        },
+        {
+            "type": "math",
+            "text": "t_{caduta} = \\frac{v + \\sqrt{v^2 + 2gh}}{g}"
+        },
+        {
+            "type": "math",
+            "text": "v_c = v(t_c) = -\\sqrt{v^2 + 2gh}"
+        },
+        {
+            "type": "heading",
+            "level": 5,
+            "text": "Oggetto lanciato verso l'alto con velocità iniziale non nulla (\\(v_0 = +v\\))"
+        },
+        {
+            "type": "paragraph",
+            "text": "La legge oraria per un oggetto lanciato verso l'alto con una velocità iniziale non nulla è:"
+        },
+        {
+            "type": "math",
+            "text": "y(t) = y(t_0) + v(t_0)(t - t_0) - \\frac{1}{2}g(t - t_0)^2"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ponendo \\(t_0 = 0\\) e \\(y(t_0) = 0\\), possiamo ricavare il <highlight>tempo di volo</highlight> (17) e l'<highlight>altezza massima</highlight> (18):"
+        },
+        {
+            "type": "math",
+            "text": "t_{volo} = \\frac{2v}{g}"
+        },
+        {
+            "type": "math",
+            "text": "h_{max} = \\frac{v^2}{2g}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ricordiamo che senza attrito la velocità al suolo sarà la stessa con cui è stato lanciato l'oggetto, ma di verso opposto: \\(v_c = -v\\), e che il tempo volo è la somma del tempo impiegato per raggiungere \\(h_{max}\\) e il tempo di discesa, che in questo caso coincidono."
+        },
+        {
+            "type": "image",
+            "src": "/anno-1/meccanica/img/grafico-lancio-alto.png",
+            "alt": "grafico lancio alto"
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Moto Armonico"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il moto armonico semplice è un tipo di moto periodico che può essere descritto come un'oscillazione attorno a una posizione di equilibrio. La legge oraria è data da:"
+        },
+        {
+            "type": "math",
+            "text": "x(t) = A \\cdot \\cos(\\omega t + \\phi)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove \\(A\\) è l'ampiezza dell'oscillazione, \\(\\omega\\) è la pulsazione (frequenza angolare) e \\(\\phi\\) è la fase iniziale. <br> Per approfondimenti sul moto armonico, si veda la sezione dedicata alle <a href=\"anno-1/onde-e-oscillazioni/pages/moto-armonico\">oscillazioni</a>."
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "Moto rettilineo smorzato"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il moto rettilineo smorzato si verifica quando un corpo in movimento lungo una linea retta subisce una forza di resistenza proporzionale alla sua velocità. Questa forza di resistenza, spesso chiamata forza di smorzamento, agisce in direzione opposta al moto del corpo, causando una diminuzione graduale della sua velocità nel tempo. <br> La legge oraria del moto rettilineo smorzato può essere espressa come:"
+        },
+        {
+            "type": "math",
+            "text": "x(t) = x_0 + v_0 t - \\frac{1}{2} \\gamma t^2"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove \\(x_0\\) è la posizione iniziale, \\(v_0\\) è la velocità iniziale e \\(\\gamma\\) è la costante di smorzamento. <br> La velocità del corpo diminuisce esponenzialmente nel tempo a causa della forza di smorzamento, e la posizione del corpo si avvicina asintoticamente a una posizione di equilibrio. <br> Un parametro importante nel moto smorzato è il tempo caratteristico \\(\\tau\\), che rappresenta il tempo necessario affinché la velocità si riduca di un fattore \\(e\\) (circa 2,718). \\(\\tau\\) è inversamente proporzionale alla costante di smorzamento: \\(\\tau = 1/\\gamma\\)."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Moto nel piano"
+        },
+        {
+            "type": "paragraph",
+            "text": "La posizione \\(\\mathbf{r}\\) del punto materiale lungo la sua traiettoria curvilinea può essere espressa tramite coordinate cartesiane e polari, rispettivamente:"
+        },
+        {
+            "type": "math",
+            "text": "\\mathbf{r}(t) = x\\hat{i} + y\\hat{j} \\quad \\quad \\mathbf{r}(t) = R\\hat{r}(\\theta)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Inoltre, le coordinate polari costituiscono una base ortogonale, quindi ogni vettore può essere espresso come combinazione lineare delle due direzioni:"
+        },
+        {
+            "type": "math",
+            "text": "\\vec{A} = A_r \\hat{r} + A_{\\theta} \\hat{\\theta}"
+        },
+        {
+            "type": "paragraph",
+            "text": "Dove \\(A_r\\) e \\(A_{\\theta}\\) sono le componenti radiale e tangenziale del vettore \\(\\vec{A}\\)."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Formule utili"
+        },
+        {
+            "type": "table",
+            "rows": [
+                [
+                    {
+                        "text": "Cinematica Vettoriale",
+                        "class": "table-cell-title"
+                    },
+                    ""
+                ],
+                [
+                    {
+                        "text": "Moto Rettilineo",
+                        "class": "table-cell-span"
+                    },
+                    ""
+                ],
+                [
+                    {
+                        "text": "Legge oraria MRU",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(x(t) = x(t_0) + v(t - t_0)\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Legge oraria MRUA",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(x(t) = x(t_0) + v_0 (t - t_0) + \\frac{1}{2} a (t - t_0)^2\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Moto Verticale",
+                        "class": "table-cell-span"
+                    },
+                    ""
+                ],
+                [
+                    {
+                        "text": "Caduta libera",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(y(t) = y(t_0) - \\frac{1}{2} g (t - t_0)^2\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Tempo di caduta",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(t_{caduta} = \\sqrt{\\frac{2h}{g}}\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Velocità finale al suolo",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(v_c = -\\sqrt{2gh}\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Lancio verso il basso",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(y(t) = y(t_0) - v_0 (t - t_0) - \\frac{1}{2} g (t - t_0)^2\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Tempo di caduta",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(t_{caduta} = \\frac{v + \\sqrt{v^2 + 2gh}}{g}\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Velocità finale al suolo",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(v_c = -\\sqrt{v^2 + 2gh}\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Lancio verso l'alto",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(y(t) = y(t_0) + v_0 (t - t_0) - \\frac{1}{2} g (t - t_0)^2\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Tempo di volo",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(t_{volo} = \\frac{2v}{g}\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Altezza massima",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(h_{max} = \\frac{v^2}{2g}\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Altri formule",
+                        "class": "table-cell-span"
+                    },
+                    ""
+                ],
+                [
+                    {
+                        "text": "Moto Armonico",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(x(t) = A \\cdot \\cos(\\omega t + \\phi)\\)",
+                        "class": "table-cell-formula"
+                    }
+                ],
+                [
+                    {
+                        "text": "Moto Rettilineo Smorzato",
+                        "class": "table-cell-text"
+                    },
+                    {
+                        "text": "\\(x(t) = x_0 + v_0 t - \\frac{1}{2} \\gamma t^2\\)",
+                        "class": "table-cell-formula"
+                    }
+                ]
+            ]
+        }
+    ]
+}
