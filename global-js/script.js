@@ -1,10 +1,5 @@
 
 //01-10-2023, 15-11-2025
-// Solo sfondo, niente altri elementi
-/**
- * Funzione principale per impostare lo sfondo.
- * Solo console per stato.
- */
 
 const API_KEY = 'DEMO_KEY';
 const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
@@ -135,7 +130,8 @@ const chapters = {
         { title: "Dati, Misure e cifre significative", json: "dati-misure-cifre-significative.json" },
         { title: "Indicatori per le distribuzioni statistiche", json: "indicatori-distribuzioni-statistiche.json" },
         { title: "Concetti base di probabilità", json: "probabilita.json" },
-        { title: "Distribuzioni di probabilità", json: "distribuzioni-di-probabilita.json" }
+        { title: "Distribuzioni di probabilità: variabili discrete", json: "distribuzioni-di-probabilita-var-discrete.json" },
+        { title: "Distribuzioni di probabilità: variabili continue", json: "distribuzioni-di-probabilita-var-continue.json" }
     ],
     "analisi-2": [
         { title: "Serie di funzioni", json: "serie-di-funzioni.json" },

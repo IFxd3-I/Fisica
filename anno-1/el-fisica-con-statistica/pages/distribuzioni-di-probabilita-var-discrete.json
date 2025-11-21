@@ -2,11 +2,11 @@
     "content": [
         {
             "type": "title",
-            "text": "Distribuzioni di probabilità"
+            "text": "Distribuzioni di probabilità: variabili discrete"
         },
         {
             "type": "subtitle",
-            "text": "In questo capitolo esploriamo le distribuzioni di probabilità, i loro indicatori statistici e alcune distribuzioni comuni utilizzate in statistica e fisica."
+            "text": "In questo capitolo esploriamo le distribuzioni di probabilità per variabili discrete, la loro definizione e gli indicatori statistici associati. Inoltre, approfondiremo le distribuzioni di Bernoulli, binomiale e di Poisson."
         },
         {
             "type": "heading",
@@ -417,134 +417,6 @@
                     "type": "paragraph",
                     "text": "Per calcolare \\(P(k \\geq 5; 3)\\), possiamo utilizzare la proprietà di normalizzazione della distribuzione di Poisson \\[P(k \\geq 5; 3) = 1 - \\sum_{k=0}^{4} P(k; 3) \\approx 1 - (0.0498 + 0.1494 + 0.2240 + 0.2240 + 0.1680) \\approx 0.1848\\]"
                 }
-            ]
-        },
-        {
-            "type": "heading",
-            "level": 3,
-            "text": "Variabili continue"
-        },
-        {
-            "type": "paragraph",
-            "text": "Iniziamo ora a trattare casi di variabili continue. Per loro natura, la probabilità che una di esse assuma un valore esatto è uguale a zero. L'unica cosa che possiamo fare è definire una <highlight>densità di probabilità</highlight> \\(p(x)\\):"
-        },
-        {
-            "type": "math",
-            "text": "P(x_0 \\leq x \\leq x_0 + dx) = p(x_0) dx"
-        },
-        {
-            "type": "paragraph",
-            "text": "Dove \\(P(x_0 \\leq x \\leq x_0 + dx)\\) è la probabilità che la variabile \\(x\\) assuma un valore compreso tra \\(x_0\\) e \\(x_0 + dx\\), e \\(p(x_0)\\) è la densità di probabilità in quel punto. Inoltre, si noti che:"
-        },
-        {
-            "type": "list",
-            "items": [
-                "La densità di probabilità ha le dimensioni del reciproco della variabile \\(x\\) (infatti la probabilità \\(P\\) è adimensionale).",
-                "La probabilità \\(P\\) dipende dalle dimensioni dell'intervallo \\(dx\\), mentre la densità di probabilità \\(p(x)\\) no."
-            ]
-        },
-        {
-            "type": "paragraph",
-            "text": "Sfrutteremo la densità di probabilità per ricavare la <highlight>funzione della densità di probabilità</highlight>>."
-        },
-        {
-            "type": "image",
-            "src": "/anno-1/el-fisica-con-statistica/img/densita-probabilita-variabile-continua.png",
-            "alt": "densita-probabilita-variabile-continua"
-        },
-        {
-            "type": "paragraph",
-            "text": "Da notare che, anche se la funzione densità di probabilità ha un valore preciso per un certo \\(x_0)\\, la probabilità che la variabile assuma esattamente quel valore è zero perchè l'area sottesa alla funzione è nulla."
-        },
-        {
-            "type": "paragraph",
-            "text": "La probabilità in un intervallo finito è quindi data da:"
-        },
-        {
-            "type": "math",
-            "text": "P(a \\leq x \\leq b) = \\int_{a}^{b} p(x) dx"
-        },
-        {
-            "type": "paragraph",
-            "text": "La funzione densità di probabilità deve inoltre essere normalizzata, cioè l'integrale su tutto il dominio della variabile deve essere uguale a 1:"
-        },
-        {
-            "type": "math",
-            "text": "\\int_{-\\infty}^{\\infty} p(x) dx = 1"
-        },
-        {
-            "type": "paragraph",
-            "text": "Attenzione comunque al fatto che se la variabile è definita solo in un intervallo, allora \\(p(x) = 0\\) al di fuori di quell'intervallo e l'integrale di normalizzazione resta comunque definito e finito."
-        },
-        {
-            "type": "heading",
-            "level": 4,
-            "text": "Indicatori statistici per una distribuzione di probabilità continua"
-        },
-        {
-            "type": "paragraph",
-            "text": "Il <highlight>valore di aspettazione</highlight> per una variabile continua si calcola come:"
-        },
-        {
-            "type": "math",
-            "text": "< x > = \\int_{-\\infty}^{\\infty} x \\cdot p(x) dx"
-        },
-        {
-            "type": "paragraph",
-            "text": "La <highlight>varianza</highlight> si calcola come:"
-        },
-        {
-            "type": "math",
-            "text": "\\sigma_x^2 = \\int_{-\\infty}^{\\infty} (x - < x >)^2 \\cdot p(x) dx = < x^2 > - < x >^2"
-        },
-        {
-            "type": "paragraph",
-            "text": "Vediamo velocemente anche il caso della probabilità costante in un intervallo \\([a, b]\\):"
-        },
-        {
-            "type": "math",
-            "text": "p(x) = \\begin{cases} C = \\frac{1}{b-a} & \\text{se } a \\leq x \\leq b \\\\ 0 & \\text{altrimenti} \\end{cases}"
-        },
-        {
-            "type": "paragraph",
-            "text": "In questo caso, il valore di aspettazione è:"
-        },
-        {
-            "type": "math",
-            "text": "< x > = \\int_{a}^{b} x \\cdot \\frac{1}{b-a} dx = \\frac{a + b}{2}"
-        },
-        {
-            "type": "paragraph",
-            "text": "La varianza è:"
-        },
-        {
-            "type": "math",
-            "text": "\\sigma_x^2 = \\int_{a}^{b} \\left(x - \\frac{a+b}{2}\\right)^2 \\cdot \\frac{1}{b-a} dx = \\frac{(b-a)^2}{12}"
-        },
-        {
-            "type": "heading",
-            "level": 3,
-            "text": "Distribuzione Gaussiana"
-        },
-        {
-            "type": "paragraph",
-            "text": "La <highlight>distribuzione gaussiana</highlight>, o distribuzione normale, è una particolare distribuzione con delle caratteristiche ben definite. Vediamo prima di tutto la sua funzione densità di probabilità:"
-        },
-        {
-            "type": "math",
-            "text": "p(x) = \\frac{1}{\\sigma \\sqrt{2 \\pi}} e^{-\\frac{1}{2} \\left( \\frac{x - < x >}{\\sigma} \\right)^2}"
-        },
-        {
-            "type": "paragraph",
-            "text": "Elencando le sue proprietà principali:"
-        },
-        {
-            "type": "list",
-            "items": [
-                "La distribuzione è simmetrica rispetto al valore di aspettazione \\(< x >\\).",
-                "La larghezza della distribuzione è determinata dalla deviazione standard \\(\\sigma\\).",
-                "Variando il valore di aspettazione \\(< x >\\), la distribuzione si sposta lungo l'asse delle x senza cambiare forma.",
-                "Variando la deviazione standard \\(\\sigma\\), la distribuzione si allarga o si restringe intorno al valore di aspettazione."
             ]
         }
     ]
