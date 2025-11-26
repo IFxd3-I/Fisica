@@ -210,6 +210,22 @@
         {
             "type": "paragraph",
             "text": "Quando si applicano funzioni trascendentali (come seno, coseno, logaritmo, ecc.) a un numero, le regole di approssimazione precedenti non valgono. Se però misuro una lunghezza del tipo \\(L = s * \\sin(30.0)\\), allora il risultato dovrà riportare cifre significative pari alla sensibilità della misura."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Errori"
+        },
+        {
+            "type": "paragraph",
+            "text": "Un <highlight>errore</highlight> è la differenza tra il valore misurato e il valore reale di una grandezza fisica. Gli errori possono essere classificati in due categorie principali:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Errori sistematici</highlight>: sono errori che si ripetono in modo costante e prevedibile, come quelli causati da strumenti di misura mal calibrati o da condizioni ambientali non controllate. Questi errori possono essere identificati e corretti attraverso la calibrazione degli strumenti o l'adozione di metodi di misura più accurati.",
+                "<highlight>Errori casuali</highlight>: sono errori che variano in modo imprevedibile e non sistematico, come quelli causati da fluttuazioni ambientali o da limitazioni intrinseche degli strumenti di misura. Questi errori possono essere ridotti aumentando il numero di misure e calcolando la media dei risultati ottenuti."
+            ]
         }
     ]
 }

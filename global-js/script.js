@@ -688,7 +688,9 @@ async function showChapterPage(chapterTitle, anchorId = null) {
                             ${imgCaption}
                         </figure>`;
                         break;
-                    
+                    case 'alert':
+                        html += `<div class="content-alert">${renderMath(item.text || '')}</div>`;
+                        break;
                     default:
                         html += `<p>Tipo di contenuto non supportato: ${item.type}</p>`;
                         break;

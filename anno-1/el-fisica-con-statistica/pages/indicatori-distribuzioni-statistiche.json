@@ -45,6 +45,10 @@
             "text": "Varianza"
         },
         {
+            "type": "alert",
+            "text": "Nelle definizioni che verranno, si distinguono i seguenti casi di utilizzo per &&s&& e &&\\sigma&&: <ul><li>&&s&& e &&s^2&& per campioni, ossia valori pratici che corrispondono a dati sperimentali</li><li>&&\\sigma&& e &&\\sigma^2&& per popolazioni (distribuzioni teoriche)</li></ul>"
+        },
+        {
             "type": "paragraph",
             "text": "La <highlight>varianza</highlight>, simbolo &&s^2&& o &&\\sigma^2&&, è un indicatore di dispersione che misura quanto i valori si discostano dalla media. Viene calcolata come la media dei quadrati delle differenze tra ogni valore e la media."
         },
@@ -68,7 +72,20 @@
         {
             "type": "heading",
             "level": 3,
-            "text": "Deviazione Standard della Media"
+            "text": "Varianza della Media (SEM²)"
+        },
+        {
+            "type": "paragraph",
+            "text": "La <highlight>varianza della media</highlight>, simbolo &&SE^2&&, è una misura della precisione con cui la media campionaria stima la media della popolazione. Viene calcolata dividendo la varianza per il numero di osservazioni."
+        },
+        {
+            "type": "math",
+            "text": "s^2 = \\frac{s^2}{N} = \\frac{1}{N(N-1)} \\displaystyle \\sum_{i=1}^{N} (x_i - \\bar{x})^2"
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Deviazione Standard della Media (SEM)"
         },
         {
             "type": "paragraph",

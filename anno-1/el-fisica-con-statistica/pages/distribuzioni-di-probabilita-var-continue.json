@@ -9,6 +9,11 @@
             "text": "In questo capitolo esploriamo le distribuzioni di probabilità per variabili continue, la loro densità di probabilità e gli indicatori statistici associati. Inoltre, approfondiremo la distribuzione gaussiana e le sue applicazioni."
         },
         {
+            "type": "heading",
+            "level": 3,
+            "text": "Densità di probabilità per variabili continue"
+        },
+        {
             "type": "paragraph",
             "text": "Siamo ora nel caso in cui la variabile casuale può assumere un numero infinito di valori in un intervallo continuo, dobbiamo perciò introdurre il concetto di <highlight>densità di probabilità</highlight>:"
         },
@@ -213,11 +218,69 @@
         },
         {
             "type": "paragraph",
-            "text": "Utilizzando quindi \\((33)\\) e ricordando \\((32)\\), possiamo calcolare le probabilità per qualsiasi distribuzione gaussiana conoscendo solo la tabella della distribuzione standardizzata."
+            "text": "Utilizzando quindi \\((16)\\) e ricordando \\((15)\\), possiamo calcolare le probabilità per qualsiasi distribuzione gaussiana conoscendo solo la tabella della distribuzione standardizzata."
         },
         {
             "type": "paragraph",
-            "text": "Inserire guida alla lettura delle tabelle standardizzate"
+            "text": "Inserire guida alla lettura delle tabelle standardizzate con esercizi etc etc..."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Teorema del Limite Centrale"
+        },
+        {
+            "type": "paragraph",
+            "text": "Il <highlight>Teorema del Limite Centrale</highlight> afferma che, sia \\(\\mathbb{X} = \\displaystyle \\sum x_i\\) una variabile casuale definita come somma di \\(\\mathbb{N}\\) variabili casuali indipendenti e ognuna descritta dalla propria distribuzione qualsiasi, con valori attesi \\(\\mu_i\\) finiti e varianze \\(< x_i - \\mu_i >^2 = \\sigma_i^2\\) finite. <br> Allora, la distribuzione di probabilità di \\(\\mathbb{X}\\):"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Ha valore atteso \\(< \\mathbb{X} > \\ = \\  \\displaystyle \\sum \\mu_i\\)",
+                "Ha varianza \\(\\sigma_{\\mathbb{X}}^2 \\ = \\ \\displaystyle \\sum \\sigma_i^2\\)",
+                "Per \\(\\mathbb{N} \\to \\infty\\), la distribuzione di probabilità di \\(\\mathbb{X}\\) tende ad una distribuzione gaussiana."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Questo teorema si applica a qualsiasi variabile aleatoria che sia la combinazione lineare di \\(\\mathbb{N}\\) altre variabili aleatorie indipendenti, ognuna con una sua distribuzione specifica, con un \\(< x >\\) finito e una varianza \"confrontabile\". <br> Un esempio sono gli \"errori\" di fabbricazione (le incertezze sugli errori sono la somma di tante cause diverse), il teorema del limite centrale ci dice che, se gli effetti che ogni singolo errore ha sono indipendenti tra loro e nessuno domina, la somma di questi errori ha una distribuzione che tende a essere gaussiana."
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "text": "Trattamento delle incertezze/errori"
+        },
+        {
+            "type": "paragraph",
+            "text": "Riprendiamo velocemente le due definizioni da cui il titolo:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "<highlight>Errore</highlight>: differenza tra il valore misurato e il valore vero della quantità misurata. Può essere sistematico o casuale.",
+                "<highlight>Incertezza</highlight>: stima della dispersione dei valori misurati intorno al valore vero. Rappresenta la precisione della misura."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 4,
+            "text": "media come miglior stima del valore vero"
+        },
+        {
+            "type": "paragraph",
+            "text": "Quando si effettuano più misure di una stessa quantità, la media aritmetica delle misure è considerata la miglior stima del valore vero della quantità misurata. Iniziamo prendendo la media come:"
+        },
+        {
+            "type": "math",
+            "text": "\\bar{x} = \\frac{x_1 + x_2 + ... + x_N}{N} = \\frac{1}{N} \\displaystyle \\sum_{i=1}^{N} x_i"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ora, sapendo che il valore atteso di ogni singola misura è \\(\\mu_i = < x_i >\\), e che, poichè le misure sono indipendenti e la distribuzione è identica per ogni osservazione, allora \\(\\mu_i = \\mu\\), di conseguenza:"
+        },
+        {
+            "type": "math",
+            "text": "< \\bar{x} > \\ = \\ \\frac{1}{N} \\displaystyle \\sum_{i=1}^{N} < x_i > \\ = \\ \\frac{1}{N} \\displaystyle \\sum_{i=1}^{N} \\mu_i \\ = \\ \\frac{1}{N} \\cdot N \\mu \\ = \\ \\mu \\ = \\ < x > \\quad \\text{e} \\quad \\sigma_{\\bar{x}}^2 \\ = \\ \\frac{\\sigma^2}{N}"
         }
     ]
 }
