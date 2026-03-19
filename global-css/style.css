@@ -922,15 +922,6 @@ header h1 a {
   transition: all 0.3s ease;
 }
 
-.chapter::after {
-  content: '▼';
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.8em;
-  opacity: 0.7;
-}
 
 /* Stile per quando non ci sono sottocapitoli */
 .no-subchapters {

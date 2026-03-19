@@ -251,42 +251,20 @@ document.querySelectorAll('.module').forEach(module => {
 
         if (chapters[moduleKey]) {
             chapters[moduleKey].forEach(chapter => {
-                const li = document.createElement('li');
-                li.className = 'chapter';
-                li.textContent = chapter.title;
-                li.setAttribute('data-chapter', chapter.json);
-                
-                // Creazione del contenitore per subchapters (inizialmente nascosto)
-                const subchaptersList = document.createElement('ul');
-                subchaptersList.className = 'subchapters-list';
-                subchaptersList.style.display = 'none';
-                
-                // Aggiungi l'evento di click per mostrare/nascondere i subchapters
-                li.addEventListener('click', (event) => {
-                    // Previeni la propagazione dell'evento ai genitori
-                    event.stopPropagation();
-                    
-                    // Prima di aprire questo sottocapitolo, chiudi tutti gli altri sottocapitoli aperti
-                    const allSubchapterLists = document.querySelectorAll('.subchapters-list');
-                    allSubchapterLists.forEach(list => {
-                        // Chiudi solo gli altri sottocapitoli, non quello corrente
-                        if (list !== subchaptersList && list.style.display === 'block') {
-                            list.style.display = 'none';
-                        }
+                    const li = document.createElement('li');
+                    li.className = 'chapter';
+                    li.textContent = chapter.title;
+                    li.setAttribute('data-chapter', chapter.json);
+
+                    // Apri direttamente la pagina del capitolo quando si clicca sulla lista principale.
+                    li.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        currentlyOpenModuleKey = moduleKey;
+                        currentYear = year;
+                        showChapterPage(chapter.title);
                     });
-                    
-                    // Se i subchapters sono già stati caricati, togliamo o mostriamo la lista
-                    if (subchaptersList.childElementCount > 0) {
-                        subchaptersList.style.display = subchaptersList.style.display === 'none' ? 'block' : 'none';
-                        return;
-                    }
-                    
-                    // Altrimenti carica i subchapters dal file JSON
-                    loadSubchapters(chapter.title, chapter.json, moduleKey, year, subchaptersList);
-                });
-                
-                li.appendChild(subchaptersList);
-                chaptersList.appendChild(li);
+
+                    chaptersList.appendChild(li);
 
                 // Aggiungi anche al sidebar
                 if (sidebar) {
@@ -500,6 +478,12 @@ async function showChapterPage(chapterTitle, anchorId = null) {
     const jsonPath = `anno-${currentYear}/${currentlyOpenModuleKey}/pages/${chapter.json}`;
 
     chapterPage.innerHTML = `<div class="chapter-content">Caricamento...</div>`;
+    // Assicuriamoci che il contenuto inizi dall'alto alla (ri)apertura
+    const loadingContainer = chapterPage.querySelector('.chapter-content');
+    if (loadingContainer) {
+        loadingContainer.scrollTop = 0;
+        loadingContainer.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }
 
     try {
         const response = await fetch(jsonPath);
@@ -700,6 +684,17 @@ async function showChapterPage(chapterTitle, anchorId = null) {
             html = '<p>Struttura del contenuto non valida.</p>';
         }
         chapterPage.querySelector('.chapter-content').innerHTML = html;
+
+        // Forziamo lo scroll all'inizio se non è stato richiesto uno specifico anchor
+        if (!anchorId) {
+            const contentContainer = chapterPage.querySelector('.chapter-content');
+            if (contentContainer) {
+                contentContainer.scrollTop = 0;
+                contentContainer.scrollIntoView({ behavior: 'auto', block: 'start' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'auto' });
+            }
+        }
         
         // Elabora le formule MathJax con un piccolo ritardo per assicurarsi che il DOM sia aggiornato
         if (typeof MathJax !== 'undefined') {
@@ -748,79 +743,6 @@ function createSlug(text) {
         .replace(/\s+/g, '-')     // Sostituisci spazi con trattini
         .replace(/-+/g, '-')      // Rimuovi trattini multipli
         .trim();                  // Rimuovi spazi iniziali/finali
-}
-
-/**
- * Funzione per caricare i sottocapitoli di un capitolo
- * @param {string} chapterTitle - Il titolo del capitolo
- * @param {string} chapterJson - Il nome del file JSON
- * @param {string} moduleKey - La chiave del modulo
- * @param {string} year - L'anno accademico
- * @param {HTMLElement} subchaptersList - L'elemento UL dove inserire i sottocapitoli
- */
-async function loadSubchapters(chapterTitle, chapterJson, moduleKey, year, subchaptersList) {
-    // Costruisci il path del file JSON
-    const jsonPath = `anno-${year}/${moduleKey}/pages/${chapterJson}`;
-    
-    try {
-        // Carica il file JSON
-        const response = await fetch(jsonPath);
-        if (!response.ok) throw new Error('Errore nel caricamento del capitolo');
-        const data = await response.json();
-        
-        // Trova tutti i titoli di heading di livello 3 (sottocapitoli)
-        const subchapters = data.content.filter(item => 
-            item.type === 'heading' && item.level === 3
-        );
-        
-        // Se non ci sono sottocapitoli, mostra un messaggio
-        if (subchapters.length === 0) {
-            const noSubchaptersLi = document.createElement('li');
-            noSubchaptersLi.textContent = 'Nessun sottocapitolo disponibile';
-            noSubchaptersLi.className = 'subchapter no-subchapters';
-            subchaptersList.appendChild(noSubchaptersLi);
-            subchaptersList.style.display = 'block';
-            return;
-        }
-        
-        // Crea un elemento li per ogni sottocapitolo
-        subchapters.forEach((subchapter, index) => {
-            const subchapterLi = document.createElement('li');
-            subchapterLi.textContent = subchapter.text;
-            subchapterLi.className = 'subchapter';
-            
-            // Crea un ID univoco per l'ancoraggio basato sul testo
-            const slug = createSlug(subchapter.text);
-            
-            // Aggiungi evento click per navigare al sottocapitolo
-            subchapterLi.addEventListener('click', (event) => {
-                event.stopPropagation();
-                
-                // Se è il primo sottocapitolo, non specificare l'ancora
-                if (index === 0) {
-                    showChapterPage(chapterTitle);
-                } else {
-                    // Mostra la pagina del capitolo con l'ancora specifica
-                    showChapterPage(chapterTitle, slug);
-                }
-            });
-            
-            subchaptersList.appendChild(subchapterLi);
-        });
-        
-        // Mostra la lista dei sottocapitoli
-        subchaptersList.style.display = 'block';
-        
-    } catch (error) {
-        console.error('Errore nel caricamento dei sottocapitoli:', error);
-        
-        // Mostra un messaggio di errore
-        const errorLi = document.createElement('li');
-        errorLi.textContent = 'Errore nel caricamento dei sottocapitoli';
-        errorLi.className = 'subchapter error';
-        subchaptersList.appendChild(errorLi);
-        subchaptersList.style.display = 'block';
-    }
 }
 
 /**
@@ -968,6 +890,109 @@ async function loadSidebarSubchapters(chapterTitle, chapterJson, moduleKey, year
         errorLi.className = 'sidebar-subchapter error';
         sidebarSubchaptersList.appendChild(errorLi);
         sidebarSubchaptersList.style.display = 'block';
+    }
+}
+
+/**
+ * Carica i sottocapitoli all'interno della lista del capitolo nella pagina principale
+ * @param {string} chapterTitle
+ * @param {string} chapterJson
+ * @param {string} moduleKey
+ * @param {string} year
+ * @param {HTMLElement} subchaptersList
+ */
+async function loadSubchapters(chapterTitle, chapterJson, moduleKey, year, subchaptersList) {
+    const jsonPath = `anno-${year}/${moduleKey}/pages/${chapterJson}`;
+
+    try {
+        const response = await fetch(jsonPath);
+        if (!response.ok) throw new Error('Errore nel caricamento del capitolo');
+        const data = await response.json();
+
+        const subchapters = data.content.filter(item => item.type === 'heading' && item.level === 3);
+
+        if (subchapters.length === 0) {
+            const noSub = document.createElement('li');
+            noSub.textContent = 'Nessun sottocapitolo disponibile';
+            noSub.className = 'subchapter no-subchapters';
+            subchaptersList.appendChild(noSub);
+            subchaptersList.style.display = 'block';
+            return;
+        }
+
+        subchapters.forEach((subchapter, index) => {
+            const li = document.createElement('li');
+            li.className = 'subchapter';
+
+            const link = document.createElement('a');
+            link.href = '#';
+            link.textContent = subchapter.text;
+
+            const slug = createSlug(subchapter.text);
+
+            link.setAttribute('data-chapter', chapterTitle);
+            link.setAttribute('data-slug', slug);
+            link.setAttribute('data-module', moduleKey);
+            link.setAttribute('data-year', year);
+            link.setAttribute('data-index', index);
+
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const targetChapter = link.getAttribute('data-chapter');
+                const targetSlug = link.getAttribute('data-slug');
+                const targetModule = link.getAttribute('data-module');
+                const targetYear = link.getAttribute('data-year');
+                const targetIndex = parseInt(link.getAttribute('data-index'), 10);
+
+                const chapterPage = document.getElementById('chapter-page');
+                const isChapterPageVisible = !chapterPage.classList.contains('hidden');
+                const currentChapterTitle = chapterPage.getAttribute('data-current-chapter');
+
+                const isCurrentChapter = isChapterPageVisible && (targetChapter === currentChapterTitle);
+
+                if (isCurrentChapter) {
+                    if (targetIndex === 0) {
+                        const contentContainer = document.querySelector('.chapter-content');
+                        if (contentContainer) {
+                            contentContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            document.body.scrollTop = 0;
+                            document.documentElement.scrollTop = 0;
+                        }
+                    } else {
+                        const element = document.getElementById(targetSlug);
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            console.error('Elemento ancora non trovato:', targetSlug);
+                        }
+                    }
+                } else {
+                    currentlyOpenModuleKey = targetModule;
+                    currentYear = targetYear;
+
+                    if (targetIndex === 0) {
+                        showChapterPage(targetChapter);
+                    } else {
+                        showChapterPage(targetChapter, targetSlug);
+                    }
+                }
+            });
+
+            li.appendChild(link);
+            subchaptersList.appendChild(li);
+        });
+
+        subchaptersList.style.display = 'block';
+    } catch (error) {
+        console.error('Errore nel caricamento dei sottocapitoli:', error);
+        const errLi = document.createElement('li');
+        errLi.textContent = 'Errore nel caricamento dei sottocapitoli';
+        errLi.className = 'subchapter error';
+        subchaptersList.appendChild(errLi);
+        subchaptersList.style.display = 'block';
     }
 }
 

@@ -227,13 +227,30 @@
                 },
                 {
                     "type": "proof",
-                    "text": "<span class=\"dim\">Dimostrazione</span> Poichè \\(\\frac{b_k}{a_k} = 1\\) per \\(k \\to +\\infty\\), definitivamente si ha: \\[\\frac{1}{2} \\cdot a_k < b_k < \\frac{3}{2} \\cdot a_k \\] Le serie di termini generali \\(\\frac{1}{2}a_k\\) e \\(\\frac{3}{2}a_k\\) hanno lo stesso carattere di \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\). Quindi, per il teorema del confronto, le due serie hanno lo stesso carattere. \\(\\blacksquare\\)"    
+                    "text": "<span class=\"dim\">Dimostrazione</span> Poichè \\(\\frac{b_k}{a_k} = 1\\) per \\(k \\to +\\infty\\), definitivamente si ha: \\[\\frac{1}{2} \\cdot a_k < b_k < \\frac{3}{2} \\cdot a_k \\] Le serie di termini generali \\(\\frac{1}{2}a_k\\) e \\(\\frac{3}{2}a_k\\) hanno lo stesso carattere di \\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\). Quindi, per il teorema del confronto, le due serie hanno lo stesso carattere. \\(\\blacksquare\\)"
                 }
             ]
         },
         {
             "type": "paragraph",
             "text": "Quest'ultimo criterio non vale in generale per serie a termini di segno non costante."
+        },
+        {
+            "type": "theorem",
+            "content": [
+                {
+                    "type": "title",
+                    "text": "Teorema (Criterio del rapporto)"
+                },
+                {
+                    "type": "statement",
+                    "text": "\\(\\displaystyle\\sum_{k=1}^{+\\infty} a_k\\) serie a termini non negativi definitivamente tali che \\(a_k > 0\\) definitivamente. Se esiste il limite \\(L = \\lim_{k \\to +\\infty} \\frac{a_{k+1}}{a_k}\\), allora: <ul><li>Se \\(0 < L < 1\\), allora la serie converge;</li><li>Se \\(L > 1\\) o \\(L = +\\infty\\), allora la serie diverge.</li></ul>"
+                },
+                {
+                    "type": "proof",
+                    "text": "<span class=\"dim\">Dimostrazione</span> "
+                }
+            ]
         }
     ]
 }
